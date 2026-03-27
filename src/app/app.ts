@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './header/header';
-import { Footer } from './footer/footer';
+import { HeaderComponent } from './header/header';
+import { FooterComponent } from './footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
   title = 'LearnComplexity';

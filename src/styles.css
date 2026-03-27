@@ -1,3 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import 'tailwindcss';
+@theme {
+  --color-brand-navy: #1a2340;
+  --color-brand-blue: #2563eb;
+  --color-brand-orange: #f97316;
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Georgia', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.clip-triangle {
+  clip-path: polygon(0 100%, 100% 0, 0 0);
+}
+
+a, button {
+  transition: all 0.2s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
