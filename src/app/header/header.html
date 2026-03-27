@@ -1,0 +1,107 @@
+<!-- Top Bar -->
+<div class="border-b border-gray-200 py-2 px-6">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- Left: Contact Info -->
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2 text-sm text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.1 3.3a1 1 0 01-.23 1.05L7.34 9.8a16 16 0 006.86 6.86l1.77-1.76a1 1 0 011.05-.23l3.3 1.1a1 1 0 01.68.95V19a2 2 0 01-2 2C9.16 21 3 14.84 3 7V5z" />
+        </svg>
+        <span>+91 91234-56789</span>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <span>support@Learncomplexity.com</span>
+      </div>
+    </div>
+
+    <!-- Right: Social Icons -->
+    <div class="flex items-center gap-4 text-gray-600">
+      <!-- Instagram -->
+      <a href="#" class="hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <!-- Facebook -->
+      <a href="#" class="hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+      </a>
+      <!-- Twitter/X -->
+      <a href="#" class="hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="#" class="hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navbar -->
+<nav class="py-3 px-6 shadow-sm">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <div class="relative w-10 h-10">
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+          <rect x="2" y="8" width="46" height="34" rx="6" fill="none" stroke="#1e3a6e" stroke-width="4"/>
+          <path d="M16 25 Q20 18 25 25 Q30 32 34 25" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="leading-tight">
+        <p class="text-xs font-semibold text-[#1e3a6e] tracking-widest uppercase">Learn</p>
+        <p class="text-xs font-semibold text-[#1e3a6e] tracking-widest uppercase">Complexity</p>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-800">
+      <li><a routerLink="/home" routerLinkActive="text-blue-600 font-semibold" class="hover:text-blue-600 transition">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="text-blue-600 font-semibold" class="hover:text-blue-600 transition">About US</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 hover:text-blue-600 transition">
+          Courses
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <!-- Dropdown -->
+        <ul class="absolute left-0 top-full mt-2 w-40 bg-white border border-gray-100 rounded-lg shadow-lg hidden group-hover:block z-50">
+          <li><a routerLink="/courses" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600">All Courses</a></li>
+          <li><a routerLink="/courses" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600">Web Dev</a></li>
+          <li><a routerLink="/courses" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600">Data Science</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/blogs" routerLinkActive="text-blue-600 font-semibold" class="hover:text-blue-600 transition">Blogs</a></li>
+      <li><a routerLink="/contact" routerLinkActive="text-blue-600 font-semibold" class="hover:text-blue-600 transition">Contact Us</a></li>
+    </ul>
+
+    <!-- Buttons -->
+    <div class="flex items-center gap-3">
+      <a routerLink="/signin"
+        class="px-5 py-2 text-sm font-semibold border-2 border-gray-800 text-gray-800 rounded-lg hover:bg-gray-100 transition">
+        Sign in
+      </a>
+      <a routerLink="/register"
+        class="px-5 py-2 text-sm font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+        Register
+      </a>
+    </div>
+  </div>
+</nav>
