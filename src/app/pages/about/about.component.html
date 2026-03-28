@@ -1,0 +1,228 @@
+<!-- ================================================================
+     SECTION 1 — ABOUT US HERO
+     ================================================================ -->
+     <section class="about-hero">
+      <div class="about-hero-inner">
+    
+        <div class="about-text">
+          <p class="label-tag">About Us</p>
+          <h1 class="about-heading">
+            <span class="brand-blue">LEARNCOMPLEXITY</span><br />
+            Providing The Best Opportunities To The Students Around The Glob.
+          </h1>
+          <p class="about-desc">
+            LearnComplexity is a modern learning platform dedicated to empowering students and
+            professionals with in-demand technical and design skills, built with a vision to
+            simplify learning. LearnComplexity focuses on providing high-quality education in
+            areas such as UI/UX Design, Web Development, Programming, Cloud Technologies,
+            Data Science, and Digital Skills.
+          </p>
+          <a href="#" class="btn-joinus">
+            Join Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+    
+        <div class="about-images">
+          <div class="about-img-wrapper about-img-wrapper-top">
+            <div class="about-img-deco about-img-deco-top"></div>
+            <img src="assets/images/about-office.jpg" alt="Office workspace" class="about-img about-img-top" />
+          </div>
+          <div class="about-img-wrapper about-img-wrapper-bottom">
+            <div class="about-img-deco about-img-deco-bottom"></div>
+            <img src="assets/images/about-laptop.png" alt="Working on laptop" class="about-img about-img-bottom" />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 2 — FEATURES
+         ================================================================ -->
+    <section class="features-section py-section">
+      <div class="section-inner flex-row-lg gap-xl">
+    
+        <div class="images-stack">
+          <div class="img-back-card"></div>
+          <div class="img-front-card">
+            <img src="assets/images/students-classroom.png" alt="Students in classroom" class="stack-photo" />
+          </div>
+        </div>
+    
+        <div class="features-text">
+          <p class="section-eyebrow">Features</p>
+          <h2 class="section-heading dark">
+            We are always working to provide you best of the features in all aspects.
+          </h2>
+          <p class="body-text mb-4">
+            LearnComplexity is a modern learning platform dedicated to empowering students and
+            professionals with in-demand technical and design skills. Built with a vision to simplify
+            learning, LearnComplexity focuses on providing high-quality education in areas such as
+            UI/UX Design, Web Development, Programming, Cloud Technologies, Data Science, and Digital Skills.
+          </p>
+          <p class="body-text mb-8">
+            Our mission is to make learning accessible, practical, and impactful, helping learners grow
+            with competence, creativity, and clarity in today's fast-evolving digital world.
+          </p>
+          <a href="#" class="btn-primary">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 3 — OUR BENEFITS
+         ================================================================ -->
+    <section class="benefits-section py-section bg-gray-50">
+      <div class="section-inner">
+        <div class="section-header text-center">
+          <p class="section-eyebrow">Our Benefits</p>
+          <h2 class="section-heading dark">
+            By Joining <span class="brand-blue">LEARNCOMPLEXITY</span> Platform,<br class="hide-sm" />
+            One Can Avail a Lot Of Benefits.
+          </h2>
+          <p class="body-text muted max-w-md">
+            Install our top-rated dropshipping app to your e-commerce site and get access to US Suppliers,
+            AliExpress vendors, and the best.
+          </p>
+        </div>
+    
+        <div class="benefits-grid">
+          <div class="benefit-card" *ngFor="let b of benefits"
+            [ngClass]="b.highlighted ? 'card-highlight' : 'card-default'">
+            <span class="benefit-num" [ngClass]="b.highlighted ? 'text-white-80' : 'text-blue'">{{ b.number }}</span>
+            <h3 class="benefit-title" [ngClass]="b.highlighted ? 'text-white' : 'text-dark'">{{ b.title }}</h3>
+            <p class="benefit-desc" [ngClass]="b.highlighted ? 'text-blue-100' : 'text-muted'">
+              {{ b.description }}
+              <a href="#" class="read-more" [ngClass]="b.highlighted ? 'text-white' : 'text-blue'">Read More</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 4 — HOW IT WORKS
+         ================================================================ -->
+    <section class="how-works-section">
+      <div class="section-inner">
+        <h2 class="section-heading dark text-center" style="margin-bottom:48px;">How It Works</h2>
+    
+        <div class="steps-row">
+          <div class="step" *ngFor="let step of steps; let i = index; let last = last">
+            <div class="step-icon-box" [ngClass]="i === 1 ? 'glow-teal' : 'glow-blue'">
+              <img [src]="step.iconSrc" [alt]="step.label" class="step-icon-img" />
+            </div>
+            <p class="step-label">{{ step.label }}</p>
+            <p class="step-desc">{{ step.description }}</p>
+            <div class="connector" *ngIf="!last">
+              <span class="dot dot-blue"></span>
+              <span class="dashes"></span>
+              <span class="dot dot-orange"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 5 — WHAT STUDENT'S SAY
+         ================================================================ -->
+    <section class="testimonials-section py-section">
+      <div class="section-inner">
+        <h2 class="section-heading dark text-center" style="margin-bottom:40px;">What Student's Say</h2>
+    
+        <div class="slider-container">
+          <button class="nav-arrow nav-left" (click)="prevSlide()" [disabled]="slideIndex === 0" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+    
+          <div class="slider-track-wrapper">
+            <div class="slider-track" [style.transform]="'translateX(-' + (slideIndex * slideWidth) + 'px)'">
+              <div class="testimonial-card" *ngFor="let t of testimonials">
+                <p class="t-quote">{{ t.quote }}</p>
+                <div class="t-author">
+                  <img [src]="t.avatar" [alt]="t.name" class="t-avatar" />
+                  <div class="t-info">
+                    <span class="t-name">{{ t.name }}</span>
+                    <span class="t-role">{{ t.role }}</span>
+                    <div class="stars">
+                      <span *ngFor="let s of [1,2,3,4,5]" class="star" [class.filled]="s <= t.rating">★</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <button class="nav-arrow nav-right" (click)="nextSlide()" [disabled]="slideIndex >= maxSlide" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+    
+        <div class="dots-row">
+          <span *ngFor="let d of slideDots; let i = index"
+            class="slide-dot" [class.dot-active]="i === slideIndex"
+            (click)="goToSlide(i)">
+          </span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 6 — LET'S START WITH ACADEMY LMS
+         ================================================================ -->
+    <section class="lms-banner-wrapper">
+      <div class="lms-banner">
+        <div class="lms-deco lms-deco-left" aria-hidden="true">
+          <img src="assets/images/diploma-scroll.png" alt="" class="deco-img" />
+        </div>
+        <div class="lms-deco lms-deco-right" aria-hidden="true">
+          <img src="assets/images/graduation-cap.png" alt="" class="deco-img" />
+        </div>
+    
+        <div class="lms-content">
+          <div class="lms-left">
+            <div class="lms-avatar">
+              <svg viewBox="0 0 64 64" fill="none" stroke="#1a1a2e" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="lms-svg">
+                <circle cx="32" cy="18" r="8"/>
+                <path d="M16 56c0-8.84 7.16-16 16-16s16 7.16 16 16"/>
+                <path d="M20 22l-8 4 20 8 20-8-8-4"/>
+              </svg>
+            </div>
+            <span class="lms-title">Let's Start With Academy LMS</span>
+          </div>
+          <div class="lms-actions">
+            <button class="btn-student">I'm A Student</button>
+            <button class="btn-instructor">Become An Instructor</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================================================================
+         SECTION 7 — JOIN A WORLD OF LEARNING
+         ================================================================ -->
+    <section class="join-section">
+      <img src="assets/images/cta-bg-left.png" alt="" class="join-bg-left" aria-hidden="true" />
+      <img src="assets/images/cta-bg-right.png" alt="" class="join-bg-right" aria-hidden="true" />
+      <div class="join-center">
+        <h2 class="join-title">Join a world of learning</h2>
+        <p class="join-sub">
+          Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.<br />
+          Risus elit et fringilla habitant ut facilisi.
+        </p>
+        <button class="btn-signup">Sign Up Now</button>
+      </div>
+    </section>

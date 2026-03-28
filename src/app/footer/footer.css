@@ -1,24 +1,27 @@
-/* footer.component.css */
-
-/* Footer link hover underline effect */
-footer a {
-  position: relative;
-  display: inline-block;
+/* Orange accent under column titles */
+.footer-wavy-line {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
 }
 
-footer a::after {
+.footer-wavy-line::before,
+.footer-wavy-line::after {
   content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #93c5fd;
-  transition: width 0.2s ease;
+  width: 2.5rem;
+  height: 6px;
+  border-radius: 2px;
+  background: #ea580c;
 }
 
-footer a:hover::after {
-  width: 100%;
+/* Footer link hover underline */
+footer ul li a {
+  position: relative;
+  display: inline-flex;
+}
+
+footer ul li a:hover {
+  text-decoration: none;
 }
 
 /* Social icon hover scale */

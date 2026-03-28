@@ -1,0 +1,81 @@
+<!-- Top bar — matches LEARNCOMPLEXITY spec (#CECECE, Poppins 18px #313131) -->
+<div
+  class="top-info-bar hidden md:flex items-center justify-between bg-white border-b border-[#CECECE] px-6 lg:pl-[5.4rem] lg:pr-[4.5rem] min-h-[60px]">
+  <div class="flex flex-wrap items-center gap-x-8 gap-y-1 text-[#313131] text-[18px] leading-[27px] font-normal font-poppins">
+    <span class="inline-flex items-center gap-2">
+      <i class="fa-solid fa-phone text-[#1E1E1E] text-[15px]" aria-hidden="true"></i>
+      +91 91234-56789
+    </span>
+    <span class="inline-flex items-center gap-2">
+      <i class="fa-solid fa-envelope text-[#1E1E1E] text-[15px]" aria-hidden="true"></i>
+      support&#64;Learncomplexity.com
+    </span>
+  </div>
+  <div class="flex items-center gap-8 text-[#313131]">
+    <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
+    <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+    <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
+    <a href="#" class="hover:opacity-70 transition-opacity" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+  </div>
+</div>
+
+<!-- Main navbar — Plus Jakarta Sans, #0F172A links, 48px gap -->
+<nav
+  class="main-nav sticky top-0 z-50 bg-white border-b border-[#E8ECF3] shadow-[0_1px_6px_rgba(0,0,0,0.04)] font-jakarta">
+  <div class="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-20 py-5 lg:py-6">
+    <a routerLink="/" class="flex items-center gap-0.5 shrink-0 no-underline">
+      <img src="assets/images/lc-logo.png" alt="Learn Complexity" class="h-9 md:h-10 w-auto" />
+    </a>
+
+    <button type="button" class="md:hidden text-[#0F172A] text-2xl p-1" (click)="toggleMenu()" aria-label="Toggle menu">
+      <i class="fa-solid" [ngClass]="menuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+    </button>
+
+    <ul class="hidden md:flex items-center gap-10 lg:gap-12 list-none m-0 p-0">
+      <li>
+        <a routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-item text-[17px] font-semibold tracking-[0.03em] text-[#0F172A] no-underline hover:text-[#2563EB] transition-colors py-3 px-2">Home</a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="nav-active"
+          class="nav-item text-[17px] font-semibold tracking-[0.03em] text-[#0F172A] no-underline hover:text-[#2563EB] transition-colors py-3 px-2">About Us</a>
+      </li>
+      <li class="relative group">
+        <a href="#"
+          class="nav-dd nav-item inline-flex items-center gap-2 text-[17px] font-semibold tracking-[0.03em] text-[#0F172A] no-underline hover:text-[#2563EB] transition-colors py-3 px-2">
+          Courses <i class="fa-solid fa-chevron-down text-xs opacity-80"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#"
+          class="nav-item text-[17px] font-semibold tracking-[0.03em] text-[#0F172A] no-underline hover:text-[#2563EB] transition-colors py-3 px-2">Blogs</a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="nav-active"
+          class="nav-item text-[17px] font-semibold tracking-[0.03em] text-[#0F172A] no-underline hover:text-[#2563EB] transition-colors py-3 px-2">Contact Us</a>
+      </li>
+    </ul>
+
+    <div class="hidden md:flex items-center gap-4">
+      <a routerLink="/signin"
+        class="inline-flex items-center justify-center min-w-[117px] min-h-[42px] px-4 py-2.5 rounded-lg border-2 border-[#0F172A] text-[#0F172A] text-[17px] font-semibold tracking-[0.03em] no-underline hover:bg-[#F8FAFC] transition-colors">Sign in</a>
+      <a routerLink="/register"
+        class="inline-flex items-center justify-center min-w-[117px] min-h-[42px] px-5 py-2.5 rounded-lg bg-[#2563EB] text-white text-[17px] font-bold tracking-[0.03em] no-underline hover:bg-[#1d4ed8] transition-colors shadow-sm">Register</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div *ngIf="menuOpen" class="md:hidden mobile-menu bg-white border-t border-[#E8ECF3] px-6 py-5 flex flex-col gap-4 font-jakarta text-[#0F172A] z-40 shadow-md">
+  <a routerLink="/" (click)="toggleMenu()" class="font-semibold text-[17px] no-underline text-[#0F172A]">Home</a>
+  <a routerLink="/about" (click)="toggleMenu()" class="font-semibold text-[17px] no-underline text-[#0F172A]">About Us</a>
+  <a href="#" (click)="toggleMenu()" class="font-semibold text-[17px] no-underline text-[#0F172A]">Courses</a>
+  <a href="#" (click)="toggleMenu()" class="font-semibold text-[17px] no-underline text-[#0F172A]">Blogs</a>
+  <a routerLink="/contact" (click)="toggleMenu()" class="font-semibold text-[17px] no-underline text-[#2563EB]">Contact Us</a>
+  <div class="flex gap-3 pt-2">
+    <a routerLink="/signin" (click)="toggleMenu()"
+      class="flex-1 text-center border-2 border-[#0F172A] rounded-lg py-2.5 text-[17px] font-semibold no-underline text-[#0F172A]">Sign in</a>
+    <a routerLink="/register" (click)="toggleMenu()"
+      class="flex-1 text-center bg-[#2563EB] text-white rounded-lg py-2.5 text-[17px] font-bold no-underline">Register</a>
+  </div>
+</div>

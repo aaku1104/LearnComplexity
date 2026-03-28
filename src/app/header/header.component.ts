@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './header.html',
-  styleUrls: ['./header.css'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  mobileMenuOpen = false;
-  toggleMobileMenu(): void {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
+  menuOpen = false;
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 }

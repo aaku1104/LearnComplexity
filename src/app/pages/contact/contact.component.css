@@ -1,0 +1,745 @@
+/* ============================================================
+   CONTACT PAGE — layout aligned to UI mockups
+   ============================================================ */
+
+   :host {
+    font-family: 'Inter', sans-serif;
+    display: block;
+  }
+  
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    padding: 2.5rem 0 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-section {
+      min-height: 320px;
+      padding: 3rem 0 2.5rem;
+    }
+  }
+  
+  /* FIX: Deeper blue gradient matching expected design */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, #c8daf2 0%, #d9e8f5 25%, #e8f1f9 55%, #f4f8fc 80%, #ffffff 100%);
+    pointer-events: none;
+  }
+  
+  /* FIX: Curved rays (not dashed) — matches expected screenshot */
+  .hero-rays {
+    position: absolute;
+    left: -2%;
+    bottom: -10%;
+    width: 52%;
+    max-width: 520px;
+    height: 90%;
+    pointer-events: none;
+    opacity: 1;
+  }
+  
+  .hero-dot {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .hero-dot--blue-lg {
+    width: 14px;
+    height: 14px;
+    background: #3b82f6;
+    top: 12%;
+    right: 28%;
+    opacity: 0.85;
+  }
+  
+  .hero-dot--orange {
+    width: 10px;
+    height: 10px;
+    background: #ea580c;
+    bottom: 22%;
+    right: 20%;
+  }
+  
+  .hero-dot--blue-sm {
+    width: 8px;
+    height: 8px;
+    background: #93c5fd;
+    bottom: 12%;
+    right: 8%;
+    opacity: 0.9;
+  }
+  
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+  
+  .hero-copy {
+    flex: 1;
+    text-align: center;
+    max-width: 36rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-copy {
+      text-align: left;
+    }
+  }
+  
+  .hero-title {
+    margin: 0 0 0.625rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    line-height: 1.25;
+    color: #1e293b;
+    letter-spacing: -0.02em;
+  }
+  
+  .hero-script {
+    margin: 0;
+    font-family: 'Dancing Script', 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+    line-height: 1.1;
+    color: #2563eb;
+  }
+  
+  .hero-visual {
+    position: relative;
+    flex-shrink: 0;
+    width: 260px;
+    height: 300px;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-visual {
+      width: 300px;
+      height: 340px;
+    }
+  }
+  
+  .hero-orange-disc {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-42%);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #c2440a;
+    z-index: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-orange-disc {
+      width: 255px;
+      height: 255px;
+      bottom: 6%;
+    }
+  }
+  
+  .hero-person {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 12px 24px rgba(30, 41, 59, 0.12));
+  }
+  
+  .hero-float {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 4px 6px -4px rgba(15, 23, 42, 0.06);
+  }
+  
+  .hero-float--left {
+    left: -8px;
+    top: 28%;
+  }
+  
+  .hero-float--right {
+    right: -4px;
+    top: 38%;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+  }
+  
+  /* ── GET IN TOUCH ───────────────────────────────────────── */
+  .get-in-touch {
+    position: relative;
+    background: #dce6f2;
+    padding: 3.5rem 0 5rem;
+    overflow: hidden;
+  }
+  
+  /* No outer white card — transparent layout wrapper only */
+  .contact-white-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .get-in-touch-inner {
+    padding-bottom: 0;
+  }
+  
+  .get-in-touch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  @media (min-width: 1024px) {
+    .get-in-touch-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+  
+  .get-in-touch-left {
+    position: relative;
+    padding-bottom: 0;
+  }
+  
+  .git-title {
+    margin: 0 0 0.75rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    color: #0f3795;
+  }
+  
+  .git-sub {
+    margin: 0 0 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #64748b;
+    max-width: 28rem;
+  }
+  
+  /* White card only for the info rows */
+  .contact-info-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    position: relative;
+    z-index: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .contact-info-card {
+      padding: 1.75rem 1.75rem 1.5rem;
+    }
+  }
+  
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .info-icon-wrap {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #ffedd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .info-icon {
+    color: #ea580c;
+    font-size: 1rem;
+  }
+  
+  .info-label {
+    margin: 0 0 0.25rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+  
+  .info-value {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #0f3795;
+    line-height: 1.45;
+  }
+  
+  .info-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+  
+  .info-divider {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 1.25rem 0;
+  }
+  
+  /* Triangle anchored to bottom-left of the section */
+  .triangle-decoration {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 160px 160px;
+    border-color: transparent transparent #2563eb transparent;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  @media (max-width: 767px) {
+    .triangle-decoration {
+      border-width: 0 0 100px 100px;
+    }
+  }
+  
+  .contact-info-card,
+  .git-title,
+  .git-sub {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .get-in-touch-right {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-label-normal {
+    font-weight: 600;
+  }
+  
+  /* Form inputs: light blue-grey background matching expected screenshot */
+  .contact-form input,
+  .contact-form textarea {
+    background: #eef2f7;
+    border: 1px solid transparent;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
+    width: 100%;
+    font-size: 0.9375rem;
+    color: #334155;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    outline: none;
+    resize: none;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #94a3b8;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    background: #fff;
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+  
+  .contact-form input.error,
+  .contact-form textarea.error {
+    border-color: #ef4444;
+    background: #fff5f5;
+  }
+  
+  .send-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 0.625rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .send-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .send-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .send-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .git-social-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: none;
+  }
+  
+  .git-social-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ea580c;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+  }
+  
+  .git-social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+  }
+  
+  /* ── MAP ───────────────────────────────────────────────── */
+  .map-section {
+    background: #fff;
+  }
+  
+  .map-heading {
+    margin: 0 0 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: #0f3795;
+  }
+  
+  .map-frame iframe {
+    border-radius: 1rem;
+  }
+  
+  /* ── TESTIMONIALS ───────────────────────────────────────── */
+  .testimonials-section {
+    background: #ffffff;
+  }
+  
+  .testimonials-heading {
+    margin: 0 0 2.5rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #050c26;
+  }
+  
+  .testimonials-carousel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonials-carousel {
+      gap: 1rem;
+    }
+  }
+  
+  .testimonial-scroll {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .testimonial-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.07);
+  }
+  
+  .testimonial-quote {
+    margin: 0 0 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #334155;
+    text-align: left;
+  }
+  
+  .testimonial-avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f1f5f9;
+  }
+  
+  .testimonial-name {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    color: #0f172a;
+  }
+  
+  .testimonial-role {
+    margin: 0.15rem 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9375rem;
+    color: #64748b;
+  }
+  
+  .testimonial-star {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+  
+  .testimonial-star--on {
+    color: #5d5dff;
+  }
+  
+  .testimonial-star--off {
+    color: #cbd5e1;
+  }
+  
+  .arrow-btn {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  
+  .arrow-btn.prev {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .arrow-btn.prev:hover {
+    border-color: #cbd5e1;
+    color: #475569;
+  }
+  
+  .arrow-btn.next {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.25), 0 4px 6px -4px rgba(59, 130, 246, 0.2);
+  }
+  
+  .arrow-btn.next:hover {
+    background: #1d4ed8;
+  }
+  
+  .testimonials-dots .t-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #cbd5e1;
+    transition: width 0.25s, background 0.25s;
+  }
+  
+  .testimonials-dots .t-dot--active {
+    width: 2.25rem;
+    background: #1e3a8a;
+  }
+  
+  /* ── CTA ────────────────────────────────────────────────── */
+  /*
+   * FIX: Root cause of duplication was `background-image: url('cta-banner-orange.png')`
+   * which had the heading/button visually baked into the PNG.
+   * Solution: use solid background-color only. All visible content is HTML-only.
+   * If you need decorative bg art, use a separate <div class="cta-bg-art"> with
+   * pointer-events:none and z-index:0, keeping your content at z-index:2+.
+   */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #ea580c;
+    /* REMOVED: background-image — was causing content duplication */
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+    .cta-section {
+      min-height: 480px;
+    }
+  }
+  
+  .cta-heading {
+    font-family: 'Dancing Script', 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(3rem, 10vw, 4.75rem);
+    line-height: 1.05;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cta-sub {
+    font-family: 'Roboto', 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    background: #0f3795;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 1rem 2.75rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    border: 2px solid #0f3795;
+    font-family: 'Roboto', 'Inter', sans-serif;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 6px 20px rgba(15, 55, 149, 0.35);
+  }
+  
+  .cta-btn:hover {
+    background: #0c2d7a;
+    border-color: #0c2d7a;
+    transform: translateY(-2px);
+  }
+  
+  /* FIX: Wave must sit at bottom, z-index above bg, below nothing — use flex column + margin-top:auto */
+  .cta-wave-wrap {
+    margin-top: auto;
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-wave-svg {
+    display: block;
+    width: 100%;
+    height: clamp(48px, 8vw, 80px);
+  }
+  
+  .cta-wave-path {
+    fill: #effbff;
+  }
+  
+  /* ── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 767px) {
+    .arrow-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  
+    .map-frame {
+      height: 280px !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .map-frame {
+      height: 350px !important;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .success-msg {
+    animation: fadeIn 0.3s ease;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
