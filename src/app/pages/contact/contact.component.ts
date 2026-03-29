@@ -1,141 +1,123 @@
-// ============================================================
-// CONTACT PAGE - contact.component.ts
-// LearnComplexity | Angular + Tailwind CSS
-// ============================================================
-
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// contact-us.component.ts
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-export interface Testimonial {
+interface Testimonial {
   name: string;
   role: string;
-  review: string;
+  text: string;
   rating: number;
-  avatar: string;
 }
 
+
 @Component({
-  selector: 'app-contact',
+  selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactUsComponent implements OnInit {
 
-  @ViewChild('testimonialContainer') testimonialContainer!: ElementRef;
+  // Dot grid array for hero section (8 cols x 7 rows = 56 dots)
+  dotArray = Array(56).fill(0);
 
-  // ── State ──────────────────────────────────────────────────
-  isSubmitting = false;
-  submitSuccess = false;
-  activeTestimonial = 0;
-  contactForm!: FormGroup;
+  // Contact form data
+  formData = {
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  };
+  formSubmitted = false;
 
-  // ── Testimonials Data ──────────────────────────────────────
+  // Testimonials data
   testimonials: Testimonial[] = [
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
-      review: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 5,
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      rating: 4
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
-      review: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 5,
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      rating: 4
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
-      review: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 5,
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      rating: 4
     },
     {
-      name: 'Hellen Jummy',
-      role: 'Full stack developer',
-      review: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 5,
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      name: 'Sarah Connor',
+      role: 'Frontend developer',
+      text: 'The curriculum is well-structured and the instructors are very knowledgeable. I landed my first dev job within 3 months of completing the course!',
+      rating: 5
+    },
+    {
+      name: 'James Wilson',
+      role: 'Backend developer',
+      text: 'Excellent platform! The hands-on projects gave me real-world experience. The community support is fantastic and very encouraging.',
+      rating: 4
     }
   ];
 
-  constructor(private fb: FormBuilder) {}
+  currentTestimonialIndex = 0;
+  visibleCount = 3;
+  visibleTestimonials: Testimonial[] = [];
 
-  // ── Lifecycle ──────────────────────────────────────────────
   ngOnInit(): void {
-    this.buildForm();
-  }
-
-  // ── Form ───────────────────────────────────────────────────
-  buildForm(): void {
-    this.contactForm = this.fb.group({
-      name:    ['', [Validators.required, Validators.minLength(2)]],
-      email:   ['', [Validators.required, Validators.email]],
-      phone:   ['', [Validators.required, Validators.pattern(/^[0-9+\-\s()]{7,15}$/)]],
-      subject: ['', Validators.required],
-      message: ['']
-    });
-  }
-
-  /** Returns true when a field is invalid AND has been touched/dirty */
-  isFieldInvalid(field: string): boolean {
-    const ctrl = this.contactForm.get(field);
-    return !!(ctrl && ctrl.invalid && (ctrl.dirty || ctrl.touched));
-  }
-
-  onSubmit(): void {
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched();
-      return;
+    this.updateVisibleTestimonials();
+    this.updateVisibleCount();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => this.updateVisibleCount());
     }
-    this.isSubmitting = true;
-
-    // Simulate API call — replace with your actual service
-    setTimeout(() => {
-      console.log('Form submitted:', this.contactForm.value);
-      this.isSubmitting = false;
-      this.submitSuccess = true;
-      this.contactForm.reset();
-
-      // Hide success message after 5 seconds
-      setTimeout(() => (this.submitSuccess = false), 5000);
-    }, 1500);
   }
 
-  // ── Testimonials ──────────────────────────────────────────
-  getStars(rating: number): boolean[] {
-    // Returns array of 5 booleans: true = filled star, false = empty star
-    return Array.from({ length: 5 }, (_, i) => i < rating);
+  updateVisibleCount(): void {
+    const width = typeof window !== 'undefined' ? window.innerWidth : 1200;
+    if (width < 768) {
+      this.visibleCount = 1;
+    } else if (width < 1024) {
+      this.visibleCount = 2;
+    } else {
+      this.visibleCount = 3;
+    }
+    this.updateVisibleTestimonials();
+  }
+
+  updateVisibleTestimonials(): void {
+    this.visibleTestimonials = [];
+    for (let i = 0; i < this.visibleCount; i++) {
+      const idx = (this.currentTestimonialIndex + i) % this.testimonials.length;
+      this.visibleTestimonials.push(this.testimonials[idx]);
+    }
   }
 
   nextTestimonial(): void {
-    if (!this.testimonialContainer) return;
-    const el: HTMLElement = this.testimonialContainer.nativeElement;
-    const cardWidth = el.offsetWidth / this.visibleCards();
-    el.scrollBy({ left: cardWidth, behavior: 'smooth' });
-    this.activeTestimonial = Math.min(this.activeTestimonial + 1, this.testimonials.length - 1);
+    this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % this.testimonials.length;
+    this.updateVisibleTestimonials();
   }
 
   prevTestimonial(): void {
-    if (!this.testimonialContainer) return;
-    const el: HTMLElement = this.testimonialContainer.nativeElement;
-    const cardWidth = el.offsetWidth / this.visibleCards();
-    el.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-    this.activeTestimonial = Math.max(this.activeTestimonial - 1, 0);
+    this.currentTestimonialIndex =
+      (this.currentTestimonialIndex - 1 + this.testimonials.length) % this.testimonials.length;
+    this.updateVisibleTestimonials();
   }
 
-  /** Returns the number of visible testimonial cards based on viewport width */
-  private visibleCards(): number {
-    const w = window.innerWidth;
-    if (w >= 1024) return 3;
-    if (w >= 640)  return 2;
-    return 1;
+  onSubmit(): void {
+    if (this.formData.name && this.formData.email && this.formData.phone && this.formData.subject) {
+      console.log('Form submitted:', this.formData);
+      this.formSubmitted = true;
+      // Reset form
+      this.formData = { name: '', email: '', phone: '', subject: '', message: '' };
+      setTimeout(() => { this.formSubmitted = false; }, 5000);
+    }
   }
 }

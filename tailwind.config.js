@@ -3,6 +3,9 @@ module.exports = {
   content: [
     './src/**/*.{html,ts}',
   ],
+  corePlugins: {
+    preflight: false,  // ← disables Tailwind's base reset that breaks component styles
+  },
   theme: {
     extend: {
       /* ── Colours — exact from Figma specs ── */
@@ -44,6 +47,8 @@ module.exports = {
         jost:    ['Jost', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
         franklin:['Libre Franklin', 'sans-serif'],
+        epilogue:['Epilogue', 'sans-serif'],
+        sora:    ['Sora', 'sans-serif'],
       },
 
       /* ── Font sizes — exact pixel values from Figma ── */
