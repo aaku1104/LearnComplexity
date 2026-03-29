@@ -1,18 +1,13 @@
 <!-- CONTACT PAGE — body only; header & footer come from app shell -->
 
-<!-- ─── HERO (light gradient, curved rays, orange disc, floating tiles) ─── -->
+<!-- ─── HERO ─── -->
 <section class="hero-section">
   <div class="hero-bg" aria-hidden="true"></div>
 
-  <!-- Smooth curved lines (not dashed) matching expected design -->
-  <svg class="hero-rays" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice"
-    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M-50 300 Q100 200 250 150 T550 60"  fill="none" stroke="#a0b8d4" stroke-width="1.2" opacity="0.5"/>
-    <path d="M-50 300 Q120 220 280 130 T600 30"  fill="none" stroke="#a0b8d4" stroke-width="1"   opacity="0.4"/>
-    <path d="M-50 300 Q80 240  200 180 T500 80"  fill="none" stroke="#a0b8d4" stroke-width="0.8" opacity="0.35"/>
-    <path d="M-50 300 Q60 260  160 210 T450 110" fill="none" stroke="#a0b8d4" stroke-width="0.7" opacity="0.3"/>
-    <path d="M-50 300 Q40 270  130 230 T400 140" fill="none" stroke="#a0b8d4" stroke-width="0.6" opacity="0.25"/>
-  </svg>
+  <!-- letstalk-bg-texture.png with exact Figma clip-path + rotation.
+       mix-blend-mode:screen in CSS removes the dark bg so only
+       bright lines show over the light gradient.                    -->
+  <div class="hero-texture" aria-hidden="true"></div>
 
   <span class="hero-dot hero-dot--blue-lg"  aria-hidden="true"></span>
   <span class="hero-dot hero-dot--orange"   aria-hidden="true"></span>
@@ -21,7 +16,7 @@
   <div class="hero-inner max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
     <div class="hero-copy">
       <h1 class="hero-title">
-        Need Help Or Have A<br class="hidden sm:inline" /> Question?
+        Need Help Or Have A<br /> Question?
       </h1>
       <p class="hero-script">Let's Talk.</p>
     </div>
@@ -35,12 +30,15 @@
         width="280"
         height="350"
         loading="lazy" />
+      <!-- Float tile left: letstalk-icon1.png
+           White card background with overflow:hidden + mix-blend-mode:multiply
+           on the img ensures no black bg bleeds from the PNG.       -->
       <div class="hero-float hero-float--left" aria-hidden="true">
-        <i class="fa-solid fa-chart-column text-amber-500 text-xl"></i>
-        <i class="fa-solid fa-chart-simple text-blue-500 text-lg -ml-1"></i>
+        <img src="assets/images/letstalk-icon1.png" alt="" width="36" height="36" />
       </div>
+      <!-- Float tile right: letstalk-icon2.png -->
       <div class="hero-float hero-float--right" aria-hidden="true">
-        <i class="fa-solid fa-users text-blue-600 text-2xl"></i>
+        <img src="assets/images/letstalk-icon2.png" alt="" width="36" height="36" />
       </div>
     </div>
   </div>
@@ -48,196 +46,205 @@
 
 <!-- ─── GET IN TOUCH ─── -->
 <section class="get-in-touch">
-  <!-- Triangle at section level, bottom-left, NOT inside any card -->
+  <!-- Blue triangle — exact Figma position: left:-254px top:616px rotate(-41.14deg) -->
   <div class="triangle-decoration" aria-hidden="true"></div>
 
   <div class="get-in-touch-inner max-w-6xl mx-auto px-4 md:px-6">
-    <div class="contact-white-card">
-      <div class="get-in-touch-grid">
+    <div class="get-in-touch-grid">
 
-        <!-- LEFT -->
-        <div class="get-in-touch-left">
-          <h2 class="git-title">Get in Touch</h2>
-          <p class="git-sub">
-            Suspendisse ultrices gravida dictum fusce placerat ultricies integer.
-            Venenatis lectus magna fringilla urna porttitor rhoncus.
-          </p>
+      <!-- LEFT -->
+      <div class="get-in-touch-left">
+        <h2 class="git-title">Get in Touch</h2>
+        <p class="git-sub">
+          Suspendisse ultrices gravida dictum fusce placerat ultricies integer
+        </p>
 
-          <div class="contact-info-card">
-            <div class="info-row">
-              <div class="info-icon-wrap">
-                <i class="fa-solid fa-location-dot info-icon" aria-hidden="true"></i>
-              </div>
-              <div>
-                <p class="info-label">Our Address</p>
-                <p class="info-value">Deccan Gymkhana,<br />Pune Maharashtra</p>
-              </div>
+        <div class="contact-info-card">
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <i class="fa-solid fa-location-dot info-icon" aria-hidden="true"></i>
             </div>
-            <div class="info-divider"></div>
-            <div class="info-row">
-              <div class="info-icon-wrap">
-                <i class="fa-solid fa-clock info-icon" aria-hidden="true"></i>
-              </div>
-              <div>
-                <p class="info-label">Hours Of Operation</p>
-                <p class="info-value">Mon - Fri: 8:00am to 6:30pm</p>
-                <p class="info-note">[2nd Sat Holiday]</p>
-              </div>
+            <div>
+              <p class="info-label">Our Address</p>
+              <p class="info-value">Deccan Gymkhana,<br />Pune Maharastra</p>
             </div>
-            <div class="info-divider"></div>
-            <div class="info-row">
-              <div class="info-icon-wrap">
-                <i class="fa-solid fa-phone info-icon" aria-hidden="true"></i>
-              </div>
-              <div>
-                <p class="info-label">Contact</p>
-                <p class="info-value">+12-345-3789</p>
-                <p class="info-value">support&#64;learncomplexity.com</p>
-              </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <i class="fa-solid fa-clock info-icon" aria-hidden="true"></i>
+            </div>
+            <div>
+              <p class="info-label">Hours Of Operation</p>
+              <p class="info-value">Mon - Fri: 9.00am to 5.00pm</p>
+              <p class="info-note">[2nd Sat Holiday]</p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-row">
+            <div class="info-icon-wrap">
+              <i class="fa-solid fa-phone info-icon" aria-hidden="true"></i>
+            </div>
+            <div>
+              <p class="info-label">Contact</p>
+              <p class="info-value">+12-345-6789</p>
+              <p class="info-value">support&#64;Learncomplexity.com</p>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT: FORM -->
-        <div class="get-in-touch-right">
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="contact-form space-y-5">
-            <div>
-              <label class="form-label">Name<span class="text-red-500">*</span></label>
-              <input type="text" formControlName="name" placeholder="Name"
-                [class.error]="isFieldInvalid('name')" />
-              <p *ngIf="isFieldInvalid('name')" class="text-red-500 text-xs mt-1">Name is required.</p>
-            </div>
-            <div>
-              <label class="form-label">Email Address<span class="text-red-500">*</span></label>
-              <input type="email" formControlName="email" placeholder="Email"
-                [class.error]="isFieldInvalid('email')" />
-              <p *ngIf="isFieldInvalid('email')" class="text-red-500 text-xs mt-1">Valid email is required.</p>
-            </div>
-            <div>
-              <label class="form-label">Phone<span class="text-red-500">*</span></label>
-              <input type="tel" formControlName="phone" placeholder="Phone"
-                [class.error]="isFieldInvalid('phone')" />
-              <p *ngIf="isFieldInvalid('phone')" class="text-red-500 text-xs mt-1">Phone is required.</p>
-            </div>
-            <div>
-              <label class="form-label">Subject<span class="text-red-500">*</span></label>
-              <input type="text" formControlName="subject" placeholder="Subject"
-                [class.error]="isFieldInvalid('subject')" />
-              <p *ngIf="isFieldInvalid('subject')" class="text-red-500 text-xs mt-1">Subject is required.</p>
-            </div>
-            <div>
-              <label class="form-label form-label-normal">Message</label>
-              <textarea formControlName="message" rows="5" placeholder="Message"></textarea>
-            </div>
-            <div class="flex justify-end pt-1">
-              <button type="submit" class="send-btn" [disabled]="isSubmitting">
-                <span *ngIf="!isSubmitting">SEND MESSAGE</span>
-                <span *ngIf="isSubmitting" class="flex items-center gap-2">
-                  <i class="fa-solid fa-spinner fa-spin"></i> Sending...
-                </span>
-              </button>
-            </div>
-            <p *ngIf="submitSuccess"
-              class="success-msg text-green-600 text-sm text-center font-medium mt-2">
-              <i class="fa-solid fa-circle-check mr-1"></i> Message sent successfully!
-            </p>
-          </form>
+        <!-- Social row — left aligned under info card -->
+        <div class="git-social-row">
+          <a href="#" class="git-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="git-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="git-social-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" class="git-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
         </div>
       </div>
 
-      <!-- Social row — centered below both columns -->
-      <div class="git-social-row">
-        <a href="#" class="git-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="git-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="git-social-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-        <a href="#" class="git-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <!-- RIGHT: FORM -->
+      <div class="get-in-touch-right">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="contact-form">
+          <div class="form-group">
+            <label class="form-label">Name<span class="req">*</span></label>
+            <input type="text" formControlName="name" placeholder="Name"
+              [class.error]="isFieldInvalid('name')" />
+            <p *ngIf="isFieldInvalid('name')" class="err-msg">Name is required.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address<span class="req">*</span></label>
+            <input type="email" formControlName="email" placeholder="Email"
+              [class.error]="isFieldInvalid('email')" />
+            <p *ngIf="isFieldInvalid('email')" class="err-msg">Valid email is required.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone<span class="req">*</span></label>
+            <input type="tel" formControlName="phone" placeholder="Phone"
+              [class.error]="isFieldInvalid('phone')" />
+            <p *ngIf="isFieldInvalid('phone')" class="err-msg">Phone is required.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject<span class="req">*</span></label>
+            <input type="text" formControlName="subject" placeholder="Subject"
+              [class.error]="isFieldInvalid('subject')" />
+            <p *ngIf="isFieldInvalid('subject')" class="err-msg">Subject is required.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label-normal">Message</label>
+            <textarea formControlName="message" rows="5" placeholder="Message"></textarea>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="send-btn" [disabled]="isSubmitting">
+              <span *ngIf="!isSubmitting">SEND MESSAGE</span>
+              <span *ngIf="isSubmitting">
+                <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+              </span>
+            </button>
+          </div>
+          <p *ngIf="submitSuccess" class="success-msg">
+            <i class="fa-solid fa-circle-check"></i> Message sent successfully!
+          </p>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── MAP ─── -->
-<section class="map-section py-12 md:py-16 px-4 bg-white">
-  <div class="max-w-6xl mx-auto">
+<!-- ─── MAP ───
+     Embed URL for eLearning Solutions – SAP Training Institute, Kharadi, Pune.
+     This is the same location shown in the expected Figma screenshot.         -->
+<section class="map-section">
+  <div class="map-inner max-w-6xl mx-auto px-4 md:px-6">
     <h2 class="map-heading">Office Location</h2>
-    <div class="map-frame rounded-2xl overflow-hidden shadow-md border border-gray-100 w-full"
-      style="height: 400px;">
+    <div class="map-frame">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.5!2d73.8421!3d18.5203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06b0c8b2a55%3A0xf2a6f3ce8cb1f2d!2sDeccan%20Gymkhana%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.0285571732904!2d73.94076007507687!3d18.550284982545614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3f7a9e6a0d1%3A0x8f4b9d0e1a2c3d4e!2seLearning%20Solutions%20-%20SAP%20Training%20Institute!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
         width="100%"
         height="100%"
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Office Location Map">
+        title="eLearning Solutions SAP Training Institute, Kharadi Pune">
       </iframe>
     </div>
   </div>
 </section>
 
 <!-- ─── TESTIMONIALS ─── -->
-<section class="testimonials-section py-14 md:py-20 px-4">
-  <div class="max-w-7xl mx-auto">
+<section class="testimonials-section">
+  <div class="testimonials-inner max-w-7xl mx-auto px-4 md:px-6">
     <h2 class="testimonials-heading">What Student's Say</h2>
 
-    <div class="testimonials-carousel relative">
+    <div class="testimonials-carousel">
+      <!-- LEFT arrow: white outline circle with ← -->
       <button type="button" (click)="prevTestimonial()"
         class="arrow-btn prev"
         aria-label="Previous testimonial">
-        <i class="fa-solid fa-chevron-left text-sm"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
       </button>
 
-      <div class="flex gap-6 overflow-x-auto pb-4 pt-2 snap-x snap-mandatory scrollbar-hide testimonial-scroll"
-        #testimonialContainer>
-        <div *ngFor="let t of testimonials"
-          class="testimonial-card snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <p class="testimonial-quote">{{ t.review }}</p>
-          <div class="flex items-center gap-4">
-            <img [src]="t.avatar" [alt]="t.name" class="testimonial-avatar" width="56" height="56" />
-            <div class="flex-1 min-w-0">
-              <p class="testimonial-name">{{ t.name }}</p>
-              <p class="testimonial-role">{{ t.role }}</p>
+      <div class="testimonial-scroll scrollbar-hide" #testimonialContainer>
+        <div class="testimonial-track">
+          <div *ngFor="let t of testimonials" class="testimonial-card">
+            <p class="testimonial-quote">{{ t.review }}</p>
+            <div class="testimonial-author">
+              <img [src]="t.avatar" [alt]="t.name" class="testimonial-avatar" width="56" height="56" />
+              <div>
+                <p class="testimonial-name">{{ t.name }}</p>
+                <p class="testimonial-role">{{ t.role }}</p>
+              </div>
             </div>
-          </div>
-          <div class="stars flex mt-4 gap-0.5">
-            <i *ngFor="let s of getStars(t.rating)" class="fa-star testimonial-star"
-              [ngClass]="s ? 'fa-solid testimonial-star--on' : 'fa-regular testimonial-star--off'"></i>
+            <!-- Always 5 filled blue stars -->
+            <div class="stars">
+              <i *ngFor="let s of getStars(t.rating)" class="fa-star testimonial-star"
+                [ngClass]="s ? 'fa-solid testimonial-star--on' : 'fa-regular testimonial-star--off'"></i>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- RIGHT arrow: filled blue circle with → -->
       <button type="button" (click)="nextTestimonial()"
         class="arrow-btn next"
         aria-label="Next testimonial">
-        <i class="fa-solid fa-chevron-right text-sm"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
       </button>
     </div>
 
-    <div class="flex justify-center items-center gap-2 mt-8 testimonials-dots">
+    <!-- Dots -->
+    <div class="testimonials-dots">
       <span *ngFor="let i of [0,1,2,3]" class="t-dot"
         [class.t-dot--active]="activeTestimonial === i"></span>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
+<!-- ─── CTA ───
+     background-color:#ea580c (orange) is set on .cta-section.
+     cta-bg-left/right.png use mix-blend-mode:screen in CSS so
+     their dark backgrounds disappear and only avatars + icons
+     remain visible over the orange. No black bg anywhere.     -->
 <section class="cta-section">
-  <div class="cta-inner relative z-[2] text-center max-w-3xl mx-auto px-6 pt-24 pb-8 md:pt-32 md:pb-12">
-    <h2 class="cta-heading mb-6">Join a world of learning</h2>
-    <p class="cta-sub mb-2">
-      Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.
-    </p>
-    <p class="cta-sub mb-10">
-      Risus elit et fringilla habitant ut facilisi.
-    </p>
+  <img src="assets/images/cta-bg-left.png"  alt="" class="cta-bg-left"  aria-hidden="true" />
+  <img src="assets/images/cta-bg-right.png" alt="" class="cta-bg-right" aria-hidden="true" />
+
+  <div class="cta-inner">
+    <h2 class="cta-heading">Join a world of learning</h2>
+    <p class="cta-sub">Malesuado ut aliquam at ac est nisi, interdum etiam dignissim.</p>
+    <p class="cta-sub">Risus elit et fringilla habitant ut facilisi.</p>
     <a routerLink="/register" class="cta-btn">Sign Up Now</a>
   </div>
 
-  <div class="cta-wave-wrap relative z-[1] w-full leading-none mt-4 md:mt-8">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="cta-wave-svg">
-      <path class="cta-wave-path"
-        d="M0,40 C120,80 240,0 360,40 C480,80 600,0 720,40 C840,80 960,0 1080,40 C1200,80 1320,0 1440,40 L1440,80 L0,80 Z" />
-    </svg>
+  <div class="cta-wave-wrap">
+    <img src="assets/images/cta-bottom-cut.png" alt="" class="cta-wave-img" aria-hidden="true" />
   </div>
 </section>

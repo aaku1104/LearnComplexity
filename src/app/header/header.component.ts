@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
   menuOpen = false;
+  
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
