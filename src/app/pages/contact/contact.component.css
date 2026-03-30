@@ -2,6 +2,7 @@
    Contact Page — Figma-aligned
    ============================================================ */
 
+
 :host {
   display: block;
   background: #fff;
@@ -14,6 +15,370 @@
 
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
+
+/* ============================================================
+   Get In Touch Styles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800&family=Sora:wght@400&display=swap');
+
+/* ── Section ─────────────────────────────────────────────── */
+/* Background: very light blue-grey (#EEF2FB matches screenshot) */
+.git-section {
+  background: #EEF2FB;
+  padding: 0px 40px 40px;
+  font-family: 'Sora', sans-serif;
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+/* Triangle decoration in left bottom corner */
+.git-triangle-decoration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Max-width wrapper ───────────────────────────────────── */
+.git-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Two-column grid ─────────────────────────────────────── */
+/* Left ~48 %  |  Right ~48 %  gap ~4 % */
+.git-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  align-items: start;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEFT COLUMN
+   ═══════════════════════════════════════════════════════════ */
+.git-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* "Get in Touch" — Epilogue ExtraBold ~40px #0E2A46 */
+.git-heading {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #0D1B2E;
+  margin: 20px 0 14px;
+}
+
+/* Subtext — Sora 400 15px #333931 */
+.git-subtext {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0 0 28px;
+}
+
+/* ── White info card ─────────────────────────────────────── */
+.git-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 32px 32px 36px 32px;
+  overflow: hidden;           /* clips blue triangle */
+  /* subtle shadow matching screenshot */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Blue diagonal triangle removed */
+
+/* ── Contact item row ────────────────────────────────────── */
+.git-info-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 0;
+}
+
+/* Remove bottom padding on last item */
+.git-info-item--last {
+  padding-bottom: 0;
+}
+
+/* Icon circle — 48×48 salmon-tint bg, icon #FC6441 */
+.git-icon-wrap {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(252, 100, 65, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.git-icon {
+  width: 20px;
+  height: 20px;
+  fill: #FC6441;
+  color: #FC6441;
+}
+
+/* Text stack */
+.git-info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 2px;
+}
+
+/* Label: "Our Address" / "Hours Of Operation" / "Contact" */
+/* Sora 400, 14px, #4D5756 */
+.git-info-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Value: bold dark text */
+/* Epilogue 700, 20px, #0E2A46 */
+.git-info-value {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #0D1B2E;
+  margin: 0;
+}
+
+/* Smaller value (email) */
+.git-info-value--sm {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Note: "[2nd Sat Holiday]" */
+.git-info-note {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ── Social icons — centred below card ───────────────── */
+.git-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.git-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.git-social-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: #FC6441;
+  transition: fill 0.2s;
+}
+
+.git-social-btn:hover {
+  background: #FC6441;
+  box-shadow: 0 2px 8px rgba(252,100,65,0.28);
+}
+
+.git-social-btn:hover svg {
+  fill: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RIGHT COLUMN — Form
+   ═══════════════════════════════════════════════════════════ */
+.git-right {
+  /* Form sits on section bg (#EEF2FB) — no card behind it */
+  padding-top: 0;
+}
+
+.git-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Field wrapper */
+.git-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+/* Message field wrapper - same width as other inputs */
+.git-field-message {
+  max-width: none;
+}
+
+/* Label — Epilogue 400, 17px, #0E2A46 */
+.git-label {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 2;           /* 34px — matches screenshot spacing */
+  color: #0D1B2E;
+  margin: 10px 0 0;
+}
+
+/* Required asterisk — #2563EB */
+.git-req {
+  color: #2563EB;
+  margin-left: 1px;
+}
+
+/* Input — 54px, white, border-radius 6px, Sora 14px */
+.git-input {
+  width: 100%;
+  height: 54px;
+  padding: 0 18px;
+  background: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+  transition: box-shadow 0.2s;
+  /* Very light shadow to lift off bg */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  min-width: 300px;
+}
+
+.git-input::placeholder { color: #9ca3af; }
+.git-input:focus { box-shadow: 0 0 0 2px #2563EB; }
+
+/* Textarea */
+.git-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-width: 300px;
+}
+
+.git-textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.git-textarea:focus { 
+  box-shadow: 0 0 0 2px #2563EB;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.git-textarea:focus::-webkit-scrollbar {
+  display: none;
+}
+
+/* Submit row — button aligned to the right */
+.git-submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* SEND MESSAGE button — #2563EB, uppercase, Sora */
+.git-submit-btn {
+  width: 186px;
+  height: 54px;
+  background: #2563EB;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.git-submit-btn:hover  { background: #1d4ed8; }
+.git-submit-btn:active { transform: scale(0.98); }
+
+/* Success */
+.git-success {
+  margin-top: 14px;
+  text-align: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  color: #15803d;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .git-section { padding: 48px 40px 56px; }
+  .git-grid { column-gap: 48px; }
+}
+
+@media (max-width: 800px) {
+  .git-section { padding: 40px 24px 48px; }
+
+  .git-grid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  .git-submit-row { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .git-heading { font-size: 28px; }
+  .git-info-value { font-size: 17px; }
+}
+
 
 .section-inner {
   max-width: 1200px;
@@ -223,641 +588,314 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================================
-   GET IN TOUCH + FORM
+   GET IN TOUCH — from Figma spec
    ============================================================ */
-.contact-main-section {
-  padding: 3rem 1.5rem;
+
+/* ── Section ── */
+.git {
+  position:   relative;
+  width:      100%;
+  min-height: 847px;
   background: #F0F4FF;
+  overflow:   hidden;
+  box-sizing: border-box;
 }
 
-@media (min-width: 1024px) {
-  .contact-main-section { padding: 3.5rem 5rem; }
-}
-
-.contact-main-inner {
-  max-width: 1258px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 900px) {
-  .contact-main-inner {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 3rem;
-  }
-}
-
-/* ---- Info Panel ---- */
-.contact-info-panel {
-  position: relative;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  flex: 0 0 auto;
-  width: 100%;
-  min-height: 520px;
-}
-
-@media (min-width: 900px) {
-  .contact-info-panel {
-    width: clamp(20rem, 42%, 32rem);
-    min-height: 453px;
-  }
-}
-
-/* Blue diagonal deco shape */
-.contact-info-bg-deco {
-  position: absolute;
-  width: 437px;
-  height: 314px;
-  left: -160px;
-  bottom: -80px;
+/* ── Blue rotated triangle ──
+   width:437.25 height:313.77 left:-254.3 top:616.04 rotate(41.14deg) #2563EB */
+.git__triangle {
+  position:   absolute;
+  width:      437.25px;
+  height:     313.77px;
+  left:       -254.3px;
+  top:        616.04px;
   background: #2563EB;
-  border-radius: 8px;
-  transform: rotate(41.14deg);
-  z-index: 0;
-  pointer-events: none;
+  transform:  rotate(41.14deg);
+  z-index:    0;
 }
 
-.contact-info-body {
-  position: relative;
-  z-index: 1;
-  padding: 2.25rem 2rem 3rem;
-}
-
-.contact-info-heading {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 1.1;
-  color: #0E2A46;
-  margin: 0 0 0.625rem;
-}
-
-.contact-info-sub {
-  font-family: 'Sora', sans-serif;
-  font-size: 1.0625rem;
-  line-height: 2;
-  color: #333931;
-  margin: 0 0 2rem;
-}
-
-.contact-info-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.625rem;
-}
-
-.contact-info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.contact-info-icon-wrap {
-  flex-shrink: 0;
-  width: 3.125rem;
-  height: 3.125rem;
-  border-radius: 50%;
-  background: rgba(252, 100, 65, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact-info-label {
-  display: block;
-  font-family: 'Sora', sans-serif;
-  font-size: 1rem;
-  line-height: 1.875;
-  color: #4D5756;
-  text-transform: capitalize;
-  margin-bottom: 0.125rem;
-}
-
-.contact-info-value {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
-  font-size: 1.3125rem;
-  line-height: 1.524;
-  color: #0E2A46;
-  margin: 0;
-}
-
-.contact-info-note {
-  font-family: 'Sora', sans-serif;
-  font-size: 1rem;
-  line-height: 1.875;
-  color: #4D5756;
-  margin: 0;
-  text-transform: capitalize;
-}
-
-/* Social row */
-.contact-social {
-  display: flex;
-  gap: 0.625rem;
-}
-
-.contact-social-btn {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.14);
-  transition: box-shadow 0.2s;
-}
-.contact-social-btn:hover {
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
-}
-
-/* ---- Form Panel ---- */
-.contact-form-panel {
-  flex: 1;
-  min-width: 0;
-  background: #F0F4FF;
-  padding: 0.25rem 0;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* Two-column row for paired fields */
-.form-row {
-  display: grid;
+/* ── Inner: two-column grid ── */
+.git__inner {
+  position:              relative;
+  z-index:               1;
+  display:               grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  margin-bottom: 1.125rem;
+  gap:                   0 75px;
+  padding:               86px 75px;
+  max-width:             1440px;
+  margin:                0 auto;
+  box-sizing:            border-box;
 }
 
-@media (max-width: 640px) {
-  .form-row { grid-template-columns: 1fr; }
-}
-
-.form-spacer {
-  height: 1rem;
-}
-
-.form-field {
-  display: flex;
+/* ══════════════════════════════
+   LEFT COLUMN
+══════════════════════════════ */
+.git__left {
+  display:        flex;
   flex-direction: column;
 }
 
-.form-field--full {
-  margin-bottom: 1.125rem;
-}
-
-.form-label {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 2;
-  color: #0E2A46;
-  margin-bottom: 0.125rem;
-}
-
-.form-required {
-  color: #2563EB;
-  margin-left: 2px;
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  height: 3.375rem;
-  padding: 0 1.125rem;
-  background: #fff;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Sora', system-ui, sans-serif;
-  font-size: 0.875rem;
-  color: #4D5756;
-  outline: none;
-  transition: box-shadow 0.2s;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  box-shadow: 0 0 0 2px #2563EB;
-}
-
-.form-input.invalid,
-.form-textarea.invalid {
-  box-shadow: 0 0 0 2px #ef4444;
-}
-
-.form-textarea {
-  height: 6.5rem;
-  padding: 0.875rem 1.125rem;
-  resize: vertical;
-  overflow: auto;
-}
-
-.form-submit-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.75rem;
-}
-
-.form-submit-btn {
-  width: 11.625rem;
-  height: 3.375rem;
-  background: #2563EB;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Sora', sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.form-success-message {
-  margin-top: 1rem;
-  text-align: center;
-  font-family: 'Sora', sans-serif;
-  font-size: 0.9375rem;
-  color: #15803d;
-}
-.form-submit-btn:hover {
-  background: #1d4ed8;
-}
-.form-submit-btn:active {
-  transform: scale(0.98);
-}
-
-/* ============================================================
-   MAP
-   ============================================================ */
-.map-section {
-  padding: 3rem 1.5rem 3.5rem;
-  background: #fff;
-}
-
-@media (min-width: 1024px) {
-  .map-section { padding: 3rem 5rem 3.5rem; }
-}
-
-.map-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.map-title {
+/* Heading: Epilogue 700 40px/44px #0E2A46 */
+.git__heading {
+  margin:      0 0 0 0;
   font-family: 'Epilogue', sans-serif;
   font-weight: 700;
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  color: #0E2A46;
-  text-align: center;
-  margin: 0 0 1.375rem;
+  font-size:   40px;
+  line-height: 44px;
+  color:       #0E2A46;
 }
 
-.map-embed-wrap {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-}
-
-.map-iframe {
-  display: block;
-  width: 100%;
-  height: clamp(280px, 36vw, 529px);
-  border: none;
-}
-
-/* ============================================================
-   TESTIMONIALS — Figma slider 1280px, cards 391×308, gap 24px
-   ============================================================ */
-.testimonials-section {
-  padding: 3rem 1.5rem 4.5rem;
-  background: #fff;
-}
-
-.testimonials-heading {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.675;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  text-align: center;
-  color: #050C26;
-  margin: 0 0 2rem;
-}
-
-.testimonials-slider-wrap {
-  max-width: 1280px;
-  margin: 0 auto;
-  gap: 1.5rem;
-}
-
-.slider-shell {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.slider-viewport {
-  flex: 1;
-  overflow: hidden;
-  min-width: 0;
-}
-
-.slider-track {
-  display: flex;
-  gap: 24px;
-  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.t-card {
-  flex: 0 0 100%;
-  max-width: 100%;
-  background: #fff;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 0 6px rgba(0, 0, 0, 0.07);
-  min-height: 308px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-@media (min-width: 640px) {
-  .t-card {
-    flex: 0 0 calc((100% - 24px) / 2);
-  }
-}
-
-@media (min-width: 1024px) {
-  .t-card {
-    flex: 0 0 calc((100% - 48px) / 3);
-    max-width: 391px;
-  }
-}
-
-.t-quote {
-  font-family: 'Roboto', sans-serif;
+/* Subtext: Sora 400 17px/32px #333931 */
+.git__subtext {
+  margin:      16px 0 24px;
+  font-family: 'Sora', sans-serif;
   font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #000;
-  margin: 0;
+  font-size:   17px;
+  line-height: 32px;
+  color:       #333931;
+  max-width:   429px;
 }
 
-.t-user {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1rem;
-  margin-top: auto;
-}
-
-.t-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #dde4f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.t-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.t-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.t-name {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #000;
-}
-
-.t-role {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #475569;
-}
-
-/* Figma stars: rounded squares #5D5DFF / #A0A0A0 */
-.t-stars {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  margin-top: 6px;
-}
-
-.t-star-slot {
-  width: 17px;
-  height: 17px;
-  border-radius: 1.65px;
-  background: #a0a0a0;
-  flex-shrink: 0;
-}
-
-.t-star-slot--on {
-  background: #5d5dff;
-}
-
-.nav-btn {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 9999px;
-  border: 1px solid #e2e8f0;
-  background: #fff;
-  color: #64748b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  transition: border-color 0.2s, color 0.2s, opacity 0.2s;
-}
-
-.nav-btn:hover:not(:disabled) {
-  border-color: #2563eb;
-  color: #2563eb;
-}
-
-.nav-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.nav-btn svg {
-  width: 18px;
-  height: 18px;
-}
-
-.nav-btn--next {
-  background: #2563eb;
-  color: #fff;
-  border-color: #2563eb;
-  box-shadow:
-    0 10px 15px -3px rgba(59, 130, 246, 0.2),
-    0 4px 6px -4px rgba(59, 130, 246, 0.2);
-}
-
-.nav-btn--next:hover:not(:disabled) {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-}
-
-/* Figma: active 40×6 #0F172A; inactive 8×8 #CBD5E1 */
-.t-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-top: 1.75rem;
-}
-
-.t-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  border: none;
-  padding: 0;
-  background: #cbd5e1;
-  cursor: pointer;
-  transition: width 0.25s ease, height 0.25s ease, background 0.2s;
-}
-
-.t-dot--active {
-  width: 40px;
-  height: 6px;
-  background: #0f172a;
-}
-
-@media (max-width: 479px) {
-  .nav-btn {
-    display: none;
-  }
-}
-
-/* ============================================================
-   JOIN CTA
-   ============================================================ */
-.join-section {
-  position: relative;
-  background: #ea580c;
-  padding: clamp(4rem, 12vw, 10rem) clamp(1.5rem, 5vw, 5rem) 0;
-  overflow: hidden;
-  text-align: center;
-}
-
-.join-bg-left,
-.join-bg-right {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: clamp(180px, 30%, 440px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: screen;
-}
-.join-bg-left {
-  left: 0;
-  background-image: url(../../../assets/images/cta-bg-left.png);
-  background-position: right top;
-}
-.join-bg-right {
-  right: 0;
-  background-image: url(../../../assets/images/cta-bg-right.png);
-  background-position: left top;
-}
-
-.join-inner {
-  position: relative; z-index: 3;
-  max-width: 38rem; margin: 0 auto;
-  display: flex; flex-direction: column;
-  align-items: center; gap: 0.875rem;
-  padding-bottom: 3rem;
-}
-
-.join-title {
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  font-size: clamp(2.5rem, 6vw, 4.875rem);
-  line-height: 1.1;
-  color: #fff;
-  margin: 0;
-  text-align: center;
-}
-
-.join-text {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.8;
-  color: #fff;
-  max-width: 52rem;
-  margin: 0;
-  text-align: center;
-}
-
-.join-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 239px;
-  max-width: 100%;
-  height: 64px;
-  box-sizing: border-box;
+/* ── White info card ── */
+.git__card {
+  background:    #FFFFFF;
   border-radius: 8px;
-  border: 2px solid #0f3795;
-  background: #0f3795;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
+  padding:       40px 38px;
+  display:       flex;
+  flex-direction: column;
+  gap:           30px;
+  flex:          1;
+}
+
+/* ── Each contact item ── */
+.git__item {
+  display:     flex;
+  align-items: flex-start;
+  gap:         20px;
+  min-height:  96px;
+}
+
+/* Icon circle: 54×54 rgba(252,99,65,0.1) border-radius:27px */
+.git__icon-wrap {
+  flex-shrink:     0;
+  width:           54px;
+  height:          54px;
+  background:      rgba(252, 99, 65, 0.1);
+  border-radius:   27px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+
+/* FA icon: 18px #FC6441 */
+.git__icon {
+  font-size: 18px;
+  color:     #FC6441;
   line-height: 1;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  transition: filter 0.2s;
+}
+.git__icon--rotated { transform: rotate(100deg); }
+
+/* Text block */
+.git__info {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+/* Label: Sora 400 16px/30px #4D5756 capitalize */
+.git__info-label {
+  font-family:    'Sora', sans-serif;
+  font-weight:    400;
+  font-size:      16px;
+  line-height:    30px;
+  text-transform: capitalize;
+  color:          #4D5756;
+}
+
+/* Value: Epilogue 700 21px/32px #0E2A46 */
+.git__info-value {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size:   21px;
+  line-height: 32px;
+  color:       #0E2A46;
+  display:     block;
+}
+
+/* Sub (2nd sat holiday): Sora 400 16px/30px #4D5756 */
+.git__info-sub {
+  font-family:    'Sora', sans-serif;
+  font-weight:    400;
+  font-size:      16px;
+  line-height:    30px;
+  text-transform: capitalize;
+  color:          #4D5756;
+}
+
+/* ── Social links ──
+   Each: 35×35 bg:#FFF border-radius:17.5px icon #FC6441 17px
+   Spacing: left:454.5 first → gap 42px */
+.git__socials {
+  display:    flex;
+  gap:        7px;
+  margin-top: 28px;
+  padding-left: 379px; /* aligns to left:454.5px - section left:75px */
+}
+
+.git__social-link {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           35px;
+  height:          35px;
+  background:      #FFFFFF;
+  border-radius:   17.5px;
+  color:           #FC6441;
+  font-size:       14px;
   text-decoration: none;
+  transition:      box-shadow 0.2s;
+}
+.git__social-link:hover {
+  box-shadow: 0 4px 12px rgba(252, 99, 65, 0.25);
 }
 
-.join-btn:hover {
-  filter: brightness(1.12);
+/* ══════════════════════════════
+   RIGHT COLUMN: Form
+   height:709px from top:86.59px
+══════════════════════════════ */
+.git__form {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
 }
 
-.join-wave-wrap {
-  position: relative; z-index: 3;
-  line-height: 0; width: 100%; margin-bottom: -2px;
+/* Field group */
+.git__field {
+  display:        flex;
+  flex-direction: column;
+  margin-bottom:  0;
 }
-.join-wave-svg { display: block; width: 100%; height: auto; vertical-align: bottom; }
+
+/* Label: Epilogue 400 18px/32px #0E2A46 */
+.git__label {
+  font-family:  'Epilogue', sans-serif;
+  font-weight:  400;
+  font-size:    18px;
+  line-height:  32px;
+  color:        #0E2A46;
+  margin-bottom: 5px;
+  display:      flex;
+  align-items:  center;
+}
+
+/* Input: height:58px bg:#FFFFFF border-radius:5px
+   placeholder Sora 400 14px #4D5756 */
+.git__input {
+  height:        58px;
+  background:    #FFFFFF;
+  border:        none;
+  border-radius: 5px;
+  padding:       0 20px;
+  font-family:   'Sora', sans-serif;
+  font-size:     14px;
+  line-height:   18px;
+  color:         #4D5756;
+  outline:       none;
+  box-sizing:    border-box;
+  margin-bottom: 16px;
+  width:         100%;
+}
+.git__input::placeholder {
+  font-family: 'Sora', sans-serif;
+  font-size:   14px;
+  color:       #4D5756;
+}
+
+/* Textarea: height:95px bg:#FFFFFF border-radius:5px overflow:scroll */
+.git__textarea {
+  height:        95px;
+  background:    #FFFFFF;
+  border:        none;
+  border-radius: 5px;
+  padding:       20px;
+  font-family:   'Sora', sans-serif;
+  font-size:     14px;
+  color:         #4D5756;
+  overflow:      scroll;
+  resize:        none;
+  outline:       none;
+  box-sizing:    border-box;
+  width:         100%;
+  margin-bottom: 16px;
+}
+
+/* Button row — button is offset left:112.5px inside form */
+.git__btn-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Button: 186×54 bg:#2563EB border-radius:5px
+   Sora 400 15px uppercase #FFFFFF */
+.git__btn {
+  width:           186px;
+  height:          54px;
+  background:      #2563EB;
+  border:          none;
+  border-radius:   5px;
+  font-family:     'Sora', sans-serif;
+  font-weight:     400;
+  font-size:       15px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  text-transform:  uppercase;
+  letter-spacing:  0.05em;
+  color:           #FFFFFF;
+  cursor:          pointer;
+  transition:      background 0.2s;
+}
+.git__btn:hover { background: #1d4ed8; }
+/* ============================================================
+   OFFICE LOCATION SECTION
+   Matches design: white bg, "Office Location" heading,
+   full-width Google Maps embed below
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.ol {
+  width:            100%;
+  background:       #FFFFFF;
+  padding:          48px 75px 0 75px;
+  box-sizing:       border-box;
+  font-family:      'Epilogue', sans-serif;
+}
+
+/* ── Heading: "Office Location" ──
+   Epilogue 700, large, dark navy, left-aligned */
+.ol__heading {
+  margin:       0 0 24px 0;
+  font-family:  'Epilogue', sans-serif;
+  font-weight:  700;
+  font-size:    40px;
+  line-height:  48px;
+  color:        #0E2A46;
+}
+
+/* ── Map container ──
+   Full width, fixed height, no border/padding */
+.ol__map-wrap {
+  width:    100%;
+  height:   480px;
+  overflow: hidden;
+  display:  block;
+}
+
+/* ── iframe ──
+   Fills container completely, no border */
+.ol__iframe {
+  width:   100%;
+  height:  100%;
+  border:  none;
+  display: block;
+}

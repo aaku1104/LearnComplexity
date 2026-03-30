@@ -1,13 +1,13 @@
 import {
   Component,
+  OnInit,
   AfterViewInit,
-  OnDestroy,
-  HostListener,
   ViewChild,
   ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReviewsComponent } from '../../reviews/reviews.component';
 
 type BenefitVariant = 'fill' | 'outline';
 type StepIcon = 'search' | 'access' | 'learn';
@@ -15,14 +15,11 @@ type StepIcon = 'search' | 'access' | 'learn';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReviewsComponent],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })
-export class AboutComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('sliderViewport') sliderViewport?: ElementRef<HTMLElement>;
-
-  private resizeObserver?: ResizeObserver;
+export class AboutComponent implements OnInit {
   benefits: {
     number: string;
     title: string;
@@ -94,131 +91,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     },
   ];
 
-  testimonials = [
-    {
-      quote:
-        'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      name: 'Peter James',
-      role: 'Software Engineer',
-      rating: 5,
-      avatar: 'assets/images/testimonial-avatar.jpg',
-    },
-    {
-      quote:
-        'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      name: 'Hellen Jummy',
-      role: 'Full stack developer',
-      rating: 4,
-      avatar: 'assets/images/testimonial-avatar.jpg',
-    },
-    {
-      quote:
-        'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      name: 'Hellen Jummy',
-      role: 'Full stack developer',
-      rating: 4,
-      avatar: 'assets/images/testimonial-avatar.jpg',
-    },
-    {
-      quote:
-        'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      name: 'Hellen Jummy',
-      role: 'Full stack developer',
-      rating: 4,
-      avatar: 'assets/images/testimonial-avatar.jpg',
-    },
-    {
-      quote:
-        'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      name: 'Hellen Jummy',
-      role: 'Full stack developer',
-      rating: 4,
-      avatar: 'assets/images/testimonial-avatar.jpg',
-    },
-  ];
-
-  slideIndex = 0;
-  visibleCount = 3;
-  slideWidth = 0;
-
-  get maxSlide(): number {
-    return Math.max(0, this.testimonials.length - this.visibleCount);
-  }
-
-  get slideDots(): number[] {
-    return Array.from({ length: this.maxSlide + 1 });
-  }
-
-  ngAfterViewInit(): void {
-    if (typeof ResizeObserver === 'undefined') {
-      this.updateSliderFallback();
-      return;
-    }
-    queueMicrotask(() => this.measureSlider());
-    const el = this.sliderViewport?.nativeElement;
-    if (el) {
-      this.resizeObserver = new ResizeObserver(() => this.measureSlider());
-      this.resizeObserver.observe(el);
-    }
-  }
-
-  ngOnDestroy(): void {
-    this.resizeObserver?.disconnect();
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.measureSlider();
-  }
-
-  private measureSlider(): void {
-    const el = this.sliderViewport?.nativeElement;
-    if (!el) {
-      this.updateSliderFallback();
-      return;
-    }
-    const w = el.clientWidth;
-    const gap = 20;
-    if (w >= 1024) {
-      this.visibleCount = 3;
-      const card = (w - gap * 2) / 3;
-      this.slideWidth = card + gap;
-    } else if (w >= 640) {
-      this.visibleCount = 2;
-      const card = (w - gap) / 2;
-      this.slideWidth = card + gap;
-    } else {
-      this.visibleCount = 1;
-      this.slideWidth = w;
-    }
-    this.slideIndex = Math.min(this.slideIndex, this.maxSlide);
-  }
-
-  private updateSliderFallback(): void {
-    const w = typeof window !== 'undefined' ? window.innerWidth : 1200;
-    const inner = Math.min(w - 48, 1200);
-    const gap = 20;
-    if (w >= 1024) {
-      this.visibleCount = 3;
-      const card = (inner - gap * 2) / 3;
-      this.slideWidth = card + gap;
-    } else if (w >= 640) {
-      this.visibleCount = 2;
-      const card = (inner - gap) / 2;
-      this.slideWidth = card + gap;
-    } else {
-      this.visibleCount = 1;
-      this.slideWidth = Math.max(280, w - 48);
-    }
-  }
-
-  prevSlide(): void {
-    if (this.slideIndex > 0) this.slideIndex--;
-  }
-  nextSlide(): void {
-    if (this.slideIndex < this.maxSlide) this.slideIndex++;
-  }
-  goToSlide(i: number): void {
-    this.slideIndex = i;
+  ngOnInit(): void {
+    // Component initialization logic here if needed
   }
 }

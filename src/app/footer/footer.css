@@ -1,39 +1,473 @@
-/* Orange accent under column titles */
-.footer-wavy-line {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 1rem;
-}
+/* =====================================================
+   footer.css — Learn Complexity  |  Figma-exact values
+   ===================================================== */
 
-.footer-wavy-line::before,
-.footer-wavy-line::after {
-  content: '';
-  width: 2.5rem;
-  height: 6px;
-  border-radius: 2px;
-  background: #ea580c;
-}
+/* =============================================
+   Footer CTA Section — footer-cta.css
+   ============================================= */
 
-/* Footer link hover underline */
-footer ul li a {
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@400;700&display=swap');
+
+/* ---- Section wrapper ---- */
+.footer-cta {
   position: relative;
-  display: inline-flex;
+  width: 1440px;
+  max-width: 100%;
+  min-height: 600px;
+  padding: 140px 80px;
+  background: #EA580C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-footer ul li a:hover {
+/* ---- Floating avatar circles ---- */
+.avatar {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* ---- Floating SVG icon wrappers ---- */
+.icon-wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Center content ---- */
+.cta-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Heading ---- */
+.cta-title {
+  width: 1280px;
+  max-width: 100%;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 78px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* ---- Subtitle ---- */
+.cta-subtitle {
+  width: 1280px;
+  max-width: 100%;
+  margin-top: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+/* ---- CTA Button ---- */
+.cta-btn {
+  margin-top: 40px;
+  width: 239px;
+  height: 64px;
+  background-color: #0F3795;
+  border: 2px solid #0F3795;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-btn:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 6px 20px rgba(15, 55, 149, 0.45);
+}
+
+/* ---- Bottom wave ---- */
+.cta-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 127px;
+  line-height: 0;
+}
+
+/* =============================================
+   Responsive — mobile / tablet
+   ============================================= */
+@media (max-width: 900px) {
+  .footer-cta {
+    width: 100%;
+    min-height: auto;
+    padding: 120px 1.25rem 200px;
+  }
+
+  .cta-title {
+    width: 100%;
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .cta-subtitle {
+    width: 100%;
+    max-width: 24rem;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+  }
+
+  .cta-subtitle br {
+    display: none;
+  }
+
+  /* Hide most floating avatars/icons on small screens to avoid clutter */
+  .avatar,
+  .icon-wrap {
+    display: none;
+  }
+}
+
+/* =====================================================
+   Existing Footer CSS
+   ===================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Root footer wrapper ── */
+.footer-root {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════
+   MAIN BG  →  Figma: width:1440 height:396 bg:#EFFBFF
+   We use position:relative so children can use
+   absolute coords that match the Figma left/top values.
+   ══════════════════════════════════════════════════ */
+.footer-bg {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 316px;          /* 396px total − 80px wave */
+  margin: 0 auto;
+  background: #EFFBFF;
+  overflow: visible;
+}
+
+/* ══════════════════════════════════════════════════
+   LOGO LOCKUP  left:143 top:70  w:168 h:37  gap:2
+   ══════════════════════════════════════════════════ */
+.logo-lockup {
+  position: absolute;
+  left: 143px;
+  top: 70px;
+  width: 168px;
+  height: 37px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo-img {
+  height: 37px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text-img {
+  height: 37px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+/* fallback: SVG icon + text side-by-side */
+.logo-fallback {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-word {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #1E2D6B;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+/* ══════════════════════════════════════════════════
+   LOGO SECTION (desc + socials)
+   Figma: left:143 top:145  w:306 h:135  gap:20
+   ══════════════════════════════════════════════════ */
+.logo-section {
+  position: absolute;
+  left: 143px;
+  top: 145px;
+  width: 306px;
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* description  font-weight:300 font-size:16px line-height:30px */
+.footer-desc {
+  width: 306px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+}
+
+/* socials row  gap:20  h:43 */
+.socials-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  height: 43px;
+}
+
+/* each circle  42×43  bg:#FFFFFF */
+.social-circle {
+  width: 42px;
+  height: 43px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s;
 }
 
-/* Social icon hover scale */
-footer .social-icon {
-  transition: transform 0.2s ease, color 0.2s ease;
+.social-circle:hover {
+  background: #fff3ec;
 }
 
-footer .social-icon:hover {
-  transform: scale(1.2);
+/* ══════════════════════════════════════════════════
+   QUICK LINK COLUMNS
+   Col 1: left:561  Col 2: left:766
+   Both: top:78  w:93 h:168  gap:20
+   ══════════════════════════════════════════════════ */
+.ql-col {
+  position: absolute;
+  top: 78px;
+  width: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-/* Bottom border separator */
-footer .border-b {
-  border-color: rgba(255, 255, 255, 0.08);
+/* heading block  gap:16  w:86 h:36 */
+.ql-heading-block {
+  width: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* "Quick link"  font-weight:700 font-size:17px  capitalize */
+.ql-title {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 13px;
+  text-transform: capitalize;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* links list  gap:20  w:93 h:112 */
+.ql-list {
+  width: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  list-style: none;
+}
+
+/* each link row  gap:6  h:13  align:flex-end */
+.ql-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  height: 13px;
+}
+
+.ql-arrow {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* link text  font-weight:400 font-size:17px  capitalize */
+.ql-link {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 13px;
+  text-transform: capitalize;
+  color: #000000;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s;
+}
+
+.ql-link:hover {
+  color: #EA580C;
+}
+
+/* ══════════════════════════════════════════════════
+   CONTACT  left:1039 top:87  w:256 h:163  gap:13
+   ══════════════════════════════════════════════════ */
+.contact-col {
+  position: absolute;
+  left: 1039px;
+  top: 87px;
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+/* heading block  gap:16  w:65 h:35 */
+.contact-heading-block {
+  width: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* "Contact"  font-weight:700 font-size:16px */
+.contact-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 13px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* items list  gap:20  w:256 h:115 */
+.contact-list {
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  list-style: none;
+}
+
+/* each contact row  gap:14  h:25  align:center */
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  height: 25px;
+}
+
+/* icon mask  25×25 */
+.contact-icon-wrap {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* text  font-weight:400 font-size:16px  capitalize */
+.contact-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 13px;
+  text-transform: capitalize;
+  color: #000000;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* phone underline */
+.contact-phone {
+  text-decoration: underline;
+}
+
+.contact-phone:hover {
+  color: #EA580C;
+}
+
+/* ══════════════════════════════════════════════════
+   WAVE DIVIDER
+   ══════════════════════════════════════════════════ */
+.wave-wrap {
+  background: #EFFBFF;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.wave-svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/* ══════════════════════════════════════════════════
+   COPYRIGHT BAR
+   ══════════════════════════════════════════════════ */
+.copyright-bar {
+  background: #1E2D6B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+}
+
+.copyright-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 1;
 }

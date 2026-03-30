@@ -84,35 +84,120 @@
 
 <!-- Benefits -->
 <section class="benefits-section">
-  <div class="section-inner">
-    <header class="benefits-head">
-      <p class="eyebrow-inter">Our Benefits</p>
-      <h2 class="benefits-title">
-        By Joining <span class="text-brand-blue">LEARNCOMPLEXITY</span> Platform, One Can Avail a Lot Of Benefits.
-      </h2>
-      <p class="benefits-sub body-inter">
-        Install our top-rated dropshipping app to your e-commerce site and get access to US Suppliers, AliExpress
-        vendors, and the best.
-      </p>
-    </header>
+  <div class="benefits-container">
 
+    <!-- Header -->
+    <div class="benefits-header">
+      <p class="benefits-label">Our Benefits</p>
+      <h2 class="benefits-title">
+        By Joining <span class="benefits-title--highlight">LEARNCOMPLEXITY</span> Platform,
+        One Can Avail a Lot Of Benefits.
+      </h2>
+      <p class="benefits-subtitle">
+        Install our top-rated dropshipping app to your e-commerce site and get
+        access to US Suppliers, AliExpress vendors, and the best.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
     <div class="benefits-grid">
-      <article
-        class="benefit-card"
-        *ngFor="let b of benefits"
-        [class.benefit-card--fill]="b.variant === 'fill'"
-        [class.benefit-card--outline]="b.variant === 'outline'"
-      >
-        <div class="benefit-num-wrap">
-          <span class="benefit-num-bg" aria-hidden="true"></span>
-          <span class="benefit-num">{{ b.number }}</span>
+
+      <!-- Card 01 — filled -->
+      <div class="benefit-card benefit-card--filled">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">01</div>
+          </div>
+          <h3 class="benefit-card__title">Standardization</h3>
+          <p class="benefit-card__desc">
+            When working in a global workplace, it's often difficult to gauge learners' training
+            experiences, which are ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
-        <h3 class="benefit-card-title">{{ b.title }}</h3>
-        <p class="benefit-card-text">
-          {{ b.description }}
-          <a href="#" class="benefit-readmore">Read More</a>
-        </p>
-      </article>
+      </div>
+
+      <!-- Card 02 — outlined -->
+      <div class="benefit-card benefit-card--outlined">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">02</div>
+          </div>
+          <h3 class="benefit-card__title">Reduced Costs</h3>
+          <p class="benefit-card__desc">
+            With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile
+            learning and microlearning ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 03 — filled -->
+      <div class="benefit-card benefit-card--filled">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">03</div>
+          </div>
+          <h3 class="benefit-card__title">More Customization</h3>
+          <p class="benefit-card__desc">
+            Just like learners aren't one-size-fits-all, learning is not a one-size-fits-all
+            experience. By using different ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 04 — outlined -->
+      <div class="benefit-card benefit-card--outlined">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">04</div>
+          </div>
+          <h3 class="benefit-card__title">Affordable Pricing</h3>
+          <p class="benefit-card__desc">
+            With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile
+            learning and microlearning ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 05 — filled -->
+      <div class="benefit-card benefit-card--filled">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">05</div>
+          </div>
+          <h3 class="benefit-card__title">Learner Satisfaction</h3>
+          <p class="benefit-card__desc">
+            If you really want students to retain what they learn, you'll need to aim for high
+            satisfaction rates. Bad ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 06 — outlined -->
+      <div class="benefit-card benefit-card--outlined">
+        <div class="benefit-card__content">
+          <div class="benefit-card__number-wrap">
+            <span class="benefit-card__bubble"></span>
+            <div class="benefit-card__number">06</div>
+          </div>
+          <h3 class="benefit-card__title">Multimedia Materials</h3>
+          <p class="benefit-card__desc">
+            One of the main reasons why custom eLearning is effective is that it's the perfect
+            delivery method for ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -133,18 +218,10 @@
               </svg>
             </ng-container>
             <ng-container *ngSwitchCase="'access'">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hiw-svg">
-                <rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="2" />
-                <path d="M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round" />
-                <path d="M12 15v5" stroke="white" stroke-width="2" stroke-linecap="round" />
-              </svg>
+              <img src="assets/images/icon-hand.png" alt="Access" class="hiw-img" />
             </ng-container>
             <ng-container *ngSwitchCase="'learn'">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hiw-svg">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="white" stroke-width="2" stroke-linecap="round" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="white" stroke-width="2" />
-                <path d="M8 7h8M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round" />
-              </svg>
+              <img src="assets/images/icon-building.png" alt="Learn" class="hiw-img" />
             </ng-container>
           </div>
           <p class="hiw-label">{{ s.label }}</p>
@@ -167,55 +244,11 @@
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials-section">
-  <div class="section-inner testimonials-inner">
-    <h2 class="testimonials-heading">What Student's Say</h2>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet"/>
 
-    <div class="slider-shell">
-      <button type="button" class="nav-btn nav-btn--prev" (click)="prevSlide()" [disabled]="slideIndex === 0" aria-label="Previous testimonial">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
+<app-reviews></app-reviews>
 
-      <div class="slider-viewport" #sliderViewport>
-        <div class="slider-track" [style.transform]="'translateX(-' + slideIndex * slideWidth + 'px)'">
-          <article class="t-card" *ngFor="let t of testimonials">
-            <p class="t-quote">{{ t.quote }}</p>
-            <div class="t-user">
-              <img [src]="t.avatar" [alt]="t.name" class="t-avatar" width="64" height="64" />
-              <div class="t-meta">
-                <span class="t-name">{{ t.name }}</span>
-                <span class="t-role">{{ t.role }}</span>
-                <div class="t-stars" aria-hidden="true">
-                  <span *ngFor="let s of [1, 2, 3, 4, 5]" class="t-star" [class.t-star--on]="s <= t.rating">★</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <button type="button" class="nav-btn nav-btn--next" (click)="nextSlide()" [disabled]="slideIndex >= maxSlide" aria-label="Next testimonial">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="t-dots">
-      <button
-        type="button"
-        *ngFor="let _ of slideDots; let i = index"
-        class="t-dot"
-        [class.t-dot--active]="i === slideIndex"
-        (click)="goToSlide(i)"
-        [attr.aria-label]="'Go to slide ' + (i + 1)"
-      ></button>
-    </div>
-  </div>
-</section>
 
 <!-- LMS CTA banner -->
 <section class="lms-banner-section">
@@ -223,11 +256,7 @@
     <div class="lms-banner-inner">
       <div class="lms-banner-left">
         <div class="lms-icon-circle" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="2" class="lms-cap-svg">
-            <circle cx="32" cy="20" r="10" />
-            <path d="M12 54c0-11 9-20 20-20s20 9 20 20" />
-            <path d="M18 26l-6 4 20 10 20-10-8-4" />
-          </svg>
+          <img src="assets/images/student.png" alt="Student" class="lms-student-img" />
         </div>
         <p class="lms-banner-title">Let's Start With Academy LMS</p>
       </div>
@@ -236,35 +265,5 @@
         <a routerLink="/contact" class="lms-btn lms-btn--solid">Become an Instructor</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Join CTA -->
-<section class="join-section">
-  <!-- Side bg image panels with floating avatars/icons -->
-  <div class="join-bg-left" aria-hidden="true"></div>
-  <div class="join-bg-right" aria-hidden="true"></div>
-
-  <div class="join-inner">
-    <h2 class="join-title">Join a world of learning</h2>
-    <p class="join-text">
-      Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.<br>
-      Risus elit et fringilla habitant ut facilisi.
-    </p>
-    <a routerLink="/contact" class="join-btn">Sign Up Now</a>
-  </div>
-
-  <div class="join-wave-wrap">
-    <!-- Inline SVG wave — no black-background PNG dependency -->
-    <svg class="join-wave-svg"
-         xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 1440 80"
-         preserveAspectRatio="none"
-         aria-hidden="true">
-      <path
-        d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1380,20 1440,30 L1440,80 L0,80 Z"
-        fill="#EFFBFF"
-      />
-    </svg>
   </div>
 </section>

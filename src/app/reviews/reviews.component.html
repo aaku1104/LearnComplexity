@@ -1,0 +1,60 @@
+<div class="reviews-wrap">
+  <section class="reviews-section">
+
+    <h2 class="section-title">What Students Say</h2>
+
+    <div class="carousel-wrapper">
+
+      <!-- Left Nav Button -->
+      <button class="nav-btn nav-prev" (click)="changeSlide(-1)" aria-label="Previous">
+        <svg width="16" height="16" viewBox="0 0 25 28" fill="none">
+          <path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#64748B"/>
+        </svg>
+      </button>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid">
+        <div
+          class="review-card"
+          *ngFor="let review of visibleReviews"
+        >
+          <p class="review-text">{{ review.text }}</p>
+
+          <div class="reviewer-info">
+            <img [src]="review.avatar" class="reviewer-avatar" [alt]="review.name" />
+            <div class="reviewer-details">
+              <p class="reviewer-name">{{ review.name }}</p>
+              <p class="reviewer-role">{{ review.role }}</p>
+              <div class="stars">
+                <svg width="136" height="28" viewBox="0 0 136 28" fill="none">
+                  <path *ngFor="let star of starPaths; let i = index"
+                    [attr.d]="star"
+                    [attr.fill]="i < review.rating ? '#5D5DFF' : '#A0A0A0'"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Nav Button -->
+      <button class="nav-btn nav-next" (click)="changeSlide(1)" aria-label="Next">
+        <svg width="16" height="16" viewBox="0 0 25 28" fill="none" style="transform: rotate(180deg);">
+          <path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#FFFFFF"/>
+        </svg>
+      </button>
+
+      <!-- Dot Indicators -->
+      <div class="dots-container">
+        <div
+          *ngFor="let dot of dots; let i = index"
+          class="dot"
+          [class.dot-active]="i === currentIndex"
+          (click)="goToSlide(i)"
+        ></div>
+      </div>
+
+    </div>
+  </section>
+</div>

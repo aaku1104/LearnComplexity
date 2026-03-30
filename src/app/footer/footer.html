@@ -1,101 +1,371 @@
-<!-- Footer — #EFFBFF panel, #0D2455 copyright strip (Figma) -->
-<footer class="footer-section pt-12 pb-0 px-4 md:px-12 bg-footer-bg">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Footer - Learn Complexity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="footer.css"/>
+</head>
+<body>
 
-    <div>
-      <img src="assets/images/lc-logo.png" alt="Learn Complexity" class="h-12 w-auto mb-4" />
-      <p class="text-black/80 font-jakarta font-light text-[16px] leading-[30px] mb-5">
+<!-- Footer CTA Section -->
+<section class="footer-cta">
+
+  <!-- Floating avatar circles -->
+  <div class="avatar" style="width:128px;height:128px;top:445px;left:176px;">
+    <img src="assets/images/F7.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:64px;height:64px;top:285.53px;left:225px;">
+    <img src="assets/images/F5.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:48px;height:48px;top:218px;left:42px;">
+    <img src="assets/images/F1.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:96px;height:96px;top:388px;left:-28px;">
+    <img src="assets/images/F2.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:48px;height:48px;top:684px;left:16px;">
+    <img src="assets/images/F3.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:48px;height:48px;top:386.53px;left:344px;">
+    <img src="assets/images/F6.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:32px;height:32px;top:663.53px;left:373px;">
+    <img src="assets/images/F13.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:64px;height:64px;top:99.53px;left:375px;">
+    <img src="assets/images/F4.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:56px;height:56px;top:131.53px;left:1024px;">
+    <img src="assets/images/F8.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:48px;height:48px;top:610.53px;left:1014px;">
+    <img src="assets/images/F9.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:64px;height:64px;top:310.53px;left:1210px;">
+    <img src="assets/images/F10.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:96px;height:96px;top:88px;left:1328px;">
+    <img src="assets/images/F13.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:128px;height:128px;top:408px;left:1356px;">
+    <img src="assets/images/F12.jpg" alt="User"/>
+  </div>
+  <div class="avatar" style="width:32px;height:32px;top:654.53px;left:1344px;">
+    <img src="assets/images/F14.jpg" alt="User"/>
+  </div>
+
+  <!-- Floating SVG icons -->
+  <div class="icon-wrap" style="width:48px;height:48px;top:96px;left:13px;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 23.3334C24 23.3334 32 23.3334 32 30.6666C32 38 24 38 24 38H17.2C16.5373 38 16 37.4628 16 36.8V23.3334M24 23.3334H16H24ZM24 23.3334C24 23.3334 30.6666 23.3334 30.6666 16.6667C30.6666 10 24 10 24 10H17.2C16.5373 10 16 10.5373 16 11.2V23.3334H24Z" stroke="#FEF08A" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:96px;height:96px;top:133.53px;left:127px;">
+    <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M66 42V54" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 54V42" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 66V54" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 30V42" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 54L30 42L48 30L66 42L48 54Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 66L30 54L48 42L66 54L48 66Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:32px;height:32px;top:231.53px;left:350px;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.6667 16.6668C23.0348 16.6668 23.3333 16.3683 23.3333 16.0002C23.3333 15.632 23.0348 15.3335 22.6667 15.3335C22.2985 15.3335 22 15.632 22 16.0002C22 16.3683 22.2985 16.6668 22.6667 16.6668Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M15.9999 16.6668C16.3681 16.6668 16.6666 16.3683 16.6666 16.0002C16.6666 15.632 16.3681 15.3335 15.9999 15.3335C15.6318 15.3335 15.3333 15.632 15.3333 16.0002C15.3333 16.3683 15.6318 16.6668 15.9999 16.6668Z" fill="#FEF08A" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.33341 16.6668C9.7016 16.6668 10.0001 16.3683 10.0001 16.0002C10.0001 15.632 9.7016 15.3335 9.33341 15.3335C8.96523 15.3335 8.66675 15.632 8.66675 16.0002C8.66675 16.3683 8.96523 16.6668 9.33341 16.6668Z" fill="#FEF08A" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.0001 29.3332C23.3638 29.3332 29.3334 23.3636 29.3334 15.9998C29.3334 8.63604 23.3638 2.6665 16.0001 2.6665C8.63628 2.6665 2.66675 8.63604 2.66675 15.9998C2.66675 18.4284 3.31604 20.7053 4.45051 22.6665L3.33341 28.6665L9.33341 27.5494C11.2946 28.6838 13.5715 29.3332 16.0001 29.3332Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:24px;height:24px;top:396px;left:127px;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 15.8C15 14.0327 12 11 12 11C12 11 9 14.0327 9 15.8C9 17.5673 10.3431 19 12 19C13.6569 19 15 17.5673 15 15.8Z" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M12 4V8" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3.5 7.5L6.5 10.5" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M17.5 10.5L20.5 7.5" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 17H6" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 17H22" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:48px;height:48px;top:544px;left:55px;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 38V10M28 10H42.8C43.4628 10 44 10.5373 44 11.2V36.8C44 37.4628 43.4628 38 42.8 38H28V10ZM28 10V38V10ZM28 10H20H28ZM28 38H20H28ZM20 38H5.2C4.53726 38 4 37.4628 4 36.8V11.2C4 10.5373 4.53726 10 5.2 10H20V38Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.793 19.1904C12.9516 19.0764 13.1039 19.0878 13.2344 19.1709C13.3777 19.2625 13.4999 19.4507 13.5 19.6973V27.6211C13.4998 27.8676 13.3777 28.056 13.2344 28.1475C13.1039 28.2306 12.9516 28.242 12.793 28.1279C11.4033 27.1289 10.5 25.4994 10.5 23.6592C10.5 21.819 11.4034 20.1896 12.793 19.1904Z" fill="#FEF08A" stroke="#FEF08A"/>
+      <path d="M34.7656 19.1709C34.8961 19.0878 35.0484 19.0764 35.207 19.1904C36.5967 20.1896 37.5 21.819 37.5 23.6592C37.5 25.4994 36.5967 27.1289 35.207 28.1279C35.0484 28.242 34.8961 28.2306 34.7656 28.1475C34.6223 28.056 34.5002 27.8676 34.5 27.6211V19.6973C34.5001 19.4508 34.6223 19.2625 34.7656 19.1709Z" fill="#FEF08A" stroke="#FEF08A"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:60px;height:60px;top:586px;left:324px;">
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M37.3334 49H9.33342C6.75608 49 4.66675 46.9107 4.66675 44.3333V11.6667C4.66675 9.08934 6.75608 7 9.33342 7H46.6668C49.2442 7 51.3334 9.08934 51.3334 11.6667V32.6667" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M44.3333 39.6665V51.3332" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M51.3333 39.6665V51.3332" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66675 16.3335H51.3334" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11.6667 11.69L11.6901 11.6641" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.6667 11.69L18.6901 11.6641" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25.6667 11.69L25.6901 11.6641" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:96px;height:96px;top:145.53px;left:1168px;">
+    <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M64 59.2146C66.9874 58.0442 70 55.3778 70 50C70 42 63.3334 40 60 40C60 36 60 28 48 28C36 28 36 36 36 40C32.6667 40 26 42 26 50C26 55.3778 29.0126 58.0442 32 59.2146" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M39.1611 62.9746L42.6967 66.5102C45.821 69.6344 50.8862 69.6344 54.0104 66.5102L54.7176 65.803" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M39.8682 67.9244L39.1611 62.9746L44.1108 63.6818L39.8682 67.9244Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M56.5962 57.8034L53.0606 54.268C49.9364 51.1438 44.871 51.1438 41.7469 54.268L41.0398 54.975" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M55.889 52.8535L56.5962 57.8033L51.6464 57.0961L55.889 52.8535Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:48px;height:48px;top:259.53px;left:1341px;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M36.2672 22C37.431 32.751 42 36 42 36H6C6 36 12 31.7334 12 16.8C12 13.4052 13.2643 10.1495 15.5147 7.74904C17.7652 5.34856 20.8174 4 24 4C24.6746 4 25.3434 4.0606 26 4.17898" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M38 16C41.3138 16 44 13.3137 44 10C44 6.6863 41.3138 4 38 4C34.6862 4 32 6.6863 32 10C32 13.3137 34.6862 16 38 16Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M27.46 42C27.1084 42.6062 26.6038 43.1094 25.9964 43.459C25.3892 43.8088 24.7008 43.993 24 43.993C23.2992 43.993 22.6108 43.8088 22.0036 43.459C21.3964 43.1094 20.8916 42.6062 20.54 42" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:64px;height:64px;top:295.53px;left:1087px;">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50.4789 32.1548V19.7877C50.4789 17.0556 48.3266 14.8408 45.6714 14.8408H12.0188C9.3637 14.8408 7.2113 17.0556 7.2113 19.7877V34.6283C7.2113 37.3604 9.3637 39.5751 12.0188 39.5751H28.8451" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M50.1878 41.844C51.3747 42.5952 51.3017 44.4238 50.0791 44.5665L43.9096 45.286L41.1424 51.0053C40.5941 52.1387 38.8992 51.5839 38.619 50.1792L35.6015 35.0517C35.3648 33.8645 36.4017 33.1172 37.4048 33.7524L50.1878 41.844Z" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M28.8451 27.2325L28.8691 27.2051" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M38.4601 27.2325L38.4841 27.2051" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.2301 27.2325L19.2541 27.2051" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:48px;height:48px;top:460.53px;left:1233px;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M38 40H10C7.79086 40 6 38.2092 6 36V18C6 15.7909 7.79086 14 10 14H38C40.2092 14 42 15.7909 42 18V36C42 38.2092 40.2092 40 38 40Z" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M14 14V7.2C14 6.53726 14.5373 6 15.2 6H32.8C33.4628 6 34 6.53726 34 7.2V14" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M20 6V14" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M24 6V14" stroke="#FEF08A" stroke-width="1.5"/>
+      <path d="M33 28C32.4478 28 32 27.5522 32 27C32 26.4478 32.4478 26 33 26C33.5522 26 34 26.4478 34 27C34 27.5522 33.5522 28 33 28Z" fill="#FEF08A" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="icon-wrap" style="width:32px;height:32px;top:613.53px;left:1196px;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M26 29.3335C27.1045 29.3335 28 28.438 28 27.3335C28 26.229 27.1045 25.3335 26 25.3335C24.8955 25.3335 24 26.229 24 27.3335C24 28.438 24.8955 29.3335 26 29.3335Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.6666 29.3335C13.7712 29.3335 14.6666 28.438 14.6666 27.3335C14.6666 26.229 13.7712 25.3335 12.6666 25.3335C11.5621 25.3335 10.6666 26.229 10.6666 27.3335C10.6666 28.438 11.5621 29.3335 12.6666 29.3335Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.66663 5.33317C6.4444 4.44428 5.33329 2.6665 2.66663 2.6665M6.66663 5.33317H29.3333L26.6666 19.9998H9.33329L6.66663 5.33317Z" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M26.6667 20H9.33337H6.9744C4.59532 20 3.33337 21.0416 3.33337 22.6667C3.33337 24.2917 4.59532 25.3333 6.9744 25.3333H26" stroke="#FEF08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Center content -->
+  <div class="cta-content">
+    <h2 class="cta-title">Join a world of learning</h2>
+    <p class="cta-subtitle">
+      Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.<br>
+      Risus elit et fringilla habitant ut facilisi.
+    </p>
+    <button class="cta-btn">Sign Up Now</button>
+  </div>
+
+  <!-- Wave at bottom -->
+  <div class="cta-wave">
+    <svg width="100%" height="127" viewBox="0 0 1438 127" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M-5 74.5346L127.5 13.0346C175.6 -16.901 236.8 10.0999 333 40.0355C447.5 75.6657 492.3 -34.8613 588.5 13.0356C684.7 60.9325 764.6 110.457 860.8 74.5346C957 38.6119 983.8 25.0098 1080 13.0356C1176.2 1.06136 1273.9 50.8114 1322 62.7856L1438 102.035V126.535H1389.9C1341.8 126.535 1245.6 126.535 1149.4 126.535C1053.2 126.535 957 126.535 860.8 126.535C764.6 126.535 668.4 126.535 572.2 126.535C476 126.535 379.8 126.535 283.6 126.535C187.4 126.535 91.2 126.535 43.1 126.535H-5V74.5346Z" fill="#EFFBFF"/>
+    </svg>
+  </div>
+
+</section>
+
+<footer class="footer-root">
+
+  <!-- ═══════════════════════════════════════════
+       MAIN FOOTER AREA  1440 × 396  bg #EFFBFF
+  ════════════════════════════════════════════ -->
+  <div class="footer-bg">
+
+    <!-- Logo lockup  left:143 top:70  w:168 h:37  gap:2 -->
+    <div class="logo-lockup">
+      <img
+        src="assets/images/lc-logo.png"
+        alt="Learn Complexity"
+        class="logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <img
+        src="assets/images/logo-text.png"
+        alt="Learn Complexity"
+        class="logo-text-img"
+        onerror="this.style.display='none';"
+      />
+      <!-- SVG fallback icon shown only when image fails -->
+      <div class="logo-fallback" style="display:none;">
+        <svg width="54" height="44" viewBox="0 0 54 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="15" height="38" rx="4" stroke="#1E2D6B" stroke-width="3" fill="none"/>
+          <rect x="37" y="3" width="15" height="38" rx="4" stroke="#1E2D6B" stroke-width="3" fill="none"/>
+          <circle cx="27" cy="22" r="3.5" fill="#EA580C"/>
+          <line x1="17" y1="22" x2="23.5" y2="22" stroke="#1E2D6B" stroke-width="2.5"/>
+          <line x1="30.5" y1="22" x2="37" y2="22" stroke="#1E2D6B" stroke-width="2.5"/>
+        </svg>
+        <div class="logo-text-block">
+          <span class="logo-word">LEARN</span>
+          <span class="logo-word">COMPLEXITY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo section (description + socials)  left:143 top:145  w:306 h:135  gap:20 -->
+    <div class="logo-section">
+
+      <!-- description  w:306 h:72  font-weight:300 font-size:16px line-height:30px -->
+      <p class="footer-desc">
         Empowering learners to build a brighter future through expert-led, hands-on education.
       </p>
-      <div class="flex gap-3">
-        <a href="#" class="w-10 h-10 rounded-full bg-white border border-brand-orange flex items-center justify-center hover:bg-orange-50 transition shadow-sm" aria-label="Facebook">
-          <i class="fa-brands fa-facebook-f text-brand-orange text-sm"></i>
+
+      <!-- Social icons  gap:20  h:43 -->
+      <div class="socials-row">
+        <!-- Facebook  42×43 -->
+        <a href="#" class="social-circle">
+          <svg width="18" height="19" viewBox="0 0 24 24" fill="#EA580C"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white border border-brand-orange flex items-center justify-center hover:bg-orange-50 transition shadow-sm" aria-label="Twitter">
-          <i class="fa-brands fa-twitter text-brand-orange text-sm"></i>
+        <!-- Twitter  42×43 -->
+        <a href="#" class="social-circle">
+          <svg width="18" height="19" viewBox="0 0 24 24" fill="#EA580C"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
         </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white border border-brand-orange flex items-center justify-center hover:bg-orange-50 transition shadow-sm" aria-label="Instagram">
-          <i class="fa-brands fa-instagram text-brand-orange text-sm"></i>
+        <!-- Instagram  42×43 -->
+        <a href="#" class="social-circle">
+          <svg width="18" height="19" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white border border-brand-orange flex items-center justify-center hover:bg-orange-50 transition shadow-sm" aria-label="YouTube">
-          <i class="fa-brands fa-youtube text-brand-orange text-sm"></i>
+        <!-- YouTube  42×43 -->
+        <a href="#" class="social-circle">
+          <svg width="18" height="19" viewBox="0 0 24 24" fill="#EA580C"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
         </a>
       </div>
     </div>
 
-    <div>
-      <h4 class="font-jakarta font-bold text-[17px] text-black capitalize mb-1">Quick Link</h4>
-      <div class="footer-wavy-line"></div>
-      <ul class="space-y-2 list-none p-0 m-0">
-        <li><a routerLink="/" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Home
-        </a></li>
-        <li><a routerLink="/about" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          About Us
-        </a></li>
-        <li><a href="#" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Courses
-        </a></li>
-        <li><a routerLink="/contact" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Contact Us
-        </a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="font-jakarta font-bold text-[17px] text-black capitalize mb-1">Follow</h4>
-      <div class="footer-wavy-line"></div>
-      <ul class="space-y-2 list-none p-0 m-0">
-        <li><a routerLink="/" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Home
-        </a></li>
-        <li><a routerLink="/about" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          About Us
-        </a></li>
-        <li><a href="#" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Courses
-        </a></li>
-        <li><a routerLink="/contact" class="flex items-center gap-2 text-black text-[17px] font-jakarta font-normal hover:text-brand-orange transition-colors">
-          <i class="fa-solid fa-chevron-right text-brand-orange text-xs"></i>
-          Contact Us
-        </a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="font-jakarta font-bold text-[16px] text-black mb-1">Contact</h4>
-      <div class="footer-wavy-line"></div>
-      <ul class="space-y-4 list-none p-0 m-0">
-        <li class="flex items-start gap-3">
-          <i class="fa-solid fa-location-dot text-brand-orange text-base mt-0.5"></i>
-          <span class="text-black text-[16px] font-jakarta capitalize">Pune, Maharastra</span>
+    <!-- Quick Link col 1  left:561 top:78  w:93 h:168  gap:20 -->
+    <div class="ql-col" style="left:561px;">
+      <!-- heading block  gap:16  w:86 h:36 -->
+      <div class="ql-heading-block">
+        <span class="ql-title">Quick Link</span>
+        <!-- zigzag  w:84 h:7 -->
+        <svg width="84" height="9" viewBox="0 0 84 9" fill="none">
+          <polyline points="0,7 6,2 12,7 18,2 24,7 30,2 36,7 42,2 48,7 54,2 60,7 66,2 72,7 78,2 84,7"
+            stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- links  gap:20  w:93 h:112 -->
+      <ul class="ql-list">
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Home</a>
         </li>
-        <li class="flex items-start gap-3">
-          <i class="fa-solid fa-envelope text-brand-orange text-base mt-0.5"></i>
-          <a href="mailto:hr@learncomplexity.com" class="text-black text-[16px] font-jakarta capitalize hover:text-brand-orange transition-colors">hr&#64;learncomplexity.com</a>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">About Us</a>
         </li>
-        <li class="flex items-start gap-3">
-          <i class="fa-solid fa-phone text-brand-orange text-base mt-0.5"></i>
-          <a href="tel:+919123456789" class="text-black text-[16px] font-jakarta capitalize underline hover:text-brand-orange transition-colors">+91 91234-56789</a>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Services</a>
+        </li>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Product</a>
         </li>
       </ul>
     </div>
 
-  </div>
+    <!-- Quick Link col 2  left:766 top:78  w:93 h:168  gap:20 -->
+    <div class="ql-col" style="left:766px;">
+      <div class="ql-heading-block">
+        <span class="ql-title">Quick Link</span>
+        <svg width="84" height="9" viewBox="0 0 84 9" fill="none">
+          <polyline points="0,7 6,2 12,7 18,2 24,7 30,2 36,7 42,2 48,7 54,2 60,7 66,2 72,7 78,2 84,7"
+            stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <ul class="ql-list">
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Home</a>
+        </li>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">About Us</a>
+        </li>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Services</a>
+        </li>
+        <li class="ql-item">
+          <svg class="ql-arrow" width="13" height="13" viewBox="0 0 13 13"><polyline points="3,1 10,6.5 3,12" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <a href="#" class="ql-link">Product</a>
+        </li>
+      </ul>
+    </div>
 
-  <div class="footer-bottom" style="margin: 0 -1rem;">
-    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full block" style="display:block; margin-bottom:-2px;">
-      <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#0D2455"/>
+    <!-- Contact  left:1039 top:87  w:256 h:163  gap:13 -->
+    <div class="contact-col">
+      <!-- heading block  gap:16  w:65 h:35 -->
+      <div class="contact-heading-block">
+        <span class="contact-title">Contact</span>
+        <!-- zigzag  w:65 h:7 -->
+        <svg width="65" height="9" viewBox="0 0 65 9" fill="none">
+          <polyline points="0,7 6,2 12,7 18,2 24,7 30,2 36,7 42,2 48,7 54,2 60,7 65,4.5"
+            stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- contact items  gap:20  w:256 h:115 -->
+      <ul class="contact-list">
+        <!-- address  gap:14  h:25 -->
+        <li class="contact-item">
+          <span class="contact-icon-wrap">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <span class="contact-text">Pune, Maharastra</span>
+        </li>
+        <!-- email  gap:14  h:25 -->
+        <li class="contact-item">
+          <span class="contact-icon-wrap">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </span>
+          <span class="contact-text">Hr@Learncomplexity.Com</span>
+        </li>
+        <!-- phone  gap:14  h:25 -->
+        <li class="contact-item">
+          <span class="contact-icon-wrap">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </span>
+          <a href="tel:+919123456789" class="contact-text contact-phone">+91 91234-56789</a>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /footer-bg -->
+
+  <!-- Wave divider -->
+  <div class="wave-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg">
+      <path d="M0,40 C80,70 160,10 240,40 C320,70 400,10 480,40 C560,70 640,10 720,40 C800,70 880,10 960,40 C1040,70 1120,10 1200,40 C1280,70 1360,10 1440,40 L1440,80 L0,80 Z" fill="#1E2D6B"/>
     </svg>
-    <div class="bg-footer-copy text-center py-4">
-      <p class="text-white font-poppins text-[15px] opacity-90">&copy; 2023 All rights reserved</p>
-    </div>
   </div>
+
+  <!-- Copyright bar -->
+  <div class="copyright-bar">
+    <p class="copyright-text">© 2023 All rights reserved</p>
+  </div>
+
 </footer>
+
+</body>
+</html>

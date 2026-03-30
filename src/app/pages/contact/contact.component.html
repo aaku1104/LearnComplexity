@@ -1,5 +1,6 @@
 <!-- contact-us.component.html -->
 
+
 <!-- ===== HERO SECTION ===== -->
 <section class="hero-section relative w-full bg-[#EFFBFF] overflow-hidden min-h-[340px] lg:min-h-[420px] flex items-center">
   <!-- Blurred ellipses background -->
@@ -55,263 +56,170 @@
   </div>
 </section>
 
-<!-- ===== GET IN TOUCH SECTION ===== -->
-<section class="get-in-touch py-16 lg:py-20 px-4">
-  <div class="container mx-auto max-w-6xl">
-    <div class="bg-[#F0F4FF] rounded-2xl overflow-hidden flex flex-col lg:flex-row relative">
 
-      <!-- Blue decorative triangle bottom-left -->
-      <div class="absolute bottom-0 left-0 w-52 h-52 bg-[#2563EB] rotate-[41deg] translate-y-24 -translate-x-16 z-0"></div>
+<section class="git-section">
+  <!-- Triangle decoration in left bottom corner -->
+  <img src="assets/images/get in touch triangle.png" alt="Triangle Decoration" class="git-triangle-decoration">
+  
+  <div class="git-wrapper">
 
-      <!-- Left Info Panel -->
-      <div class="relative z-10 w-full lg:w-[420px] flex-shrink-0 p-8 lg:p-12">
-        <div class="bg-white rounded-xl shadow-md p-8 h-full">
-          <h3 class="font-[Epilogue] font-bold text-3xl text-[#0E2A46] mb-3">Get in Touch</h3>
-          <p class="font-[Sora] text-[#333931] text-[17px] leading-8 mb-8">
-            Suspendisse ultrice gravida dictum fusce placerat ultricies integer
+    <!-- ═══════════════════════════════════════════════════
+         TWO-COLUMN GRID
+         Left  : heading + subtext + card + socials
+         Right : form
+         ═══════════════════════════════════════════════════ -->
+    <div class="git-grid">
+
+      <!-- ─── LEFT COLUMN ─────────────────────────────── -->
+      <div class="git-left">
+
+        <!-- Heading -->
+        <h2 class="git-heading">Get in Touch</h2>
+
+        <!-- Subtext -->
+        <p class="git-subtext">
+          Suspendisse ultrice gravida dictum fusce placerat
+          ultricies integer
+        </p>
+
+        <!-- White info card -->
+        <div class="git-card">
+
+          <!-- Address -->
+          <div class="git-info-item">
+            <div class="git-icon-wrap">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div class="git-info-body">
+              <span class="git-info-label">Our Address</span>
+              <p class="git-info-value">Deccan Gymkhana,<br>Pune Maharastra</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="git-info-item">
+            <div class="git-icon-wrap">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+              </svg>
+            </div>
+            <div class="git-info-body">
+              <span class="git-info-label">Hours Of Operation</span>
+              <p class="git-info-value">Mon - Fri: 9.00am to 5.00pm</p>
+              <p class="git-info-note">[2nd Sat Holiday]</p>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="git-info-item git-info-item--last">
+            <div class="git-icon-wrap">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div class="git-info-body">
+              <span class="git-info-label">Contact</span>
+              <p class="git-info-value">+12-345-6789</p>
+              <p class="git-info-value git-info-value--sm">support&#64;Learncomplexity.com</p>
+            </div>
+          </div>
+
+        </div><!-- /git-card -->
+
+        <!-- Social icons — centred below card -->
+        <div class="git-social">
+          <a href="#" class="git-social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+            </svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div><!-- /git-left -->
+
+      <!-- ─── RIGHT COLUMN — Form ───────────────────────── -->
+      <div class="git-right">
+
+        <form class="git-form" (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+
+          <div class="git-field">
+            <label class="git-label" for="f-name">Name<span class="git-req">*</span></label>
+            <input id="f-name" class="git-input" type="text" name="name"
+              placeholder="Name" [(ngModel)]="formData.name" required />
+          </div>
+
+          <div class="git-field">
+            <label class="git-label" for="f-email">Email Address<span class="git-req">*</span></label>
+            <input id="f-email" class="git-input" type="email" name="email"
+              placeholder="Email" [(ngModel)]="formData.email" required />
+          </div>
+
+          <div class="git-field">
+            <label class="git-label" for="f-phone">Phone<span class="git-req">*</span></label>
+            <input id="f-phone" class="git-input" type="tel" name="phone"
+              placeholder="Phone" [(ngModel)]="formData.phone" required />
+          </div>
+
+          <div class="git-field">
+            <label class="git-label" for="f-subject">Subject<span class="git-req">*</span></label>
+            <input id="f-subject" class="git-input" type="text" name="subject"
+              placeholder="Subject" [(ngModel)]="formData.subject" required />
+          </div>
+
+          <div class="git-field git-field-message">
+            <label class="git-label" for="f-message">Message</label>
+            <textarea id="f-message" class="git-textarea" name="message"
+              [(ngModel)]="formData.message"></textarea>
+          </div>
+
+          <div class="git-submit-row">
+            <button type="submit" class="git-submit-btn">Send Message</button>
+          </div>
+
+          <p class="git-success" *ngIf="formSubmitted">
+            ✅ Message sent successfully!
           </p>
 
-          <!-- Contact Items List -->
-          <div class="space-y-8">
-            <!-- Address -->
-            <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(252,99,65,0.1)">
-                <svg class="w-5 h-5 text-[#FC6441]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-[Sora] text-[#4D5756] text-sm capitalize mb-1">Our Address</p>
-                <p class="font-[Epilogue] font-bold text-[#0E2A46] text-xl leading-8">Deccan Gymkhana,<br>Pune Maharastra</p>
-              </div>
-            </div>
-
-            <!-- Hours -->
-            <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(252,99,65,0.1)">
-                <svg class="w-5 h-5 text-[#FC6441]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-[Sora] text-[#4D5756] text-sm capitalize mb-1">Hours of Operation</p>
-                <p class="font-[Epilogue] font-bold text-[#0E2A46] text-xl leading-8">Mon - Fri: 9.00am to 5.00pm</p>
-                <p class="font-[Sora] text-[#4D5756] text-sm capitalize">[2nd Sat Holiday]</p>
-              </div>
-            </div>
-
-            <!-- Contact -->
-            <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(252,99,65,0.1)">
-                <svg class="w-5 h-5 text-[#FC6441]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-[Sora] text-[#4D5756] text-sm capitalize mb-1">contact</p>
-                <p class="font-[Epilogue] font-bold text-[#0E2A46] text-xl leading-8">+12-345-6789</p>
-                <p class="font-[Epilogue] font-bold text-[#0E2A46] text-lg leading-8">support&#64;Learncomplexity.com</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <div class="flex items-center gap-4 mt-10">
-            <a href="#" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-[#FC6441] hover:text-white transition-all group">
-              <svg class="w-4 h-4 text-[#FC6441] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-[#FC6441] hover:text-white transition-all group">
-              <svg class="w-4 h-4 text-[#FC6441] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-[#FC6441] hover:text-white transition-all group">
-              <svg class="w-4 h-4 text-[#FC6441] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-[#FC6441] hover:text-white transition-all group">
-              <svg class="w-4 h-4 text-[#FC6441] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Contact Form -->
-      <div class="relative z-10 flex-1 p-8 lg:p-12">
-        <form (ngSubmit)="onSubmit()" class="space-y-5">
-          <div>
-            <label class="block font-[Epilogue] text-[#0E2A46] text-lg mb-1">Name<span class="text-red-500">*</span></label>
-            <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Name"
-              class="w-full h-14 px-5 bg-white rounded-md font-[Sora] text-sm text-[#4D5756] outline-none border border-transparent focus:border-[#2563EB] transition-colors shadow-sm"
-              required>
-          </div>
-          <div>
-            <label class="block font-[Epilogue] text-[#0E2A46] text-lg mb-1">Email Address<span class="text-red-500">*</span></label>
-            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email"
-              class="w-full h-14 px-5 bg-white rounded-md font-[Sora] text-sm text-[#4D5756] outline-none border border-transparent focus:border-[#2563EB] transition-colors shadow-sm"
-              required>
-          </div>
-          <div>
-            <label class="block font-[Epilogue] text-[#0E2A46] text-lg mb-1">Phone<span class="text-red-500">*</span></label>
-            <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="Phone"
-              class="w-full h-14 px-5 bg-white rounded-md font-[Sora] text-sm text-[#4D5756] outline-none border border-transparent focus:border-[#2563EB] transition-colors shadow-sm"
-              required>
-          </div>
-          <div>
-            <label class="block font-[Epilogue] text-[#0E2A46] text-lg mb-1">Subject<span class="text-red-500">*</span></label>
-            <input type="text" [(ngModel)]="formData.subject" name="subject" placeholder="Subject"
-              class="w-full h-14 px-5 bg-white rounded-md font-[Sora] text-sm text-[#4D5756] outline-none border border-transparent focus:border-[#2563EB] transition-colors shadow-sm"
-              required>
-          </div>
-          <div>
-            <label class="block font-[Epilogue] text-[#0E2A46] text-lg mb-1">Message</label>
-            <textarea [(ngModel)]="formData.message" name="message" rows="4"
-              class="w-full px-5 py-4 bg-white rounded-md font-[Sora] text-sm text-[#4D5756] outline-none border border-transparent focus:border-[#2563EB] transition-colors shadow-sm resize-none"></textarea>
-          </div>
-          <div class="flex justify-center pt-2">
-            <button type="submit"
-              class="px-10 py-4 bg-[#2563EB] text-white font-[Sora] text-[15px] uppercase tracking-wider rounded-md hover:bg-blue-700 active:scale-95 transition-all shadow-md">
-              Send Message
-            </button>
-          </div>
         </form>
+      </div><!-- /git-right -->
 
-        <!-- Success message -->
-        <div *ngIf="formSubmitted" class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 font-[Sora] text-sm text-center">
-          ✅ Thank you! Your message has been sent successfully.
-        </div>
-      </div>
-    </div>
-  </div>
+    </div><!-- /git-grid -->
+  </div><!-- /git-wrapper -->
 </section>
 
-<!-- ===== OFFICE LOCATION (MAP) SECTION ===== -->
-<section class="office-location py-12 px-4">
-  <div class="container mx-auto max-w-6xl">
-    <h3 class="font-[Epilogue] font-bold text-3xl text-[#0E2A46] mb-8">Office Location</h3>
-    <div class="w-full rounded-xl overflow-hidden shadow-lg border border-gray-100" style="height: 400px;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8571428571427!2d73.84!3d18.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06518df4d35%3A0x2d43c2e66e3c5d0b!2sDeccan%20Gymkhana%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade" title="Office Location Map">
-      </iframe>
-    </div>
+<section class="ol">
+
+  <h2 class="ol__heading">Office Location</h2>
+
+  <div class="ol__map-wrap">
+    <iframe
+      class="ol__iframe"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588756937!2d73.839392!3d18.5562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3d1c2e2e2e3%3A0x0!2sDeccan+Gymkhana%2C+Pune%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+      allowfullscreen=""
+      loading="eager"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Office Location Map">
+    </iframe>
   </div>
+
 </section>
 
-<!-- ===== WHAT STUDENTS SAY SECTION ===== -->
-<section class="testimonials py-16 px-4">
-  <div class="container mx-auto max-w-6xl">
-    <h2 class="font-[Poppins] font-semibold text-3xl lg:text-4xl text-[#050C26] text-center capitalize tracking-wide mb-12">
-      What Student's Say
-    </h2>
-
-    <!-- Slider -->
-    <div class="relative">
-      <!-- Prev Button -->
-      <button (click)="prevTestimonial()" class="absolute left-[-20px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center shadow hover:shadow-md transition-all">
-        <svg class="w-5 h-5 text-[#64748B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      </button>
-
-      <!-- Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let t of visibleTestimonials"
-          class="bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-4 hover:shadow-xl transition-shadow">
-          <p class="font-[Roboto] text-[18px] text-black leading-relaxed flex-1">
-            {{ t.text }}
-          </p>
-          <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#80A2EB] to-[#2563EB] flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-              {{ t.name[0] }}
-            </div>
-            <div>
-              <p class="font-[Roboto] text-[18px] text-black font-medium">{{ t.name }}</p>
-              <p class="font-[Roboto] text-[16px] text-[#475569]">{{ t.role }}</p>
-              <div class="flex gap-1 mt-1">
-                <span
-                  *ngFor="let star of [1,2,3,4,5]"
-                  class="w-5 h-5 rounded-sm"
-                  [style.background-color]="star <= t.rating ? '#5D5DFF' : '#A0A0A0'"
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Next Button -->
-      <button (click)="nextTestimonial()" class="absolute right-[-20px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[#2563EB] flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all">
-        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </button>
-    </div>
-
-    <!-- Dots -->
-    <div class="flex items-center justify-center gap-3 mt-10">
-      <div class="w-10 h-1.5 rounded-full bg-[#0F172A]"></div>
-      <div *ngFor="let d of [1,2,3,4]" class="w-2 h-2 rounded-full bg-[#CBD5E1]"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== JOIN A WORLD OF LEARNING SECTION ===== -->
-<section class="cta-section relative bg-[#EA580C] py-24 lg:py-36 px-4 overflow-hidden">
-  <!-- Decorative user avatars (left side) -->
-  <div class="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 opacity-80 hidden lg:flex">
-    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-red-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-[#EA580C] flex items-center justify-center text-white text-xl font-bold">A</div>
-    </div>
-    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-indigo-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-[#2563EB] flex items-center justify-center text-white font-bold">B</div>
-    </div>
-    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-purple-500 flex items-center justify-center text-white text-2xl font-bold">C</div>
-    </div>
-    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-yellow-500 flex items-center justify-center text-white font-bold">D</div>
-    </div>
-  </div>
-
-  <!-- Floating icons left -->
-  <div class="absolute left-24 top-12 text-[#FEF08A] opacity-60 hidden lg:block">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-  </div>
-  <div class="absolute left-16 bottom-20 text-[#FEF08A] opacity-60 hidden lg:block">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-  </div>
-
-  <!-- Decorative user avatars (right side) -->
-  <div class="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 opacity-80 hidden lg:flex">
-    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-teal-500 flex items-center justify-center text-white text-xl font-bold">E</div>
-    </div>
-    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-rose-400 flex items-center justify-center text-white font-bold text-sm">F</div>
-    </div>
-    <div class="w-32 h-32 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-amber-500 flex items-center justify-center text-white text-3xl font-bold">G</div>
-    </div>
-    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 border-4 border-white/30 overflow-hidden">
-      <div class="w-full h-full bg-green-500 flex items-center justify-center text-white font-bold">H</div>
-    </div>
-  </div>
-
-  <!-- Floating icons right -->
-  <div class="absolute right-24 top-16 text-[#FEF08A] opacity-60 hidden lg:block">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-  </div>
-  <div class="absolute right-20 bottom-24 text-[#FEF08A] opacity-60 hidden lg:block">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-  </div>
-
-  <!-- CTA Content Center -->
-  <div class="relative z-10 text-center max-w-4xl mx-auto">
-    <h2 class="font-[Caveat] font-bold text-5xl lg:text-7xl text-white mb-6">
-      Join a world of learning
-    </h2>
-    <p class="font-[Roboto] text-white text-lg lg:text-xl leading-8 mb-10 opacity-90">
-      Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.<br>
-      Risus elit et fringilla habitant ut facilisi.
-    </p>
-    <a routerLink="/register"
-      class="inline-block px-10 py-4 bg-[#0F3795] text-white font-[Roboto] font-bold text-2xl rounded-lg hover:bg-blue-900 transition-colors shadow-xl">
-      Sign Up Now
-    </a>
-  </div>
-</section>
+<!-- Reviews Section -->
+<app-reviews></app-reviews>

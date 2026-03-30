@@ -3,26 +3,35 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ReviewsComponent } from '../../reviews/reviews.component';
+
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
 
 interface Testimonial {
   name: string;
   role: string;
   text: string;
   rating: number;
+  image: string;
 }
-
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, ReviewsComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactUsComponent implements OnInit {
+ 
 
   // Dot grid array for hero section (8 cols x 7 rows = 56 dots)
-  dotArray = Array(56).fill(0);
+  dotArray = Array(70).fill(0);
 
   // Contact form data
   formData = {
@@ -40,32 +49,24 @@ export class ContactUsComponent implements OnInit {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 4
+      rating: 4,
+      image: 'assets/images/testimonial-avatar.jpg'
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 4
+      rating: 4,
+      image: 'assets/images/testimonial-avatar.jpg'
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
-      rating: 4
+      rating: 4,
+      image: 'assets/images/testimonial-avatar.jpg'
     },
-    {
-      name: 'Sarah Connor',
-      role: 'Frontend developer',
-      text: 'The curriculum is well-structured and the instructors are very knowledgeable. I landed my first dev job within 3 months of completing the course!',
-      rating: 5
-    },
-    {
-      name: 'James Wilson',
-      role: 'Backend developer',
-      text: 'Excellent platform! The hands-on projects gave me real-world experience. The community support is fantastic and very encouraging.',
-      rating: 4
-    }
+    
   ];
 
   currentTestimonialIndex = 0;
