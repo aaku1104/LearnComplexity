@@ -1,107 +1,84 @@
 <!-- contact-us.component.html -->
 
-
 <!-- ===== HERO SECTION ===== -->
-<section class="hero-section relative w-full bg-[#EFFBFF] overflow-hidden min-h-[340px] lg:min-h-[420px] flex items-center">
-  <!-- Blurred ellipses background -->
-  <div class="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-[#80A2EB] opacity-30 blur-[120px] pointer-events-none"></div>
-  <div class="absolute right-0 top-20 w-72 h-72 rounded-full bg-[#80A2EB] opacity-30 blur-[120px] pointer-events-none"></div>
+<section class="hero-section">
+  <div class="hero-ellipse hero-ellipse--left"></div>
+  <div class="hero-ellipse hero-ellipse--right"></div>
 
-  <div class="container mx-auto px-6 lg:px-20 py-12 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-10">
+  <div class="hero-content">
     <!-- Left Text -->
-    <div class="flex-1 max-w-xl">
-      <h2 class="font-[Epilogue] font-bold text-4xl lg:text-5xl leading-tight text-[#17254E] capitalize mb-4">
-        Need Help Or Have A<br>Question?
-      </h2>
-      <h1 class="font-[Caveat] font-bold text-4xl lg:text-[64px] leading-tight text-[#2563EB] capitalize">
-        Let's talk.
-      </h1>
+    <div class="hero-text">
+      <h2 class="hero-title">Need Help Or Have A<br>Question?</h2>
+      <h1 class="hero-script">Let's talk.</h1>
     </div>
 
     <!-- Right: Person image + decorative elements -->
-    <div class="relative flex-shrink-0 w-[280px] lg:w-[380px] h-[280px] lg:h-[360px]">
-      <!-- Orange circle -->
-      <div class="absolute top-4 right-12 w-36 h-36 lg:w-44 lg:h-44 rounded-full bg-[#EA580C]"></div>
-      <!-- Person image -->
+    <div class="hero-visual">
+      <div class="hero-dot-grid">
+        <ng-container *ngFor="let i of dotArray">
+          <div class="hero-dot"></div>
+        </ng-container>
+      </div>
+      <div class="hero-orange-circle"></div>
       <img src="assets/images/contact-person.png"
            alt="Contact Person"
-           class="absolute bottom-0 right-8 h-[260px] lg:h-[340px] w-auto object-contain z-10"
+           class="hero-person-img"
            onerror="this.style.display='none'">
-      <!-- Floating card 1 (bar chart icon) -->
-      <div class="absolute top-6 left-0 bg-white shadow-xl rounded-2xl p-3 z-20 rotate-[-6deg]">
-        <div class="flex gap-1 items-end">
-          <div class="w-2 h-5 bg-[#545AE8] rounded"></div>
-          <div class="w-2 h-8 bg-[#545AE8] rounded"></div>
-          <div class="w-2 h-3 bg-[#F48C06] rounded"></div>
-          <div class="w-2 h-6 bg-[#F48C06] rounded"></div>
+      <!-- Floating card 1 -->
+      <div class="hero-icon-box hero-icon-box--left">
+        <div class="hero-bar-chart">
+          <div class="bar bar--blue bar--h5"></div>
+          <div class="bar bar--blue bar--h8"></div>
+          <div class="bar bar--orange bar--h3"></div>
+          <div class="bar bar--orange bar--h6"></div>
         </div>
       </div>
-      <!-- Floating card 2 (users icon) -->
-      <div class="absolute bottom-16 right-0 bg-white shadow-xl rounded-2xl p-3 z-20 rotate-[4deg]">
-        <svg class="w-6 h-6 text-[#545AE8]" fill="currentColor" viewBox="0 0 24 24">
+      <!-- Floating card 2 -->
+      <div class="hero-icon-box hero-icon-box--right">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#545AE8">
           <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
         </svg>
       </div>
-      <!-- Dot grid pattern -->
-      <div class="absolute top-0 left-[-30px] grid grid-cols-6 gap-2 opacity-50">
-        <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]">
-          <div class="w-1.5 h-1.5 rounded-full bg-[#DCE2EE]"></div>
-        </ng-container>
-      </div>
-      <!-- Accent dots -->
-      <div class="absolute top-0 right-0 w-3 h-3 rounded-full bg-[#2563EB]"></div>
-      <div class="absolute bottom-8 left-4 w-4 h-4 rounded-full bg-[#FF9A7A]"></div>
-      <div class="absolute bottom-0 right-2 w-3 h-3 rounded-full bg-[#3B82F6]"></div>
+      <div class="hero-accent-dot hero-accent-dot--blue-top"></div>
+      <div class="hero-accent-dot hero-accent-dot--orange"></div>
+      <div class="hero-accent-dot hero-accent-dot--blue-bottom"></div>
     </div>
   </div>
 </section>
 
 
+<!-- ===== GET IN TOUCH SECTION ===== -->
 <section class="git-section">
-  <!-- Triangle decoration in left bottom corner -->
-  <img src="assets/images/get in touch triangle.png" alt="Triangle Decoration" class="git-triangle-decoration">
-  
-  <div class="git-wrapper">
+  <img src="assets/images/get in touch triangle.png" alt="" class="git-triangle-decoration">
 
-    <!-- ═══════════════════════════════════════════════════
-         TWO-COLUMN GRID
-         Left  : heading + subtext + card + socials
-         Right : form
-         ═══════════════════════════════════════════════════ -->
+  <div class="git-wrapper">
     <div class="git-grid">
 
-      <!-- ─── LEFT COLUMN ─────────────────────────────── -->
+      <!-- LEFT COLUMN -->
       <div class="git-left">
-
-        <!-- Heading -->
         <h2 class="git-heading">Get in Touch</h2>
-
-        <!-- Subtext -->
         <p class="git-subtext">
-          Suspendisse ultrice gravida dictum fusce placerat
-          ultricies integer
+          Suspendisse ultrice gravida dictum fusce placerat ultricies integer
         </p>
 
-        <!-- White info card -->
         <div class="git-card">
-
           <!-- Address -->
           <div class="git-info-item">
             <div class="git-icon-wrap">
-              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
             </div>
             <div class="git-info-body">
               <span class="git-info-label">Our Address</span>
-              <p class="git-info-value">Deccan Gymkhana,<br>Pune Maharastra</p>
+              <p class="git-info-value">Flat No. 5, Samarth Terraces,<br>Kharadi, Pune Maharashtra 411014</p>
             </div>
           </div>
 
           <!-- Hours -->
           <div class="git-info-item">
             <div class="git-icon-wrap">
-              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
               </svg>
             </div>
@@ -115,7 +92,7 @@
           <!-- Contact -->
           <div class="git-info-item git-info-item--last">
             <div class="git-icon-wrap">
-              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg class="git-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
             </div>
@@ -125,100 +102,128 @@
               <p class="git-info-value git-info-value--sm">support&#64;Learncomplexity.com</p>
             </div>
           </div>
-
-        </div><!-- /git-card -->
-
-        <!-- Social icons — centred below card -->
-        <div class="git-social">
-          <a href="#" class="git-social-btn" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <a href="#" class="git-social-btn" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-          <a href="#" class="git-social-btn" aria-label="Pinterest">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
-            </svg>
-          </a>
-          <a href="#" class="git-social-btn" aria-label="Twitter">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-            </svg>
-          </a>
         </div>
 
-      </div><!-- /git-left -->
+        <!-- Social icons -->
+        <div class="git-social">
+          <a href="#" class="git-social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          </a>
+          <a href="#" class="git-social-btn" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+        </div>
+      </div>
 
-      <!-- ─── RIGHT COLUMN — Form ───────────────────────── -->
+      <!-- RIGHT COLUMN — Form -->
       <div class="git-right">
-
         <form class="git-form" (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
-
           <div class="git-field">
             <label class="git-label" for="f-name">Name<span class="git-req">*</span></label>
             <input id="f-name" class="git-input" type="text" name="name"
               placeholder="Name" [(ngModel)]="formData.name" required />
           </div>
-
           <div class="git-field">
             <label class="git-label" for="f-email">Email Address<span class="git-req">*</span></label>
             <input id="f-email" class="git-input" type="email" name="email"
               placeholder="Email" [(ngModel)]="formData.email" required />
           </div>
-
           <div class="git-field">
             <label class="git-label" for="f-phone">Phone<span class="git-req">*</span></label>
             <input id="f-phone" class="git-input" type="tel" name="phone"
               placeholder="Phone" [(ngModel)]="formData.phone" required />
           </div>
-
           <div class="git-field">
             <label class="git-label" for="f-subject">Subject<span class="git-req">*</span></label>
             <input id="f-subject" class="git-input" type="text" name="subject"
               placeholder="Subject" [(ngModel)]="formData.subject" required />
           </div>
-
-          <div class="git-field git-field-message">
+          <div class="git-field git-field--message">
             <label class="git-label" for="f-message">Message</label>
             <textarea id="f-message" class="git-textarea" name="message"
               [(ngModel)]="formData.message"></textarea>
           </div>
-
           <div class="git-submit-row">
             <button type="submit" class="git-submit-btn">Send Message</button>
           </div>
-
-          <p class="git-success" *ngIf="formSubmitted">
-            ✅ Message sent successfully!
-          </p>
-
+          <p class="git-success" *ngIf="formSubmitted">✅ Message sent successfully!</p>
         </form>
-      </div><!-- /git-right -->
+      </div>
 
-    </div><!-- /git-grid -->
-  </div><!-- /git-wrapper -->
+    </div>
+  </div>
 </section>
 
-<section class="ol">
 
+<!-- ===== OFFICE LOCATION SECTION ===== -->
+<section class="ol">
   <h2 class="ol__heading">Office Location</h2>
 
-  <div class="ol__map-wrap">
+  <!-- Map container: full-width iframe, info box floats top-left — exact match to screenshot -->
+  <div class="ol__map-outer">
+
+    <!-- Full-width Google Maps embed — exact coords: Kharadi, Pune -->
     <iframe
       class="ol__iframe"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588756937!2d73.839392!3d18.5562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3d1c2e2e2e3%3A0x0!2sDeccan+Gymkhana%2C+Pune%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
-      allowfullscreen=""
-      loading="eager"
+      src="https://maps.google.com/maps?q=18.5448284,73.9358339&z=15&output=embed"
+      allowfullscreen
+      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      title="Office Location Map">
+      title="eLearning Solutions SAP Training Institute">
     </iframe>
-  </div>
 
+    <!-- Floating white info box — top-left corner only -->
+    <div class="ol__info-box">
+      <div class="ol__info-inner">
+        <div class="ol__info-top-row">
+          <div class="ol__place-name">eLearning Solutions – SAP Tr...</div>
+          <a class="ol__dir-link"
+             href="https://www.google.com/maps/dir/?api=1&destination=18.5448284,73.9358339"
+             target="_blank" rel="noopener">
+            <div class="ol__dir-icon">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="#e8f0fe"/>
+                <polygon points="24,10 38,26 27,22 27,38 21,38 21,22 10,26" fill="#1a73e8"/>
+              </svg>
+            </div>
+            <span class="ol__dir-text">Directions</span>
+          </a>
+        </div>
+        <p class="ol__addr">
+          Flat number 5 samarth terraces,<br>
+          behind Bank of baroda, Kharadi,<br>
+          Pune, Maharashtra 411014
+        </p>
+        <div class="ol__rating-row">
+          <span class="ol__r-num">4.7</span>
+          <div class="ol__stars">
+            <svg class="ol__star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+            <svg class="ol__star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+            <svg class="ol__star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+            <svg class="ol__star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+            <svg class="ol__star" viewBox="0 0 24 24">
+              <defs><linearGradient id="hg"><stop offset="70%" stop-color="#f9ab00"/><stop offset="70%" stop-color="#dadce0"/></linearGradient></defs>
+              <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="url(#hg)"/>
+            </svg>
+          </div>
+          <a class="ol__rev-link"
+             href="https://www.google.com/maps?q=18.5448284,73.9358339"
+             target="_blank" rel="noopener">715 reviews</a>
+        </div>
+      </div>
+      <div class="ol__divider"></div>
+      <a class="ol__view-link"
+         href="https://www.google.com/maps?q=18.5448284,73.9358339"
+         target="_blank" rel="noopener">View larger map</a>
+    </div>
+
+  </div>
 </section>
 
 <!-- Reviews Section -->
