@@ -1,7 +1,8 @@
-<!-- Hero — Caveat + Inter, stacked photos -->
+<!-- Hero — Caveat + Inter, stacked photos (desktop) / single photo below copy (mobile) -->
 <section class="about-hero">
   <div class="about-hero-inner">
 
+    <!-- Copy — always order:1 (top on mobile, left on desktop) -->
     <div class="about-hero-copy">
       <p class="about-hero-script">About Us</p>
       <h1 class="about-hero-title">
@@ -22,9 +23,16 @@
       </a>
     </div>
 
+    <!-- Visual — order:2 (below copy on mobile, right on desktop) -->
     <div class="about-hero-visual">
+      <!-- Blue bg shape — desktop only (hidden via CSS on mobile) -->
       <div class="about-hero-bg"></div>
+
       <div class="about-hero-photos">
+        <!--
+          Mobile : both photos render as stacked full-width blocks (position: static)
+          Desktop: both photos become absolutely positioned collage
+        -->
         <img
           src="assets/images/about-office.jpg"
           alt=""
@@ -45,10 +53,15 @@
   </div>
 </section>
 
+
 <!-- Features -->
 <section class="features-section">
   <div class="section-inner features-inner">
 
+    <!--
+      .features-visual is display:none on mobile (hidden via CSS).
+      On desktop (≥1024px) it shows as the left image panel.
+    -->
     <div class="features-visual">
       <div class="features-img-bg"></div>
       <div class="features-img-wrap">
@@ -56,6 +69,7 @@
       </div>
     </div>
 
+    <!-- Copy — full width on mobile, right column on desktop -->
     <div class="features-copy">
       <p class="features-eyebrow">Features</p>
       <h2 class="features-heading">
@@ -82,11 +96,11 @@
   </div>
 </section>
 
+
 <!-- Benefits -->
 <section class="benefits-section">
   <div class="benefits-container">
 
-    <!-- Header -->
     <div class="benefits-header">
       <p class="benefits-label">Our Benefits</p>
       <h2 class="benefits-title">
@@ -99,10 +113,8 @@
       </p>
     </div>
 
-    <!-- Cards Grid -->
     <div class="benefits-grid">
 
-      <!-- Card 01 — filled -->
       <div class="benefit-card benefit-card--filled">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -118,7 +130,6 @@
         </div>
       </div>
 
-      <!-- Card 02 — outlined -->
       <div class="benefit-card benefit-card--outlined">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -134,7 +145,6 @@
         </div>
       </div>
 
-      <!-- Card 03 — filled -->
       <div class="benefit-card benefit-card--filled">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -150,7 +160,6 @@
         </div>
       </div>
 
-      <!-- Card 04 — outlined -->
       <div class="benefit-card benefit-card--outlined">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -166,7 +175,6 @@
         </div>
       </div>
 
-      <!-- Card 05 — filled -->
       <div class="benefit-card benefit-card--filled">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -182,7 +190,6 @@
         </div>
       </div>
 
-      <!-- Card 06 — outlined -->
       <div class="benefit-card benefit-card--outlined">
         <div class="benefit-card__content">
           <div class="benefit-card__number-wrap">
@@ -202,7 +209,8 @@
   </div>
 </section>
 
-<!-- How it works -->
+
+<!-- How It Works -->
 <section class="hiw-section">
   <div class="section-inner">
     <h2 class="hiw-title">How It Works</h2>
@@ -244,13 +252,18 @@
   </div>
 </section>
 
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet"/>
 
 <app-reviews></app-reviews>
 
 
-<!-- LMS CTA banner -->
+<!--
+  LMS CTA Banner
+  display:none on mobile (<900px) — hidden via CSS
+  display:block on desktop (≥900px)
+-->
 <section class="lms-banner-section">
   <div class="lms-banner">
     <div class="lms-banner-inner">
