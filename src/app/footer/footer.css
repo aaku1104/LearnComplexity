@@ -53,12 +53,15 @@
 
 .cta-content {
   position: relative;
-  z-index: 10;
+  z-index: 20;          /* above avatars (z-index:1 default) */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
+
+/* Avatars sit below content by default */
+.icon-wrap { z-index: 1; }
 
 .cta-title {
   width: 1280px;
@@ -204,7 +207,7 @@
 
 /* ══════════════════════════════════════════════
    MOBILE — ≤ 768px
-   Layout from screenshot:
+   Layout from reference image:
    LEFT col  : logo + desc + socials + contact
    RIGHT col : Quick Link 1 (top) + Quick Link 2 (bottom)
 ══════════════════════════════════════════════ */
@@ -213,9 +216,12 @@
   /* ── CTA ── */
   .footer-cta {
     width: 100%;
-    min-height: auto;
-    padding: 60px 20px 140px;
+    min-height: 600px;
+    padding: 40px 20px 180px;    /* reduced top padding - less empty space above title */
+    overflow: hidden;
+    justify-content: flex-start;
   }
+
   .cta-title {
     width: 100%;
     font-size: clamp(2rem, 11vw, 3rem);
@@ -230,31 +236,49 @@
   .cta-subtitle br { display: none; }
   .cta-btn { width: 200px; height: 52px; font-size: 18px; margin-top: 28px; }
 
-  /* Hide most avatars/icons — keep a few scattered ones */
-  .avatar   { display: none; }
-  .icon-wrap{ display: none; }
-  .avatar:nth-child(1)  { display:flex; width:40px; height:40px; top:10px;  left:8px; }
-  .avatar:nth-child(2)  { display:flex; width:44px; height:44px; top:8px;   left:50%; transform:translateX(-50%); }
-  .avatar:nth-child(3)  { display:flex; width:36px; height:36px; top:10px;  right:8px; }
-  .avatar:nth-child(4)  { display:flex; width:60px; height:60px; top:90px;  left:8px; }
-  .avatar:nth-child(6)  { display:flex; width:44px; height:44px; top:90px;  right:8px; }
-  .avatar:nth-child(9)  { display:flex; width:48px; height:48px; bottom:200px; left:8px; }
-  .avatar:nth-child(10) { display:flex; width:52px; height:52px; bottom:185px; right:8px; }
-  .icon-wrap:nth-of-type(2) { display:flex; top:160px; left:50%; transform:translateX(30px); }
-  .icon-wrap:nth-of-type(5) { display:flex; bottom:230px; left:50%; transform:translateX(-60px); }
+  /* ── Hide ALL avatars & icons first ── */
+  .avatar    { display: none !important; }
+  .icon-wrap { display: none !important; }
+
+  /* ── Re-show only safe ones with !important to override the global rule ── */
+
+  /* ROW 1 — top strip */
+  .avatar:nth-child(1) { display:flex !important; width:42px; height:42px; top:10px; left:12px; }
+  .avatar:nth-child(2) { display:none  !important; }
+  .avatar:nth-child(3) { display:flex !important; width:38px; height:38px; top:10px; right:12px; }
+
+  /* ROW 2 — flanking title (~50-90px from top with new padding) */
+  .avatar:nth-child(4) { display:flex !important; width:54px; height:54px; top:50px;  left:2px; }
+  .avatar:nth-child(5) { display:flex !important; width:44px; height:44px; top:45px;  right:2px; }
+
+  /* ROW 3 — below subtitle, above button (~270px) */
+  .avatar:nth-child(6) { display:flex !important; width:44px; height:44px; top:270px; left:2px; }
+  .avatar:nth-child(7) { display:flex !important; width:38px; height:38px; top:275px; right:2px; }
+
+  /* ROW 4 — below button, left & right only */
+  .avatar:nth-child(8)  { display:flex !important; width:52px; height:52px; top:360px; left:6px;  }
+  .avatar:nth-child(9)  { display:flex !important; width:46px; height:46px; top:365px; right:6px; }
+  .avatar:nth-child(10) { display:none  !important; }
+
+  /* Icons — sides only, safe vertical positions */
+  .icon-wrap:nth-of-type(1) { display:flex !important; top:12px;  right:60px; }
+  .icon-wrap:nth-of-type(2) { display:flex !important; top:108px; right:2px;  }
+  .icon-wrap:nth-of-type(3) { display:flex !important; top:195px; left:2px;   }
+  .icon-wrap:nth-of-type(4) { display:flex !important; top:300px; right:2px;  }
+  .icon-wrap:nth-of-type(5) { display:flex !important; top:330px; left:58px;  }
+  .icon-wrap:nth-of-type(6) { display:flex !important; top:300px; left:2px;   }
 
   /* ── Footer main: cancel absolute layout, use 2-col grid ── */
   .footer-bg {
     position: static;
     height: auto;
-    padding: 28px 16px 24px;
+    /* Increased left column width and gap to match reference */
+    padding: 28px 20px 24px;
     display: grid;
-    /* LEFT half | RIGHT half */
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 55% 45%;   /* left col wider, more breathing room */
     grid-template-rows: auto;
-    column-gap: 16px;
+    column-gap: 24px;                  /* INCREASED gap between left/right */
     row-gap: 0;
-    /* Named grid areas for precise placement */
     grid-template-areas:
       "logo   ql1"
       "desc   ql1"
@@ -277,7 +301,7 @@
   .logo-lockup {
     grid-area: logo;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     align-self: start;
   }
   .logo-img, .logo-text-img { height: 30px; }
@@ -300,7 +324,7 @@
     gap: 10px;
     height: auto;
     align-self: start;
-    padding: 12px 0;
+    padding: 14px 0;
   }
   .social-circle { width: 36px; height: 36px; }
   .social-circle svg { width: 15px; height: 15px; }
@@ -314,9 +338,26 @@
   }
   .contact-title { font-size: 14px; }
   .contact-list  { gap: 12px; width: 100%; }
-  .contact-item  { height: auto; gap: 8px; }
-  .contact-text  { font-size: 12px; white-space: normal; word-break: break-word; }
+  .contact-item  {
+    height: auto;
+    gap: 8px;
+    align-items: flex-start; /* allow icon to align top when text wraps */
+  }
+  .contact-icon-wrap {
+    flex-shrink: 0;
+    margin-top: 1px; /* slight offset so icon aligns with first text line */
+  }
   .contact-icon-wrap svg { width: 18px; height: 18px; }
+
+  /* FIX: Email on one line — use smaller font + allow shrink */
+  .contact-text {
+    font-size: 12px;
+    white-space: nowrap;       /* keep on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;   /* graceful fallback if truly too long */
+    word-break: normal;
+    min-width: 0;
+  }
 
   /* ── Quick Link col 1 → area: ql1 (top right) ── */
   .ql-col:nth-of-type(3) {
@@ -345,8 +386,12 @@
 
 /* ── Very small screens ── */
 @media (max-width: 380px) {
-  .footer-bg { column-gap: 10px; padding: 24px 12px 20px; }
-  .contact-text { font-size: 11px; }
+  .footer-bg {
+    column-gap: 16px;
+    padding: 24px 14px 20px;
+    grid-template-columns: 54% 46%;
+  }
+  .contact-text { font-size: 10.5px; }
   .ql-link  { font-size: 12px; }
   .footer-desc { font-size: 12px; }
   .logo-img, .logo-text-img { height: 26px; }

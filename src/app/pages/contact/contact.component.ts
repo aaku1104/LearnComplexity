@@ -29,6 +29,7 @@ interface Testimonial {
 })
 export class ContactUsComponent implements OnInit {
  
+  dots = Array(70).fill(0);
 
   // Dot grid array for hero section (8 cols x 7 rows = 56 dots)
   dotArray = Array(70).fill(0);
@@ -120,5 +121,9 @@ export class ContactUsComponent implements OnInit {
       this.formData = { name: '', email: '', phone: '', subject: '', message: '' };
       setTimeout(() => { this.formSubmitted = false; }, 5000);
     }
+  }
+
+  onImgError(event: any): void {
+    event.target.src = 'assets/images/fallback.jpg';
   }
 }

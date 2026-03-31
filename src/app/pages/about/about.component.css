@@ -77,8 +77,6 @@ img { display: block; max-width: 100%; }
   gap: 2.25rem;
 }
 
-/* ── Mobile layout ──
-   Copy first (order 1), then single photo (order 2) */
 .about-hero-copy   { order: 1; }
 .about-hero-visual { order: 2; }
 
@@ -90,20 +88,17 @@ img { display: block; max-width: 100%; }
     padding: 0 5rem;
     min-height: 33rem;
   }
-  /* Desktop: copy left, visual right */
   .about-hero-copy   { order: 1; }
   .about-hero-visual { order: 2; }
 }
 
-/* ── Visual container ── */
 .about-hero-visual {
   position: relative;
   width: 100%;
   max-width: 30rem;
   margin-left: auto;
   margin-right: auto;
-  /* Mobile collage height */
-  min-height: 22rem;
+  min-height: 26rem;     /* increased for diagonal overlap gap */
 }
 
 @media (min-width: 1024px) {
@@ -111,20 +106,21 @@ img { display: block; max-width: 100%; }
     flex: 1 1 50%;
     max-width: none;
     margin: 0;
-    min-height: 32rem;
+    min-height: 36rem;   /* increased for proper diagonal spacing */
   }
 }
 
-/* Blue rounded bg — visible on BOTH mobile and desktop */
 .about-hero-bg {
   position: absolute;
-  left: 4%; right: 0%; top: 30%; bottom: 0%;
+  left: 0;
+  right: 0;
+  top: 15%;
+  bottom: 0;
   background: #DFEFFF;
-  border-radius: 28px 28px 22px 22px;
+  border-radius: 28px;
   z-index: 0;
 }
 
-/* Photos wrapper — always relative so absolute children work */
 .about-hero-photos {
   position: relative;
   z-index: 1;
@@ -133,53 +129,49 @@ img { display: block; max-width: 100%; }
   min-height: inherit;
 }
 
-/* Base photo styles */
 .about-photo {
   position: absolute;
-  border-radius: 10px;
+  border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 8px 24px rgba(15,23,42,0.12), 0 2px 8px rgba(15,23,42,0.06);
 }
 
-/* Mobile collage — photo-1 top-right, photo-2 bottom-left */
+/* photo-1: top-right */
 .about-photo-1 {
-  width: 62%;
+  width: 72%;
   aspect-ratio: 376 / 246;
   right: 0;
   top: 0;
   z-index: 2;
 }
 
+/* photo-2: bottom-left, overlaps center with photo-1 */
 .about-photo-2 {
-  width: 62%;
+  width: 72%;
   aspect-ratio: 376 / 246;
   left: 0;
   bottom: 0;
   z-index: 1;
 }
 
-/* Desktop collage — slightly repositioned */
 @media (min-width: 1024px) {
-  .about-hero-photos {
-    min-height: 32rem;
-  }
-
+  .about-hero-photos { min-height: 32rem; }
+  /* photo-1 stays top-right */
   .about-photo-1 {
-    width: 60%;
-    max-width: 376px;
+    width: 68%;
+    max-width: 400px;
     right: 0;
-    top: 1.5rem;
+    top: 0;
   }
-
+  /* photo-2 bottom-left, enough gap so they don't touch edges */
   .about-photo-2 {
-    width: 60%;
-    max-width: 376px;
+    width: 68%;
+    max-width: 400px;
     left: 0;
-    bottom: 1rem;
+    bottom: 0;
   }
 }
 
-/* Copy */
 .about-hero-copy {
   flex: 1 1 50%;
   max-width: 36rem;
@@ -253,10 +245,8 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* ── Mobile: hide image entirely ── */
-.features-visual {
-  display: none;
-}
+/* ── Mobile: hidden ── */
+.features-visual { display: none; }
 
 @media (min-width: 1024px) {
   .features-visual {
@@ -265,25 +255,34 @@ img { display: block; max-width: 100%; }
     flex: 0 0 clamp(26rem, 42%, 30rem);
     max-width: 30rem;
     margin: 0;
+    /* padding creates room for the top-left offset rect */
+    padding-top: 24px;
+    padding-left: 24px;
     min-height: 28rem;
   }
 }
 
+/* Blue rect — top-left, slightly smaller than photo, with blue border */
 .features-img-bg {
   position: absolute;
-  left: 0; top: 0;
-  width: 82%; height: 80%;
+  top: 0;
+  left: 0;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
   background: #DFEFFF;
-  border-radius: 17px 17px 7px 7px;
+  border-radius: 16px;
   z-index: 0;
 }
 
+/* Photo — bottom-right, full available size, on top */
 .features-img-wrap {
   position: absolute;
   z-index: 1;
-  right: 0; bottom: 0;
-  width: 88%;
-  border-radius: 8px;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(15,23,42,0.10), 0 2px 6px rgba(15,23,42,0.06);
 }
@@ -292,7 +291,6 @@ img { display: block; max-width: 100%; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 220px;
   display: block;
 }
 
@@ -398,10 +396,7 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
 
 .benefit-card {
@@ -545,11 +540,7 @@ img { display: block; max-width: 100%; }
 }
 
 @media (min-width: 768px) {
-  .hiw-step {
-    width: 16.25rem;
-    flex-shrink: 0;
-    padding: 0 0.5rem;
-  }
+  .hiw-step { width: 16.25rem; flex-shrink: 0; padding: 0 0.5rem; }
 }
 
 .hiw-icon {
@@ -766,11 +757,7 @@ img { display: block; max-width: 100%; }
   flex-shrink: 0;
 }
 
-.reviewer-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+.reviewer-details { display: flex; flex-direction: column; gap: 2px; }
 
 .reviewer-name {
   font-family: 'Roboto', sans-serif;
@@ -804,16 +791,9 @@ img { display: block; max-width: 100%; }
   z-index: 10;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.nav-btn:hover {
-  opacity: 0.85;
-  transform: translateY(-50%) scale(1.05);
-}
+.nav-btn:hover { opacity: 0.85; transform: translateY(-50%) scale(1.05); }
 
-.nav-prev {
-  left: -8px;
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-}
+.nav-prev { left: -8px; background-color: #FFFFFF; border: 1px solid #E2E8F0; }
 .nav-next {
   right: -8px;
   background-color: #2563EB;
@@ -844,19 +824,14 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
-.dot-active {
-  width: 32px;
-  background-color: #1E293B;
-}
+.dot-active { width: 32px; background-color: #1E293B; }
 
 
 /* ============================================================
    LMS BANNER SECTION
-   Mobile: hidden entirely
-   Desktop (≥ 900px): shown as full-width banner
    ============================================================ */
 .lms-banner-section {
-  display: none; /* hidden on mobile */
+  display: none;
   padding: 0 1.25rem 3rem;
 }
 
@@ -906,11 +881,7 @@ img { display: block; max-width: 100%; }
   }
 }
 
-.lms-banner-left {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
+.lms-banner-left { display: flex; align-items: center; gap: 1.5rem; }
 
 .lms-icon-circle {
   width: 7.5rem;
@@ -967,16 +938,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 
-.lms-btn--outline {
-  border: 2px solid #ff782d;
-  color: #ff782d;
-  background: transparent;
-}
+.lms-btn--outline { border: 2px solid #ff782d; color: #ff782d; background: transparent; }
 .lms-btn--outline:hover { background: rgba(255,120,45,0.08); }
-
-.lms-btn--solid {
-  border: 2px solid #ff782d;
-  background: #ff782d;
-  color: #fff;
-}
+.lms-btn--solid { border: 2px solid #ff782d; background: #ff782d; color: #fff; }
 .lms-btn--solid:hover { filter: brightness(0.95); }

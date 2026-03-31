@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReviewsComponent } from '../../reviews/reviews.component';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, ReviewsComponent],
+  imports: [CommonModule],
   templateUrl: './courses.html',
   styleUrls: ['./courses.css'],
 })
