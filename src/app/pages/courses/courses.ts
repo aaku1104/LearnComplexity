@@ -1,9 +1,228 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReviewsComponent } from '../../reviews/reviews.component';
 
 @Component({
   selector: 'app-courses',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, ReviewsComponent],
   templateUrl: './courses.html',
-  styleUrl: './courses.css',
+  styleUrls: ['./courses.css'],
 })
-export class Courses {}
+export class Courses implements OnInit {
+
+  courseTabs = ['Design', 'Developer', 'Business', 'Marketing', 'Photography'];
+  activeTab = 'Design';
+
+  activeCategory = 'Development';
+
+  courses = [
+    {
+      title: 'UI Design For Beginners',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Bestseller',
+      image: 'images/img1.png',
+      bannerColor: '#C0392B',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon1.png', alt: 'Figma' },
+        { src: 'images/icon2.png', alt: 'XD' },
+        { src: 'images/icon3.png', alt: 'Sketch' },
+      ],
+    },
+    {
+      title: 'Website Dev Zero To Hero',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Premium',
+      image: 'images/img2.png',
+      bannerColor: '#7D3C98',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon4.png', alt: 'HTML' },
+        { src: 'images/icon5.png', alt: 'CSS' },
+        { src: 'images/icon6.png', alt: 'JS' },
+      ],
+    },
+    {
+      title: 'Mobile Dev React Native',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Premium',
+      image: 'images/img3.png',
+      bannerColor: '#27AE60',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon7.png', alt: 'React' },
+      ],
+    },
+    {
+      title: 'UI Design For Beginners',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Bestseller',
+      image: 'images/img1.png',
+      bannerColor: '#C0392B',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon1.png', alt: 'Figma' },
+        { src: 'images/icon2.png', alt: 'XD' },
+        { src: 'images/icon3.png', alt: 'Sketch' },
+      ],
+    },
+    {
+      title: 'Website Dev Zero To Hero',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Premium',
+      image: 'images/img2.png',
+      bannerColor: '#7D3C98',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon4.png', alt: 'HTML' },
+        { src: 'images/icon5.png', alt: 'CSS' },
+        { src: 'images/icon6.png', alt: 'JS' },
+      ],
+    },
+    {
+      title: 'Mobile Dev React Native',
+      subtitle: 'by Kitani Studio',
+      category: 'Artificial Intelligence',
+      badge: 'Premium',
+      image: 'images/img3.png',
+      bannerColor: '#27AE60',
+      duration: '24 Weeks',
+      rating: 4.8,
+      reviews: '1.2k Reviews',
+      description: 'Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready models.',
+      instructor: 'Dr. Sarah Chen',
+      instructorImg: 'images/course-profile.png',
+      originalPrice: '$199',
+      price: '$89',
+      techIcons: [
+        { src: 'images/icon7.png', alt: 'React' },
+      ],
+    },
+  ];
+
+  categories = [
+    { name: 'Art & Design',     icon: 'images/icon1.png',  count: 38 },
+    { name: 'Development',      icon: 'images/icon2.png',  count: 38 },
+    { name: 'Communication',    icon: 'images/icon3.png',  count: 38 },
+    { name: 'Videography',      icon: 'images/icon4.png',  count: 38 },
+    { name: 'Photography',      icon: 'images/icon5.png',  count: 38 },
+    { name: 'Marketing',        icon: 'images/icon6.png',  count: 38 },
+    { name: 'Content Writing', icon: 'images/icon7.png',  count: 38 },
+    { name: 'Finance',          icon: 'images/icon8.png',  count: 38 },
+    { name: 'Science',          icon: 'images/icon9.png',  count: 38 },
+    { name: 'Network',          icon: 'images/icon10.png', count: 38 },
+  ];
+
+  reviewIndex = 0;
+  reviewDots  = [0, 1, 2, 3, 4];
+
+  allReviews = [
+    {
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      name: 'Hellen Jummy',
+      role: 'Full stack developer',
+      rating: 4,
+      avatar: 'images/reviewimg.jpg',
+    },
+    {
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      name: 'Hellen Jummy',
+      role: 'Product',
+      rating: 4,
+      avatar: 'images/reviewimg.jpg',
+    },
+    {
+      text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
+      name: 'Hellen Jummy',
+      role: 'Full stack developer',
+      rating: 4,
+      avatar: 'images/reviewimg.jpg',
+    },
+    {
+      text: 'An outstanding platform that truly accelerates your learning curve. I got a job offer within 3 months of completing my course!',
+      name: 'James K.',
+      role: 'UI/UX Designer',
+      rating: 5,
+      avatar: 'images/reviewimg.jpg',
+    },
+    {
+      text: 'Fantastic instructors and well-structured content. The community support made learning enjoyable every single day.',
+      name: 'Sara M.',
+      role: 'Data Scientist',
+      rating: 5,
+      avatar: 'images/reviewimg.jpg',
+    },
+  ];
+
+  get visibleReviews() {
+    return [0, 1, 2].map(
+      offset => this.allReviews[(this.reviewIndex + offset) % this.allReviews.length]
+    );
+  }
+
+  nextReview() {
+    this.reviewIndex = (this.reviewIndex + 1) % this.allReviews.length;
+  }
+
+  prevReview() {
+    this.reviewIndex =
+      (this.reviewIndex - 1 + this.allReviews.length) % this.allReviews.length;
+  }
+
+  getFullStars(rating: number): number[] {
+    return Array(Math.floor(rating)).fill(0);
+  }
+
+  hasHalfStar(rating: number): boolean {
+    return rating % 1 >= 0.5;
+  }
+
+  getEmptyStars(rating: number): number[] {
+    const full = Math.floor(rating);
+    const half = rating % 1 >= 0.5 ? 1 : 0;
+    return Array(5 - full - half).fill(0);
+  }
+
+  ngOnInit(): void {}
+}
