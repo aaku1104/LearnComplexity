@@ -1,11 +1,212 @@
-<div class="courses-page">
+<div class="courses-page" style="min-height: 3500px; overflow-x: hidden;">
+
+
+<style>
+  @media (max-width: 768px) {
+    .lc-hero {
+      width: 100% !important;
+      height: 500px !important;
+      margin-top: 0 !important;
+    }
+
+    .lc-hero .hero-title {
+      width: 90% !important;
+      font-size: 28px !important;
+      line-height: 38px !important;
+      top: 160px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      height: auto !important;
+    }
+
+    .lc-hero .hero-subtitle {
+      width: 85% !important;
+      font-size: 16px !important;
+      line-height: 24px !important;
+      top: 240px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      height: auto !important;
+    }
+
+    /* Search Section Mobile */
+    .lc-search-section {
+      margin-top: -60px !important;
+      padding: 0 16px !important;
+    }
+
+    .lc-search-card {
+      width: 100% !important;
+      height: auto !important;
+      padding: 20px 16px 24px 16px !important;
+      border-radius: 16px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+
+    .lc-search-card .search-title {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      font-size: 16px !important;
+      line-height: 24px !important;
+    }
+
+    .lc-search-card .search-field-wrap {
+      position: static !important;
+      width: 100% !important;
+      height: 50px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      padding-left: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-search-card .search-field-wrap span {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      font-size: 14px !important;
+    }
+
+    .lc-search-card .search-btn {
+      position: static !important;
+      width: 100% !important;
+      height: 50px !important;
+      border-radius: 12px !important;
+      margin-top: 4px !important;
+    }
+
+    .lc-search-card .search-btn span {
+      font-size: 16px !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    /* Top Courses Section Mobile */
+    .lc-top-courses {
+      width: 100% !important;
+      min-height: unset !important;
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 32px 16px 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-top-courses-title {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      font-size: 20px !important;
+      line-height: 28px !important;
+      text-align: center !important;
+      margin: 0 0 16px 0 !important;
+    }
+
+    /* Tabs Mobile */
+    .lc-tabs {
+      position: static !important;
+      width: 100% !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 0.5rem;
+      justify-content: flex-start !important;
+      flex-wrap: nowrap !important;
+      gap: 1.25rem !important;
+    }
+
+    .lc-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .lc-tabs span {
+      flex-shrink: 0;
+      font-size: 14px !important;
+      padding: 8px 12px !important;
+    }
+
+    /* Course Cards Mobile */
+    .lc-course-card {
+      width: 100% !important;
+      max-width: 400px !important;
+      height: auto !important;
+      margin: 16px auto !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+    }
+
+    /* Category Section Mobile */
+    .lc-category-section {
+      width: 100% !important;
+      padding: 32px 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-category-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+      width: 100% !important;
+    }
+
+    .lc-category-grid > div {
+      width: 100% !important;
+      height: 120px !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Reviews and Footer Mobile */
+    .lc-reviews-wrap {
+      position: relative !important;
+      width: 100% !important;
+      top: auto !important;
+      left: 0 !important;
+    }
+
+    .lc-footer {
+      position: relative !important;
+      width: 100% !important;
+      top: auto !important;
+      left: 0 !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .lc-hero .hero-title {
+      font-size: 24px !important;
+      line-height: 32px !important;
+    }
+    
+    .lc-hero .hero-subtitle {
+      font-size: 14px !important;
+      line-height: 20px !important;
+    }
+
+    .lc-category-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .lc-category-grid > div {
+      height: 100px !important;
+    }
+  }
+</style>
 <section
   class="lc-hero"
   style="
     position: relative;
     width: 1440px;
-    height: 600px; /* Increased from 537px to extend below */
-    margin-top: -50px; 
+    height: 600px;
+    margin-top: -50px;
     background-color: #111C34;
     overflow: hidden;
   "
@@ -15,10 +216,10 @@
     alt="Student learning"
     style="
       position: absolute;
-      top: 0; 
+      top: 0;
       left: 0;
       width: 100%;
-      height: 100%; 
+      height: 100%;
       object-fit: cover;
       opacity: 0.7;
       z-index: 1;
@@ -28,13 +229,14 @@
   <div style="position: absolute; inset: 0; background: rgba(17, 28, 52, 0.4); z-index: 2;"></div>
 
   <div style="position: relative; z-index: 10;">
-    
+
     <h1
+      class="hero-title"
       style="
         position: absolute;
         width: 794px;
         height: 62px;
-        top: 200px; 
+        top: 200px;
         left: 323px;
         color: #FFFFFF;
         font-family: 'Gilroy', sans-serif;
@@ -49,11 +251,12 @@
     </h1>
 
     <p
+      class="hero-subtitle"
       style="
         position: absolute;
         width: 590px;
         height: 36px;
-        top: 263px; 
+        top: 263px;
         left: 425px;
         color: #F9F9F9E5;
         font-family: 'Gilroy', sans-serif;
@@ -68,26 +271,91 @@
     </p>
   </div>
 </section>
-<!--done-->
+<!--  1  done-->
 
 
-<section class="lc-search-section">
+<style>
+  @media (max-width: 768px) {
+    .lc-search-section {
+      margin-top: -60px !important;
+      padding: 0 16px !important;
+    }
+
+    .lc-search-card {
+      width: 100% !important;
+      height: auto !important;
+      padding: 20px 16px 24px 16px !important;
+      border-radius: 16px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+
+    .lc-search-card .search-title {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      font-size: 16px !important;
+      line-height: 24px !important;
+    }
+
+    .lc-search-card .search-field-wrap {
+      position: static !important;
+      width: 100% !important;
+      height: 50px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      padding-left: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-search-card .search-field-wrap span {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      font-size: 14px !important;
+    }
+
+    .lc-search-card .search-btn {
+      position: static !important;
+      width: 100% !important;
+      height: 50px !important;
+      border-radius: 12px !important;
+      margin-top: 4px !important;
+    }
+
+    .lc-search-card .search-btn span {
+      font-size: 16px !important;
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+</style>
+<section class="lc-search-section" style="
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -85px;
+  z-index: 30;
+  padding: 0 16px;
+  box-sizing: border-box;
+">
   <div
-  class="lc-search-card"
-  style="
-    position: absolute;
-    width: 1200px;
-    height: 170px;
-    top: 598px;
-    left: 133px;
-    background-color: #FFFFFF;
-    border-radius: 23px;
-    box-shadow: 0px 6px 20px 0px #0000000D;
-    z-index: 30;
-  "
->
-  <p
+    class="lc-search-card"
     style="
+      position: relative;
+      width: 1200px;
+      height: 170px;
+      background-color: #FFFFFF;
+      border-radius: 23px;
+      box-shadow: 0px 6px 20px 0px #0000000D;
+    "
+  >
+    <!-- Title -->
+    <p class="search-title" style="
       position: absolute;
       width: 273px;
       height: 30px;
@@ -99,38 +367,33 @@
       line-height: 30px;
       color: #000000;
       margin: 0;
-    "
-  >
-    What do you want to learn?
-  </p>
+    ">
+      What do you want to learn?
+    </p>
 
+    <!-- Field 1: Find courses -->
+    <div class="search-field-wrap" style="position: absolute; width: 389px; height: 50px; top: 80px; left: 32px; background-color: #F9F9F9E5; border-radius: 3px;">
+      <span style="font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none; display: flex; align-items: center; height: 100%;">
+        Find courses, skills, software, etc
+      </span>
+    </div>
 
-  <div style="position: absolute; width: 389px; height: 50px; top: 80px; left: 32px; background-color: #F9F9F9E5; border-radius: 3px;"></div>
+    <!-- Field 2: Categories -->
+    <div class="search-field-wrap" style="position: absolute; width: 248px; height: 50px; top: 78px; left: 445px; background-color: #F9F9F9E5; border-radius: 3px;">
+      <span style="font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none; display: flex; align-items: center; height: 100%;">
+        Categories
+      </span>
+    </div>
 
+    <!-- Field 3: Topic -->
+    <div class="search-field-wrap" style="position: absolute; width: 248px; height: 50px; top: 78px; left: 717px; background-color: #F9F9F9E5; border-radius: 3px;">
+      <span style="font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none; display: flex; align-items: center; height: 100%;">
+        Topic
+      </span>
+    </div>
 
-  <span style="position: absolute; width: 251px; height: 24px; top: 93px; left: 48px; font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none;">
-    Find courses, skills, software, etc
-  </span>
-
-
-  <div style="position: absolute; width: 248px; height: 50px; top: 78px; left: 445px; background-color: #F9F9F9E5; border-radius: 3px;"></div>
-
-
-  <span style="position: absolute; width: 82px; height: 24px; top: 91px; left: 461px; font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none;">
-    Categories
-  </span>
-
-
-  <div style="position: absolute; width: 248px; height: 50px; top: 78px; left: 717px; background-color: #F9F9F9E5; border-radius: 3px;"></div>
-
-
-  <span style="position: absolute; width: 41px; height: 24px; top: 91px; left: 733px; font-family: 'Gilroy', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #1B1B1B99; pointer-events: none;">
-    Topic
-  </span>
-
-
-  <button
-    style="
+    <!-- Search Button -->
+    <button class="search-btn" style="
       position: absolute;
       width: 179px;
       height: 50px;
@@ -145,30 +408,110 @@
       justify-content: center;
       gap: 10px;
       cursor: pointer;
-    "
-  >
-    <span
-      style="
-        width: 65px;
-        height: 26px;
+    ">
+      <span style="
         font-family: 'Gilroy', sans-serif;
         font-weight: 700;
         font-size: 20px;
         line-height: 26px;
         color: #FFFFFF;
-        opacity: 1;
         display: inline-block;
         text-align: center;
-      "
-    >
-      Search
-    </span>
-  </button>
-</div>
+      ">
+        Search
+      </span>
+    </button>
+
+  </div>
 </section>
-<!--done-->
+<!--2   done-->
 
 
+
+
+<style>
+  @media (max-width: 768px) {
+
+    .lc-top-courses {
+      width: 100% !important;
+      min-height: unset !important;
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 32px 16px 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-top-courses-title {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      font-size: 20px !important;
+      line-height: 28px !important;
+      text-align: center !important;
+      margin: 0 0 16px 0 !important;
+    }
+
+    /* Tabs: shrink gap + font so all 5 fit without scrolling */
+    .lc-tabs {
+      position: static !important;
+      width: 100% !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      justify-content: space-between !important;
+      overflow-x: hidden !important;
+      scrollbar-width: none !important;
+      gap: 8px !important;
+      padding-bottom: 8px !important;
+      border-bottom: 1.5px solid #E5E7EB !important;
+      margin-bottom: 8px !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-tabs::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .lc-tabs span {
+      font-size: 11px !important;
+      white-space: nowrap !important;
+      width: auto !important;
+      flex-shrink: 1 !important;
+    }
+
+    .lc-tab-underline {
+      display: none !important;
+    }
+
+    /* Card: centered with equal padding using margin auto */
+    .lc-course-card {
+      position: relative !important;
+      width: 384px !important;
+      height: 529px !important;
+      zoom: 0.78 !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      margin-top: 16px !important;
+      left: 0 !important;
+      top: auto !important;
+      overflow: hidden !important;
+    }
+
+    .lc-course-card:nth-of-type(4),
+    .lc-course-card:nth-of-type(5),
+    .lc-course-card:nth-of-type(6) {
+      display: none !important;
+    }
+
+  }
+
+  .lc-tabs span:first-child {
+    border-bottom: 2.5px solid #3DCBB1 !important;
+    padding-bottom: 8px !important;
+  }
+</style>
 <section 
   class="lc-top-courses"
   style="
@@ -185,7 +528,7 @@
     position: absolute;
     width: 296px;
     height: 31px;
-    top: 150px;
+    top: 80px;
     left: 554px;
     font-family: 'Gilroy', sans-serif;
     font-weight: 700;
@@ -205,7 +548,7 @@
   class="lc-tabs"
   style="
     position: absolute;
-    top: 197px;
+    top: 127px;
     left: 469px;
     display: flex;
     gap: 24px;
@@ -277,9 +620,9 @@
 </div>
 
   
-  <div class="lc-tab-underline" style="position: absolute; width: 59px; height: 2px; top: 225px; left: 464px; background-color: #3DCBB1;"></div>
+ 
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 264px; left: 119px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 194px; left: 119px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img1.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #FFEADF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
       <div style="position: absolute; width: 19px; height: 20px; top: 4px; left: 6px;">
@@ -325,7 +668,7 @@
     </button>
   </div>
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 264px; left: 562px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 194px; left: 520px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img2.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -375,7 +718,7 @@
     </button>
 </div>
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 264px; left: 1000px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 194px; left: 920px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img3.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -428,7 +771,7 @@
 
 
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 823px; left: 119px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 767px; left: 119px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img1.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #FFEADF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
       <div style="position: absolute; width: 19px; height: 20px; top: 4px; left: 6px;">
@@ -474,7 +817,7 @@
     </button>
   </div>
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 823px; left: 562px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 767px; left: 520px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img2.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -524,7 +867,7 @@
     </button>
 </div>
 
-  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 823px; left: 1000px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
+  <div class="lc-course-card" style="position: absolute; width: 384px; height: 529px; top: 767px; left: 920px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
     <img src="assets/images/img3.png" alt="Course thumbnail" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
     
     <div style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -574,40 +917,123 @@
     </button>
 </div>
 </section>
-<!--done-->
+<!--3   done-->
 
 
 
 
 
 
+<style>
 
+  .lc-category-viewall-mobile {
+    display: flex !important;
+  }
 
+  @media (max-width: 768px) {
 
+    .lc-category-section {
+      position: relative !important;
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 32px 16px 24px !important;
+      box-sizing: border-box !important;
+    }
 
+    .lc-category-section > div:first-child {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      margin-bottom: 24px !important;
+    }
 
+    .lc-category-section > div:first-child h2 {
+      font-size: 22px !important;
+      line-height: 32px !important;
+      text-align: center !important;
+    }
 
+    .lc-category-grid {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+    }
 
+    .lc-category-grid > div:nth-child(n+7) {
+      display: none !important;
+    }
 
+    .lc-category-grid > div {
+      width: 100% !important;
+      height: 140px !important;
+      border-radius: 16px !important;
+      box-sizing: border-box !important;
+    }
 
+    .lc-category-grid > div h4 {
+      font-size: 14px !important;
+    }
 
+    .lc-category-grid > div p {
+      font-size: 12px !important;
+      margin: 6px 0 0 0 !important;
+    }
 
+    .lc-category-grid > div > div:first-child {
+      margin-bottom: 8px !important;
+      width: 24px !important;
+      height: 24px !important;
+    }
 
+    .lc-category-grid > div > div:first-child svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
 
+    /* ── Reset all 3 levels of the View All structure ── */
 
+    /* Outer div */
+    .lc-category-section > div:last-child {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      display: flex !important;
+      justify-content: center !important;
+      margin-top: 24px !important;
+    }
+
+    /* Middle div */
+    .lc-category-section > div:last-child > div {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    /* Span */
+    .lc-category-viewall-mobile {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      font-size: 18px !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+    }
+
+  }
+
+</style>
 <section class="lc-category-section">
-  <div style="position: absolute; width: 792px; height: 54px; top: 2220px; left: 94px; opacity: 1; z-index: 10;">
+  <div style="position: absolute; width: 792px; height: 54px; top: 2180px; left: 94px; opacity: 1; z-index: 10;">
     <h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 36px; line-height: 100%; color: #252641; letter-spacing: 0%;">
       Choice favourite course from top category
     </h2>
-  </div>
-
-  <div style="position: absolute; width: 318px; height: 83px; top: 2220px; left: 1030px; opacity: 1; z-index: 10;">
-    <div style="position: absolute; width: 164px; height: 20px; top: 32px; left: 154px; opacity: 1;">
-      <span style="position: absolute; width: 174px; height: 16px; top: 2px; left: 0.08px; font-family: 'Spline Sans', sans-serif; font-weight: 600; font-size: 21px; line-height: 20px; color: #2563EB; display: flex; align-items: center; white-space: nowrap; cursor: pointer;">
-        View All Courses
-      </span>
-    </div>
   </div>
 
   <div class="lc-category-grid" style="position: absolute; width: 1290px; height: 514px; top: 2303px; left: 89px; display: flex; flex-wrap: wrap; gap: 24px; opacity: 1; z-index: 5;">
@@ -761,35 +1187,35 @@
 </div>
     
   </div>
-</section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="lc-promo-wrap" style="position: absolute; width: 1440px; height: 171px; top: 2888px; left: 0; opacity: 1; z-index: 10;">
+  <div  style="position: absolute; width: 318px; height: 83px; top: 2180px; left: 1030px; opacity: 1; z-index: 10;">
+    <div style="position: absolute; width: 164px; height: 20px; top: 32px; left: 154px; opacity: 1;">
+      <span class="lc-category-viewall-mobile" style="position: absolute; width: 174px; height: 16px; top: 2px; left: 0.08px; font-family: 'Spline Sans', sans-serif; font-weight: 600; font-size: 21px; line-height: 20px; color: #2563EB; display: flex; align-items: center; white-space: nowrap; cursor: pointer;">
+        View All Courses
+      </span>
+    </div>
+  </div>
   
+</section>
+<!--4  done-->
+
+
+
+
+
+
+
+
+
+
+<div class="lc-promo-wrap" style="position: absolute; width: 1440px; height: 171px; top: 2888px; left: 0; opacity: 1; z-index: 10;">  
   <section 
     class="lc-promo-inner"
     style="
       width: 1440px;
       height: 171px;
       margin: 0 auto;
-      border: 1px solid #A5C2FF; /* Added requested 1px border */
+      border: 1px solid #A5C2FF;
       background-color: #C4D7FF;
       display: flex;
       flex-direction: column;
@@ -820,7 +1246,6 @@
     >
       Get personal learning recommendations based on your needs
     </p>
-
     <button 
       style="
         width: 124px;
@@ -861,7 +1286,248 @@
     </button>
   </section>
 </div>
-<!--done-->
+
+<style>
+  @media (max-width: 768px) {
+
+    .lc-promo-wrap {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-promo-inner {
+      width: 100% !important;
+      height: auto !important;
+      padding: 16px !important;
+      border-radius: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .lc-promo-inner p {
+      width: 100% !important;
+      height: auto !important;
+      font-size: 11px !important;
+      line-height: 16px !important;
+      white-space: nowrap !important;
+      text-align: center !important;
+      margin: 0 0 14px 0 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    }
+</style>
 
 
-<!--done-->
+
+
+
+
+
+<div class="lc-reviews-wrap" style="position: absolute; width: 1440px; height: 171px; top: 3050px; left: 0; opacity: 1; z-index: 10;">
+<section class="lc-reviews max-w-7xl mx-auto px-4 py-16">
+  <h2 
+    style="
+      width: 418px; height: 60px; margin: 0 auto 40px auto; 
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 40px; 
+      line-height: 167%; letter-spacing: 0.02em; text-transform: capitalize; 
+      color: #050C26; text-align: center; display: flex; align-items: center; justify-content: center;
+    ">
+    What Student's Say
+  </h2>
+ 
+  <div class="relative px-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
+      <div
+        *ngFor="let review of visibleReviews; let i = index"
+        style="
+          width: 391px; height: auto; border-radius: 20px; background-color: #FFFFFF;
+          box-shadow: 0px 0px 6px 0px #00000012, 0px 10px 15px -3px #0000001A;
+          padding: 32px; display: flex; flex-direction: column; box-sizing: border-box;
+        "
+      >
+        <p style="
+            width: 327px; height: auto; font-family: 'Roboto', sans-serif;
+            font-weight: 400; font-size: 18px; line-height: 160%; color: #000000;
+            margin: 0 0 24px 0; overflow: visible; display: block;
+           ">
+          Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.
+        </p>
+        
+        <div class="flex items-center gap-4" style="margin-top: auto;">
+          <img 
+            src="assets/images/course-profile.png" 
+            class="rounded-full object-cover border-2 border-gray-200" 
+            style="width: 72px; height: 72px; min-width: 72px; border-radius: 9999px; object-fit: cover;" 
+          />
+          <div>
+            <p style="width: 247px; height: auto; color: #000000; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 18px; line-height: 160%; margin: 0; display: flex; align-items: center;">
+              Hellen Jummy
+            </p>
+            <p style="width: 247px; height: auto; color: #475569; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px; line-height: 140%; margin: 0; display: flex; align-items: center;">
+              Full stack developer
+            </p>
+            <div style="margin-top: 4px;">
+              <svg width="136" height="28" viewBox="0 0 136 28" fill="none">
+                <path d="M12.0307 4.82962C12.5246 3.30946 14.6752 3.30946 15.1692 4.82962L16.2828 8.2572C16.5037 8.93703 17.1373 9.39731 17.8521 9.39731H21.4561C23.0544 9.39731 23.719 11.4427 22.4259 12.3822L19.5102 14.5005C18.9319 14.9207 18.6899 15.6655 18.9108 16.3453L20.0245 19.7729C20.5184 21.293 18.7786 22.5571 17.4854 21.6176L14.5698 19.4993C13.9915 19.0791 13.2084 19.0791 12.6301 19.4993L9.71441 21.6176C8.42128 22.5571 6.6814 21.293 7.17533 19.7729L8.28901 16.3453C8.5099 15.6655 8.26792 14.9207 7.68962 14.5005L4.77395 12.3822C3.48082 11.4427 4.1454 9.39731 5.74379 9.39731H9.34776C10.0626 9.39731 10.6961 8.93703 10.917 8.2572L12.0307 4.82962Z" fill="#5D5DFF"/>
+                <path d="M39.2305 4.82962C39.7244 3.30946 41.8751 3.30946 42.369 4.82962L43.4827 8.2572C43.7036 8.93703 44.3371 9.39731 45.0519 9.39731H48.6559C50.2543 9.39731 50.9188 11.4427 49.6257 12.3822L46.7101 14.5005C46.1318 14.9207 45.8898 15.6655 46.1107 16.3453L47.2243 19.7729C47.7183 21.293 45.9784 22.5571 44.6853 21.6176L41.7696 19.4993C41.1913 19.0791 40.4082 19.0791 39.8299 19.4993L36.9142 21.6176C35.6211 22.5571 33.8812 21.293 34.3752 19.7729L35.4888 16.3453C35.7097 15.6655 35.4677 14.9207 34.8894 14.5005L31.9738 12.3822C30.6807 11.4427 31.3452 9.39731 32.9436 9.39731H36.5476C37.2624 9.39731 37.8959 8.93703 38.1168 8.2572L39.2305 4.82962Z" fill="#5D5DFF"/>
+                <path d="M66.4303 4.82962C66.9243 3.30946 69.0749 3.30946 69.5688 4.82962L70.6825 8.2572C70.9034 8.93703 71.5369 9.39731 72.2517 9.39731H75.8557C77.4541 9.39731 78.1187 11.4427 76.8256 12.3822L73.9099 14.5005C73.3316 14.9207 73.0896 15.6655 73.3105 16.3453L74.4242 19.7729C74.9181 21.293 73.1782 22.5571 71.8851 21.6176L68.9694 19.4993C68.3911 19.0791 67.608 19.0791 67.0297 19.4993L64.1141 21.6176C62.8209 22.5571 61.0811 21.293 61.575 19.7729L62.6887 16.3453C62.9096 15.6655 62.6676 14.9207 62.0893 14.5005L59.1736 12.3822C57.8805 11.4427 58.5451 9.39731 60.1434 9.39731H63.7474C64.4622 9.39731 65.0958 8.93703 65.3167 8.2572L66.4303 4.82962Z" fill="#5D5DFF"/>
+                <path d="M93.6302 4.82962C94.1241 3.30946 96.2747 3.30946 96.7686 4.82962L97.8823 8.2572C98.1032 8.93703 98.7368 9.39731 99.4516 9.39731H103.056C104.654 9.39731 105.319 11.4427 104.025 12.3822L101.11 14.5005C100.531 14.9207 100.289 15.6655 100.51 16.3453L101.624 19.7729C102.118 21.293 100.378 22.5571 99.0849 21.6176L96.1693 19.4993C95.5909 19.0791 94.8079 19.0791 94.2296 19.4993L91.3139 21.6176C90.0208 22.5571 88.2809 21.293 88.7748 19.7729L89.8885 16.3453C90.1094 15.6655 89.8674 14.9207 89.2891 14.5005L86.3734 12.3822C85.0803 11.4427 85.7449 9.39731 87.3433 9.39731H90.9472C91.6621 9.39731 92.2956 8.93703 92.5165 8.2572L93.6302 4.82962Z" fill="#5D5DFF"/>
+                <path d="M120.83 4.82962C121.324 3.30946 123.475 3.30946 123.968 4.82962L125.082 8.2572C125.303 8.93703 125.937 9.39731 126.651 9.39731H130.255C131.854 9.39731 132.518 11.4427 131.225 12.3822L128.31 14.5005C127.731 14.9207 127.489 15.6655 127.71 16.3453L128.824 19.7729C129.318 21.293 127.578 22.5571 126.285 21.6176L123.369 19.4993C122.791 19.0791 122.008 19.0791 121.429 19.4993L118.514 21.6176C117.221 22.5571 115.481 21.293 115.975 19.7729L117.088 16.3453C117.309 15.6655 117.067 14.9207 116.489 14.5005L113.573 12.3822C112.28 11.4427 112.945 9.39731 114.543 9.39731H118.147C118.862 9.39731 119.495 8.93703 119.716 8.2572L120.83 4.82962Z" fill="#A0A0A0"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="prevReview()"
+      style="width: 48px; height: 48px; border-radius: 9999px; border: 1px solid #E2E8F0; background-color: #FFFFFF; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 10;">
+      <svg style="width: 15.55px; height: 15.55px;" viewBox="0 0 25 28" fill="none"><path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#64748B"/></svg>
+    </button>
+    <button (click)="nextReview()"
+      style="width: 48px; height: 48px; border-radius: 9999px; background-color: #2563EB; box-shadow: 0px 4px 6px -4px #3B82F633, 0px 10px 15px -3px #3B82F633; position: absolute; right: -24px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 10;">
+      <svg style="width: 15.55px; height: 15.55px; transform: rotate(180deg);" viewBox="0 0 25 28" fill="none"><path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#FFFFFF"/></svg>
+    </button>
+
+    <div style="
+        width: 139px; 
+        height: 18px; 
+        margin: 40px auto 0 auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 8px;
+        opacity: 1;
+    ">
+      <div
+        *ngFor="let dot of reviewDots; let i = index"
+        (click)="reviewIndex = i"
+        class="cursor-pointer transition-all duration-300"
+        [style.width]="reviewIndex === i ? '32px' : '8px'"
+        [style.height]="'8px'"
+        [style.borderRadius]="'9999px'"
+        [style.backgroundColor]="reviewIndex === i ? '#1E293B' : '#D1D5DB'"
+      ></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<style>
+  @media (max-width: 768px) {
+
+    /* Section wrapper */
+    .lc-reviews-wrap {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .lc-reviews {
+      padding: 24px 16px !important;
+    }
+
+    /* Title: single line */
+    .lc-reviews h2 {
+      width: 100% !important;
+      height: auto !important;
+      font-size: 20px !important;
+      line-height: 100% !important;
+      white-space: nowrap !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* Hide px-12 padding on inner wrapper */
+    .lc-reviews .relative {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    /* Grid: show only 1 card at a time */
+    .lc-reviews .grid {
+      display: flex !important;
+      flex-direction: row !important;
+      overflow: hidden !important;
+      width: 100% !important;
+    }
+
+    /* Each card: full width, no shrink */
+    .lc-reviews .grid > div {
+      width: 100% !important;
+      min-width: 100% !important;
+      height: auto !important;
+      padding: 20px !important;
+      box-sizing: border-box !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Paragraph: no clamp, full text */
+    .lc-reviews .grid > div p:first-child {
+      width: 100% !important;
+      height: auto !important;
+      font-size: 14px !important;
+      overflow: visible !important;
+      display: block !important;
+      margin-bottom: 16px !important;
+    }
+
+    /* Profile image */
+    .lc-reviews img {
+      width: 56px !important;
+      height: 56px !important;
+      min-width: 56px !important;
+    }
+
+    /* Name */
+    .lc-reviews .grid > div p:nth-child(1) {
+      width: 100% !important;
+      height: auto !important;
+      font-size: 14px !important;
+    }
+
+    /* Role */
+    .lc-reviews .grid > div p:nth-child(2) {
+      width: 100% !important;
+      height: auto !important;
+      font-size: 12px !important;
+    }
+
+    /* Nav buttons: position relative to card area */
+    .lc-reviews button[style*="left: -24px"] {
+      left: 0px !important;
+      top: auto !important;
+      bottom: -24px !important;
+      transform: none !important;
+    }
+
+    .lc-reviews button[style*="right: -24px"] {
+      right: 0px !important;
+      top: auto !important;
+      bottom: -24px !important;
+      transform: none !important;
+    }
+
+    /* Dots */
+    .lc-reviews [style*="width: 139px"] {
+      width: 100% !important;
+      margin-top: 40px !important;
+    }
+    @media (max-width: 768px) {
+
+  .lc-reviews button[style*="left: -24px"],
+  .lc-reviews button[style*="right: -24px"] {
+    display: none !important;
+  }
+
+}
+
+  }
+</style>
+
+
+
+
