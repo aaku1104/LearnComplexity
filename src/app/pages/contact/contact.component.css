@@ -267,10 +267,16 @@ img { display: block; max-width: 100%; }
    ============================================================ */
 .git-section {
   background: #EEF2FB;
+  margin-top: 48px;
   padding: 52px 48px 80px;
   font-family: 'Sora', sans-serif;
   position: relative;
   overflow: hidden;
+}
+
+/* The white card wrapper needs horizontal breathing room from section edges */
+@media (min-width: 821px) {
+  .git-section { padding-left: 60px; padding-right: 60px; }
 }
 
 /* Blue triangle at bottom-left — matches screenshot exactly */
@@ -284,11 +290,31 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
+/* Mobile header (heading + subtext above the card) — hidden on desktop */
+.git-mobile-header {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  padding: 0 4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop heading inside the wrapper — shown on desktop, hidden on mobile */
+.git-heading--desktop,
+.git-subtext--desktop {
+  display: block;
+}
+
 .git-wrapper {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+  padding: 48px 52px;
 }
 
 /* Two-column grid */
@@ -472,18 +498,49 @@ img { display: block; max-width: 100%; }
 
 /* ── Responsive: stack on tablet/mobile ── */
 @media (max-width: 820px) {
-  .git-section { padding: 40px 24px 60px; }
+  .git-section { padding: 40px 20px 60px; margin-top: 32px; }
+
+  /* Show mobile header (heading above card), hide desktop heading inside wrapper */
+  .git-mobile-header { display: block; }
+  .git-heading--desktop,
+  .git-subtext--desktop { display: none; }
+
+  /* Wrapper loses white card styling — becomes transparent container */
+  .git-wrapper {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
   .git-grid {
     grid-template-columns: 1fr;
-    row-gap: 36px;
+    row-gap: 0;
   }
-  .git-submit-row { justify-content: center; }
-  .git-social { justify-content: flex-end; }
+
+  /* Info card stays white */
+  .git-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+
+  /* Form fields sit on the blue bg — inputs keep white bg */
+  .git-right {
+    padding-top: 24px;
+  }
+
+  .git-submit-row { justify-content: center; margin-top: 28px; }
+  .git-social { justify-content: center; margin-top: 24px; }
+
+  /* Submit button full-width on mobile */
+  .git-submit-btn { width: 100%; max-width: 340px; }
 }
 
 @media (max-width: 480px) {
-  .git-section { padding: 32px 16px 60px; }
-  .git-heading { font-size: 24px; }
+  .git-section { padding: 28px 16px 60px; margin-top: 24px; }
+  .git-mobile-header { margin-bottom: 16px; padding: 0; }
+  .git-heading { font-size: 26px; }
   .git-card { padding: 20px 16px; }
   .git-social { justify-content: center; }
 }
@@ -495,6 +552,7 @@ img { display: block; max-width: 100%; }
 .ol {
   width: 100%;
   background: #f5f7fa;
+  margin-top: 48px;
   padding: 48px 40px 60px;
   box-sizing: border-box;
   font-family: 'Epilogue', sans-serif;
@@ -649,7 +707,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Responsive for Office Location ── */
 @media (max-width: 768px) {
-  .ol { padding: 32px 16px 40px; }
+  .ol { padding: 32px 16px 40px; margin-top: 32px; }
   .ol__heading { font-size: clamp(22px, 5vw, 30px); margin-bottom: 16px; }
   .ol__map-outer { height: 380px; border-radius: 4px; }
 
@@ -663,7 +721,7 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .ol { padding: 24px 0 32px; }
+  .ol { padding: 24px 0 32px; margin-top: 24px; }
   .ol__heading { padding: 0 16px; font-size: 22px; }
   .ol__map-outer { height: 340px; border-radius: 0; }
 

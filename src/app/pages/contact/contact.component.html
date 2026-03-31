@@ -65,13 +65,22 @@
     </svg>
   </div>
 
+  <!-- Mobile-only: heading + subtext sit OUTSIDE the white wrapper card -->
+  <div class="git-mobile-header">
+    <h2 class="git-heading">Get in Touch</h2>
+    <p class="git-subtext">
+      Suspendisse ultrice gravida dictum fusce placerat ultricies integer
+    </p>
+  </div>
+
   <div class="git-wrapper">
     <div class="git-grid">
 
       <!-- LEFT COLUMN -->
       <div class="git-left">
-        <h2 class="git-heading">Get in Touch</h2>
-        <p class="git-subtext">
+        <!-- Desktop-only heading — hidden on mobile (shown via git-mobile-header above) -->
+        <h2 class="git-heading git-heading--desktop">Get in Touch</h2>
+        <p class="git-subtext git-subtext--desktop">
           Suspendisse ultrice gravida dictum fusce placerat ultricies integer
         </p>
 
