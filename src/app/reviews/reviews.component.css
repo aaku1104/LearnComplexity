@@ -1,12 +1,12 @@
 /* =============================================
-   Reviews Component — reviews.component.css
+   reviews.component.css — fully responsive
    ============================================= */
 
 /* ---- Section Wrapper ---- */
 .reviews-wrap {
   width: 100%;
   padding: 60px 0;
-  background-color: #F8FAFC;
+  background-color: #ffffff;
 }
 
 .reviews-section {
@@ -188,31 +188,105 @@
   background-color: #1e293b;
 }
 
-/* ---- Responsive ---- */
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* ---- Tablet (≤ 1024px): 2 cards ---- */
 @media (max-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* ---- Mobile (≤ 640px): 1 card, no nav arrows, centered ---- */
 @media (max-width: 640px) {
+
+  .reviews-wrap {
+    padding: 40px 0 28px;
+  }
+
+  .reviews-section {
+    padding: 0 0;           /* let carousel-wrapper control horizontal space */
+  }
+
+  /* Title */
   .section-title {
-    font-size: 28px;
+    font-size: clamp(24px, 8vw, 32px);
+    font-weight: 700;
+    margin-bottom: 28px;
+    padding: 0 16px;
   }
 
+  /* Carousel wrapper — no side padding, no relative needed for arrows */
   .carousel-wrapper {
-    padding: 0 24px;
+    padding: 0 20px;        /* card sits 20px from screen edges */
   }
 
+  /* 1 card, full width of carousel-wrapper */
   .cards-grid {
     grid-template-columns: 1fr;
+    gap: 0;
+    justify-items: stretch;
   }
 
-  .nav-prev {
-    left: -4px;
+  /* Card fills the wrapper, comfortable padding */
+  .review-card {
+    max-width: 100%;
+    min-height: auto;
+    padding: 28px 24px;
+    border-radius: 20px;
   }
 
-  .nav-next {
-    right: -4px;
+  /* Show only 1 card — hide the rest on mobile */
+  .review-card:not(:first-child) {
+    display: none;
   }
+
+  /* Review text unclamped on mobile so full text shows */
+  .review-text {
+    font-size: 15px;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* Avatar slightly smaller */
+  .reviewer-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .reviewer-name { font-size: 16px; }
+  .reviewer-role { font-size: 13px; }
+
+  /* Hide nav arrows — dots handle navigation on mobile */
+  .nav-btn {
+    display: none;
+  }
+
+  /* Dots below card */
+  .dots-container {
+    margin-top: 24px;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.dot-active {
+    width: 32px;
+  }
+}
+
+/* ---- Very small (≤ 360px) ---- */
+@media (max-width: 360px) {
+  .carousel-wrapper { padding: 0 14px; }
+  .review-card      { padding: 22px 18px; }
+  .section-title    { font-size: 22px; }
 }

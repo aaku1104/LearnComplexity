@@ -1,14 +1,26 @@
 /* =====================================================
-   footer.css — Learn Complexity  |  Figma-exact values
+   footer.component.css — Full corrected version
+   Desktop: Figma absolute layout
+   Mobile : 2-col grid (left=logo+contact, right=QL1+QL2)
    ===================================================== */
 
-/* =============================================
-   Footer CTA Section — footer-cta.css
-   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@400;700&display=swap');
+/* ─── Reset ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-/* ---- Section wrapper ---- */
+/* ─── Root ──────────────────────────────────── */
+.footer-root { width: 100%; overflow: hidden; }
+
+
+/* ══════════════════════════════════════════════
+   FOOTER CTA SECTION
+══════════════════════════════════════════════ */
 .footer-cta {
   position: relative;
   width: 1440px;
@@ -23,23 +35,15 @@
   overflow: hidden;
 }
 
-/* ---- Floating avatar circles ---- */
 .avatar {
   position: absolute;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+.avatar img { width:100%; height:100%; object-fit:cover; }
 
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(1.2) contrast(1.1);
-}
-
-/* ---- Floating SVG icon wrappers ---- */
 .icon-wrap {
   position: absolute;
   display: flex;
@@ -47,7 +51,6 @@
   justify-content: center;
 }
 
-/* ---- Center content ---- */
 .cta-content {
   position: relative;
   z-index: 10;
@@ -57,7 +60,6 @@
   text-align: center;
 }
 
-/* ---- Heading ---- */
 .cta-title {
   width: 1280px;
   max-width: 100%;
@@ -68,7 +70,6 @@
   color: #ffffff;
 }
 
-/* ---- Subtitle ---- */
 .cta-subtitle {
   width: 1280px;
   max-width: 100%;
@@ -79,7 +80,6 @@
   color: #ffffff;
 }
 
-/* ---- CTA Button ---- */
 .cta-btn {
   margin-top: 40px;
   width: 239px;
@@ -91,20 +91,14 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: filter 0.2s ease, box-shadow 0.2s ease;
+  transition: filter 0.2s, box-shadow 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.cta-btn:hover { filter: brightness(1.12); box-shadow: 0 6px 20px rgba(15,55,149,0.45); }
 
-.cta-btn:hover {
-  filter: brightness(1.12);
-  box-shadow: 0 6px 20px rgba(15, 55, 149, 0.45);
-}
-
-/* ---- Bottom wave ---- */
 .cta-wave {
   position: absolute;
   bottom: -2px;
@@ -114,75 +108,21 @@
   line-height: 0;
 }
 
-/* =============================================
-   Responsive — mobile / tablet
-   ============================================= */
-@media (max-width: 900px) {
-  .footer-cta {
-    width: 100%;
-    min-height: auto;
-    padding: 120px 1.25rem 200px;
-  }
 
-  .cta-title {
-    width: 100%;
-    font-size: clamp(2rem, 10vw, 3rem);
-    line-height: 1.1;
-  }
-
-  .cta-subtitle {
-    width: 100%;
-    max-width: 24rem;
-    font-size: 1rem;
-    padding: 0 0.25rem;
-  }
-
-  .cta-subtitle br {
-    display: none;
-  }
-
-  /* Hide most floating avatars/icons on small screens to avoid clutter */
-  .avatar,
-  .icon-wrap {
-    display: none;
-  }
-}
-
-/* =====================================================
-   Existing Footer CSS
-   ===================================================== */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-/* ── Root footer wrapper ── */
-.footer-root {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* ══════════════════════════════════════════════════
-   MAIN BG  →  Figma: width:1440 height:396 bg:#EFFBFF
-   We use position:relative so children can use
-   absolute coords that match the Figma left/top values.
-   ══════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════
+   MAIN FOOTER — DESKTOP (absolute Figma layout)
+══════════════════════════════════════════════ */
 .footer-bg {
   position: relative;
   width: 100%;
   max-width: 1440px;
-  height: 316px;          /* 396px total − 80px wave */
+  height: 316px;
   margin: 0 auto;
   background: #EFFBFF;
   overflow: visible;
 }
 
-/* ══════════════════════════════════════════════════
-   LOGO LOCKUP  left:143 top:70  w:168 h:37  gap:2
-   ══════════════════════════════════════════════════ */
+/* Logo lockup  left:143 top:70 */
 .logo-lockup {
   position: absolute;
   left: 143px;
@@ -190,177 +130,53 @@
   width: 168px;
   height: 37px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 2px;
 }
+.logo-img       { height: 37px; width: auto; object-fit: contain; }
+.logo-text-img  { height: 37px; width: auto; object-fit: contain; margin-left: 8px; }
+.logo-fallback  { display: flex; align-items: center; gap: 6px; }
+.logo-text-block{ display: flex; flex-direction: column; align-items: flex-start; }
+.logo-word      { font-weight: 700; font-size: 11px; letter-spacing: .1em; color: #1E2D6B; text-transform: uppercase; line-height: 1.35; }
 
-.logo-img {
-  height: 37px;
-  width: auto;
-  object-fit: contain;
-}
-
-.logo-text-img {
-  height: 37px;
-  width: auto;
-  object-fit: contain;
-  margin-left: 8px;
-}
-
-/* fallback: SVG icon + text side-by-side */
-.logo-fallback {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-}
-
-.logo-text-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.logo-word {
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: #1E2D6B;
-  text-transform: uppercase;
-  line-height: 1.35;
-}
-
-/* ══════════════════════════════════════════════════
-   LOGO SECTION (desc + socials)
-   Figma: left:143 top:145  w:306 h:135  gap:20
-   ══════════════════════════════════════════════════ */
+/* Logo section: desc + socials  left:143 top:145 */
 .logo-section {
   position: absolute;
   left: 143px;
   top: 145px;
   width: 306px;
-  height: 135px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
 }
-
-/* description  font-weight:300 font-size:16px line-height:30px */
-.footer-desc {
-  width: 306px;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 30px;
-  color: #000000;
-}
-
-/* socials row  gap:20  h:43 */
-.socials-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 20px;
-  height: 43px;
-}
-
-/* each circle  42×43  bg:#FFFFFF */
+.footer-desc { font-weight: 300; font-size: 16px; line-height: 30px; color: #000000; }
+.socials-row { display: flex; gap: 20px; height: 43px; }
 .social-circle {
-  width: 42px;
-  height: 43px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: background 0.2s;
+  width: 42px; height: 43px;
+  background: #FFFFFF; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: background 0.2s;
 }
+.social-circle:hover { background: #fff3ec; }
 
-.social-circle:hover {
-  background: #fff3ec;
-}
-
-/* ══════════════════════════════════════════════════
-   QUICK LINK COLUMNS
-   Col 1: left:561  Col 2: left:766
-   Both: top:78  w:93 h:168  gap:20
-   ══════════════════════════════════════════════════ */
+/* Quick Link cols  left:561 & 766  top:78 */
 .ql-col {
   position: absolute;
   top: 78px;
   width: 93px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
 }
+.ql-heading-block { display: flex; flex-direction: column; gap: 16px; }
+.ql-title { font-weight: 700; font-size: 17px; line-height: 13px; text-transform: capitalize; color: #000000; white-space: nowrap; }
+.ql-list  { display: flex; flex-direction: column; gap: 20px; list-style: none; }
+.ql-item  { display: flex; align-items: center; gap: 6px; height: 13px; }
+.ql-arrow { width: 13px; height: 13px; flex-shrink: 0; }
+.ql-link  { font-weight: 400; font-size: 17px; color: #000000; text-decoration: none; white-space: nowrap; transition: color 0.18s; }
+.ql-link:hover { color: #EA580C; }
 
-/* heading block  gap:16  w:86 h:36 */
-.ql-heading-block {
-  width: 86px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-/* "Quick link"  font-weight:700 font-size:17px  capitalize */
-.ql-title {
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 13px;
-  text-transform: capitalize;
-  color: #000000;
-  white-space: nowrap;
-}
-
-/* links list  gap:20  w:93 h:112 */
-.ql-list {
-  width: 93px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  list-style: none;
-}
-
-/* each link row  gap:6  h:13  align:flex-end */
-.ql-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  height: 13px;
-}
-
-.ql-arrow {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-}
-
-/* link text  font-weight:400 font-size:17px  capitalize */
-.ql-link {
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 13px;
-  text-transform: capitalize;
-  color: #000000;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.18s;
-}
-
-.ql-link:hover {
-  color: #EA580C;
-}
-
-/* ══════════════════════════════════════════════════
-   CONTACT  left:1039 top:87  w:256 h:163  gap:13
-   ══════════════════════════════════════════════════ */
+/* Contact  left:1039 top:87 */
 .contact-col {
   position: absolute;
   left: 1039px;
@@ -368,106 +184,170 @@
   width: 256px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 13px;
 }
+.contact-heading-block { display: flex; flex-direction: column; gap: 16px; }
+.contact-title { font-weight: 700; font-size: 16px; color: #000000; white-space: nowrap; }
+.contact-list  { width: 256px; display: flex; flex-direction: column; gap: 20px; list-style: none; }
+.contact-item  { display: flex; align-items: center; gap: 14px; height: 25px; }
+.contact-icon-wrap { width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-text  { font-weight: 400; font-size: 16px; color: #000000; text-decoration: none; white-space: nowrap; }
+.contact-phone { text-decoration: underline; }
+.contact-phone:hover { color: #EA580C; }
 
-/* heading block  gap:16  w:65 h:35 */
-.contact-heading-block {
-  width: 65px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+/* Wave + copyright */
+.wave-wrap { background: #EFFBFF; line-height: 0; margin-bottom: -2px; }
+.wave-svg  { display: block; width: 100%; height: 80px; }
+.copyright-bar  { background: #1E2D6B; display: flex; align-items: center; justify-content: center; padding: 14px 0; }
+.copyright-text { font-weight: 400; font-size: 16px; color: #FFFFFF; }
+
+
+/* ══════════════════════════════════════════════
+   MOBILE — ≤ 768px
+   Layout from screenshot:
+   LEFT col  : logo + desc + socials + contact
+   RIGHT col : Quick Link 1 (top) + Quick Link 2 (bottom)
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── CTA ── */
+  .footer-cta {
+    width: 100%;
+    min-height: auto;
+    padding: 60px 20px 140px;
+  }
+  .cta-title {
+    width: 100%;
+    font-size: clamp(2rem, 11vw, 3rem);
+    line-height: 1.1;
+  }
+  .cta-subtitle {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .cta-subtitle br { display: none; }
+  .cta-btn { width: 200px; height: 52px; font-size: 18px; margin-top: 28px; }
+
+  /* Hide most avatars/icons — keep a few scattered ones */
+  .avatar   { display: none; }
+  .icon-wrap{ display: none; }
+  .avatar:nth-child(1)  { display:flex; width:40px; height:40px; top:10px;  left:8px; }
+  .avatar:nth-child(2)  { display:flex; width:44px; height:44px; top:8px;   left:50%; transform:translateX(-50%); }
+  .avatar:nth-child(3)  { display:flex; width:36px; height:36px; top:10px;  right:8px; }
+  .avatar:nth-child(4)  { display:flex; width:60px; height:60px; top:90px;  left:8px; }
+  .avatar:nth-child(6)  { display:flex; width:44px; height:44px; top:90px;  right:8px; }
+  .avatar:nth-child(9)  { display:flex; width:48px; height:48px; bottom:200px; left:8px; }
+  .avatar:nth-child(10) { display:flex; width:52px; height:52px; bottom:185px; right:8px; }
+  .icon-wrap:nth-of-type(2) { display:flex; top:160px; left:50%; transform:translateX(30px); }
+  .icon-wrap:nth-of-type(5) { display:flex; bottom:230px; left:50%; transform:translateX(-60px); }
+
+  /* ── Footer main: cancel absolute layout, use 2-col grid ── */
+  .footer-bg {
+    position: static;
+    height: auto;
+    padding: 28px 16px 24px;
+    display: grid;
+    /* LEFT half | RIGHT half */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 16px;
+    row-gap: 0;
+    /* Named grid areas for precise placement */
+    grid-template-areas:
+      "logo   ql1"
+      "desc   ql1"
+      "social ql2"
+      "cont   ql2";
+  }
+
+  /* Reset all absolute positions */
+  .logo-lockup,
+  .logo-section,
+  .ql-col,
+  .contact-col {
+    position: static;
+    left: unset;
+    top: unset;
+    width: 100%;
+  }
+
+  /* ── Logo lockup → area: logo ── */
+  .logo-lockup {
+    grid-area: logo;
+    height: auto;
+    margin-bottom: 10px;
+    align-self: start;
+  }
+  .logo-img, .logo-text-img { height: 30px; }
+
+  /* ── Logo section (desc + socials) — split into desc area + social area ── */
+  .logo-section {
+    display: contents; /* let children participate in grid directly */
+  }
+
+  .footer-desc {
+    grid-area: desc;
+    font-size: 13px;
+    line-height: 1.75;
+    margin-bottom: 0;
+    align-self: start;
+  }
+
+  .socials-row {
+    grid-area: social;
+    gap: 10px;
+    height: auto;
+    align-self: start;
+    padding: 12px 0;
+  }
+  .social-circle { width: 36px; height: 36px; }
+  .social-circle svg { width: 15px; height: 15px; }
+
+  /* ── Contact → area: cont ── */
+  .contact-col {
+    grid-area: cont;
+    align-self: start;
+    padding-top: 4px;
+    gap: 10px;
+  }
+  .contact-title { font-size: 14px; }
+  .contact-list  { gap: 12px; width: 100%; }
+  .contact-item  { height: auto; gap: 8px; }
+  .contact-text  { font-size: 12px; white-space: normal; word-break: break-word; }
+  .contact-icon-wrap svg { width: 18px; height: 18px; }
+
+  /* ── Quick Link col 1 → area: ql1 (top right) ── */
+  .ql-col:nth-of-type(3) {
+    grid-area: ql1;
+    align-self: start;
+  }
+
+  /* ── Quick Link col 2 → area: ql2 (bottom right) ── */
+  .ql-col:nth-of-type(4) {
+    grid-area: ql2;
+    align-self: start;
+    padding-top: 20px;
+  }
+
+  .ql-title { font-size: 14px; }
+  .ql-link  { font-size: 13px; white-space: normal; }
+  .ql-list  { gap: 10px; }
+  .ql-item  { height: auto; }
+
+  /* ── Wave ── */
+  .wave-svg { height: 48px; }
+
+  /* ── Copyright ── */
+  .copyright-text { font-size: 13px; }
 }
 
-/* "Contact"  font-weight:700 font-size:16px */
-.contact-title {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 13px;
-  color: #000000;
-  white-space: nowrap;
-}
-
-/* items list  gap:20  w:256 h:115 */
-.contact-list {
-  width: 256px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  list-style: none;
-}
-
-/* each contact row  gap:14  h:25  align:center */
-.contact-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-  height: 25px;
-}
-
-/* icon mask  25×25 */
-.contact-icon-wrap {
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-/* text  font-weight:400 font-size:16px  capitalize */
-.contact-text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 13px;
-  text-transform: capitalize;
-  color: #000000;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* phone underline */
-.contact-phone {
-  text-decoration: underline;
-}
-
-.contact-phone:hover {
-  color: #EA580C;
-}
-
-/* ══════════════════════════════════════════════════
-   WAVE DIVIDER
-   ══════════════════════════════════════════════════ */
-.wave-wrap {
-  background: #EFFBFF;
-  line-height: 0;
-  margin-bottom: -2px;
-}
-
-.wave-svg {
-  display: block;
-  width: 100%;
-  height: 80px;
-}
-
-/* ══════════════════════════════════════════════════
-   COPYRIGHT BAR
-   ══════════════════════════════════════════════════ */
-.copyright-bar {
-  background: #1E2D6B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 0;
-}
-
-.copyright-text {
-  font-weight: 400;
-  font-size: 16px;
-  color: #FFFFFF;
-  line-height: 1;
+/* ── Very small screens ── */
+@media (max-width: 380px) {
+  .footer-bg { column-gap: 10px; padding: 24px 12px 20px; }
+  .contact-text { font-size: 11px; }
+  .ql-link  { font-size: 12px; }
+  .footer-desc { font-size: 12px; }
+  .logo-img, .logo-text-img { height: 26px; }
 }
