@@ -3,15 +3,15 @@
 ║                                                                                                                              ║
 ║                                                    HOME PAGE - LEARN COMPLEXITY                                              ║
 ║                                                                                                                              ║
-║  SEO-OPTIMIZED ANGULAR COMPONENT TEMPLATE                                                                                ║
-║  1. Hero Section - Main landing area with semantic markup                                                              ║
-║  2. Why Choose Us - Feature showcase with structured content                                                            ║
-║  3. Featured Courses - Course carousel with accessible navigation                                                       ║
-║  4. Popular Courses - Category grid with semantic HTML                                                                ║
-║  5. Meet Our Experts - Team showcase with proper image alt texts                                                      ║
-║  6. Unlock Success - Statistics with semantic markup                                                                  ║
-║  7. Testimonials - Reviews with structured data markup                                                              ║
-║  8. FAQ - Accessible accordion with proper ARIA attributes                                                            ║
+║  This file contains the complete homepage layout with 8 main sections:                                                       ║
+║  1. Hero Section - Main landing area with title and call-to-action                                                           ║
+║  2. Why Choose Us - Feature showcase with 4 blue boxes                                                                      ║
+║  3. Featured Courses - Course carousel with navigation                                                                      ║
+║  4. Popular Courses - Category grid layout                                                                                  ║
+║  5. Meet Our Experts - Team showcase with images                                                                           ║
+║  6. Unlock Success - Statistics and achievements                                                                          ║
+║  7. Testimonials - Customer reviews carousel                                                                              ║
+║  8. FAQ - Frequently asked questions accordion                                                                             ║
 ║                                                                                                                              ║
 ║  Mobile responsive styles are included at the end of the file                                                             ║
 ║                                                                                                                              ║
@@ -22,14 +22,14 @@
 
   <!-- 
   ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
-    SECTION 1: HERO SECTION (SEO Optimized)
-    - Semantic header element for better accessibility
-    - H1 main heading for SEO hierarchy
-    - Structured content with proper semantics
+    SECTION 1: HERO SECTION
+    - Main landing area with gradient background
+    - Contains title, subtitle, bullet points, and enrollment button
+    - Includes decorative elements (blobs, dots, cards)
     - Mobile responsive styles applied
   ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
   -->
-  <header class="hero-section" role="banner" style="width: 1440px; 
+  <section class="hero-section"style="width: 1440px; 
                 height: 745px; 
                 background-color: #EFFBFF; 
                 position: relative; 
@@ -58,9 +58,9 @@
     </div>
 
     <!-- Title block -->
-    <div class="hero-title-block" style="position: absolute;
+    <div class="hero-title-block"style="position: absolute;
             width: 594px;
-            height: 500px;
+            height: 500px; /* increased height to fit new elements */
             top: 50px;
             left: 42px;
             display: flex;
@@ -83,8 +83,8 @@
         Learn with Passion
       </div>
 
-      <!-- Main Heading (H1 for SEO) -->
-      <h1 class="hero-heading" style="width: 594px;
+      <!-- Second text -->
+      <div class="hero-heading"style="width: 594px;
               height: 210px;
               font-family: 'Caveat', cursive;
               font-weight: 700;
@@ -92,8 +92,7 @@
               line-height: 110%;
               letter-spacing: 0;
               color: #0F172A;
-              opacity: 1;
-              margin: 0;">
+              opacity: 1;">
 
         <!-- Wrap "Teach" in a span -->
         <span style="position: relative; display: inline-block;z-index: 1;">
@@ -112,7 +111,7 @@
         </span>
 
         students <span class="hero-worldwide">worldwide</span>
-      </h1>
+      </div>
 
 
 
@@ -742,14 +741,13 @@
     </div>
 
 
-  </header>
+  </section>
 
 
 
 
 
   <!-- Second section — FIXED -->
-  <main role="main" aria-labelledby="why-choose-us-heading">
   <section style="
     position: relative;
     width: 1440px;
@@ -790,7 +788,7 @@
     </div>
 
     <!-- Inner block -->
-    <h2 id="why-choose-us-heading" style="
+    <div style="
   position: absolute;
   width: 578.45px;
   height: 117px;
@@ -802,20 +800,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 58.5px;
-  letter-spacing: 0%;
-  text-transform: capitalize;
-  color: #0E2A46;
-  text-align: center;
-  z-index: 1; 
 ">
+      <span style="
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 58.5px;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+    color: #0E2A46;
+    text-align: center;
+    z-index: 1; 
+  ">
         Creating A Community Of<br>
         Life Long Learners.
-      </h2>
+      </span>
+    </div>
 
     <!-- SVG block container -->
     <div style="
@@ -1304,7 +1304,7 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home6.png" alt="Learn Complexity Online Course Platform - Student Learning Experience" style="
+        <img src="assets/images/home6.png" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -5168,5 +5168,3 @@ section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) > div > div:last-ch
 
 } /* end @media (max-width: 768px) */
 </style>
-
-</main>
