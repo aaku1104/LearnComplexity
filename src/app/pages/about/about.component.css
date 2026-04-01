@@ -1,7 +1,5 @@
 /* About page — fully responsive (1440 desktop → mobile) */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@700&family=Poppins:wght@600&family=Roboto:wght@400&family=Manrope:wght@600&display=swap');
-
 :host {
   display: block;
   background: #fff;

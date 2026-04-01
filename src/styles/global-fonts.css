@@ -1,0 +1,177 @@
+/* =====================================================
+   GLOBAL FONTS - LearnComplexity
+   Consolidated font imports for the entire application
+   ===================================================== */
+
+/* Import all Google Fonts used across the application */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Epilogue:wght@400;700&family=Exo:wght@600&family=Inter:wght@400;500;600;700;800&family=Jost:wght@500&family=Libre+Franklin:wght@600&family=Manrope:wght@600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;600&family=Roboto:wght@400;700&family=Sora:wght@400;500&display=swap');
+
+/* Font Awesome Icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+/* Gilroy Font (Commercial font - needs to be purchased and hosted separately) */
+/* Note: Gilroy is a commercial font. For now, we'll use fallback fonts */
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inter'), local('Roboto'), local('Helvetica Neue');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inter'), local('Roboto'), local('Helvetica Neue');
+}
+
+/* =====================================================
+   FONT VARIABLES (CSS Custom Properties)
+   ===================================================== */
+
+:root {
+  /* Primary Fonts */
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+  --font-accent: 'Caveat', cursive;
+  
+  /* Heading Fonts */
+  --font-heading: 'Epilogue', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Body Fonts */
+  --font-body: 'Roboto', sans-serif;
+  --font-ui: 'Sora', sans-serif;
+  
+  /* Specialized Fonts */
+  --font-tech: 'Exo', sans-serif;
+  --font-elegant: 'Jost', sans-serif;
+  --font-serif: 'Libre Franklin', serif;
+  --font-bold: 'Manrope', sans-serif;
+  --font-commercial: 'Gilroy', 'Inter', 'Roboto', sans-serif;
+}
+
+/* =====================================================
+   GLOBAL FONT CLASSES
+   ===================================================== */
+
+/* Font Family Classes */
+.font-inter { font-family: var(--font-primary); }
+.font-poppins { font-family: var(--font-secondary); }
+.font-caveat { font-family: var(--font-accent); }
+.font-epilogue { font-family: var(--font-heading); }
+.font-plus-jakarta { font-family: var(--font-display); }
+.font-roboto { font-family: var(--font-body); }
+.font-sora { font-family: var(--font-ui); }
+.font-exo { font-family: var(--font-tech); }
+.font-jost { font-family: var(--font-elegant); }
+.font-libre-franklin { font-family: var(--font-serif); }
+.font-manrope { font-family: var(--font-bold); }
+.font-gilroy { font-family: var(--font-commercial); }
+
+/* Weight Classes */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+
+/* =====================================================
+   COMPONENT-SPECIFIC FONT MAPPINGS
+   ===================================================== */
+
+/* Header Component */
+.header-font { 
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Footer Component */
+.footer-font { 
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.footer-heading { 
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* About Page */
+.about-hero-script { 
+  font-family: var(--font-accent);
+  font-weight: 700;
+}
+
+.about-body { 
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+/* Contact Page */
+.contact-heading { 
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.contact-form { 
+  font-family: var(--font-ui);
+  font-weight: 400;
+}
+
+/* Reviews Section */
+.reviews-title { 
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+
+.review-text { 
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Courses Page */
+.courses-hero-title {
+  font-family: var(--font-commercial);
+  font-weight: 700;
+}
+
+.courses-hero-subtitle {
+  font-family: var(--font-commercial);
+  font-weight: 400;
+}
+
+.courses-search-title {
+  font-family: var(--font-commercial);
+  font-weight: 700;
+}
+
+.courses-search-field {
+  font-family: var(--font-commercial);
+  font-weight: 400;
+}
+
+.courses-top-courses-title {
+  font-family: var(--font-commercial);
+  font-weight: 700;
+}
+
+.courses-tabs {
+  font-family: var(--font-commercial);
+  font-weight: 400;
+}
+
+/* =====================================================
+   FALLBACK FONTS
+   ===================================================== */
+
+/* Ensure fallback fonts for better loading */
+body {
+  font-family: var(--font-secondary), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Font loading optimization */
+.font-display-swap {
+  font-display: swap;
+}
