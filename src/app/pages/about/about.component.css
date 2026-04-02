@@ -4,6 +4,8 @@
   display: block;
   background: #fff;
   color: #1e1e1e;
+  isolation: isolate;
+  contain: layout style paint;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

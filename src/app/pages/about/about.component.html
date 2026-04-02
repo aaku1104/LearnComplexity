@@ -1,678 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — LearnComplexity</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@700&family=Poppins:wght@600&family=Roboto:wght@400&family=Manrope:wght@600&display=swap" rel="stylesheet" />
-  <style>
-    /* ── Reset ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
-
-    body {
-      background: #fff;
-      color: #1e1e1e;
-      font-family: Inter, system-ui, sans-serif;
-    }
-
-    .text-brand-blue { color: #2563eb; }
-
-    /* ── Shared inner container ── */
-    .section-inner {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-    @media (min-width: 1024px) {
-      .section-inner { padding-left: 5rem; padding-right: 5rem; }
-    }
-
-    /* ============================================================
-       BUTTONS
-       ============================================================ */
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.25;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-pill--hero    { padding: 1rem 1.25rem; }
-    .btn-pill--features { padding: 1rem 1.25rem; }
-    .btn-pill-primary  { background: #2563eb; color: #fff; }
-    .btn-pill-primary:hover { background: #1d4ed8; }
-    .btn-pill-ico { width: 1.25rem; height: 1.25rem; }
-
-    /* ============================================================
-       HERO SECTION
-       ============================================================ */
-    .about-hero {
-      padding: 2.5rem 0 4rem;
-      background: #fff;
-    }
-    @media (min-width: 1024px) {
-      .about-hero { padding: 3.5rem 0 4.5rem; }
-    }
-
-    .about-hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 2.25rem;
-    }
-
-    .about-hero-copy   { order: 1; }
-    .about-hero-visual { order: 2; }
-
-    @media (min-width: 1024px) {
-      .about-hero-inner {
-        flex-direction: row;
-        align-items: center;
-        gap: clamp(3rem, 5vw, 5rem);
-        padding: 0 5rem;
-        min-height: 33rem;
-      }
-      .about-hero-copy   { order: 1; }
-      .about-hero-visual { order: 2; }
-    }
-
-    .about-hero-visual {
-      position: relative;
-      width: 100%;
-      max-width: 30rem;
-      margin-left: auto;
-      margin-right: auto;
-      min-height: 26rem;
-    }
-    @media (min-width: 1024px) {
-      .about-hero-visual {
-        flex: 1 1 50%;
-        max-width: none;
-        margin: 0;
-        min-height: 36rem;
-      }
-    }
-
-    .about-hero-bg {
-      position: absolute;
-      left: 0; right: 0;
-      top: 15%; bottom: 0;
-      background: #DFEFFF;
-      border-radius: 28px;
-      z-index: 0;
-    }
-
-    .about-hero-photos {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      min-height: inherit;
-    }
-
-    .about-photo {
-      position: absolute;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.12), 0 2px 8px rgba(15,23,42,0.06);
-    }
-
-    .about-photo-1 {
-      width: 72%;
-      aspect-ratio: 376 / 246;
-      right: 0; top: 0;
-      z-index: 2;
-    }
-    .about-photo-2 {
-      width: 72%;
-      aspect-ratio: 376 / 246;
-      left: 0; bottom: 0;
-      z-index: 1;
-    }
-    @media (min-width: 1024px) {
-      .about-hero-photos { min-height: 32rem; }
-      .about-photo-1 { width: 68%; max-width: 400px; right: 0; top: 0; }
-      .about-photo-2 { width: 68%; max-width: 400px; left: 0; bottom: 0; }
-    }
-
-    .about-hero-copy {
-      flex: 1 1 50%;
-      max-width: 36rem;
-      width: 100%;
-    }
-
-    .about-hero-script {
-      font-family: Caveat, cursive;
-      font-weight: 700;
-      font-size: clamp(2.5rem, 6vw, 4.125rem);
-      line-height: 1.05;
-      color: #2563eb;
-      text-align: left;
-      margin: 0 0 1rem;
-    }
-
-    .about-hero-title { margin: 0 0 1.5rem; padding: 0; }
-
-    .about-hero-brand {
-      display: block;
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.125rem, 2vw, 1.3125rem);
-      letter-spacing: 0.08em;
-      line-height: 1.3;
-      color: #0F3795;
-      text-transform: uppercase;
-      margin-bottom: 0.25rem;
-    }
-
-    .about-hero-headline {
-      display: block;
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 600;
-      font-size: clamp(1.625rem, 3.2vw, 2.5rem);
-      line-height: 1.45;
-      color: #0F3795;
-      text-transform: capitalize;
-    }
-
-    .about-hero-body {
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.625;
-      color: #1E1E1E;
-      margin: 0 0 1.75rem;
-      max-width: 36rem;
-    }
-
-    /* ============================================================
-       FEATURES SECTION
-       ============================================================ */
-    .features-section {
-      padding: 3.5rem 0 4.5rem;
-      background: #fff;
-    }
-
-    .features-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      align-items: stretch;
-    }
-    @media (min-width: 1024px) {
-      .features-inner {
-        flex-direction: row;
-        align-items: center;
-        gap: clamp(3rem, 5vw, 5rem);
-      }
-    }
-
-    .features-visual { display: none; }
-
-    @media (min-width: 1024px) {
-      .features-visual {
-        display: block;
-        position: relative;
-        flex: 0 0 clamp(26rem, 42%, 30rem);
-        max-width: 30rem;
-        margin: 0;
-        padding-top: 24px;
-        padding-left: 24px;
-        min-height: 28rem;
-      }
-    }
-
-    .features-img-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: calc(100% - 24px);
-      height: calc(100% - 24px);
-      background: #DFEFFF;
-      border-radius: 16px;
-      z-index: 0;
-    }
-
-    .features-img-wrap {
-      position: absolute;
-      z-index: 1;
-      right: 0; bottom: 0;
-      width: calc(100% - 24px);
-      height: calc(100% - 24px);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10), 0 2px 6px rgba(15,23,42,0.06);
-    }
-
-    .features-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .features-copy { flex: 1; min-width: 0; }
-
-    .features-eyebrow {
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      line-height: 1;
-      color: #2563eb;
-      margin: 0 0 1rem;
-    }
-
-    .features-heading {
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 500;
-      font-size: clamp(1.75rem, 3.5vw, 3rem);
-      line-height: 1.21;
-      color: #141414;
-      margin: 0 0 1.25rem;
-    }
-
-    .features-body {
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.625;
-      color: #1E1E1E;
-      margin: 0;
-    }
-    .features-copy-gap { margin-top: 1rem; margin-bottom: 1.75rem; }
-
-    /* ============================================================
-       BENEFITS SECTION
-       ============================================================ */
-    .benefits-section {
-      width: 100%;
-      background: #ffffff;
-      padding: 60px 16px 80px;
-    }
-
-    .benefits-container {
-      width: 100%;
-      max-width: 1160px;
-      margin: 0 auto;
-    }
-
-    .benefits-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 40px;
-      padding: 0 8px;
-    }
-
-    .benefits-label {
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 1;
-      color: #2563EB;
-      margin: 0 0 16px;
-    }
-
-    .benefits-title {
-      font-weight: 600;
-      font-size: clamp(1.75rem, 5vw, 3rem);
-      line-height: 1.2;
-      color: #141414;
-      text-align: center;
-      width: 100%;
-      max-width: 993px;
-      margin: 0 auto 24px;
-    }
-    .benefits-title--highlight { color: #2563EB; }
-
-    .benefits-subtitle {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.625;
-      color: #1E1E1E;
-      text-align: center;
-      max-width: 572px;
-      margin: 0 auto;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 900px) {
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    }
-
-    .benefit-card {
-      width: 100%;
-      min-height: 200px;
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .benefit-card--filled   { background: #F2F6FF; }
-    .benefit-card--outlined { background: #fff; border: 1px solid #F2F2F2; }
-
-    .benefit-card__content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .benefit-card__number-wrap {
-      position: relative;
-      width: 54px; height: 54px;
-      flex-shrink: 0;
-    }
-    .benefit-card__bubble {
-      position: absolute;
-      inset: 0;
-      width: 54px; height: 54px;
-      border-radius: 50%;
-      background: #2563EB;
-      opacity: 0.1;
-    }
-    .benefit-card__number {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      font-size: 34px;
-      line-height: 1;
-      color: #2563EB;
-    }
-
-    .benefit-card__title {
-      font-weight: 500;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      line-height: 1.2;
-      color: #141414;
-      margin: 0;
-    }
-
-    .benefit-card__desc {
-      font-weight: 400;
-      font-size: clamp(0.8125rem, 1.5vw, 1rem);
-      line-height: 1.625;
-      color: #1E1E1E;
-      margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .benefit-card__link {
-      color: #2563EB;
-      font-weight: 400;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .benefit-card__link:hover { text-decoration: underline; }
-
-    @media (max-width: 480px) {
-      .benefits-section { padding: 40px 12px 60px; }
-      .benefits-label { font-size: 18px; }
-      .benefit-card { padding: 14px; min-height: auto; }
-      .benefit-card__content { gap: 10px; }
-      .benefit-card__number { font-size: 26px; }
-      .benefit-card__number-wrap { width: 44px; height: 44px; }
-      .benefit-card__bubble { width: 44px; height: 44px; }
-    }
-
-    /* ============================================================
-       HOW IT WORKS SECTION
-       ============================================================ */
-    .hiw-section {
-      padding: 3rem 0 4rem;
-      background: transparent;
-    }
-
-    .hiw-title {
-      font-weight: 600;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      line-height: 1.1;
-      text-align: center;
-      color: #0d2455;
-      margin-bottom: 2.5rem;
-    }
-
-    .hiw-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      max-width: 72rem;
-      margin: 0 auto;
-    }
-    @media (min-width: 768px) {
-      .hiw-row {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: flex-start;
-      }
-    }
-
-    .hiw-step {
-      width: 100%;
-      max-width: 20rem;
-      text-align: center;
-      padding: 0 1rem;
-    }
-    @media (min-width: 768px) {
-      .hiw-step { width: 16.25rem; flex-shrink: 0; padding: 0 0.5rem; }
-    }
-
-    .hiw-icon {
-      width: 5.625rem;
-      height: 5.625rem;
-      margin: 0 auto 1rem;
-      background: #2563eb;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 13px rgba(150,114,255,0.07);
-    }
-    .hiw-svg { width: 2.25rem; height: 2.25rem; }
-
-    .hiw-label {
-      font-family: Manrope, Inter, sans-serif;
-      font-weight: 600;
-      font-size: 1.375rem;
-      line-height: 1.35;
-      color: #000;
-      margin-bottom: 0.5rem;
-    }
-
-    .hiw-desc {
-      font-family: Roboto, system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.625;
-      color: #333;
-    }
-
-    .hiw-connector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      padding: 0.75rem 0;
-    }
-
-    .hiw-connector-desk {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: clamp(4rem, 12vw, 12rem);
-      height: 5.625rem;
-    }
-    .hiw-connector-mob {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 3rem;
-      width: 100%;
-    }
-    @media (min-width: 768px) {
-      .hiw-connector-desk { display: flex; }
-      .hiw-connector-mob  { display: none; }
-      .hiw-connector {
-        width: clamp(3.5rem, 10vw, 11.9rem);
-        padding: 0;
-        align-self: flex-start;
-        height: 5.625rem;
-      }
-    }
-
-    .hiw-dot {
-      width: 11px; height: 11px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .hiw-dot--blue   { background: #2563eb; }
-    .hiw-dot--orange { background: #ea580c; }
-    .hiw-dot--mob    { margin-top: -2px; }
-
-    .hiw-dash {
-      flex: 1;
-      height: 1px;
-      border: none;
-      background: repeating-linear-gradient(
-        90deg,
-        rgba(15,23,42,0.35) 0, rgba(15,23,42,0.35) 6px,
-        transparent 6px, transparent 12px
-      );
-      opacity: 0.35;
-      min-width: 2rem;
-    }
-
-    .hiw-vdash {
-      width: 1px;
-      height: 2.5rem;
-      background: repeating-linear-gradient(
-        180deg,
-        rgba(15,23,42,0.3) 0, rgba(15,23,42,0.3) 6px,
-        transparent 6px, transparent 12px
-      );
-    }
-
-    /* ============================================================
-       REVIEWS — handled by <app-reviews> component
-       ============================================================ */
-
-    /* ============================================================
-       LMS BANNER SECTION
-       ============================================================ */
-    .lms-banner-section { display: none; padding: 0 1.25rem 3rem; }
-    @media (min-width: 900px) { .lms-banner-section { display: block; } }
-
-    .lms-banner {
-      max-width: 1290px;
-      margin: 0 auto;
-      border-radius: 20px;
-      background: linear-gradient(92.15deg, #c7e6f9 0%, #e8d1fe 100%);
-      position: relative;
-      overflow: hidden;
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem;
-    }
-    .lms-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #ffd952;
-      opacity: 0.12;
-      pointer-events: none;
-    }
-    .lms-banner-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 74rem;
-    }
-    @media (min-width: 900px) {
-      .lms-banner-inner { flex-direction: row; align-items: center; justify-content: space-between; }
-    }
-    .lms-banner-left { display: flex; align-items: center; gap: 1.5rem; }
-    .lms-icon-circle {
-      width: 7.5rem; height: 7.5rem;
-      border-radius: 50%;
-      background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 2.5rem;
-    }
-    .lms-banner-title {
-      font-family: Inter, sans-serif;
-      font-weight: 600;
-      font-size: clamp(1rem, 3vw, 1.25rem);
-      line-height: 1.2;
-      text-transform: capitalize;
-      color: #000;
-      margin: 0;
-    }
-    .lms-banner-actions { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: flex-start; }
-    @media (min-width: 900px) { .lms-banner-actions { justify-content: flex-end; } }
-
-    .lms-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.625rem 1.5rem;
-      border-radius: 24px;
-      font-family: Inter, sans-serif;
-      font-weight: 500;
-      font-size: clamp(0.9rem, 2vw, 1.125rem);
-      line-height: 1.5;
-      text-transform: capitalize;
-      min-height: 3rem;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .lms-btn--outline { border: 2px solid #ff782d; color: #ff782d; background: transparent; }
-    .lms-btn--outline:hover { background: rgba(255,120,45,0.08); }
-    .lms-btn--solid { border: 2px solid #ff782d; background: #ff782d; color: #fff; }
-    .lms-btn--solid:hover { filter: brightness(0.95); }
-  </style>
-</head>
-<body>
-
-<!-- ═══════════════════════════════════════
-     HERO
-════════════════════════════════════════ -->
+<!-- Hero -->
 <section class="about-hero">
   <div class="about-hero-inner">
 
@@ -688,7 +14,7 @@
         providing high-quality education in areas such as UI/UX Design, Web Development, Programming, Cloud
         Technologies, Data Science, and Digital Skills.
       </p>
-      <a href="/contact" class="btn-pill btn-pill-primary btn-pill--hero">
+      <a routerLink="/contact" class="btn-pill btn-pill-primary btn-pill--hero">
         Join Us
         <svg viewBox="0 0 24 24" fill="none" class="btn-pill-ico" aria-hidden="true">
           <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -708,9 +34,7 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     FEATURES
-════════════════════════════════════════ -->
+<!-- Features -->
 <section class="features-section">
   <div class="section-inner features-inner">
 
@@ -734,7 +58,7 @@
         Our mission is to make learning accessible, practical, and impactful, helping learners grow with competence,
         creativity, and clarity in today's fast-evolving digital world.
       </p>
-      <a href="/contact" class="btn-pill btn-pill-primary btn-pill--features">
+      <a routerLink="/contact" class="btn-pill btn-pill-primary btn-pill--features">
         Learn More
         <svg viewBox="0 0 24 24" fill="none" class="btn-pill-ico" aria-hidden="true">
           <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -746,9 +70,7 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     BENEFITS
-════════════════════════════════════════ -->
+<!-- Benefits -->
 <section class="benefits-section">
   <div class="benefits-container">
 
@@ -773,7 +95,9 @@
             <div class="benefit-card__number">01</div>
           </div>
           <h3 class="benefit-card__title">Standardization</h3>
-          <p class="benefit-card__desc">When working in a global workplace, it's often difficult to gauge learners' training experiences, which are ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">When working in a global workplace, it's often difficult to gauge learners' training experiences, which are ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -784,7 +108,9 @@
             <div class="benefit-card__number">02</div>
           </div>
           <h3 class="benefit-card__title">Reduced Costs</h3>
-          <p class="benefit-card__desc">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -795,7 +121,9 @@
             <div class="benefit-card__number">03</div>
           </div>
           <h3 class="benefit-card__title">More Customization</h3>
-          <p class="benefit-card__desc">Just like learners aren't one-size-fits-all, learning is not a one-size-fits-all experience. By using different ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">Just like learners aren't one-size-fits-all, learning is not a one-size-fits-all experience. By using different ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -806,7 +134,9 @@
             <div class="benefit-card__number">04</div>
           </div>
           <h3 class="benefit-card__title">Affordable Pricing</h3>
-          <p class="benefit-card__desc">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -817,7 +147,9 @@
             <div class="benefit-card__number">05</div>
           </div>
           <h3 class="benefit-card__title">Learner Satisfaction</h3>
-          <p class="benefit-card__desc">If you really want students to retain what they learn, you'll need to aim for high satisfaction rates. Bad ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">If you really want students to retain what they learn, you'll need to aim for high satisfaction rates. Bad ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -828,7 +160,9 @@
             <div class="benefit-card__number">06</div>
           </div>
           <h3 class="benefit-card__title">Multimedia Materials</h3>
-          <p class="benefit-card__desc">One of the main reasons why custom eLearning is effective is that it's the perfect delivery method for ... <a href="#" class="benefit-card__link">Read More</a></p>
+          <p class="benefit-card__desc">One of the main reasons why custom eLearning is effective is that it's the perfect delivery method for ...
+            <a href="#" class="benefit-card__link">Read More</a>
+          </p>
         </div>
       </div>
 
@@ -837,84 +171,55 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════ -->
+<!-- How It Works -->
 <section class="hiw-section">
   <div class="section-inner">
     <h2 class="hiw-title">How It Works</h2>
     <div class="hiw-row">
 
-      <!-- Step 1 -->
-      <div class="hiw-step">
-        <div class="hiw-icon">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hiw-svg">
-            <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2"/>
-            <path d="M20 20l-4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <ng-container *ngFor="let s of steps; let i = index; let last = last">
+        <div class="hiw-step">
+          <div class="hiw-icon" [ngSwitch]="s.icon">
+            <ng-container *ngSwitchCase="'search'">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hiw-svg">
+                <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2"/>
+                <path d="M20 20l-4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </ng-container>
+            <ng-container *ngSwitchCase="'access'">
+              <img src="assets/images/icon-hand.png" alt="Access" class="hiw-img" />
+            </ng-container>
+            <ng-container *ngSwitchCase="'learn'">
+              <img src="assets/images/icon-building.png" alt="Learn" class="hiw-img" />
+            </ng-container>
+          </div>
+          <p class="hiw-label">{{ s.label }}</p>
+          <p class="hiw-desc">{{ s.description }}</p>
         </div>
-        <p class="hiw-label">Find a Course</p>
-        <p class="hiw-desc">Browse hundreds of expert-led courses across tech, design and business.</p>
-      </div>
 
-      <!-- Connector -->
-      <div class="hiw-connector" aria-hidden="true">
-        <span class="hiw-connector-desk">
-          <span class="hiw-dot hiw-dot--blue"></span>
-          <span class="hiw-dash"></span>
-          <span class="hiw-dot hiw-dot--orange"></span>
-        </span>
-        <span class="hiw-connector-mob">
-          <span class="hiw-vdash"></span>
-          <span class="hiw-dot hiw-dot--orange hiw-dot--mob"></span>
-        </span>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="hiw-step">
-        <div class="hiw-icon">
-          <img src="assets/images/icon-hand.png" alt="Access" class="hiw-img" />
+        <div class="hiw-connector" *ngIf="!last" aria-hidden="true">
+          <span class="hiw-connector-desk">
+            <span class="hiw-dot hiw-dot--blue"></span>
+            <span class="hiw-dash"></span>
+            <span class="hiw-dot hiw-dot--orange"></span>
+          </span>
+          <span class="hiw-connector-mob">
+            <span class="hiw-vdash"></span>
+            <span class="hiw-dot hiw-dot--orange hiw-dot--mob"></span>
+          </span>
         </div>
-        <p class="hiw-label">Get Access</p>
-        <p class="hiw-desc">Enroll instantly and access all course materials from any device.</p>
-      </div>
-
-      <!-- Connector -->
-      <div class="hiw-connector" aria-hidden="true">
-        <span class="hiw-connector-desk">
-          <span class="hiw-dot hiw-dot--blue"></span>
-          <span class="hiw-dash"></span>
-          <span class="hiw-dot hiw-dot--orange"></span>
-        </span>
-        <span class="hiw-connector-mob">
-          <span class="hiw-vdash"></span>
-          <span class="hiw-dot hiw-dot--orange hiw-dot--mob"></span>
-        </span>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="hiw-step">
-        <div class="hiw-icon">
-          <img src="assets/images/icon-building.png" alt="Learn" class="hiw-img" />
-        </div>
-        <p class="hiw-label">Start Learning</p>
-        <p class="hiw-desc">Learn at your own pace with hands-on projects and expert mentorship.</p>
-      </div>
+      </ng-container>
 
     </div>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     REVIEWS
-════════════════════════════════════════ -->
+<!-- Reviews -->
 <app-reviews></app-reviews>
 
 
-<!-- ═══════════════════════════════════════
-     LMS BANNER
-════════════════════════════════════════ -->
+<!-- LMS Banner -->
 <section class="lms-banner-section">
   <div class="lms-banner">
     <div class="lms-banner-inner">
@@ -925,12 +230,9 @@
         <p class="lms-banner-title">Let's Start With Academy LMS</p>
       </div>
       <div class="lms-banner-actions">
-        <a href="/contact" class="lms-btn lms-btn--outline">Join Course</a>
-        <a href="/contact" class="lms-btn lms-btn--solid">Become an Instructor</a>
+        <a routerLink="/contact" class="lms-btn lms-btn--outline">Join Course</a>
+        <a routerLink="/contact" class="lms-btn lms-btn--solid">Become an Instructor</a>
       </div>
     </div>
   </div>
 </section>
-
-</body>
-</html>

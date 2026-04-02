@@ -189,13 +189,9 @@ img { display: block; max-width: 100%; }
   position: relative;
 }
 
-/* Mobile header — hidden by default, shown at ≤820px */
+/* Mobile header — permanently hidden; heading lives inside .git-wrapper */
 .git-mobile-header {
   display: none;
-  margin: 0 auto 20px;
-  max-width: 860px;
-  position: relative;
-  z-index: 1;
 }
 
 /* Blue card wrapper */
@@ -249,7 +245,9 @@ img { display: block; max-width: 100%; }
   color: #0D1B2E;
   margin: 0 0 12px;
 }
-.git-heading--desktop { /* visible on desktop only */ }
+
+/* Always visible — heading lives inside the wrapper on all screen sizes */
+.git-heading--desktop { display: block; }
 
 .git-subtext {
   font-size: 14px;
@@ -257,7 +255,9 @@ img { display: block; max-width: 100%; }
   color: #4a5568;
   margin: 0 0 28px;
 }
-.git-subtext--desktop { /* visible on desktop only */ }
+
+/* Always visible — subtext lives inside the wrapper on all screen sizes */
+.git-subtext--desktop { display: block; }
 
 /* Info card */
 .git-card {
@@ -623,9 +623,13 @@ img { display: block; max-width: 100%; }
   .git-submit-row { justify-content: center; margin-top: 28px; }
   .git-submit-btn { width: 100%; max-width: 340px; }
   .git-social     { justify-content: center; margin-top: 24px; }
-  .git-heading--desktop,
-  .git-subtext--desktop { display: none; }
-  .git-mobile-header    { display: block; }
+
+  /* Heading/subtext stay visible — they live inside .git-wrapper */
+  .git-heading--desktop { display: block; }
+  .git-subtext--desktop { display: block; }
+
+  /* Outside duplicate header is never shown */
+  .git-mobile-header { display: none; }
 }
 
 @media (max-width: 768px) {

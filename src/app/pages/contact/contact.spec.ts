@@ -20,3 +20,4 @@ describe('ContactComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
