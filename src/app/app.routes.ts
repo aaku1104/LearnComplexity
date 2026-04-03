@@ -6,7 +6,7 @@ import { Courses } from './pages/courses/courses';
 import { ReviewsComponent } from './reviews/reviews.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'contact', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'courses', component: Courses },
   // Catch all sub-routes like /courses/design, /courses/ui-ux, etc.

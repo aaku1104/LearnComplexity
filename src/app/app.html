@@ -3,3 +3,51 @@
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
+
+<script>
+  // Prevent scroll position restoration completely
+  (function() {
+    // Disable browser scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Reset scroll position immediately on script load
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    
+    // Prevent any scroll restoration on navigation
+    const originalPushState = history.pushState;
+    history.pushState = function() {
+      // Reset scroll before navigation
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      return originalPushState.apply(this, arguments);
+    };
+    
+    // Also handle replaceState
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function() {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      return originalReplaceState.apply(this, arguments);
+    };
+    
+    // Ensure scroll is at top on page load
+    window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+    
+    // Handle browser back/forward
+    window.addEventListener('popstate', function() {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+  })();
+</script>
