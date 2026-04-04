@@ -1,63 +1,146 @@
-<!-- reviews.component.html — no structural changes needed -->
-<!-- The CSS handles everything: 1-col on mobile, arrows hidden, dots visible -->
+<div style="width:100%; padding:60px 0; background-color:#ffffff;">
+  <section style="max-width:1280px; margin:0 auto; padding:0 16px;">
 
-<div class="reviews-wrap">
-  <section class="reviews-section">
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:600; font-size:40px; line-height:1.2; letter-spacing:0.02em; text-transform:capitalize; color:#050C26; text-align:center; margin-bottom:40px;">
+      What Student's Say
+    </h2>
 
-    <h2 class="section-title">What Student's Say</h2>
+    <div style="position:relative; padding:0 40px;">
 
-    <div class="carousel-wrapper">
-
-      <!-- Left Nav Button (hidden on mobile via CSS) -->
-      <button class="nav-btn nav-prev" (click)="changeSlide(-1)" aria-label="Previous">
+      <!-- Left Nav Button -->
+      <button class="nav-btn nav-btn--left" (click)="changeSlide(-1)" aria-label="Previous"
+        style="width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); z-index:10; left:-8px; background-color:#ffffff; border:1px solid #e2e8f0; transition:opacity 0.2s ease;">
         <svg width="16" height="16" viewBox="0 0 25 28" fill="none">
           <path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#64748B"/>
         </svg>
       </button>
 
       <!-- Cards Grid -->
-      <div class="cards-grid">
-        <div
-          class="review-card"
-          *ngFor="let review of visibleReviews"
-        >
-          <p class="review-text">{{ review.text }}</p>
+      <div class="reviews-grid"
+        style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; justify-items:center;">
 
-          <div class="reviewer-info">
-            <img [src]="review.avatar" class="reviewer-avatar" [alt]="review.name" />
-            <div class="reviewer-details">
-              <p class="reviewer-name">{{ review.name }}</p>
-              <p class="reviewer-role">{{ review.role }}</p>
-              <div class="stars">
+        <div *ngFor="let review of visibleReviews; let i = index"
+          class="review-card"
+          [class.review-card--hidden]="i > 0"
+          style="width:100%; max-width:391px; min-height:308px; border-radius:20px; background-color:#ffffff; box-shadow:0px 0px 6px 0px rgba(0,0,0,0.07), 0px 10px 15px -3px rgba(0,0,0,0.10); padding:32px; display:flex; flex-direction:column; box-sizing:border-box;">
+
+          <p style="font-family:'Roboto',sans-serif; font-weight:400; font-size:16px; line-height:1.6; color:#000000; flex:1; margin:0 0 24px 0; display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden;">
+            {{ review.text }}
+          </p>
+
+          <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
+            <img [src]="review.avatar" [alt]="review.name"
+              style="width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid #e2e8f0; flex-shrink:0;"/>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+              <p style="font-family:'Roboto',sans-serif; font-weight:400; font-size:17px; line-height:1.6; color:#000000; margin:0;">
+                {{ review.name }}
+              </p>
+              <p style="font-family:'Roboto',sans-serif; font-weight:400; font-size:15px; line-height:1.4; color:#475569; margin:0;">
+                {{ review.role }}
+              </p>
+              <div style="margin-top:4px;">
                 <svg width="136" height="28" viewBox="0 0 136 28" fill="none">
                   <path *ngFor="let star of starPaths; let i = index"
                     [attr.d]="star"
-                    [attr.fill]="i < review.rating ? '#5D5DFF' : '#A0A0A0'"
-                  />
+                    [attr.fill]="i < review.rating ? '#5D5DFF' : '#A0A0A0'"/>
                 </svg>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      <!-- Right Nav Button (hidden on mobile via CSS) -->
-      <button class="nav-btn nav-next" (click)="changeSlide(1)" aria-label="Next">
-        <svg width="16" height="16" viewBox="0 0 25 28" fill="none" style="transform: rotate(180deg);">
+      <!-- Right Nav Button -->
+      <button class="nav-btn nav-btn--right" (click)="changeSlide(1)" aria-label="Next"
+        style="width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); z-index:10; right:-8px; background-color:#2563eb; border:none; box-shadow:0px 4px 6px -4px rgba(59,130,246,0.2), 0px 10px 15px -3px rgba(59,130,246,0.2); transition:opacity 0.2s ease;">
+        <svg width="16" height="16" viewBox="0 0 25 28" fill="none" style="transform:rotate(180deg);">
           <path d="M7.95093 14.9723L13.3954 20.4167L12.01 21.7778L4.23218 14.0001L12.01 6.22228L13.3954 7.58339L7.95093 13.0278H19.7877V14.9723H7.95093Z" fill="#FFFFFF"/>
         </svg>
       </button>
 
       <!-- Dot Indicators -->
-      <div class="dots-container">
-        <div
-          *ngFor="let dot of dots; let i = index"
+      <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:32px;">
+        <div *ngFor="let dot of dots; let i = index"
           class="dot"
-          [class.dot-active]="i === currentIndex"
+          [class.dot--active]="i === currentIndex"
           (click)="goToSlide(i)"
-        ></div>
+          style="height:8px; border-radius:9999px; background-color:#d1d5db; cursor:pointer; transition:width 0.3s ease, background-color 0.3s ease;"
+          [style.width]="i === currentIndex ? '32px' : '8px'"
+          [style.background-color]="i === currentIndex ? '#1e293b' : '#d1d5db'">
+        </div>
       </div>
 
     </div>
   </section>
 </div>
+
+<style>
+  /* ── Tablet (≤ 1024px): 2 cards ── */
+  @media (max-width: 1024px) {
+    .reviews-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  /* ── Mobile (≤ 640px): 1 card, hide arrows ── */
+  @media (max-width: 640px) {
+    .reviews-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      justify-items: stretch !important;
+    }
+
+    .review-card {
+      max-width: 100% !important;
+      min-height: auto !important;
+      padding: 28px 24px !important;
+    }
+
+    /* ✅ Hide cards 2 and 3 on mobile */
+    .review-card--hidden {
+      display: none !important;
+    }
+
+  /* ── Tablet (≤ 1024px): 2 cards ── */
+  @media (max-width: 1024px) {
+    .reviews-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  /* ── Mobile (≤ 640px): 1 card ── */
+  @media (max-width: 640px) {
+    .reviews-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      justify-items: stretch !important;
+    }
+
+    .review-card {
+      max-width: 100% !important;
+      min-height: auto !important;
+      padding: 28px 24px !important;
+    }
+
+    /* ✅ Hide cards 2 and 3 on mobile */
+    .review-card--hidden {
+      display: none !important;
+    }
+  }
+
+  /* ── Very small (≤ 360px) ── */
+  @media (max-width: 360px) {
+    .review-card {
+      padding: 22px 18px !important;
+    }
+  }
+  }
+
+  /* ── Very small (≤ 360px) ── */
+  @media (max-width: 360px) {
+    .review-card {
+      padding: 22px 18px !important;
+    }
+  }
+</style>
