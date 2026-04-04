@@ -1,40 +1,165 @@
-<!-- Top Bar -->
-<div class="top-bar">
-  <div class="top-bar-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn Complexity Header</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
 
-    <div class="top-bar-left">
-      <div class="contact-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    @media (max-width: 900px) {
+      .top-bar { display: none !important; }
+
+      .header-container {
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+        padding: 10px 16px !important;
+        align-items: center !important;
+      }
+
+      .mobile-menu-toggle { display: inline-flex !important; }
+
+      .nav-links {
+        display: none !important;
+        order: 3 !important;
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        justify-content: stretch !important;
+        padding: 8px 0 4px !important;
+        border-top: 1px solid #e8eaf0 !important;
+        margin-top: 4px !important;
+      }
+
+      .nav-links.mobile-open { display: flex !important; }
+
+      .nav-list {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        width: 100% !important;
+      }
+
+      .nav-list-item {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+        padding: 10px 0 !important;
+      }
+
+      .nav-item { flex: 1 !important; padding: 6px 0 !important; }
+
+      .auth-buttons {
+        display: none !important;
+        order: 4 !important;
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        justify-content: stretch !important;
+        gap: 10px !important;
+        padding: 8px 0 12px !important;
+        flex-direction: column !important;
+      }
+
+      .auth-buttons.mobile-open { display: flex !important; }
+
+      .auth-buttons .signin-btn,
+      .auth-buttons .register-btn { width: 100% !important; }
+
+      .courses-dropdown {
+        position: fixed !important;
+        top: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        min-width: min(90vw, 580px) !important;
+        max-width: 92vw !important;
+      }
+    }
+
+    @media (max-width: 1024px) and (min-width: 901px) {
+      .header-container { padding: 12px 20px !important; }
+      .nav-list { gap: 20px !important; }
+      .nav-item { font-size: 15px !important; }
+    }
+
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #2563EB;
+      border-radius: 2px;
+    }
+
+    .dropdown-arrow-btn.open .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .main-header.mobile-open .mobile-menu-toggle .bar1 {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .main-header.mobile-open .mobile-menu-toggle .bar2 { opacity: 0; }
+    .main-header.mobile-open .mobile-menu-toggle .bar3 {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .dropdown-overlay.show { display: block !important; }
+    .courses-dropdown.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateX(-50%) translateY(0) !important;
+      pointer-events: all !important;
+    }
+
+    .nav-item:hover { color: #2563EB; }
+    .social-icon:hover { opacity: 0.7; }
+    .dropdown-arrow-btn:hover .dropdown-arrow { color: #2563EB; }
+    .dropdown-item:hover { background-color: #eff6ff; }
+    .signin-btn:hover { background-color: #0F172A; color: #ffffff; }
+    .register-btn:hover { background-color: #1d4fd8; box-shadow: 0 4px 12px rgba(37,99,235,0.35); }
+  </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar" style="width:100%;height:60px;background-color:#ffffff;border-bottom:1px solid #CECECE;display:flex;align-items:center;">
+  <div style="max-width:1477px;width:100%;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;">
+
+    <div style="display:flex;align-items:center;gap:32px;white-space:nowrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M19.4401 13C19.2201 13 18.9901 12.93 18.7701 12.88C18.3246 12.7818 17.8868 12.6515 17.4601 12.49C16.9962 12.3212 16.4862 12.33 16.0284 12.5146C15.5706 12.6992 15.1972 13.0466 14.9801 13.49L14.7601 13.94C13.7861 13.3982 12.8911 12.7252 12.1001 11.94C11.3149 11.149 10.6419 10.254 10.1001 9.27999L10.5201 8.99999C10.9635 8.78291 11.3109 8.40952 11.4955 7.95168C11.6801 7.49384 11.6889 6.9839 11.5201 6.51999C11.3613 6.09241 11.231 5.65479 11.1301 5.20999C11.0801 4.98999 11.0401 4.75999 11.0101 4.52999C10.8887 3.82561 10.5197 3.18773 9.96972 2.73123C9.41972 2.27473 8.7248 2.0296 8.0101 2.03999H5.0101C4.57913 2.03594 4.15235 2.1248 3.75881 2.30052C3.36527 2.47624 3.01421 2.73469 2.72953 3.05827C2.44485 3.38186 2.23324 3.76298 2.10909 4.1757C1.98494 4.58842 1.95118 5.02305 2.0101 5.44999C2.54284 9.63937 4.45613 13.5319 7.44775 16.5126C10.4394 19.4934 14.3388 21.3925 18.5301 21.91H18.9101C19.6475 21.9111 20.3595 21.6405 20.9101 21.15C21.2265 20.867 21.4792 20.5202 21.6516 20.1323C21.8239 19.7444 21.9121 19.3244 21.9101 18.9V15.9C21.8979 15.2054 21.6449 14.5365 21.1944 14.0077C20.744 13.4788 20.1239 13.1226 19.4401 13Z" fill="#1E1E1E"/>
         </svg>
-        <span>+91 91234-56789</span>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#1E1E1E;">+91 91234-56789</span>
       </div>
-      <div class="contact-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M20 4H4C3.20435 4 2.44129 4.31607 1.87868 4.87868C1.31607 5.44129 1 6.20435 1 7V17C1 17.7956 1.31607 18.5587 1.87868 19.1213C2.44129 19.6839 3.20435 20 4 20H20C20.7956 20 21.5587 19.6839 22.1213 19.1213C22.6839 18.5587 23 17.7956 23 17V7C23 6.20435 22.6839 5.44129 22.1213 4.87868C21.5587 4.31607 20.7956 4 20 4ZM21 16.75L16.1 12.35L21 8.92V16.75ZM3 8.92L7.9 12.35L3 16.75V8.92ZM9.58 13.53L11.43 14.82C11.5974 14.9361 11.7963 14.9984 12 14.9984C12.2037 14.9984 12.4026 14.9361 12.57 14.82L14.42 13.53L19.42 18H4.6L9.58 13.53ZM4 6H20C20.1857 6.00149 20.3674 6.05467 20.5245 6.15358C20.6817 6.25249 20.8083 6.39322 20.89 6.56L12 12.78L3.11 6.56C3.19171 6.39322 3.31826 6.25249 3.47545 6.15358C3.63265 6.05467 3.81428 6.00149 4 6Z" fill="#1E1E1E"/>
         </svg>
-        <span>support&#64;Learncomplexity.com</span>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#1E1E1E;">support@Learncomplexity.com</span>
       </div>
     </div>
 
-    <div class="top-bar-right">
-      <a href="#" class="social-icon" aria-label="Instagram">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="#" style="display:flex;align-items:center;text-decoration:none;transition:opacity 0.2s ease;" aria-label="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M17.34 5.46C17.1027 5.46 16.8707 5.53038 16.6733 5.66224C16.476 5.79409 16.3222 5.98151 16.2313 6.20078C16.1405 6.42005 16.1168 6.66133 16.1631 6.89411C16.2094 7.12689 16.3236 7.34071 16.4915 7.50853C16.6593 7.67635 16.8731 7.79064 17.1059 7.83694C17.3387 7.88324 17.5799 7.85948 17.7992 7.76866C18.0185 7.67783 18.2059 7.52402 18.3378 7.32668C18.4696 7.12935 18.54 6.89734 18.54 6.66C18.54 6.34174 18.4136 6.03652 18.1885 5.81147C17.9635 5.58643 17.6583 5.46 17.34 5.46ZM21.94 7.88C21.9206 7.0503 21.7652 6.2294 21.48 5.45C21.2257 4.78313 20.83 4.17928 20.32 3.68C19.8248 3.16743 19.2196 2.77418 18.55 2.53C17.7727 2.23616 16.9508 2.07721 16.12 2.06C15.06 2 14.72 2 12 2C9.28 2 8.94 2 7.88 2.06C7.04915 2.07721 6.22734 2.23616 5.45 2.53C4.78168 2.77665 4.17693 3.16956 3.68 3.68C3.16743 4.17518 2.77418 4.78044 2.53 5.45C2.23616 6.22734 2.07721 7.04915 2.06 7.88C2 8.94 2 9.28 2 12C2 14.72 2 15.06 2.06 16.12C2.07721 16.9508 2.23616 17.7727 2.53 18.55C2.77418 19.2196 3.16743 19.8248 3.68 20.32C4.17693 20.8304 4.78168 21.2234 5.45 21.47C6.22734 21.7638 7.04915 21.9228 7.88 21.94C8.94 22 9.28 22 12 22C14.72 22 15.06 22 16.12 21.94C16.9508 21.9228 17.7727 21.7638 18.55 21.47C19.2196 21.2258 19.8248 20.8326 20.32 20.32C20.8322 19.8226 21.2283 19.2182 21.48 18.55C21.7652 17.7706 21.9206 16.9497 21.94 16.12C21.94 15.06 22 14.72 22 12C22 9.28 22 8.94 21.94 7.88ZM20.14 16C20.1327 16.6348 20.0178 17.2637 19.8 17.86C19.6403 18.2952 19.3839 18.6884 19.05 19.01C18.7256 19.3405 18.3332 19.5964 17.9 19.76C17.3037 19.9778 16.6748 20.0927 16.04 20.1C15.04 20.15 14.67 20.16 12.04 20.16C9.41 20.16 9.04 20.16 8.04 20.1C7.38089 20.1123 6.72459 20.0109 6.1 19.8C5.68578 19.6281 5.31136 19.3728 5 19.05C4.66809 18.7287 4.41484 18.3352 4.26 17.9C4.01586 17.2952 3.88044 16.6519 3.86 16C3.86 15 3.8 14.63 3.8 12C3.8 9.37 3.8 9 3.86 8C3.86448 7.35106 3.98295 6.70795 4.21 6.1C4.38605 5.67791 4.65627 5.30166 5 5C5.30381 4.65617 5.67929 4.3831 6.1 4.2C6.70955 3.98004 7.352 3.86508 8 3.86C9 3.86 9.37 3.8 12 3.8C14.63 3.8 15 3.8 16 3.86C16.6348 3.86728 17.2637 3.98225 17.86 4.2C18.3144 4.36865 18.7223 4.64285 19.05 5C19.3777 5.30718 19.6338 5.68273 19.8 6.1C20.0223 6.70893 20.1373 7.35178 20.14 8C20.19 9 20.2 9.37 20.2 12C20.2 14.63 20.19 15 20.14 16ZM12 6.87C10.9858 6.87198 9.99496 7.17453 9.15265 7.73942C8.31035 8.30431 7.65438 9.1062 7.26763 10.0438C6.88089 10.9813 6.78072 12.0125 6.97979 13.0069C7.17886 14.0014 7.66824 14.9145 8.38608 15.631C9.10392 16.3474 10.018 16.835 11.0129 17.0321C12.0077 17.2293 13.0387 17.1271 13.9755 16.7385C14.9123 16.35 15.7129 15.6924 16.2761 14.849C16.8394 14.0056 17.14 13.0142 17.14 12C17.1413 11.3251 17.0092 10.6566 16.7512 10.033C16.4933 9.40931 16.1146 8.84281 15.6369 8.36605C15.1592 7.88929 14.5919 7.51168 13.9678 7.25493C13.3436 6.99818 12.6749 6.86736 12 6.87ZM12 15.33C11.3414 15.33 10.6976 15.1347 10.15 14.7688C9.60234 14.4029 9.17552 13.8828 8.92348 13.2743C8.67144 12.6659 8.6055 11.9963 8.73398 11.3503C8.86247 10.7044 9.17963 10.111 9.64533 9.64533C10.111 9.17963 10.7044 8.86247 11.3503 8.73398C11.9963 8.6055 12.6659 8.67144 13.2743 8.92348C13.8828 9.17552 14.4029 9.60234 14.7688 10.15C15.1347 10.6976 15.33 11.3414 15.33 12C15.33 12.4373 15.2439 12.8703 15.0765 13.2743C14.9092 13.6784 14.6639 14.0454 14.3547 14.3547C14.0454 14.6639 13.6784 14.9092 13.2743 15.0765C12.8703 15.2439 12.4373 15.33 12 15.33Z" fill="#313131"/>
         </svg>
       </a>
-      <a href="#" class="social-icon" aria-label="Facebook">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#" style="display:flex;align-items:center;text-decoration:none;transition:opacity 0.2s ease;" aria-label="Facebook">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M20.9 2H3.1C2.80826 2 2.52847 2.11589 2.32218 2.32218C2.11589 2.52847 2 2.80826 2 3.1V20.9C2 21.0445 2.02845 21.1875 2.08373 21.321C2.13901 21.4544 2.22004 21.5757 2.32218 21.6778C2.42433 21.78 2.54559 21.861 2.67905 21.9163C2.81251 21.9715 2.95555 22 3.1 22H12.68V14.25H10.08V11.25H12.68V9C12.6261 8.47176 12.6885 7.93813 12.8627 7.43654C13.0369 6.93495 13.3188 6.47755 13.6885 6.09641C14.0582 5.71528 14.5068 5.41964 15.0028 5.23024C15.4989 5.04083 16.0304 4.96225 16.56 5C17.3383 4.99521 18.1163 5.03528 18.89 5.12V7.82H17.3C16.04 7.82 15.8 8.42 15.8 9.29V11.22H18.8L18.41 14.22H15.8V22H20.9C21.0445 22 21.1875 21.9715 21.321 21.9163C21.4544 21.861 21.5757 21.78 21.6778 21.6778C21.78 21.5757 21.861 21.4544 21.9163 21.321C21.9715 21.1875 22 21.0445 22 20.9V3.1C22 2.95555 21.9715 2.81251 21.9163 2.67905C21.861 2.54559 21.78 2.42433 21.6778 2.32218C21.5757 2.22004 21.4544 2.13901 21.321 2.08373C21.1875 2.02845 21.0445 2 20.9 2Z" fill="#313131"/>
         </svg>
       </a>
-      <a href="#" class="social-icon" aria-label="Twitter">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#" style="display:flex;align-items:center;text-decoration:none;transition:opacity 0.2s ease;" aria-label="Twitter">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M23.0627 5.13281C22.2471 5.49375 21.3752 5.7375 20.4564 5.85C21.3939 5.2875 22.1158 4.39687 22.4533 3.3375C21.5768 3.85781 20.6064 4.2375 19.5705 4.43906C18.7408 3.55312 17.5596 3 16.2564 3C13.7486 3 11.7189 5.03437 11.7189 7.54219C11.7189 7.89844 11.7564 8.24531 11.8361 8.57812C8.0627 8.39062 4.71582 6.58125 2.47988 3.82969C2.09082 4.5 1.86582 5.28281 1.86582 6.1125C1.86582 7.6875 2.67207 9.07969 3.89082 9.89531C3.14082 9.87656 2.4377 9.67031 1.82832 9.32812V9.38437C1.82832 11.5875 3.39395 13.4203 5.47051 13.8375C5.09082 13.9406 4.6877 13.9969 4.2752 13.9969C3.98457 13.9969 3.69863 13.9687 3.42207 13.9125C3.99863 15.7172 5.67676 17.0297 7.66426 17.0672C6.1127 18.2859 4.15332 19.0125 2.0252 19.0125C1.65957 19.0125 1.29863 18.9891 0.942383 18.9469C2.94395 20.25 5.32988 21 7.88926 21C16.2471 21 20.8127 14.0766 20.8127 8.07187C20.8127 7.875 20.808 7.67812 20.7986 7.48594C21.6846 6.84375 22.4533 6.04688 23.0627 5.13281Z" fill="#313131"/>
         </svg>
       </a>
-      <a href="#" class="social-icon" aria-label="LinkedIn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#" style="display:flex;align-items:center;text-decoration:none;transition:opacity 0.2s ease;" aria-label="LinkedIn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M21.0907 1.34595H2.68194C1.80042 1.34595 1.08594 2.03859 1.08594 2.89347V21.3977C1.08594 22.2526 1.80066 22.9459 2.68194 22.9459H21.0907C21.9722 22.9459 22.6857 22.2523 22.6857 21.3977V2.89347C22.6857 2.03883 21.9722 1.34595 21.0907 1.34595ZM7.63434 19.4266H4.37082V9.67443H7.63434V19.4266ZM6.00282 8.34219H5.98098C4.88658 8.34219 4.17714 7.59363 4.17714 6.65667C4.17714 5.70075 4.90746 4.97259 6.02346 4.97259C7.1397 4.97259 7.82634 5.70051 7.84794 6.65667C7.84794 7.59387 7.13994 8.34219 6.00282 8.34219ZM19.3987 19.4266H16.1361V14.209C16.1361 12.8976 15.6633 12.0031 14.4835 12.0031C13.5808 12.0031 13.0451 12.6067 12.8099 13.1892C12.7226 13.3975 12.7012 13.6884 12.7012 13.9793V19.4263H9.43914C9.43914 19.4263 9.48186 10.5888 9.43914 9.67419H12.7015V11.0568C13.1347 10.3925 13.9084 9.44475 15.6412 9.44475C17.7885 9.44475 19.3987 10.8377 19.3987 13.8346V19.4266ZM12.6803 11.0878C12.6861 11.0787 12.6938 11.0676 12.7015 11.0571V11.0878H12.6803Z" fill="#313131"/>
         </svg>
       </a>
@@ -44,127 +169,210 @@
 </div>
 
 <!-- Main Navigation Bar -->
-<header class="main-header" [class.mobile-open]="mobileNavOpen">
-  <div class="header-container">
+<header class="main-header" id="mainHeader" style="width:100%;background-color:#ffffff;border-bottom:2px solid #e8eaf0;position:sticky;top:0;z-index:1000;">
+  <div class="header-container" style="max-width:1440px;margin:0 auto;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;gap:40px;box-sizing:border-box;">
 
     <!-- Logo -->
-    <div class="logo-container" routerLink="/home" (click)="closeMobileNav()">
-      <img src="assets\images\lc-logo.png" alt="Learn Complexity Icon" class="logo-icon" />
-      <img src="assets\images\logo-text.png" alt="Learn Complexity" class="logo-text" />
+    <div style="width:168px;height:37px;display:flex;align-items:center;gap:2px;flex-shrink:0;cursor:pointer;" onclick="window.location.href='/home'">
+      <img src="assets/images/lc-logo.png" alt="Learn Complexity Icon" style="width:64px;height:48px;object-fit:contain;" />
+      <img src="assets/images/logo-text.png" alt="Learn Complexity" style="width:102px;height:29px;object-fit:contain;" />
     </div>
 
-    <button
-      type="button"
-      class="mobile-menu-toggle"
-      (click)="toggleMobileNav()"
-      [attr.aria-expanded]="mobileNavOpen"
-      aria-label="Open menu"
-    >
-      <span class="mobile-menu-bar"></span>
-      <span class="mobile-menu-bar"></span>
-      <span class="mobile-menu-bar"></span>
+    <!-- Mobile Toggle -->
+    <button type="button" id="mobileToggle" class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Open menu"
+      style="display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0;border:none;border-radius:8px;background:transparent;cursor:pointer;flex-shrink:0;margin-left:auto;">
+      <span class="bar1" style="display:block;width:22px;height:2px;background-color:#0F172A;border-radius:2px;transition:transform 0.2s ease,opacity 0.2s ease;"></span>
+      <span class="bar2" style="display:block;width:22px;height:2px;background-color:#0F172A;border-radius:2px;transition:transform 0.2s ease,opacity 0.2s ease;"></span>
+      <span class="bar3" style="display:block;width:22px;height:2px;background-color:#0F172A;border-radius:2px;transition:transform 0.2s ease,opacity 0.2s ease;"></span>
     </button>
 
     <!-- Navigation -->
-    <nav class="nav-links" [class.mobile-open]="mobileNavOpen">
-      <ul class="nav-list">
-        <ng-container *ngFor="let item of menuItems">
-          <li class="nav-list-item" [class.has-dropdown]="item.hasDropdown">
-            <a [routerLink]="item.route"
-               routerLinkActive="active"
-               class="nav-item"
-               (click)="onNavClick(item, $event); closeMobileNav()">
-              {{ item.label }}
-            </a>
-            <button *ngIf="item.hasDropdown"
-                    class="dropdown-arrow-btn"
-                    (click)="toggleDropdown($event)"
-                    [class.open]="dropdownOpen"
-                    aria-label="Toggle courses dropdown">
-              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-          </li>
-        </ng-container>
+    <nav class="nav-links" id="navLinks" style="display:flex;align-items:center;justify-content:center;flex-grow:1;">
+      <ul style="display:flex;gap:48px;list-style:none;margin:0;padding:0;align-items:center;">
+
+        <li style="display:inline-flex;align-items:center;gap:2px;position:relative;">
+          <a href="/home" style="display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;line-height:24px;letter-spacing:0.5px;color:#0F172A;transition:color 0.2s ease;position:relative;padding:4px 0;" class="nav-item active">Home</a>
+        </li>
+
+        <li style="display:inline-flex;align-items:center;gap:2px;position:relative;">
+          <a href="/courses" style="display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;line-height:24px;letter-spacing:0.5px;color:#0F172A;transition:color 0.2s ease;position:relative;padding:4px 0;" class="nav-item">Courses</a>
+          <button class="dropdown-arrow-btn" id="dropdownBtn" onclick="toggleDropdown(event)" aria-label="Toggle courses dropdown"
+            style="display:inline-flex;align-items:center;justify-content:center;background:none;border:none;padding:2px;cursor:pointer;color:#555;margin-left:2px;">
+            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:13px;height:13px;color:#555;transition:transform 0.25s ease;">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </li>
+
+        <li style="display:inline-flex;align-items:center;gap:2px;position:relative;">
+          <a href="/about" style="display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;line-height:24px;letter-spacing:0.5px;color:#0F172A;transition:color 0.2s ease;position:relative;padding:4px 0;" class="nav-item">About</a>
+        </li>
+
+        <li style="display:inline-flex;align-items:center;gap:2px;position:relative;">
+          <a href="/contact" style="display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;line-height:24px;letter-spacing:0.5px;color:#0F172A;transition:color 0.2s ease;position:relative;padding:4px 0;" class="nav-item">Contact</a>
+        </li>
+
       </ul>
     </nav>
 
     <!-- Auth Buttons -->
-    <div class="auth-buttons" [class.mobile-open]="mobileNavOpen">
-      <button class="signin-btn" type="button" (click)="onSignIn(); closeMobileNav()">Sign in</button>
-      <button class="register-btn" type="button" (click)="onRegister(); closeMobileNav()">Register</button>
+    <div class="auth-buttons" id="authButtons" style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <button class="signin-btn" type="button"
+        style="width:117px;height:42px;border:2px solid #0F172A;border-radius:8px;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;color:#0F172A;cursor:pointer;transition:all 0.25s ease;">
+        Sign in
+      </button>
+      <button class="register-btn" type="button"
+        style="width:117px;height:42px;background-color:#2563EB;border:none;border-radius:8px;color:#ffffff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;display:flex;justify-content:center;align-items:center;cursor:pointer;transition:all 0.25s ease;">
+        Register
+      </button>
     </div>
 
   </div>
 
   <!-- Courses Dropdown -->
-  <div class="courses-dropdown" [class.open]="dropdownOpen" (mouseleave)="closeDropdown()">
-    <div class="dropdown-grid">
-      <div class="dropdown-col">
-        <a routerLink="/courses/design" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Design</span>
-            <span class="item-sub">All About Design Course</span>
+  <div class="courses-dropdown" id="coursesDropdown"
+    style="position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);width:max-content;min-width:580px;max-width:760px;background-color:#ffffff;border-radius:8px;border:1px solid #e8eaf0;z-index:999;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;pointer-events:none;box-shadow:0 6px 28px rgba(0,0,0,0.10);margin-top:8px;">
+
+    <!-- Caret -->
+    <div style="position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #e8eaf0;"></div>
+    <div style="position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #ffffff;"></div>
+
+    <div style="display:flex;padding:8px 0;" onmouseleave="closeDropdown()">
+
+      <div style="flex:1;display:flex;flex-direction:column;padding:4px 0;">
+        <a href="/courses/design" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Design</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">All About Design Course</span>
           </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
-        <a routerLink="/courses/programming" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Programming</span>
-            <span class="item-sub">Website and Mobile Programming</span>
+        <a href="/courses/programming" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Programming</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Website and Mobile Programming</span>
           </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
-        <a routerLink="/courses/business" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Business &amp; Marketing</span>
-            <span class="item-sub">Grow your business online</span>
+        <a href="/courses/business" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Business &amp; Marketing</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Grow your business online</span>
           </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
-        <a routerLink="/courses/photo-video" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Photo &amp; Video</span>
-            <span class="item-sub">Capture and edit like a pro</span>
+        <a href="/courses/photo-video" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Photo &amp; Video</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Capture and edit like a pro</span>
           </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
-        <a routerLink="/courses/writing" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Writing</span>
-            <span class="item-sub">Craft compelling content</span>
+        <a href="/courses/writing" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Writing</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Craft compelling content</span>
           </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-      </div>
-      <div class="dropdown-divider"></div>
-      <div class="dropdown-col">
-        <a routerLink="/courses/illustration" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Illustration</span>
-            <span class="item-sub">How to be a great illustrator</span>
-          </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a routerLink="/courses/graphic-design" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">Graphic Design</span>
-            <span class="item-sub">Make more benefit from design</span>
-          </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a routerLink="/courses/ui-ux" class="dropdown-item" (click)="closeDropdown()">
-          <div class="dropdown-item-text">
-            <span class="item-title">UI/UX Design</span>
-            <span class="item-sub">Design for websites and apps</span>
-          </div>
-          <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </div>
+
+      <div style="width:1px;background-color:#e8eaf0;margin:8px 0;flex-shrink:0;"></div>
+
+      <div style="flex:1;display:flex;flex-direction:column;padding:4px 0;">
+        <a href="/courses/illustration" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Illustration</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">How to be a great illustrator</span>
+          </div>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="/courses/graphic-design" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">Graphic Design</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Make more benefit from design</span>
+          </div>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="/courses/ui-ux" style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;text-decoration:none;transition:background-color 0.15s ease;gap:12px;" class="dropdown-item" onclick="closeDropdown()">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:600;color:#0F172A;letter-spacing:0.1px;">UI/UX Design</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#888;font-weight:400;">Design for websites and apps</span>
+          </div>
+          <svg style="width:15px;height:15px;color:#aaa;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </header>
 
 <!-- Overlay to close dropdown -->
-<div class="dropdown-overlay" [class.show]="dropdownOpen" (click)="closeDropdown()"></div>
+<div id="dropdownOverlay" onclick="closeDropdown()"
+  style="display:none;position:fixed;inset:0;z-index:998;background:transparent;"></div>
+
+<script>
+  var dropdownOpen = false;
+  var mobileNavOpen = false;
+
+  function toggleDropdown(e) {
+    e.stopPropagation();
+    dropdownOpen = !dropdownOpen;
+    var dd = document.getElementById('coursesDropdown');
+    var overlay = document.getElementById('dropdownOverlay');
+    var btn = document.getElementById('dropdownBtn');
+    if (dropdownOpen) {
+      dd.style.opacity = '1';
+      dd.style.visibility = 'visible';
+      dd.style.transform = 'translateX(-50%) translateY(0)';
+      dd.style.pointerEvents = 'all';
+      overlay.style.display = 'block';
+      btn.classList.add('open');
+      btn.querySelector('.dropdown-arrow').style.transform = 'rotate(180deg)';
+    } else {
+      closeDropdown();
+    }
+  }
+
+  function closeDropdown() {
+    dropdownOpen = false;
+    var dd = document.getElementById('coursesDropdown');
+    var overlay = document.getElementById('dropdownOverlay');
+    var btn = document.getElementById('dropdownBtn');
+    dd.style.opacity = '0';
+    dd.style.visibility = 'hidden';
+    dd.style.transform = 'translateX(-50%) translateY(-6px)';
+    dd.style.pointerEvents = 'none';
+    overlay.style.display = 'none';
+    btn.classList.remove('open');
+    btn.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+  }
+
+  function toggleMobileNav() {
+    mobileNavOpen = !mobileNavOpen;
+    var header = document.getElementById('mainHeader');
+    var navLinks = document.getElementById('navLinks');
+    var authButtons = document.getElementById('authButtons');
+    var bar1 = document.querySelector('.bar1');
+    var bar2 = document.querySelector('.bar2');
+    var bar3 = document.querySelector('.bar3');
+    if (mobileNavOpen) {
+      navLinks.classList.add('mobile-open');
+      authButtons.classList.add('mobile-open');
+      header.classList.add('mobile-open');
+      bar1.style.transform = 'translateY(7px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      navLinks.classList.remove('mobile-open');
+      authButtons.classList.remove('mobile-open');
+      header.classList.remove('mobile-open');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    }
+  }
+</script>
+
+</body>
+</html>
