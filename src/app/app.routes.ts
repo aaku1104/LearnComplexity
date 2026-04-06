@@ -1,17 +1,45 @@
 import { Routes } from '@angular/router';
-import { ContactUsComponent } from './pages/contact/contact.component';
-import { AboutComponent } from './pages/about/about.component';
-import { Home } from './pages/home/home';
-import { Courses } from './pages/courses/courses';
-import { ReviewsComponent } from './reviews/reviews.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: Home },
-  { path: 'courses', component: Courses },
-  // Catch all sub-routes like /courses/design, /courses/ui-ux, etc.
-  { path: 'courses/**', component: Courses },
-  { path: 'contact', component: ContactUsComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'reviews', component: ReviewsComponent },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./pages/home/home').then(m => m.Home),
+    title: 'Learn Algorithm Complexity - Big O Notation'
+  },
+  {
+    path: 'courses',
+    loadComponent: () =>
+      import('./pages/courses/courses').then(m => m.Courses),
+    title: 'Algorithm Complexity Courses'
+  },
+  {
+    path: 'courses/**',
+    loadComponent: () =>
+      import('./pages/courses/courses').then(m => m.Courses),
+    title: 'Algorithm Complexity Courses'
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then(m => m.AboutComponent),
+    title: 'About - Learn Complexity'
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then(m => m.ContactUsComponent),
+    title: 'Contact - Learn Complexity'
+  },
+  {
+    path: 'reviews',
+    loadComponent: () =>
+      import('./reviews/reviews.component').then(m => m.ReviewsComponent),
+    title: 'Student Reviews - Learn Complexity'
+  }
 ];

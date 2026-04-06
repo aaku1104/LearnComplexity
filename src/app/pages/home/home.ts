@@ -25,34 +25,34 @@ export class Home implements OnInit {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Big O notation?",
+          "name": "How do I enroll in a course?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Big O notation is a mathematical way to describe how the runtime or space usage of an algorithm grows as the input size increases."
+            "text": "Simply browse our course catalog, select the course you're interested in, and click the enroll button. You'll be guided through the registration and payment process."
           }
         },
         {
           "@type": "Question",
-          "name": "What is time complexity?",
+          "name": "Will I get a certificate after completing a course?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Time complexity measures how the running time of an algorithm scales with the input size, expressed using Big O notation."
+            "text": "Yes! Once you complete all lessons and pass the final assessment, you'll receive an industry-recognized digital certificate that you can download or share on LinkedIn."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I calculate space complexity?",
+          "name": "Are the courses self-paced or live?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Space complexity is calculated by analyzing how much memory an algorithm uses relative to the input size, including variables and data structures."
+            "text": "Our courses are designed to be self-paced, allowing you to learn at your own schedule. However, we also offer live Q&A sessions and mentor support."
           }
         },
         {
           "@type": "Question",
-          "name": "What are the most common Big O complexities?",
+          "name": "Can I access the courses on mobile or tablet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The most common Big O complexities are O(1) constant, O(log n) logarithmic, O(n) linear, O(n log n) linearithmic, O(n²) quadratic, and O(2^n) exponential."
+            "text": "Yes! Our platform is fully responsive and works seamlessly on mobile phones, tablets, and desktop computers. Learn anywhere, anytime."
           }
         }
       ]
