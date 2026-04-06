@@ -1,0 +1,6 @@
+/
+/home
+/courses
+/contact
+/about
+/reviews

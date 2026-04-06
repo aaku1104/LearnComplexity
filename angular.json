@@ -28,13 +28,19 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
-              }
+              },
+              { "glob": "robots.txt", "input": "src/", "output": "/" },
+              { "glob": "sitemap.xml", "input": "src/", "output": "/" }
             ],
             "styles": ["src/styles.css", "src/styles/global-fonts.css"],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
               "allowedHosts": []
+            },
+            "prerender": {
+              "routesFile": "routes.txt",
+              "discoverRoutes": true
             },
             "ssr": {
               "entry": "src/server.ts"

@@ -1,9 +1,10 @@
 // contact-us.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ReviewsComponent } from '../../reviews/reviews.component';
+import { SeoService } from '../../services/seo.service';
 
 declare global {
   interface Window {
@@ -29,6 +30,8 @@ interface Testimonial {
 })
 export class ContactUsComponent implements OnInit {
  
+  private seo = inject(SeoService);
+
   dots = Array(70).fill(0);
 
   // Dot grid array for hero section (8 cols x 7 rows = 56 dots)
@@ -75,6 +78,28 @@ export class ContactUsComponent implements OnInit {
   visibleTestimonials: Testimonial[] = [];
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'Contact LearnComplexity – Get in Touch',
+      description: 'Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We\'re here to help you learn.',
+      keywords: 'contact learncomplexity, support, help, algorithm questions, big o notation help, customer service',
+      canonicalUrl: 'https://learncomplexity.com/contact',
+      type: 'website'
+    });
+
+    this.seo.addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact LearnComplexity – Get in Touch",
+      "description": "Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We're here to help you learn.",
+      "url": "https://learncomplexity.com/contact",
+      "provider": {
+        "@type": "Organization",
+        "name": "Learn Complexity",
+        "sameAs": "https://learncomplexity.com"
+      },
+      "inLanguage": "en"
+    });
+    
     this.updateVisibleTestimonials();
     this.updateVisibleCount();
     if (typeof window !== 'undefined') {

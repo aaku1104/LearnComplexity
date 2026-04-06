@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-courses',
@@ -10,6 +11,7 @@ import { ReviewsComponent } from '../../reviews/reviews.component';
   styleUrls: ['./courses.css'],
 })
 export class Courses implements OnInit {
+  private seo = inject(SeoService);
 
   courseTabs = ['Design', 'Developer', 'Business', 'Marketing', 'Photography'];
   activeTab = 'Design';
@@ -224,5 +226,29 @@ export class Courses implements OnInit {
     return Array(5 - full - half).fill(0);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Algorithm Courses – Learn Big O Notation & Data Structures',
+      description: 'Explore comprehensive courses on algorithm complexity, Big O notation, and data structures. Master time and space complexity analysis with hands-on tutorials.',
+      keywords: 'algorithm courses, big o notation courses, data structures, time complexity, space complexity, programming tutorials, algorithm analysis',
+      canonicalUrl: 'https://learncomplexity.com/courses',
+      type: 'website'
+    });
+
+    this.seo.addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Algorithm Complexity & Big O Notation Courses",
+      "description": "Comprehensive courses covering algorithm complexity, Big O notation, time and space complexity analysis with practical examples",
+      "provider": {
+        "@type": "Organization",
+        "name": "Learn Complexity",
+        "sameAs": "https://learncomplexity.com"
+      },
+      "url": "https://learncomplexity.com/courses",
+      "educationalLevel": "Beginner to Advanced",
+      "teaches": ["Big O notation", "time complexity", "space complexity", "data structures", "algorithm analysis"],
+      "inLanguage": "en"
+    });
+  }
 }

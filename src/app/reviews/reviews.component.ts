@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SeoService } from '../services/seo.service';
 
 export interface Review {
   name: string;
@@ -17,6 +18,7 @@ export interface Review {
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
+  private seo = inject(SeoService);
 
   reviews: Review[] = [
     {
@@ -77,6 +79,56 @@ export class ReviewsComponent implements OnInit {
   dots: number[] = [];
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'Student Reviews – LearnComplexity Success Stories',
+      description: 'Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.',
+      keywords: 'student reviews, testimonials, learncomplexity reviews, big o notation success stories, algorithm learning experience',
+      canonicalUrl: 'https://learncomplexity.com/reviews',
+      type: 'website'
+    });
+
+    this.seo.addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "ReviewPage",
+      "name": "Student Reviews – LearnComplexity Success Stories",
+      "description": "Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.",
+      "url": "https://learncomplexity.com/reviews",
+      "provider": {
+        "@type": "Organization",
+        "name": "Learn Complexity",
+        "sameAs": "https://learncomplexity.com"
+      },
+      "mainEntity": {
+        "@type": "AggregateRating",
+        "itemReviewed": {
+          "@type": "EducationalOrganization",
+          "name": "Learn Complexity",
+          "sameAs": "https://learncomplexity.com"
+        },
+        "ratingValue": "4.5",
+        "reviewCount": "6",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": this.reviews.map(review => ({
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": review.name
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": review.rating.toString()
+        },
+        "reviewBody": review.text,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Learn Complexity"
+        }
+      })),
+      "inLanguage": "en"
+    });
+    
     this.updateDots();
     this.updateVisibleReviews();
   }
