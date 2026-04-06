@@ -14,6 +14,10 @@
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
+/* ─── OVERFLOW LOCK — prevents ANY horizontal scroll / white-space bug ─── */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; width: 100%; }
+
 /* ─── CSS VARIABLES ─── */
 :root {
   --blue:       #2563EB;
@@ -132,6 +136,8 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   max-width: 530px;
   position: relative;
   min-height: 530px;
+  /* Hard clip — nothing can bleed outside this box */
+  overflow: hidden;
 }
 
 .hero-bg-rect {
@@ -142,7 +148,14 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   z-index: 0;
 }
 
-.hero-photos { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 500px; }
+.hero-photos {
+  position: relative;
+  z-index: 1;
+  width: 100%; height: 100%;
+  min-height: 500px;
+  /* Also clip at this level */
+  overflow: hidden;
+}
 
 .hero-photo-1 {
   position: absolute;
@@ -669,13 +682,58 @@ app-reviews { display: block; }
 @media (max-width: 767px) {
   /* Hero */
   .hero-section { padding: 1.25rem 0 1.5rem; }
-  .hero-inner { flex-direction: column; align-items: flex-start; padding: 0 16px; gap: 1.25rem; }
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+    gap: 1.25rem;
+  }
   .hero-copy { order: 1; max-width: 100%; }
-  .hero-visual { order: 2; max-width: 100%; width: 100%; min-height: 230px; }
-  .hero-photos { min-height: 210px; }
-  .hero-bg-rect { left: 28px; border-radius: 20px 20px 14px 14px; }
-  .hero-photo-1 { width: 58%; height: auto; aspect-ratio: 376/246; right: 0; top: 0; }
-  .hero-photo-2 { width: 58%; height: auto; aspect-ratio: 376/246; left: 0; bottom: 0; }
+
+  /* Visual — must NEVER exceed viewport width */
+  .hero-visual {
+    order: 2;
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    /* padding-bottom drives the height; needs position:relative */
+    position: relative;
+    min-height: 0;
+    height: 0;
+    /* aspect ~56% of viewport width gives nice proportional height */
+    padding-bottom: 56%;
+    overflow: hidden;
+  }
+
+  /* Photos re-anchor to percentage so nothing bleeds */
+  .hero-photos {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg-rect {
+    left: 20px; right: 0; top: 12%; bottom: 0;
+    border-radius: 20px 20px 14px 14px;
+  }
+
+  /* photo-1: top-right, 56% wide */
+  .hero-photo-1 {
+    width: 56%;
+    height: auto;
+    aspect-ratio: 376/246;
+    right: 0; top: 0;
+  }
+
+  /* photo-2: bottom-left, 56% wide */
+  .hero-photo-2 {
+    width: 56%;
+    height: auto;
+    aspect-ratio: 376/246;
+    left: 0; bottom: 0;
+  }
+
   .hero-about-label { font-size: 2.25rem; margin-bottom: .4rem; }
   .hero-brand { font-size: clamp(.78rem, 3.5vw, 1rem); }
   .hero-title { font-size: clamp(1.15rem, 4.8vw, 1.5rem); }
@@ -736,9 +794,8 @@ app-reviews { display: block; }
    RESPONSIVE — SMALL MOBILE  (≤480px)
 ══════════════════════════════════════════════════ */
 @media (max-width: 480px) {
-  .hero-photo-1, .hero-photo-2 { width: 55% !important; }
-  .hero-visual { min-height: 200px; }
-  .hero-photos { min-height: 185px; }
+  .hero-visual { padding-bottom: 60%; }
+  .hero-photo-1, .hero-photo-2 { width: 54% !important; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
   .benefit-card { padding: 10px !important; }
   .benefit-h3 { font-size: .8rem !important; }
