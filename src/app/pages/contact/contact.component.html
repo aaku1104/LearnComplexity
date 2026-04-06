@@ -11,7 +11,27 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
-body { font-family: 'Sora', sans-serif; background: #fff; overflow-x: hidden; }
+
+/* ─── FULL-WIDTH + OVERFLOW LOCK ─── */
+html {
+  overflow-x: hidden;
+  min-width: 100%;
+}
+body {
+  font-family: 'Sora', sans-serif;
+  background: #fff;
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+/* Sections must be truly edge-to-edge */
+.hero,
+.git,
+.ol {
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* ─── CSS VARIABLES ─── */
 :root {
@@ -85,7 +105,7 @@ body { font-family: 'Sora', sans-serif; background: #fff; overflow-x: hidden; }
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 48px 40px;
+  padding: 48px clamp(20px, 3.5vw, 40px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -189,7 +209,10 @@ body { font-family: 'Sora', sans-serif; background: #fff; overflow-x: hidden; }
 ══════════════════════════════════════════ */
 .git {
   background: #fff;
-  padding: 52px 40px 40px;
+  /* Use percentage horizontal padding so it scales to any viewport width */
+  padding: 52px clamp(16px, 3.5vw, 40px) 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .git__wrap {
@@ -364,7 +387,9 @@ body { font-family: 'Sora', sans-serif; background: #fff; overflow-x: hidden; }
 ══════════════════════════════════════════ */
 .ol {
   background: #fff;
-  padding: 40px 40px 40px;
+  padding: 40px clamp(16px, 3.5vw, 40px) 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ol__inner {

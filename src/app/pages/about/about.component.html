@@ -14,9 +14,26 @@
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* ─── OVERFLOW LOCK — prevents ANY horizontal scroll / white-space bug ─── */
-html { overflow-x: hidden; }
-body { overflow-x: hidden; width: 100%; }
+/* ─── FULL-WIDTH + OVERFLOW LOCK ─── */
+html {
+  overflow-x: hidden;
+  min-width: 100%;
+}
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+/* Every section must be truly full-width with no auto-margin gutters */
+.hero-section,
+.features-section,
+.benefits-section,
+.hiw-section,
+.spacer {
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* ─── CSS VARIABLES ─── */
 :root {
@@ -79,7 +96,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
 .hero-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 3.5vw, 40px);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -183,7 +200,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
 .features-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0 clamp(16px, 6vw, 80px);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -485,10 +502,10 @@ app-reviews { display: block; }
    LMS BANNER
 ════════════════════════════════════════ */
 .lms-banner-section {
+  /* No max-width, no margin auto — must stretch edge to edge */
   width: 100%;
-  max-width: 1290px;
-  margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .lms-banner-outer {
