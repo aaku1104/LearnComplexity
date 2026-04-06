@@ -1,465 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contact Us – Learn Complexity</title>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800&family=Caveat:wght@700&family=Sora:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  a { text-decoration: none; color: inherit; }
-  img { display: block; max-width: 100%; }
-  body { font-family: 'Sora', sans-serif; background: #fff; }
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800&family=Caveat:wght@700&family=Sora:wght@400;500&display=swap" rel="stylesheet"/>
 
-  /* ─── HERO ─── */
-  .hero {
-    position: relative;
-    background: linear-gradient(135deg, #dde8f5 0%, #eaf2fb 40%, #f0f5fd 100%);
-    overflow: hidden;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+body { font-family: 'Sora', sans-serif; background: #fff; overflow-x: hidden; }
+
+/* ─── CSS VARIABLES ─── */
+:root {
+  --blue:      #2563EB;
+  --blue-d:    #1d4ed8;
+  --orange:    #EA580C;
+  --salmon:    #FC6441;
+  --indigo:    #545AE8;
+  --text-dark: #0D1B2E;
+  --text-mid:  #17254E;
+  --text-body: #4a5568;
+  --text-muted:#6b7280;
+  --bg-hero:   #EEF2FB;
+  --bg-card:   #ffffff;
+  --border:    #e8ecf4;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+  --shadow-card: 0 2px 16px rgba(0,0,0,.06);
+  --shadow-box:  0 8px 28px rgba(86,91,221,.14), 0 2px 8px rgba(0,0,0,.07);
+  --max-w: 1200px;
+  --max-w-git: 1100px;
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #dde8f5 0%, #eaf2fb 40%, #f0f5fd 100%);
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* diagonal stripe texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent, transparent 28px,
+    rgba(180,200,230,.18) 28px,
+    rgba(180,200,230,.18) 29px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* blur blobs */
+.hero__blur {
+  position: absolute;
+  width: 300px; height: 320px;
+  border-radius: 50%;
+  background: #80A2EB;
+  filter: blur(120px);
+  opacity: .3;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__blur--l { left: -120px; top: -120px; }
+.hero__blur--r { right: -60px; top: 80px; }
+
+/* inner row */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* copy */
+.hero__text { flex: 1; min-width: 0; }
+
+.hero__h2 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3.8vw, 52px);
+  line-height: 1.2;
+  color: var(--text-mid);
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.hero__h1 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(30px, 5vw, 72px);
+  line-height: 1.1;
+  color: var(--blue);
+}
+
+/* visual column */
+.hero__visual {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(180px, 36vw, 460px);
+  height: clamp(220px, 38vw, 480px);
+}
+
+/* dot grid */
+.hero__dot-grid {
+  position: absolute;
+  top: 10px; left: -10px;
+  display: grid;
+  grid-template-columns: repeat(7, 6px);
+  gap: 10px;
+  opacity: .45;
+  z-index: 0;
+}
+.hero__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #B8C6DE;
+}
+
+/* orange circle */
+.hero__circle {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -55%);
+  width: clamp(90px, 16vw, 200px);
+  height: clamp(90px, 16vw, 200px);
+  border-radius: 50%;
+  background: var(--orange);
+  z-index: 1;
+}
+
+/* person image */
+.hero__person {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  height: 92%; width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  z-index: 2;
+}
+
+/* floating cards */
+.hero__icon-box {
+  position: absolute;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-box);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 4;
+  padding: 12px 14px;
+}
+.hero__icon-box--l { top: 20%; left: 0; transform: rotate(-5deg); }
+.hero__icon-box--r { bottom: 18%; right: -10px; transform: rotate(4deg); }
+
+.hero__bars { display: flex; align-items: flex-end; gap: 4px; }
+.hero__bar  { border-radius: 3px; }
+
+/* accent dots */
+.hero__dot-accent {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* ══════════════════════════════════════════
+   GET IN TOUCH
+══════════════════════════════════════════ */
+.git {
+  background: #fff;
+  padding: 52px 40px 40px;
+}
+
+.git__wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-w-git);
+  margin: 0 auto;
+  background: var(--bg-hero);
+  border-radius: var(--radius-lg);
+  padding: 48px 52px;
+  overflow: hidden;
+}
+
+/* triangle deco */
+.git__tri {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: clamp(90px, 12vw, 180px);
+  height: clamp(90px, 12vw, 180px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* two-column grid */
+.git__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+  align-items: start;
+}
+
+.git__heading {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 42px);
+  line-height: 1.1;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.git__sub {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 28px;
+}
+
+/* info card */
+.git__card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.git__info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 0 18px;
+}
+.git__info-row.mid   { padding: 18px 0; }
+.git__info-row.last  { padding: 18px 0 0; }
+
+.git__divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+.git__icon-wrap {
+  flex-shrink: 0;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(252,100,65,.12);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.git__info-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.git__info-val {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: clamp(13px, 1.8vw, 19px);
+  line-height: 1.4;
+  color: var(--text-dark);
+}
+
+.git__info-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: block;
+}
+
+/* form */
+.git__form { display: flex; flex-direction: column; }
+
+.git__label {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 15px;
+  line-height: 2;
+  color: var(--text-dark);
+  margin-top: 4px;
+}
+.git__req { color: var(--blue); margin-left: 1px; }
+
+.git__input,
+.git__textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  color: #374151;
+  outline: none;
+  transition: box-shadow .2s;
+}
+.git__input    { height: 50px; padding: 0 16px; }
+.git__textarea { height: 100px; padding: 12px 16px; resize: none; }
+.git__input::placeholder,
+.git__textarea::placeholder { color: #9ca3af; }
+.git__input:focus,
+.git__textarea:focus { box-shadow: 0 0 0 2px var(--blue); }
+
+.git__field { display: flex; flex-direction: column; margin-bottom: 4px; }
+
+.git__submit-row { display: flex; justify-content: flex-end; margin-top: 20px; }
+
+.git__btn {
+  width: 200px; height: 52px;
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.git__btn:hover  { background: var(--blue-d); }
+.git__btn:active { transform: scale(.98); }
+
+/* socials */
+.git__socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+.git__social-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  cursor: pointer;
+}
+.git__social-btn svg { fill: var(--salmon); transition: fill .2s; }
+.git__social-btn:hover { background: var(--salmon); }
+.git__social-btn:hover svg { fill: #fff; }
+
+/* ══════════════════════════════════════════
+   OFFICE LOCATION
+══════════════════════════════════════════ */
+.ol {
+  background: #fff;
+  padding: 40px 40px 40px;
+}
+
+.ol__inner {
+  width: 100%;
+  max-width: var(--max-w-git);
+  margin: 0 auto;
+}
+
+.ol__heading {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 42px);
+  line-height: 1.2;
+  color: #0E2A46;
+  margin-bottom: 24px;
+}
+
+.ol__map-wrap {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.12);
+}
+
+.ol__iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* overlaid info panel */
+.ol__info {
+  position: absolute;
+  top: 0; left: 0;
+  width: min(380px, 32%);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  z-index: 10;
+  font-family: Arial, sans-serif;
+  border-bottom-right-radius: 2px;
+}
+
+.ol__info-body { padding: 10px 12px 8px; }
+
+.ol__info-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.ol__info-name {
+  font-size: 16px; font-weight: 700;
+  color: #1a1a1a; line-height: 1.3;
+  flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.ol__dir-btn {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 4px;
+  text-decoration: none;
+  flex-shrink: 0; min-width: 56px;
+}
+
+.ol__dir-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #e8f0fe;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.ol__dir-label { font-size: 11px; color: #1a73e8; font-weight: 500; white-space: nowrap; }
+.ol__address   { font-size: 13px; color: #444; line-height: 1.55; margin-bottom: 8px; }
+
+.ol__rating-row { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+.ol__rating-num { font-size: 13px; font-weight: 700; color: #333; flex-shrink: 0; }
+.ol__stars      { display: flex; gap: 1px; flex-shrink: 0; }
+
+.ol__review-link {
+  font-size: 12px;
+  color: #1a73e8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ol__review-link:hover { text-decoration: underline; }
+
+.ol__divider   { height: 1px; background: #e0e0e0; margin-top: 10px; }
+.ol__view-link {
+  display: block;
+  padding: 8px 16px 9px;
+  font-size: 13px;
+  color: #1a73e8;
+  text-decoration: none;
+}
+.ol__view-link:hover { text-decoration: underline; }
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — LARGE DESKTOP  (≥1400px)
+══════════════════════════════════════════════════ */
+@media (min-width: 1400px) {
+  .hero__inner { padding: 56px 60px; }
+  .git         { padding: 60px 60px 48px; }
+  .ol          { padding: 48px 60px 48px; }
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — MEDIUM DESKTOP  (1024–1199px)
+══════════════════════════════════════════════════ */
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .hero__inner  { padding: 44px 32px; }
+  .git          { padding: 44px 32px 36px; }
+  .git__wrap    { padding: 40px 40px; }
+  .git__grid    { column-gap: 40px; }
+  .ol           { padding: 36px 32px 36px; }
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — TABLET  (768–1023px)
+══════════════════════════════════════════════════ */
+@media (max-width: 1023px) and (min-width: 769px) {
+  /* Hero */
+  .hero__inner {
+    padding: 40px 28px;
+    gap: 20px;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      -55deg,
-      transparent, transparent 28px,
-      rgba(180,200,230,0.18) 28px,
-      rgba(180,200,230,0.18) 29px
-    );
-    pointer-events: none;
-    z-index: 0;
+  .hero__h2 { font-size: clamp(20px, 3.2vw, 36px); }
+  .hero__h1 { font-size: clamp(28px, 4.5vw, 52px); }
+  .hero__visual {
+    width: clamp(160px, 30vw, 340px);
+    height: clamp(200px, 32vw, 400px);
   }
-  .hero__blur {
-    position: absolute;
-    width: 300px; height: 320px;
-    border-radius: 50%;
-    background: #80A2EB;
-    filter: blur(120px);
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero__blur--l { left: -120px; top: -120px; }
-  .hero__blur--r { right: -60px; top: 80px; }
+
+  /* Get in touch */
+  .git       { padding: 40px 24px 36px; }
+  .git__wrap { padding: 40px 32px; }
+  .git__grid { column-gap: 32px; }
+
+  /* Office location */
+  .ol { padding: 36px 24px 36px; }
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤768px)
+   KEY FIX: hero goes column, no overflow/white-space
+══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Hero ── */
+  .hero { min-height: auto; }
 
   .hero__inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px 40px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    padding: 36px 20px 0;
+    gap: 16px;
+    /* Prevent any child from exceeding viewport */
+    max-width: 100%;
   }
-  .hero__text { flex: 1; min-width: 0; }
-  .hero__h2 {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    font-size: clamp(26px, 4.5vw, 52px);
-    line-height: 1.2;
-    color: #17254E;
-    text-transform: capitalize;
-    margin-bottom: 8px;
-  }
-  .hero__h1 {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-style: italic;
-    font-size: clamp(34px, 5.5vw, 72px);
-    line-height: 1.1;
-    color: #2563EB;
+
+  .hero__text {
+    width: 100%;
+    text-align: center;
   }
 
   .hero__visual {
-    position: relative;
-    flex-shrink: 0;
-    width: clamp(180px, 36vw, 460px);
-    height: clamp(220px, 38vw, 480px);
+    /* Fixed size — never wider than viewport */
+    width: min(260px, 72vw);
+    height: min(280px, 75vw);
+    margin: 0 auto;
+    /* Reset right overflow caused by right:-10px icon */
+    overflow: visible;
   }
-  .hero__dot-grid {
-    position: absolute;
-    top: 10px; left: -10px;
-    display: grid;
-    grid-template-columns: repeat(7, 6px);
-    gap: 10px;
-    opacity: 0.45;
-    z-index: 0;
+
+  /* Hide dot grid on mobile (was causing overflow) */
+  .hero__dot-grid { display: none; }
+
+  /* Keep icon boxes inside the visual column */
+  .hero__icon-box--l { left: -8px; top: 16%; }
+  .hero__icon-box--r { right: -4px; bottom: 14%; }
+
+  /* ── Get in Touch ── */
+  .git       { padding: 32px 16px 28px; }
+  .git__wrap { padding: 28px 20px 32px; border-radius: 12px; }
+
+  .git__grid {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
   }
-  .hero__dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #B8C6DE;
+
+  .git__submit-row { justify-content: center; margin-top: 24px; }
+  .git__btn        { width: 100%; max-width: 340px; }
+
+  /* ── Office Location ── */
+  .ol { padding: 28px 16px 28px; }
+  .ol__map-wrap { height: 380px; border-radius: 4px; }
+  .ol__info { width: min(300px, 75%); }
+  .ol__info-name { font-size: 14px; }
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE  (≤480px)
+══════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .hero__inner  { padding: 28px 14px 0; gap: 12px; }
+  .hero__visual {
+    width: min(200px, 68vw);
+    height: min(220px, 72vw);
   }
   .hero__circle {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -55%);
-    width: clamp(100px, 16vw, 200px);
-    height: clamp(100px, 16vw, 200px);
-    border-radius: 50%;
-    background: #EA580C;
-    z-index: 1;
+    width: clamp(70px, 22vw, 110px);
+    height: clamp(70px, 22vw, 110px);
   }
-  .hero__person {
-    position: absolute;
-    bottom: 0; left: 50%;
-    transform: translateX(-50%);
-    height: 92%; width: auto;
-    object-fit: contain;
-    object-position: bottom;
-    z-index: 2;
-  }
-  .hero__icon-box {
-    position: absolute;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(86,91,221,.14), 0 2px 8px rgba(0,0,0,.07);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 4;
-    padding: 12px 14px;
-  }
-  .hero__icon-box--l { top: 20%; left: 0; transform: rotate(-5deg); }
-  .hero__icon-box--r { bottom: 18%; right: -10px; transform: rotate(4deg); }
-  .hero__bars { display: flex; align-items: flex-end; gap: 4px; }
-  .hero__bar { border-radius: 3px; }
-  .hero__dot-accent {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 3;
-  }
+  .hero__icon-box { padding: 8px 10px; }
+  .hero__icon-box--r { right: 0; }
 
-  /* ─── GET IN TOUCH ─── */
-  .git {
-    background: #fff;
-    padding: 52px 40px 40px;
-  }
-  .git__wrap {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #EEF2FB;
-    border-radius: 16px;
-    padding: 48px 52px;
-    overflow: hidden;
-  }
-  /* Triangle */
+  /* Get in Touch */
+  .git       { padding: 24px 12px 20px; }
+  .git__wrap { padding: 20px 14px 24px; border-radius: 10px; }
+  .git__card { padding: 18px 12px; }
+  .git__info-val { font-size: 13px; }
+  .git__icon-wrap { width: 38px; height: 38px; }
+
+  /* Tri deco smaller on tiny screens */
   .git__tri {
-    position: absolute;
-    left: 0; bottom: 0;
-    width: clamp(90px, 12vw, 180px);
-    height: clamp(90px, 12vw, 180px);
-    z-index: 2;
-    pointer-events: none;
-  }
-  /* Grid */
-  .git__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 56px;
-    align-items: start;
-  }
-  .git__heading {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 800;
-    font-size: clamp(24px, 3.5vw, 42px);
-    line-height: 1.1;
-    color: #0D1B2E;
-    margin-bottom: 12px;
-  }
-  .git__sub {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #4a5568;
-    margin-bottom: 28px;
-  }
-  .git__card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 28px 24px;
-    box-shadow: 0 2px 16px rgba(0,0,0,.06);
-  }
-  .git__info-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 0 0 18px;
-  }
-  .git__info-row + .git__divider + .git__info-row { padding: 18px 0; }
-  .git__info-row:last-child { padding: 18px 0 0; }
-  .git__divider { height: 1px; background: #e8ecf4; margin: 4px 0; }
-  .git__icon-wrap {
-    flex-shrink: 0;
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    background: rgba(252,100,65,.12);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .git__info-label {
-    font-size: 12px;
-    color: #6b7280;
-    display: block;
-    margin-bottom: 3px;
-  }
-  .git__info-val {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    font-size: clamp(14px, 2vw, 19px);
-    line-height: 1.4;
-    color: #0D1B2E;
-  }
-  .git__info-note {
-    font-size: 12px;
-    color: #6b7280;
-    margin-top: 2px;
-    display: block;
+    width: clamp(60px, 18vw, 110px);
+    height: clamp(60px, 18vw, 110px);
   }
 
-  /* Form */
-  .git__form { display: flex; flex-direction: column; }
-  .git__label {
-    font-family: 'Epilogue', sans-serif;
-    font-size: 15px;
-    line-height: 2;
-    color: #0D1B2E;
-    margin-top: 4px;
-  }
-  .git__req { color: #2563EB; margin-left: 1px; }
-  .git__input, .git__textarea {
-    width: 100%;
-    background: #fff;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Sora', sans-serif;
-    font-size: 13px;
-    color: #374151;
-    outline: none;
-    transition: box-shadow 0.2s;
-  }
-  .git__input { height: 50px; padding: 0 16px; }
-  .git__textarea { height: 100px; padding: 12px 16px; resize: none; }
-  .git__input::placeholder, .git__textarea::placeholder { color: #9ca3af; }
-  .git__input:focus, .git__textarea:focus { box-shadow: 0 0 0 2px #2563EB; }
-  .git__field { display: flex; flex-direction: column; margin-bottom: 4px; }
-  .git__submit-row { display: flex; justify-content: flex-end; margin-top: 20px; }
-  .git__btn {
-    width: 200px; height: 52px;
-    background: #2563EB;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Sora', sans-serif;
-    font-size: 13px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #fff;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
-  }
-  .git__btn:hover { background: #1d4ed8; }
-  .git__btn:active { transform: scale(.98); }
+  /* Office */
+  .ol { padding: 20px 12px 20px; }
+  .ol__map-wrap { height: 320px; border-radius: 2px; }
+  .ol__info { width: min(240px, 80%); }
+  .ol__info-name { font-size: 13px; }
+  .ol__address   { font-size: 12px; }
+}
 
-  /* Socials */
-  .git__socials {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 32px;
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — VERY SMALL  (≤360px)
+══════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .hero__inner  { padding: 24px 12px 0; }
+  .hero__visual {
+    width: min(170px, 76vw);
+    height: min(185px, 80vw);
   }
-  .git__social-btn {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 4px rgba(0,0,0,.08);
-    display: flex; align-items: center; justify-content: center;
-    transition: background .2s;
-    cursor: pointer;
-  }
-  .git__social-btn svg { fill: #FC6441; transition: fill .2s; }
-  .git__social-btn:hover { background: #FC6441; }
-  .git__social-btn:hover svg { fill: #fff; }
+  .hero__h2 { font-size: 20px; }
+  .hero__h1 { font-size: 28px; }
 
-  /* ─── OFFICE LOCATION ─── */
-  .ol {
-    background: #fff;
-    padding: 40px 40px 40px;
-  }
-  .ol__inner {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .ol__heading {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    font-size: clamp(24px, 3.5vw, 42px);
-    line-height: 1.2;
-    color: #0E2A46;
-    margin-bottom: 24px;
-  }
-  .ol__map-wrap {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 24px rgba(0,0,0,.12);
-  }
-  .ol__iframe {
-    width: 100%; height: 100%;
-    border: none;
-    display: block;
-  }
-  .ol__info {
-    position: absolute;
-    top: 0; left: 0;
-    width: min(380px, 32%);
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,.25);
-    z-index: 10;
-    font-family: Arial, sans-serif;
-    border-bottom-right-radius: 2px;
-  }
-  .ol__info-body { padding: 10px 12px 8px; }
-  .ol__info-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .ol__info-name {
-    font-size: 16px; font-weight: 700;
-    color: #1a1a1a; line-height: 1.3;
-    flex: 1;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .ol__dir-btn {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 4px;
-    text-decoration: none;
-    flex-shrink: 0; min-width: 56px;
-  }
-  .ol__dir-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: #e8f0fe;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .ol__dir-label { font-size: 11px; color: #1a73e8; font-weight: 500; white-space: nowrap; }
-  .ol__address { font-size: 13px; color: #444; line-height: 1.55; margin-bottom: 8px; }
-  .ol__rating-row { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
-  .ol__rating-num { font-size: 13px; font-weight: 700; color: #333; flex-shrink: 0; }
-  .ol__stars { display: flex; gap: 1px; flex-shrink: 0; }
-  .ol__review-link { font-size: 12px; color: #1a73e8; text-decoration: none; white-space: nowrap; }
-  .ol__review-link:hover { text-decoration: underline; }
-  .ol__divider { height: 1px; background: #e0e0e0; margin-top: 10px; }
-  .ol__view-link {
-    display: block;
-    padding: 8px 16px 9px;
-    font-size: 13px;
-    color: #1a73e8;
-    text-decoration: none;
-  }
-  .ol__view-link:hover { text-decoration: underline; }
+  .git       { padding: 20px 10px 16px; }
+  .git__wrap { padding: 16px 12px 20px; }
+  .git__card { padding: 14px 10px; }
 
-  /* ─── RESPONSIVE ─── */
-
-  /* Tablet */
-  @media (max-width: 900px) {
-    .hero__inner { padding: 40px 28px; }
-    .git { padding: 40px 24px 36px; }
-    .git__wrap { padding: 40px 32px; }
-    .git__grid { column-gap: 36px; }
-    .ol { padding: 36px 24px 36px; }
-  }
-
-  /* Mobile landscape / small tablet */
-  @media (max-width: 768px) {
-    /* Hero */
-    .hero__inner {
-      flex-direction: column;
-      align-items: center;
-      padding: 36px 24px 0;
-      text-align: center;
-    }
-    .hero__text { width: 100%; }
-    .hero__visual {
-      width: 220px; height: 240px;
-      margin: 0 auto;
-    }
-    .hero__dot-grid { display: none; }
-    .hero__icon-box--l { left: -4px; top: 18%; }
-    .hero__icon-box--r { right: -4px; bottom: 14%; }
-
-    /* Get in touch */
-    .git { padding: 32px 16px 28px; }
-    .git__wrap { padding: 28px 20px; border-radius: 12px; }
-    .git__grid {
-      grid-template-columns: 1fr;
-      row-gap: 28px;
-    }
-    .git__submit-row { justify-content: center; margin-top: 24px; }
-    .git__btn { width: 100%; max-width: 340px; }
-
-    /* Office location */
-    .ol { padding: 28px 16px 28px; }
-    .ol__map-wrap { height: 380px; border-radius: 4px; }
-    .ol__info { width: min(300px, 75%); }
-    .ol__info-name { font-size: 14px; }
-  }
-
-  /* Mobile portrait */
-  @media (max-width: 480px) {
-    /* Hero */
-    .hero__inner { padding: 28px 16px 0; gap: 12px; }
-    .hero__visual { width: 180px; height: 200px; }
-    .hero__circle { width: 90px; height: 90px; }
-
-    /* Get in touch */
-    .git { padding: 24px 12px 20px; }
-    .git__wrap { padding: 20px 16px 24px; border-radius: 10px; }
-    .git__card { padding: 20px 14px; }
-    .git__info-val { font-size: 14px; }
-
-    /* Office location */
-    .ol { padding: 20px 12px 20px; }
-    .ol__map-wrap { height: 320px; border-radius: 2px; }
-    .ol__info { width: min(260px, 82%); }
-    .ol__info-name { font-size: 13px; }
-    .ol__address { font-size: 12px; }
-  }
-
-  @media (max-width: 360px) {
-    .ol__info { width: 90%; }
-    .hero__visual { width: 150px; height: 170px; }
-  }
+  .ol { padding: 16px 10px 16px; }
+  .ol__info { width: 88%; }
+  .ol__info-name { font-size: 12px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero__blur hero__blur--l"></div>
   <div class="hero__blur hero__blur--r"></div>
 
   <div class="hero__inner">
+
     <div class="hero__text">
       <h2 class="hero__h2">Need Help Or Have A<br>Question?</h2>
       <h1 class="hero__h1">Let's Talk.</h1>
     </div>
 
     <div class="hero__visual">
-      <div class="hero__dot-grid">
-        <!-- 35 dots (7×5) -->
+
+      <!-- Dot grid (desktop/tablet only) -->
+      <div class="hero__dot-grid" aria-hidden="true">
         <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
         <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
         <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
@@ -469,9 +655,9 @@
 
       <div class="hero__circle"></div>
 
-      <img class="hero__person" src="assets/images/contact-person.png" alt="Contact Person">
+      <img class="hero__person" src="assets/images/contact-person.png" alt="Contact Person"/>
 
-      <!-- Bar chart icon -->
+      <!-- Bar chart card -->
       <div class="hero__icon-box hero__icon-box--l">
         <div class="hero__bars">
           <div class="hero__bar" style="width:8px;height:20px;background:#545AE8;"></div>
@@ -481,24 +667,30 @@
         </div>
       </div>
 
-      <!-- People icon -->
+      <!-- People card -->
       <div class="hero__icon-box hero__icon-box--r">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#545AE8"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#545AE8" aria-hidden="true">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
       </div>
 
+      <!-- Accent dots -->
       <div class="hero__dot-accent" style="width:13px;height:13px;background:#2563EB;right:20%;top:8%;"></div>
       <div class="hero__dot-accent" style="width:16px;height:16px;background:#FF9A7A;left:5%;bottom:10%;"></div>
       <div class="hero__dot-accent" style="width:12px;height:12px;background:#3B82F6;right:4%;bottom:4%;"></div>
     </div>
+
   </div>
 </section>
 
 
-<!-- ===== GET IN TOUCH ===== -->
+<!-- ══════════════════════════════════════
+     GET IN TOUCH
+══════════════════════════════════════ -->
 <section class="git">
   <div class="git__wrap">
 
-    <!-- Triangle decoration -->
+    <!-- Triangle deco -->
     <div class="git__tri" aria-hidden="true">
       <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
         <polygon points="0,220 220,220 0,0" fill="#2563EB" opacity="0.9"/>
@@ -507,7 +699,7 @@
 
     <div class="git__grid">
 
-      <!-- LEFT -->
+      <!-- LEFT — info -->
       <div>
         <h2 class="git__heading">Get in Touch</h2>
         <p class="git__sub">Fill in the form below and our team will get back to you within 24 hours.</p>
@@ -517,7 +709,9 @@
           <!-- Address -->
           <div class="git__info-row">
             <div class="git__icon-wrap">
-              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
             </div>
             <div style="padding-top:2px;">
               <span class="git__info-label">Our Address</span>
@@ -528,9 +722,11 @@
           <div class="git__divider"></div>
 
           <!-- Hours -->
-          <div class="git__info-row" style="padding:18px 0;">
+          <div class="git__info-row mid">
             <div class="git__icon-wrap">
-              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+              </svg>
             </div>
             <div style="padding-top:2px;">
               <span class="git__info-label">Hours Of Operation</span>
@@ -542,9 +738,11 @@
           <div class="git__divider"></div>
 
           <!-- Contact -->
-          <div class="git__info-row" style="padding:18px 0 0;">
+          <div class="git__info-row last">
             <div class="git__icon-wrap">
-              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
             </div>
             <div style="padding-top:2px;">
               <span class="git__info-label">Contact</span>
@@ -554,52 +752,60 @@
           </div>
 
         </div>
-      </div>
+      </div><!-- /left -->
 
       <!-- RIGHT — Form -->
       <div>
-        <div class="git__form">
+        <form class="git__form" novalidate>
           <div class="git__field">
             <label class="git__label" for="f-name">Name<span class="git__req">*</span></label>
-            <input class="git__input" id="f-name" type="text" name="name" placeholder="Name">
+            <input class="git__input" id="f-name" type="text" name="name" placeholder="Name" autocomplete="name"/>
           </div>
           <div class="git__field">
             <label class="git__label" for="f-email">Email Address<span class="git__req">*</span></label>
-            <input class="git__input" id="f-email" type="email" name="email" placeholder="Email">
+            <input class="git__input" id="f-email" type="email" name="email" placeholder="Email" autocomplete="email"/>
           </div>
           <div class="git__field">
             <label class="git__label" for="f-phone">Phone<span class="git__req">*</span></label>
-            <input class="git__input" id="f-phone" type="tel" name="phone" placeholder="Phone">
+            <input class="git__input" id="f-phone" type="tel" name="phone" placeholder="Phone" autocomplete="tel"/>
           </div>
           <div class="git__field">
             <label class="git__label" for="f-subject">Subject<span class="git__req">*</span></label>
-            <input class="git__input" id="f-subject" type="text" name="subject" placeholder="Subject">
+            <input class="git__input" id="f-subject" type="text" name="subject" placeholder="Subject"/>
           </div>
           <div class="git__field">
             <label class="git__label" for="f-message">Message</label>
             <textarea class="git__textarea" id="f-message" name="message" placeholder="Your message..."></textarea>
           </div>
           <div class="git__submit-row">
-            <button type="button" class="git__btn">Send Message</button>
+            <button type="submit" class="git__btn">Send Message</button>
           </div>
-        </div>
-      </div>
+        </form>
+      </div><!-- /right -->
 
     </div><!-- /git__grid -->
 
-    <!-- Socials -->
+    <!-- Social icons -->
     <div class="git__socials">
       <a href="#" aria-label="Facebook" class="git__social-btn">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
       </a>
       <a href="#" aria-label="Instagram" class="git__social-btn">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
       </a>
       <a href="#" aria-label="Pinterest" class="git__social-btn">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;">
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+        </svg>
       </a>
       <a href="#" aria-label="Twitter" class="git__social-btn">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;">
+          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
       </a>
     </div>
 
@@ -607,7 +813,9 @@
 </section>
 
 
-<!-- ===== OFFICE LOCATION ===== -->
+<!-- ══════════════════════════════════════
+     OFFICE LOCATION
+══════════════════════════════════════ -->
 <section class="ol">
   <div class="ol__inner">
     <h2 class="ol__heading">Office Location</h2>
@@ -628,9 +836,9 @@
             <div class="ol__info-name">eLearning Solutions – SAP Tr...</div>
             <a class="ol__dir-btn"
                href="https://www.google.com/maps/dir/?api=1&destination=18.5448284,73.9358339"
-               target="_blank" rel="noopener">
+               target="_blank" rel="noopener noreferrer">
               <div class="ol__dir-icon">
-                <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;">
+                <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;" aria-hidden="true">
                   <line x1="12" y1="20" x2="12" y2="12" stroke="#a0b4e0" stroke-width="2.2" stroke-linecap="round"/>
                   <line x1="12" y1="12" x2="8" y2="7" stroke="#a0b4e0" stroke-width="2.2" stroke-linecap="round"/>
                   <line x1="12" y1="12" x2="17" y2="7" stroke="#4272c4" stroke-width="2.4" stroke-linecap="round"/>
@@ -650,32 +858,39 @@
           <div class="ol__rating-row">
             <span class="ol__rating-num">4.7</span>
             <div class="ol__stars">
-              <svg viewBox="0 0 24 24" style="width:15px;height:15px;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
-              <svg viewBox="0 0 24 24" style="width:15px;height:15px;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
-              <svg viewBox="0 0 24 24" style="width:15px;height:15px;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
-              <svg viewBox="0 0 24 24" style="width:15px;height:15px;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
-              <svg viewBox="0 0 24 24" style="width:15px;height:15px;">
-                <defs><linearGradient id="hg"><stop offset="70%" stop-color="#f9ab00"/><stop offset="70%" stop-color="#dadce0"/></linearGradient></defs>
-                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="url(#hg)"/>
+              <!-- 4 full stars -->
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
+              <!-- half star -->
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true">
+                <defs>
+                  <linearGradient id="hg2">
+                    <stop offset="70%" stop-color="#f9ab00"/>
+                    <stop offset="70%" stop-color="#dadce0"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="url(#hg2)"/>
               </svg>
             </div>
             <a class="ol__review-link"
                href="https://www.google.com/maps?q=18.5448284,73.9358339"
-               target="_blank" rel="noopener">715 reviews</a>
+               target="_blank" rel="noopener noreferrer">715 reviews</a>
           </div>
         </div>
 
         <div class="ol__divider"></div>
         <a class="ol__view-link"
            href="https://www.google.com/maps?q=18.5448284,73.9358339"
-           target="_blank" rel="noopener">View larger map</a>
+           target="_blank" rel="noopener noreferrer">View larger map</a>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
-<!-- ===== REVIEWS ===== -->
+<!-- Reviews placeholder -->
 <app-reviews></app-reviews>
 
 </body>
