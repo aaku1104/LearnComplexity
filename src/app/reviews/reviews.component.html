@@ -83,34 +83,13 @@
     }
   }
 
-  /* ── Mobile (≤ 640px): 1 card, hide arrows ── */
-  @media (max-width: 640px) {
-    .reviews-grid {
-      grid-template-columns: 1fr !important;
-      gap: 0 !important;
-      justify-items: stretch !important;
-    }
-
-    .review-card {
-      max-width: 100% !important;
-      min-height: auto !important;
-      padding: 28px 24px !important;
-    }
-
-    /* ✅ Hide cards 2 and 3 on mobile */
-    .review-card--hidden {
-      display: none !important;
-    }
-
-  /* ── Tablet (≤ 1024px): 2 cards ── */
-  @media (max-width: 1024px) {
-    .reviews-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-  }
-
   /* ── Mobile (≤ 640px): 1 card ── */
   @media (max-width: 640px) {
+    h2 {
+      white-space: nowrap !important;
+      font-size: 1.75rem !important;
+    }
+    
     .reviews-grid {
       grid-template-columns: 1fr !important;
       gap: 0 !important;
@@ -127,14 +106,6 @@
     .review-card--hidden {
       display: none !important;
     }
-  }
-
-  /* ── Very small (≤ 360px) ── */
-  @media (max-width: 360px) {
-    .review-card {
-      padding: 22px 18px !important;
-    }
-  }
   }
 
   /* ── Very small (≤ 360px) ── */

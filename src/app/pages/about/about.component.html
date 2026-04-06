@@ -1,185 +1,328 @@
-<!-- about-inline.html — all styles inline; only media queries in <style> -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600&family=Roboto:wght@400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600&family=Roboto:wght@400&family=Exo:wght@600&family=Jost:wght@500&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
 
-  /* ── Hero ── */
-  @media (min-width: 1024px) {
-    .hero-inner {
-      flex-direction: row !important;
-      align-items: center !important;
-      padding: 0 80px !important;
-      gap: 3rem !important;
-    }
-    .hero-copy  { order: 1 !important; flex: 0 0 50% !important; max-width: 572px !important; }
-    .hero-visual{ order: 2 !important; flex: 0 0 50% !important; max-width: 530px !important;
-                  min-height: 530px !important; margin: 0 !important; }
-    .hero-photos{ min-height: 500px !important; }
-    .hero-photo-1{ width: 376px !important; height: 246px !important; }
-    .hero-photo-2{ width: 376px !important; height: 246px !important; }
-    .hero-bg-rect{ width: calc(100% - 40px) !important; height: calc(100% - 100px) !important; }
+  /* ─────────────────────────────
+     HERO
+  ───────────────────────────── */
+  .hero-section { padding: 2.5rem 0 3rem; background: #fff; }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .hero-inner {
-      flex-direction: column !important;
-      align-items: center !important;
-      padding: 2rem !important;
-    }
-    .hero-copy  { flex: 1 1 100% !important; max-width: 600px !important; text-align: left; }
-    .hero-visual{ flex: 1 1 100% !important; max-width: 500px !important; min-height: 350px !important; }
-    .hero-photos{ min-height: 320px !important; }
-    .hero-photo-1{ width: 280px !important; height: 183px !important; }
-    .hero-photo-2{ width: 280px !important; height: 183px !important; }
+  .hero-copy  { flex: 0 0 50%; max-width: 572px; }
+  .hero-visual {
+    flex: 0 0 50%;
+    max-width: 530px;
+    position: relative;
+    min-height: 530px;
   }
-  @media (max-width: 767px) {
-    .hero-inner {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      padding: 0 20px !important;
-      gap: 2rem !important;
-    }
-    .hero-copy  { flex: 1 1 100% !important; max-width: 100% !important; }
-    .hero-visual{ flex: 1 1 100% !important; max-width: 100% !important;
-                  min-height: 280px !important; margin: 0 !important; }
-    .hero-photos{ min-height: 260px !important; }
-    .hero-photo-1{ width: 200px !important; height: 130px !important; }
-    .hero-photo-2{ width: 200px !important; height: 130px !important; }
-    .hero-about-label{ font-size: 2.5rem !important; }
-    .hero-h1-brand{ font-size: 0.9rem !important; }
-    .hero-h1-title{ font-size: 1.4rem !important; }
-    .hero-desc{ font-size: 0.9rem !important; }
+  .hero-photos { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 500px; }
+  .hero-bg-rect {
+    position: absolute;
+    left: 40px; right: 0; top: 15%; bottom: 0;
+    background: #DFEFFF;
+    border-radius: 37px 37px 27px 27px;
+    z-index: 0;
   }
-
-  /* ── Features ── */
-  @media (min-width: 1024px) {
-    .features-inner {
-      flex-direction: row !important;
-      align-items: center !important;
-      gap: 80px !important;
-      padding-left: 80px !important;
-      padding-right: 80px !important;
-    }
-    .features-visual{ display: block !important; flex: 0 0 451px !important; }
-    .features-copy  { flex: 1 1 0 !important; }
+  .hero-photo-1 {
+    position: absolute;
+    border-radius: 10px; object-fit: cover;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    width: 376px; height: 246px;
+    right: 0; top: 0; z-index: 2;
   }
-  @media (max-width: 1023px) {
-    .features-visual{ display: none !important; }
-    .features-inner { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .hero-photo-2 {
+    position: absolute;
+    border-radius: 10px; object-fit: cover;
+    box-shadow: 0 8px 24px rgba(15,23,42,.12), 0 2px 8px rgba(15,23,42,.06);
+    width: 376px; height: 246px;
+    left: 0; bottom: 0; z-index: 1;
   }
-
-  /* ── Benefits grid ── */
-  @media (max-width: 900px) {
-    .benefits-grid{ grid-template-columns: repeat(2,1fr) !important; }
+  .hero-about-label {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4.125rem);
+    line-height: 1.0;
+    color: #2563EB;
+    text-align: left;
+    margin: 0 0 0.75rem;
   }
-  @media (max-width: 480px) {
-    .benefits-grid{
-      grid-template-columns: repeat(2,1fr) !important;
-      gap: 12px !important;
-    }
-    .benefit-card{ padding: 14px !important; min-height: auto !important; }
-    .benefit-number{ font-size: 26px !important; }
-    .benefit-number-wrap{ width: 44px !important; height: 44px !important; }
-    .benefit-bubble{ width: 44px !important; height: 44px !important; }
-    .benefit-h3{ font-size: 0.95rem !important; }
-    .benefit-p { font-size: 0.8rem !important; }
-    .benefits-section{ padding: 40px 12px 60px !important; }
-    .benefits-title{ font-size: 1.75rem !important; }
-    .benefits-subtitle{ font-size: 0.875rem !important; }
+  .hero-h1-brand {
+    display: block;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(1rem, 2.2vw, 2rem);
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    color: #0F3795;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .hero-h1-title {
+    display: block;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.8vw, 2.8rem);
+    line-height: 1.45;
+    color: #141414;
+    text-transform: capitalize;
+  }
+  .hero-desc {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.625;
+    color: #1E1E1E;
+    margin: 0 0 1.75rem;
+    max-width: 572px;
   }
 
-  /* ── How It Works ── */
-  @media (min-width: 768px) {
-    .hiw-row{
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
-      justify-content: center !important;
-      align-items: flex-start !important;
-    }
-    .hiw-step     { width: 260px !important; flex-shrink: 0 !important; padding: 0 0.5rem !important; }
-    .hiw-connector{ width: clamp(3.5rem,10vw,11.9rem) !important; padding: 0 !important;
-                    align-self: flex-start; height: 90px !important; }
-    .hiw-connector-desk{ display: flex !important; }
-    .hiw-connector-mob { display: none !important; }
+  /* ─────────────────────────────
+     FEATURES
+  ───────────────────────────── */
+  .features-section { padding: 2.5rem 0 3rem; background: #fff; }
+  .features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
   }
-  @media (max-width: 767px) {
-    .hiw-connector-desk{ display: none !important; }
-    .hiw-connector-mob { display: flex !important; }
-    .hiw-step{ width: 100% !important; max-width: 260px !important; }
-    .hiw-h2{ font-size: 1.75rem !important; }
+  .features-visual {
+    flex: 0 0 451px;
+    max-width: 451px;
+    position: relative;
+    padding-top: 24px;
+    padding-left: 24px;
+    min-height: 439px;
+    display: block;
   }
+  .features-copy { flex: 1 1 0; max-width: 572px; }
 
-  /* ── Reviews ── */
-  .review-card:hover{
+  /* ─────────────────────────────
+     BENEFITS
+  ───────────────────────────── */
+  .benefits-section { width: 100%; background: #fff; padding: 40px 16px 50px; font-family: 'Inter', sans-serif; }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .benefit-card {
+    width: 100%;
+    min-height: 236px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .benefit-number-wrap { position: relative; width: 54px; height: 54px; flex-shrink: 0; }
+  .benefit-bubble {
+    position: absolute; inset: 0;
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: #2563EB; opacity: .1;
+    display: block;
+  }
+  .benefit-number {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 34px; line-height: 1; color: #2563EB;
+  }
+  .benefit-h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 24px; line-height: 1; color: #141414; margin: 0; width: 100%; }
+  .benefit-p  { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.625; color: #1E1E1E; width: 100%; margin: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+  .benefit-link { color: #2563EB; font-weight: 400; text-decoration: none; white-space: nowrap; }
+  .benefit-link:hover { text-decoration: underline; }
+
+  /* ─────────────────────────────
+     HOW IT WORKS
+  ───────────────────────────── */
+  .hiw-section { padding: 2.5rem 0 1rem; background: #fff; }
+  .hiw-h2 {
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.1; text-align: center; color: #0D2455; margin-bottom: 2.5rem;
+  }
+  .hiw-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 72rem; margin: 0 auto;
+  }
+  .hiw-step { width: 260px; flex-shrink: 0; text-align: center; padding: 0 0.5rem; }
+  .hiw-connector {
+    width: clamp(3.5rem, 10vw, 11.9rem);
+    flex-shrink: 0;
+    padding: 0;
+    align-self: flex-start;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hiw-connector-desk { display: flex; align-items: center; justify-content: center; gap: 0; width: 100%; height: 90px; }
+  .hiw-connector-mob  { display: none; }
+
+  /* ─────────────────────────────
+     REVIEWS
+  ───────────────────────────── */
+  .review-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 10px 0 rgba(0,0,0,.08), 0 20px 25px -5px rgba(0,0,0,.12);
   }
-  @media (max-width: 767px) {
-    .reviews-slider{ overflow-x: auto; padding-bottom: 1rem; }
-    .reviews-heading{ font-size: 1.75rem !important; }
+
+  /* ─────────────────────────────
+     LMS BANNER
+  ───────────────────────────── */
+  .lms-banner-section { display: block; }
+  .lms-banner-inner {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 100px);
+    max-width: 1190px;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    z-index: 2;
+  }
+  .lms-banner-actions { display: flex; flex-direction: row; align-items: center; gap: 20px; flex-shrink: 0; }
+
+  /* ─────────────────────────────
+     BUTTON HOVER
+  ───────────────────────────── */
+  .btn-primary:hover        { background: #1d4ed8 !important; }
+  .btn-outline-orange:hover { background: rgba(255,120,45,.08); }
+  .btn-solid-orange:hover   { filter: brightness(0.95); }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — TABLET  (768–1023)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 1023px) {
+    .hero-section     { padding: 2rem 0 2.5rem; }
+    .hero-inner       { flex-direction: column; align-items: center; padding: 0 24px; gap: 2rem; }
+    .hero-copy        { flex: 1 1 100%; max-width: 600px; text-align: left; }
+    .hero-visual      { flex: 1 1 100%; max-width: 480px; min-height: 320px; margin: 0; }
+    .hero-photos      { min-height: 300px; }
+    .hero-photo-1     { width: 260px; height: 170px; }
+    .hero-photo-2     { width: 260px; height: 170px; }
+
+    .features-section { padding: 2rem 0 2.5rem; }
+    .features-inner   { flex-direction: column; padding: 0 24px; gap: 2rem; }
+    .features-visual  { display: none; }
+    .features-copy    { max-width: 100%; padding: 0 !important; }
+
+    .benefits-section { padding: 30px 16px 40px; }
+
+    .hiw-section      { padding: 2rem 0 1rem; }
+    .hiw-h2           { margin-bottom: 2rem; }
   }
 
-  /* ── LMS Banner ── */
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — MOBILE  (≤767)
+  ═══════════════════════════════════════════ */
   @media (max-width: 767px) {
-    .lms-banner-section{ display: none !important; }
-  }
-  @media (min-width: 900px) {
-    .lms-banner-inner{
-      flex-direction: row !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-    }
-    .lms-banner-actions{ justify-content: flex-end !important; }
+
+    /* ── Hero ── */
+    .hero-section           { padding: 1.25rem 0 1.5rem; }
+    .hero-inner             { flex-direction: column; align-items: flex-start; padding: 0 16px; gap: 1rem; }
+    .hero-copy              { flex: 1 1 100%; max-width: 100%; order: 1; }
+    .hero-visual            { flex: 1 1 100%; max-width: 100%; min-height: 210px; margin: 0; width: 100%; order: 2; }
+    .hero-photos            { min-height: 190px; }
+    .hero-bg-rect           { width: calc(100% - 40px); height: calc(100% - 50px); border-radius: 20px 20px 14px 14px; }
+    .hero-photo-1           { width: 57%; height: auto; aspect-ratio: 376/246; }
+    .hero-photo-2           { width: 57%; height: auto; aspect-ratio: 376/246; }
+    .hero-about-label       { font-size: 2.25rem; margin-bottom: 0.4rem; }
+    .hero-h1-brand          { font-size: clamp(0.82rem, 3.8vw, 1.05rem); }
+    .hero-h1-title          { font-size: clamp(1.2rem, 5.2vw, 1.55rem); }
+    .hero-desc              { font-size: 0.9rem; line-height: 1.55; margin-bottom: 1.25rem; }
+
+    /* ── Features ── */
+    .features-section       { padding: 1.5rem 0 2rem; }
+    .features-inner         { padding: 0 16px; gap: 0.75rem; }
+    .features-copy          { padding: 0 !important; }
+
+    /* ── Benefits ── */
+    .benefits-section       { padding: 16px 12px 24px; }
+    .benefits-title         { font-size: 1.3rem !important; }
+    .benefits-subtitle      { font-size: 0.78rem !important; }
+    .benefits-grid          { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+    .benefit-card           { padding: 10px; min-height: auto; }
+    .benefit-card > div     { gap: 10px !important; }
+    .benefit-number-wrap,
+    .benefit-bubble         { width: 34px !important; height: 34px !important; }
+    .benefit-number         { font-size: 20px !important; }
+    .benefit-h3             { font-size: 0.85rem !important; }
+    .benefit-p              { font-size: 0.72rem !important; line-height: 1.5 !important; }
+
+    /* ── How It Works ── */
+    .hiw-section            { padding: 1.5rem 0 0.75rem; }
+    .hiw-h2                 { font-size: 1.6rem; margin-bottom: 1.75rem; }
+    .hiw-row                { flex-direction: column; align-items: center; }
+    .hiw-step               { width: 100%; max-width: 240px; }
+    .hiw-connector          { width: 100% !important; height: auto !important; padding: .25rem 0; }
+    .hiw-connector-desk     { display: none !important; }
+    .hiw-connector-mob      { display: flex !important; flex-direction: column; align-items: center; justify-content: center; min-height: 2rem; width: 100%; }
+
+    /* ── Reviews ── */
+    .reviews-heading        { font-size: 1.75rem !important; white-space: nowrap !important; }
+    .reviews-slider         { overflow-x: auto; padding-bottom: 0.5rem !important; }
+    app-reviews             { margin-bottom: 0.5rem !important; display: block; }
+
+    /* ── LMS Banner (hidden on mobile) ── */
+    .lms-banner-section     { display: none !important; }
   }
 
-  /* ── Hover ── */
-  .btn-primary:hover       { background: #1d4ed8; }
-  .btn-outline-orange:hover{ background: rgba(255,120,45,.08); }
-  .btn-solid-orange:hover  { filter: brightness(0.95); }
-  .benefit-link:hover      { text-decoration: underline; }
-  .nav-btn:hover           { opacity: .85; transform: translateY(-50%) scale(1.05); }
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — SMALL MOBILE  (≤480)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .hero-photo-1,
+    .hero-photo-2           { width: 54% !important; }
+    .hero-visual            { min-height: 185px; }
+    .hero-photos            { min-height: 170px; }
+    .benefits-grid          { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
+    .benefit-card           { padding: 8px !important; }
+    .benefit-h3             { font-size: 0.78rem !important; }
+    .benefit-p              { font-size: 0.68rem !important; }
+    .hiw-step               { max-width: 200px; }
+  }
 </style>
+
 
 <!-- ═══════════════════════════════════════════
      HERO
 ═══════════════════════════════════════════ -->
-<section style="padding: 2.5rem 0 4rem; background:#fff;">
-  <div class="hero-inner"
-       style="max-width:1200px; margin:0 auto; display:flex; flex-direction:column;
-              align-items:stretch; gap:2.25rem; padding:0 1.25rem;">
+<section class="hero-section">
+  <div class="hero-inner">
 
     <!-- Copy -->
-    <div class="hero-copy"
-         style="flex:1 1 50%; max-width:572px; width:100%; order:1;">
-
-      <p class="hero-about-label"
-         style="font-family:'Caveat',cursive; font-weight:700;
-                font-size:clamp(2.5rem,5vw,4.125rem); line-height:1.0;
-                color:#2563EB; text-align:left; margin:0 0 0.75rem;">
-        About Us
-      </p>
+    <div class="hero-copy">
+      <p class="hero-about-label">About Us</p>
 
       <h1 style="margin:0 0 1.25rem; padding:0;">
-        <span class="hero-h1-brand"
-              style="display:block; font-family:'Inter',system-ui,sans-serif;
-                     font-weight:800; font-size:clamp(1.2rem,2.2vw,2rem);
-                     letter-spacing:0.08em; line-height:1.3; color:#0F3795;
-                     text-transform:uppercase; margin-bottom:0.35rem;">
-          LEARNCOMPLEXITY
-        </span>
-        <span class="hero-h1-title"
-              style="display:block; font-family:'Inter',system-ui,sans-serif;
-                     font-weight:600; font-size:clamp(1.8rem,2.8vw,2.8rem);
-                     line-height:1.45; color:#141414; text-transform:capitalize;">
-          Providing The Best Opportunities To The Students Around The Globe.
-        </span>
+        <span class="hero-h1-brand">LEARNCOMPLEXITY</span>
+        <span class="hero-h1-title">Providing The Best Opportunities To The Students Around The Globe.</span>
       </h1>
 
-      <p class="hero-desc"
-         style="font-family:'Inter',system-ui,sans-serif; font-size:1rem;
-                line-height:1.625; color:#1E1E1E; margin:0 0 1.75rem; max-width:572px;">
+      <p class="hero-desc">
         LearnComplexity is a modern learning platform dedicated to empowering students
         and professionals with in-demand technical and design skills. Built with a
         vision to simplify learning, LearnComplexity focuses on providing high-quality
@@ -192,46 +335,20 @@
                 gap:0.5rem; padding:0.875rem 1.25rem; border-radius:9999px;
                 font-family:'Inter',system-ui,sans-serif; font-size:1rem;
                 font-weight:500; line-height:1.25; border:none; cursor:pointer;
-                background:#2563EB; color:#fff; text-decoration:none;
-                transition:background .2s;">
+                background:#2563EB; color:#fff; text-decoration:none; transition:background .2s;">
         Join Us
         <svg viewBox="0 0 24 24" fill="none" style="width:1.25rem;height:1.25rem;" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
 
     <!-- Visual -->
-    <div class="hero-visual"
-         style="position:relative; width:100%; max-width:530px; margin-left:auto;
-                margin-right:auto; min-height:420px; order:2;">
-
-      <!-- Blue bg rect -->
-      <div class="hero-bg-rect"
-           style="position:absolute; left:40px; right:0; top:15%; bottom:0;
-                  background:#DFEFFF; border-radius:37px 37px 27px 27px; z-index:0;">
-      </div>
-
-      <div class="hero-photos"
-           style="position:relative; z-index:1; width:100%; height:100%;
-                  min-height:inherit;">
-
-        <!-- Top-right photo -->
-        <img class="hero-photo-1"
-             src="assets/images/about-office.jpg" alt=""
-             style="position:absolute; border-radius:10px; object-fit:cover;
-                    box-shadow:0 4px 4px rgba(0,0,0,.25);
-                    width:376px; height:246px; right:0; top:0; z-index:2;"
-             width="376" height="246"/>
-
-        <!-- Bottom-left photo -->
-        <img class="hero-photo-2"
-             src="assets/images/about-laptop.png" alt=""
-             style="position:absolute; border-radius:10px; object-fit:cover;
-                    box-shadow:0 8px 24px rgba(15,23,42,.12),0 2px 8px rgba(15,23,42,.06);
-                    width:376px; height:246px; left:0; bottom:0; z-index:1;"
-             width="376" height="246"/>
+    <div class="hero-visual">
+      <div class="hero-bg-rect"></div>
+      <div class="hero-photos">
+        <img class="hero-photo-1" src="assets/images/about-office.jpg" alt="" width="376" height="246"/>
+        <img class="hero-photo-2" src="assets/images/about-laptop.png" alt="" width="376" height="246"/>
       </div>
     </div>
 
@@ -242,31 +359,25 @@
 <!-- ═══════════════════════════════════════════
      FEATURES
 ═══════════════════════════════════════════ -->
-<section style="padding:3.5rem 0 4.5rem; background:#fff;">
-  <div class="features-inner"
-       style="max-width:1200px; margin:0 auto; padding:0 1.25rem;
-              display:flex; flex-direction:column; gap:2.5rem; align-items:stretch;">
+<section class="features-section">
+  <div class="features-inner">
 
     <!-- Image side (desktop only) -->
-    <div class="features-visual"
-         style="position:relative; flex:0 0 451px; max-width:451px;
-                padding-top:24px; padding-left:24px; min-height:439px; display:none;">
+    <div class="features-visual">
       <div style="position:absolute; top:0; left:0;
                   width:calc(100% - 24px); height:calc(100% - 24px);
-                  background:#DFEFFF; border-radius:17px 17px 7px 7px; z-index:0;">
-      </div>
+                  background:#DFEFFF; border-radius:17px 17px 7px 7px; z-index:0;"></div>
       <div style="position:absolute; z-index:1; right:0; bottom:0;
                   width:calc(100% - 24px); height:calc(100% - 24px);
                   border-radius:8px; overflow:hidden;
                   box-shadow:0 4px 16px rgba(15,23,42,.10),0 2px 6px rgba(15,23,42,.06);">
         <img src="assets/images/students-classroom.png" alt="Students in a classroom"
-             style="width:100%; height:100%; object-fit:cover; display:block;
-                    filter:brightness(.9);"/>
+             style="width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.9);"/>
       </div>
     </div>
 
     <!-- Text side -->
-    <div class="features-copy" style="flex:1; min-width:0; max-width:572px; padding:0 24px;">
+    <div class="features-copy" style="padding:0 24px;">
       <p style="font-family:'Inter',system-ui,sans-serif; font-weight:700;
                 font-size:1.5rem; line-height:1; color:#2563EB; margin:0 0 1rem;">
         Features
@@ -276,16 +387,14 @@
                  color:#141414; margin:0 0 1.25rem;">
         We are always working to provide you best of the features in all aspects.
       </h2>
-      <p style="font-family:'Inter',system-ui,sans-serif; font-size:1rem;
-                line-height:1.625; color:#1E1E1E; margin:0;">
+      <p style="font-family:'Inter',system-ui,sans-serif; font-size:1rem; line-height:1.625; color:#1E1E1E; margin:0;">
         LearnComplexity is a modern learning platform dedicated to empowering students
         and professionals with in-demand technical and design skills. Built with a
         vision to simplify learning, LearnComplexity focuses on providing high-quality
         education in areas such as UI/UX Design, Web Development, Programming, Cloud
         Technologies, Data Science, and Digital Skills.
       </p>
-      <p style="font-family:'Inter',system-ui,sans-serif; font-size:1rem;
-                line-height:1.625; color:#1E1E1E; margin:1rem 0 1.75rem;">
+      <p style="font-family:'Inter',system-ui,sans-serif; font-size:1rem; line-height:1.625; color:#1E1E1E; margin:0.75rem 0 1.5rem;">
         Our mission is to make learning accessible, practical, and impactful, helping
         learners grow with competence, creativity, and clarity in today's fast-evolving
         digital world.
@@ -298,8 +407,7 @@
                 background:#2563EB; color:#fff; text-decoration:none; transition:background .2s;">
         Learn More
         <svg viewBox="0 0 24 24" fill="none" style="width:1.25rem;height:1.25rem;" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
@@ -311,23 +419,16 @@
 <!-- ═══════════════════════════════════════════
      BENEFITS
 ═══════════════════════════════════════════ -->
-<section class="benefits-section"
-         style="width:100%; background:#fff; padding:60px 16px 80px;
-                font-family:'Inter',sans-serif;">
+<section class="benefits-section">
   <div style="width:100%; max-width:1160px; margin:0 auto;">
 
     <!-- Header -->
-    <div style="display:flex; flex-direction:column; align-items:center;
-                text-align:center; margin-bottom:40px; padding:0 8px;">
-      <p style="font-family:'Inter',sans-serif; font-weight:700; font-size:24px;
-                line-height:1; color:#2563EB; margin:0 0 16px;">
-        Our Benefits
-      </p>
+    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:32px; padding:0 8px;">
+      <p style="font-family:'Inter',sans-serif; font-weight:700; font-size:24px; line-height:1; color:#2563EB; margin:0 0 12px;">Our Benefits</p>
       <h2 class="benefits-title"
           style="font-family:'Inter',sans-serif; font-weight:600;
                  font-size:clamp(1.75rem,4vw,3rem); line-height:1.21;
-                 color:#141414; text-align:center; width:100%;
-                 max-width:993px; margin:0 auto 24px;">
+                 color:#141414; text-align:center; width:100%; max-width:993px; margin:0 auto 20px;">
         By Joining <span style="color:#2563EB;">LEARNCOMPLEXITY</span> Platform,<br>
         One Can Avail a Lot Of Benefits.
       </h2>
@@ -340,238 +441,81 @@
     </div>
 
     <!-- Grid -->
-    <div class="benefits-grid"
-         style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+    <div class="benefits-grid">
 
-      <!-- Card 01 – filled -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#F2F6FF; border:none;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              01
-            </div>
+      <!-- Card 01 -->
+      <div class="benefit-card" style="background:#F2F6FF; border:none;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">01</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            Standardization
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            When working in a global workplace, it's often difficult to gauge learners'
-            training experiences, which are …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">Standardization</h3>
+          <p class="benefit-p">When working in a global workplace, it's often difficult to gauge learners' training experiences, which are …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-      <!-- Card 02 – outlined -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#fff; border:1px solid #F2F2F2;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              02
-            </div>
+      <!-- Card 02 -->
+      <div class="benefit-card" style="background:#fff; border:1px solid #F2F2F2;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">02</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            Reduced Costs
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            With Learncomplexity, there's no cost to reproduce materials and, thanks to
-            mobile learning and microlearning …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">Reduced Costs</h3>
+          <p class="benefit-p">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-      <!-- Card 03 – filled -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#F2F6FF; border:none;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              03
-            </div>
+      <!-- Card 03 -->
+      <div class="benefit-card" style="background:#F2F6FF; border:none;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">03</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            More Customization
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            Just like learners aren't one-size-fits-all, learning is not a one-size-fits-all
-            experience. By using different …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">More Customization</h3>
+          <p class="benefit-p">Just like learners aren't one-size-fits-all, learning is not a one-size-fits-all experience. By using different …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-      <!-- Card 04 – outlined -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#fff; border:1px solid #F2F2F2;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              04
-            </div>
+      <!-- Card 04 -->
+      <div class="benefit-card" style="background:#fff; border:1px solid #F2F2F2;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">04</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            Affordable Pricing
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            With Learncomplexity, there's no cost to reproduce materials and, thanks to
-            mobile learning and microlearning …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">Affordable Pricing</h3>
+          <p class="benefit-p">With Learncomplexity, there's no cost to reproduce materials and, thanks to mobile learning and microlearning …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-      <!-- Card 05 – filled -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#F2F6FF; border:none;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              05
-            </div>
+      <!-- Card 05 -->
+      <div class="benefit-card" style="background:#F2F6FF; border:none;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">05</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            Learner Satisfaction
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            If you really want students to retain what they learn, you'll need to aim for
-            high satisfaction rates. Bad …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">Learner Satisfaction</h3>
+          <p class="benefit-p">If you really want students to retain what they learn, you'll need to aim for high satisfaction rates. Bad …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-      <!-- Card 06 – outlined -->
-      <div class="benefit-card"
-           style="width:100%; min-height:236px; border-radius:10px; padding:20px;
-                  display:flex; flex-direction:column; align-items:flex-start;
-                  background:#fff; border:1px solid #F2F2F2;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;
-                    gap:20px; width:100%;">
-          <div class="benefit-number-wrap"
-               style="position:relative; width:54px; height:54px; flex-shrink:0;">
-            <span class="benefit-bubble"
-                  style="position:absolute; inset:0; width:54px; height:54px;
-                         border-radius:50%; background:#2563EB; opacity:.1; display:block;">
-            </span>
-            <div class="benefit-number"
-                 style="position:absolute; inset:0; display:flex; align-items:center;
-                        justify-content:center; font-family:'Inter',sans-serif;
-                        font-weight:500; font-size:34px; line-height:1; color:#2563EB;">
-              06
-            </div>
+      <!-- Card 06 -->
+      <div class="benefit-card" style="background:#fff; border:1px solid #F2F2F2;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; width:100%;">
+          <div class="benefit-number-wrap">
+            <span class="benefit-bubble"></span>
+            <div class="benefit-number">06</div>
           </div>
-          <h3 class="benefit-h3"
-              style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px;
-                     line-height:1; color:#141414; margin:0; width:100%;">
-            Multimedia Materials
-          </h3>
-          <p class="benefit-p"
-             style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;
-                    line-height:1.625; color:#1E1E1E; width:100%; margin:0;
-                    overflow:hidden; display:-webkit-box;
-                    -webkit-line-clamp:3; -webkit-box-orient:vertical;">
-            One of the main reasons why custom eLearning is effective is that it's the
-            perfect delivery method for …&nbsp;<a class="benefit-link" href="#"
-              style="color:#2563EB; font-weight:400; text-decoration:none; white-space:nowrap;">
-              Read More</a>
-          </p>
+          <h3 class="benefit-h3">Multimedia Materials</h3>
+          <p class="benefit-p">One of the main reasons why custom eLearning is effective is that it's the perfect delivery method for …&nbsp;<a class="benefit-link" href="#">Read More</a></p>
         </div>
       </div>
 
-    </div><!-- /benefits-grid -->
+    </div>
   </div>
 </section>
 
@@ -579,23 +523,15 @@
 <!-- ═══════════════════════════════════════════
      HOW IT WORKS
 ═══════════════════════════════════════════ -->
-<section style="padding:3rem 0 1rem; background:#fff;">
+<section class="hiw-section">
   <div style="max-width:1200px; margin:0 auto; padding:0 1.25rem;">
 
-    <h2 class="hiw-h2"
-        style="font-family:'Inter',sans-serif; font-weight:600;
-               font-size:clamp(1.75rem,3.5vw,2.5rem); line-height:1.1;
-               text-align:center; color:#0D2455; margin-bottom:2.5rem;">
-      How It Works
-    </h2>
+    <h2 class="hiw-h2">How It Works</h2>
 
-    <div class="hiw-row"
-         style="display:flex; flex-direction:column; align-items:center; gap:0;
-                max-width:72rem; margin:0 auto;">
+    <div class="hiw-row">
 
       <!-- Step 1 -->
-      <div class="hiw-step"
-           style="width:100%; max-width:260px; text-align:center; padding:0 0.5rem;">
+      <div class="hiw-step">
         <div style="width:90px; height:90px; margin:0 auto 1rem; background:#2563EB;
                     border-radius:20px; display:flex; align-items:center; justify-content:center;
                     box-shadow:0 20px 13px rgba(150,114,255,.07);">
@@ -604,117 +540,67 @@
             <path d="M20 20l-4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px;
-                  line-height:1.35; color:#000; margin-bottom:0.5rem;">
-          Sign up
-        </p>
-        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px;
-                  line-height:1.625; color:#333333; text-align:center;">
-          Create your free account in under a minute.
-        </p>
+        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px; line-height:1.35; color:#000; margin-bottom:0.5rem;">Sign up</p>
+        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px; line-height:1.625; color:#333333; text-align:center;">Create your free account in under a minute.</p>
       </div>
 
       <!-- Connector 1 -->
-      <div class="hiw-connector"
-           style="display:flex; align-items:center; justify-content:center;
-                  flex-shrink:0; padding:.75rem 0;">
-        <!-- Desktop dashes -->
-        <span class="hiw-connector-desk"
-              style="display:none; align-items:center; justify-content:center; gap:0;
-                     width:clamp(4rem,12vw,12rem); height:90px;">
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#2563EB; display:inline-block;"></span>
-          <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,
-                       rgba(15,23,42,.35) 0,rgba(15,23,42,.35) 6px,transparent 6px,transparent 12px);
-                       opacity:.35; min-width:2rem; display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#EA580C; display:inline-block;"></span>
+      <div class="hiw-connector">
+        <span class="hiw-connector-desk" style="align-items:center; justify-content:center; gap:0; width:100%; height:90px;">
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#2563EB; display:inline-block;"></span>
+          <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,rgba(15,23,42,.35) 0,rgba(15,23,42,.35) 6px,transparent 6px,transparent 12px); opacity:.35; min-width:2rem; display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#EA580C; display:inline-block;"></span>
         </span>
-        <!-- Mobile vertical -->
-        <span class="hiw-connector-mob"
-              style="display:flex; flex-direction:column; align-items:center;
-                     justify-content:center; min-height:3rem; width:100%;">
-          <span style="width:1px; height:2.5rem; background:repeating-linear-gradient(180deg,
-                       rgba(15,23,42,.3) 0,rgba(15,23,42,.3) 6px,transparent 6px,transparent 12px);
-                       display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#EA580C; margin-top:-2px; display:inline-block;"></span>
+        <span class="hiw-connector-mob" style="flex-direction:column; align-items:center; justify-content:center; min-height:2rem; width:100%;">
+          <span style="width:1px; height:2rem; background:repeating-linear-gradient(180deg,rgba(15,23,42,.3) 0,rgba(15,23,42,.3) 6px,transparent 6px,transparent 12px); display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#EA580C; margin-top:-2px; display:inline-block;"></span>
         </span>
       </div>
 
       <!-- Step 2 -->
-      <div class="hiw-step"
-           style="width:100%; max-width:260px; text-align:center; padding:0 0.5rem;">
+      <div class="hiw-step">
         <div style="width:90px; height:90px; margin:0 auto 1rem; background:#2563EB;
                     border-radius:20px; display:flex; align-items:center; justify-content:center;
                     box-shadow:0 20px 13px rgba(77,223,253,.07);">
           <img src="assets/images/icon-hand.png" alt="Access"
-               style="width:2.25rem;height:2.25rem; object-fit:contain;
-                      mix-blend-mode:screen; filter:contrast(1.5) brightness(1.2);"/>
+               style="width:2.25rem;height:2.25rem; object-fit:contain; mix-blend-mode:screen; filter:contrast(1.5) brightness(1.2);"/>
         </div>
-        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px;
-                  line-height:1.35; color:#000; margin-bottom:0.5rem;">
-          Get Access
-        </p>
-        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px;
-                  line-height:1.625; color:#333333; text-align:center;">
-          Browse and enrol in expert-led courses instantly.
-        </p>
+        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px; line-height:1.35; color:#000; margin-bottom:0.5rem;">Get Access</p>
+        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px; line-height:1.625; color:#333333; text-align:center;">Browse and enrol in expert-led courses instantly.</p>
       </div>
 
       <!-- Connector 2 -->
-      <div class="hiw-connector"
-           style="display:flex; align-items:center; justify-content:center;
-                  flex-shrink:0; padding:.75rem 0;">
-        <span class="hiw-connector-desk"
-              style="display:none; align-items:center; justify-content:center; gap:0;
-                     width:clamp(4rem,12vw,12rem); height:90px;">
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#2563EB; display:inline-block;"></span>
-          <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,
-                       rgba(15,23,42,.35) 0,rgba(15,23,42,.35) 6px,transparent 6px,transparent 12px);
-                       opacity:.35; min-width:2rem; display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#EA580C; display:inline-block;"></span>
+      <div class="hiw-connector">
+        <span class="hiw-connector-desk" style="align-items:center; justify-content:center; gap:0; width:100%; height:90px;">
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#2563EB; display:inline-block;"></span>
+          <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,rgba(15,23,42,.35) 0,rgba(15,23,42,.35) 6px,transparent 6px,transparent 12px); opacity:.35; min-width:2rem; display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#EA580C; display:inline-block;"></span>
         </span>
-        <span class="hiw-connector-mob"
-              style="display:flex; flex-direction:column; align-items:center;
-                     justify-content:center; min-height:3rem; width:100%;">
-          <span style="width:1px; height:2.5rem; background:repeating-linear-gradient(180deg,
-                       rgba(15,23,42,.3) 0,rgba(15,23,42,.3) 6px,transparent 6px,transparent 12px);
-                       display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0;
-                       background:#EA580C; margin-top:-2px; display:inline-block;"></span>
+        <span class="hiw-connector-mob" style="flex-direction:column; align-items:center; justify-content:center; min-height:2rem; width:100%;">
+          <span style="width:1px; height:2rem; background:repeating-linear-gradient(180deg,rgba(15,23,42,.3) 0,rgba(15,23,42,.3) 6px,transparent 6px,transparent 12px); display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; flex-shrink:0; background:#EA580C; margin-top:-2px; display:inline-block;"></span>
         </span>
       </div>
 
       <!-- Step 3 -->
-      <div class="hiw-step"
-           style="width:100%; max-width:260px; text-align:center; padding:0 0.5rem;">
+      <div class="hiw-step">
         <div style="width:90px; height:90px; margin:0 auto 1rem; background:#2563EB;
                     border-radius:20px; display:flex; align-items:center; justify-content:center;
                     box-shadow:0 20px 13px rgba(242,184,236,.07);">
           <img src="assets/images/icon-building.png" alt="Learn"
-               style="width:2.25rem;height:2.25rem; object-fit:contain;
-                      mix-blend-mode:screen; filter:contrast(1.5) brightness(1.2);"/>
+               style="width:2.25rem;height:2.25rem; object-fit:contain; mix-blend-mode:screen; filter:contrast(1.5) brightness(1.2);"/>
         </div>
-        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px;
-                  line-height:1.35; color:#000; margin-bottom:0.5rem;">
-          Learn properly
-        </p>
-        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px;
-                  line-height:1.625; color:#333333; text-align:center;">
-          Follow structured learning paths at your own pace.
-        </p>
+        <p style="font-family:'Manrope','Inter',sans-serif; font-weight:600; font-size:22px; line-height:1.35; color:#000; margin-bottom:0.5rem;">Learn properly</p>
+        <p style="font-family:'Roboto',system-ui,sans-serif; font-size:16px; line-height:1.625; color:#333333; text-align:center;">Follow structured learning paths at your own pace.</p>
       </div>
 
-    </div><!-- /hiw-row -->
+    </div>
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════════
-     REVIEWS  (placeholder — rendered by app-reviews component)
+     REVIEWS
 ═══════════════════════════════════════════ -->
 <app-reviews></app-reviews>
 
@@ -722,61 +608,62 @@
 <!-- ═══════════════════════════════════════════
      LMS BANNER
 ═══════════════════════════════════════════ -->
-<section class="lms-banner-section" style="padding:0 1.25rem 3rem;">
-  <div style="max-width:1290px; margin:0 auto; border-radius:20px;
-              background:linear-gradient(92.15deg,#C7E6F9 0%,#E8D1FE 100%);
-              position:relative; overflow:hidden; min-height:250px;
-              display:flex; align-items:center; justify-content:center;
-              padding:2rem 1.5rem;">
+<div class="lms-banner-section" style="width:100%; max-width:1290px; margin:0 auto; padding:0 24px;">
+  <div class="lms-banner-outer"
+       style="position:relative; width:100%; height:250px; border-radius:20px;
+              overflow:hidden; isolation:isolate;
+              background:linear-gradient(92.15deg,#C7E6F9 0%,#E8D1FE 100%);">
 
-    <!-- yellow tint overlay -->
-    <div style="position:absolute; inset:0; background:#FFD952; opacity:.12;
-                pointer-events:none;"></div>
+    <!-- Decorative -->
+    <img src="assets/images/graduation-cap.png" alt="" aria-hidden="true"
+         style="position:absolute; width:413px; height:399px; right:0; top:-103px;
+                opacity:0.05; object-fit:contain; pointer-events:none; z-index:1;"/>
 
-    <div class="lms-banner-inner"
-         style="position:relative; z-index:1; display:flex; flex-direction:column;
-                align-items:stretch; gap:1.5rem; width:100%; max-width:74rem;">
+    <!-- Content -->
+    <div class="lms-banner-inner">
 
-      <!-- Left: avatar + text -->
-      <div style="display:flex; align-items:center; gap:1.5rem;">
-        <div style="width:120px; height:120px; border-radius:50%; background:#fff;
-                    display:flex; align-items:center; justify-content:center;
-                    flex-shrink:0;" aria-hidden="true">
+      <!-- Left -->
+      <div class="lms-banner-left"
+           style="display:flex; flex-direction:row; align-items:center; gap:32px; flex-shrink:0;">
+        <div style="display:flex; align-items:center; justify-content:center;
+                    width:120px; height:120px; background:#fff; border-radius:60px;
+                    flex-shrink:0; box-shadow:0 4px 16px rgba(0,0,0,.10);">
           <img src="assets/images/student.png" alt="Student"
-               style="width:64px; height:64px; object-fit:cover; border-radius:50%;"/>
+               style="width:61px; height:72px; object-fit:contain; display:block;"/>
         </div>
-        <p style="font-family:'Inter',sans-serif; font-weight:600;
-                  font-size:clamp(1rem,2.5vw,1.25rem); line-height:1.2;
-                  text-transform:capitalize; color:#000; margin:0;">
-          Let's Start With LearnComplexity
-        </p>
+        <span class="lms-banner-title"
+              style="font-family:'Exo',sans-serif; font-weight:600; font-size:20px;
+                     line-height:120%; text-transform:capitalize; color:#000; white-space:nowrap;">
+          Let's Start With Academy LMS
+        </span>
       </div>
 
-      <!-- Right: buttons -->
-      <div class="lms-banner-actions"
-           style="display:flex; flex-wrap:wrap; gap:1.25rem; justify-content:flex-start;">
-        <a href="/contact" class="btn-outline-orange"
+      <!-- Right -->
+      <div class="lms-banner-actions">
+        <a href="#" class="btn-outline-orange"
            style="display:inline-flex; align-items:center; justify-content:center;
-                  padding:10px 24px; border-radius:24px;
-                  font-family:'Inter',sans-serif; font-weight:500;
-                  font-size:clamp(.9rem,1.8vw,1.125rem); line-height:1.5;
-                  text-transform:capitalize; min-height:48px; cursor:pointer;
-                  text-decoration:none; border:2px solid #FF782D; color:#FF782D;
-                  background:transparent; transition:background .2s;">
-          Join Course
+                  padding:10px 24px; gap:10px; width:156px; height:48px;
+                  border:2px solid #FF782D; border-radius:24px;
+                  background:transparent; text-decoration:none;">
+          <span style="font-family:'Jost',sans-serif; font-weight:500; font-size:18px;
+                       line-height:150%; text-transform:capitalize; color:#FF782D; white-space:nowrap;">
+            I'm A Student
+          </span>
         </a>
-        <a href="/contact" class="btn-solid-orange"
+        <a href="#" class="btn-solid-orange"
            style="display:inline-flex; align-items:center; justify-content:center;
-                  padding:10px 24px; border-radius:24px;
-                  font-family:'Inter',sans-serif; font-weight:500;
-                  font-size:clamp(.9rem,1.8vw,1.125rem); line-height:1.5;
-                  text-transform:capitalize; min-height:48px; cursor:pointer;
-                  text-decoration:none; border:2px solid #FF782D;
-                  background:#FF782D; color:#fff; transition:filter .2s;">
-          Become an Instructor
+                  padding:10px 24px; gap:10px; width:219px; height:48px;
+                  background:#FF782D; border-radius:24px;
+                  text-decoration:none; border:none;">
+          <span style="font-family:'Jost',sans-serif; font-weight:500; font-size:18px;
+                       line-height:150%; text-transform:capitalize; color:#fff; white-space:nowrap;">
+            Become An Instructor
+          </span>
         </a>
       </div>
 
     </div>
   </div>
-</section>
+</div>
+
+<div style="padding: 1.5rem 24px; background: #fff;"></div>
