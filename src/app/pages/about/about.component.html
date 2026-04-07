@@ -632,33 +632,81 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
    RESPONSIVE — TABLET (768–1023px)
 ══════════════════════════════════════════════════ */
 @media (max-width: 1023px) {
-  /* Hero — keep two-column row so desktop-site-in-mobile-browser looks correct */
+  /* Hero — two-column row; photos stacked vertically on the right */
   .hero-section { padding: 2rem 0 2.5rem; }
   .hero-inner {
     flex-direction: row;
+    align-items: flex-start;
+    padding: 0 24px;
+    gap: 2rem;
+  }
+  .hero-copy { flex: 0 0 46%; max-width: 46%; text-align: left; }
+
+  /* Visual column — becomes a flex column of two stacked photos */
+  .hero-visual {
+    flex: 1 1 0;
+    max-width: none;
+    position: relative;
+    min-height: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: visible;
+    padding-left: 20px;
+  }
+
+  /* Blue bg rect — tall strip sitting on the left behind both photos */
+  .hero-bg-rect {
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: -12px;
+    bottom: -12px;
+    width: 88%;
+    border-radius: 20px;
+    z-index: 0;
+  }
+
+  /* Photos wrapper — normal flow instead of absolute */
+  .hero-photos {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-height: 0;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  /* Both photos: full column width, proportional height */
+  .hero-photo-1,
+  .hero-photo-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 376 / 246;
+    left: auto; right: auto; top: auto; bottom: auto;
+  }
+
+  /* Features — two-column row with image visible, matching Image 2 */
+  .features-section { padding: 2rem 0 2.5rem; }
+  .features-inner {
+    flex-direction: row;
     align-items: center;
     padding: 0 24px;
-    gap: 1.5rem;
+    gap: 2rem;
   }
-  .hero-copy { flex: 0 0 48%; max-width: 48%; text-align: left; }
-  .hero-visual {
-    flex: 0 0 48%;
-    max-width: 48%;
-    min-height: 320px;
-    margin: 0;
-    overflow: hidden;
+  .features-visual {
+    display: block;
+    flex: 0 0 42%;
+    max-width: 42%;
+    min-height: 280px;
+    padding-top: 18px;
+    padding-left: 18px;
   }
-  .hero-photos { min-height: 300px; }
-  /* Photos scale proportionally within the narrower column */
-  .hero-photo-1 { width: 72%; height: auto; aspect-ratio: 376/246; right: 0; top: 0; }
-  .hero-photo-2 { width: 72%; height: auto; aspect-ratio: 376/246; left: 0; bottom: 0; }
-  .hero-bg-rect { left: 20px; top: 18%; }
-
-  /* Features */
-  .features-section { padding: 2rem 0 2.5rem; }
-  .features-inner { flex-direction: column; padding: 0 24px; gap: 2rem; }
-  .features-visual { display: none; }
-  .features-copy { flex: 1 1 100%; max-width: 100%; padding: 0 !important; }
+  .features-copy { flex: 1 1 0; max-width: none; padding: 0 !important; }
 
   /* Benefits */
   .benefits-section { padding: 30px 16px 40px; }
@@ -765,9 +813,11 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   .hero-desc   { font-size: .9rem; line-height: 1.55; margin-bottom: 1.25rem; }
   .btn-primary { font-size: .9rem; padding: .75rem 1.125rem; }
 
-  /* Features */
+  /* Features — image hidden on true mobile, text only */
   .features-section { padding: 1.5rem 0 2rem; }
-  .features-inner { padding: 0 16px; gap: .75rem; }
+  .features-inner { flex-direction: column; padding: 0 16px; gap: .75rem; }
+  .features-visual { display: none !important; }
+  .features-copy { flex: 1 1 100%; max-width: 100%; }
 
   /* Benefits */
   .benefits-section { padding: 16px 12px 24px; }
