@@ -1,18 +1,19 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
+import { ReviewsComponent } from '../../reviews/reviews.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [ReviewsComponent],
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrls: ['./home.css']
 })
 export class Home implements OnInit {
   private seo = inject(SeoService);
 
   ngOnInit() {
     this.seo.update({
-      title: 'Learn Algorithm Complexity – Big O Notation Made Simple',
+      title: 'Learn Algorithm Complexity - Big O Notation Made Simple',
       description: 'Master time and space complexity with interactive examples. Big O notation guides, cheat sheets and algorithm analysis for developers.',
       keywords: 'big o notation, algorithm complexity, time complexity, space complexity, data structures, algorithms, programming, computer science',
       canonicalUrl: 'https://learncomplexity.com/',
@@ -28,7 +29,7 @@ export class Home implements OnInit {
           "name": "How do I enroll in a course?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simply browse our course catalog, select the course you're interested in, and click the enroll button. You'll be guided through the registration and payment process."
+            "text": "Simply browse our course catalog, select course you're interested in, and click enroll button. You'll be guided through registration and payment process."
           }
         },
         {
@@ -41,7 +42,7 @@ export class Home implements OnInit {
         },
         {
           "@type": "Question",
-          "name": "Are the courses self-paced or live?",
+          "name": "Are courses self-paced or live?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Our courses are designed to be self-paced, allowing you to learn at your own schedule. However, we also offer live Q&A sessions and mentor support."
@@ -49,7 +50,7 @@ export class Home implements OnInit {
         },
         {
           "@type": "Question",
-          "name": "Can I access the courses on mobile or tablet?",
+          "name": "Can I access courses on mobile or tablet?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes! Our platform is fully responsive and works seamlessly on mobile phones, tablets, and desktop computers. Learn anywhere, anytime."

@@ -145,7 +145,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   max-width: 530px;
   position: relative;
   /* padding-bottom creates height from width — fully reliable across all viewports */
-  padding-bottom: 110%;
+  padding-bottom: 50%;
   height: 0;
   overflow: hidden;
 }
@@ -747,10 +747,10 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   .hero-bg-rect {
     position: absolute;
     /* offset left so it peeks out from behind photo-2 */
-    left: 18px;
-    right: 0;
-    top: 22%;
-    bottom: -8px;
+    left: 50px;
+    right: 50px;
+    top: 10%;
+    bottom: 10%;
     border-radius: 20px 20px 14px 14px;
     z-index: 0;
   }
@@ -764,12 +764,14 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
     z-index: 1;
   }
 
-  /* Photo 1 → top-right */
+  /* Photo 1 → top-right (desktop logic with mobile values) */
   .hero-photo-1 {
     position: absolute;
-    width: 58%;
-    height: auto;
-    aspect-ratio: 376 / 246;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: var(--shadow-img);
+    width: 120%;
+    height: 60%;
     right: 0;
     top: 0;
     left: auto;
@@ -777,12 +779,14 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
     z-index: 2;
   }
 
-  /* Photo 2 → bottom-left, slightly overlapping photo 1 vertically */
+  /* Photo 2 → bottom-left, slightly overlapping photo 1 (desktop logic with mobile values) */
   .hero-photo-2 {
     position: absolute;
-    width: 58%;
-    height: auto;
-    aspect-ratio: 376 / 246;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(15,23,42,.12), 0 2px 8px rgba(15,23,42,.06);
+    width: 120%;
+    height: 60%;
     left: 0;
     bottom: 0;
     right: auto;
@@ -853,7 +857,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
 ══════════════════════════════════════════════════ */
 @media (max-width: 480px) {
   .hero-visual { height: 220px; }
-  .hero-photo-1, .hero-photo-2 { width: 55% !important; }
+  .hero-photo-1, .hero-photo-2 { width: 40% !important; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
   .benefit-card  { padding: 10px !important; }
   .benefit-h3    { font-size: .8rem !important; }
