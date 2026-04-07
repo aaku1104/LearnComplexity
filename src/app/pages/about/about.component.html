@@ -621,11 +621,64 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
 ══════════════════════════════════════════════════ */
 @media (max-width: 1199px) and (min-width: 1024px) {
   .hero-inner { gap: 2rem; padding: 0 32px; }
-  .hero-visual { min-height: 450px; }
-  .hero-photo-1, .hero-photo-2 { width: 320px; height: 210px; }
+  .hero-copy { flex: 0 0 46%; max-width: 46%; }
 
-  .features-inner { padding: 0 40px; gap: 48px; }
-  .features-visual { flex: 0 0 380px; max-width: 380px; min-height: 370px; }
+  /* Hero visual — switch to stacked vertical photos so they don't overlap
+     in narrower desktop viewports (incl. mobile browser "desktop site" ~980px) */
+  .hero-visual {
+    flex: 0 0 46%;
+    max-width: 46%;
+    position: relative;
+    min-height: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: visible;
+    padding-left: 24px;
+  }
+  .hero-bg-rect {
+    position: absolute;
+    left: 0; right: auto;
+    top: -14px; bottom: -14px;
+    width: 86%;
+    border-radius: 20px;
+    z-index: 0;
+  }
+  .hero-photos {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    min-height: 0;
+    overflow: visible;
+    z-index: 1;
+  }
+  .hero-photo-1,
+  .hero-photo-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 376 / 246;
+    left: auto; right: auto; top: auto; bottom: auto;
+  }
+
+  .features-inner {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 40px;
+    gap: 2rem;
+  }
+  .features-visual {
+    display: block;
+    flex: 0 0 42%;
+    max-width: 42%;
+    min-height: 280px;
+    padding-top: 18px;
+    padding-left: 18px;
+  }
+  .features-copy { flex: 1 1 0; max-width: none; padding: 0 !important; }
 }
 
 /* ══════════════════════════════════════════════════
