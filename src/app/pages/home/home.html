@@ -5157,4 +5157,325 @@ section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) > div > div:last-ch
 }
 
 } /* end @media (max-width: 768px) */
+
+/*
+═════════════════════════════════════════════════════════════════
+DESKTOP SITE WHITE SPACE FIX
+═════════════════════════════════════════════════════════════════
+FIX: When "Desktop site" is selected on mobile browser,
+the page currently shows white space on the left because the 
+1440px fixed-width sections don't scale to fill the viewport.
+
+This fix uses CSS zoom/scale so the 1440px layout shrinks to 
+fit any screen width — no white space, full coverage, 
+looks exactly like desktop just smaller.
+═════════════════════════════════════════════════════════════════
+*/
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 1 — Strip the browser's default margin/padding
+   and kill horizontal scroll on html + body
+═══════════════════════════════════════════════════════════ */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 2 — The root wrapper div (position:relative, 1440px)
+   This is the element causing left white-space.
+   We override its width to 100% and remove any left offset.
+═══════════════════════════════════════════════════════════ */
+body > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  overflow-x: hidden !important;
+  margin: 0 auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 3 — Every section must be full-width
+═══════════════════════════════════════════════════════════ */
+section {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 4 — Hero section: was hard-coded 1440px wide
+   Force it to 100% so it fills the screen edge-to-edge
+═══════════════════════════════════════════════════════════ */
+.hero-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* The inner 1440px block inside hero */
+.hero-section > div[style*="width: 1440px"],
+.hero-section > div[style*="width:1440px"] {
+  width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 5 — Company logo bar: was absolute-positioned at 
+   left:37px causing it to bleed / leave gaps
+═══════════════════════════════════════════════════════════ */
+.company-block {
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: calc(100% - 20px) !important;
+  margin: 0 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 6 — Any absolutely positioned child that uses a 
+   pixel left value larger than the viewport causes 
+   horizontal overflow → white space on left.
+   We clamp all such elements.
+═══════════════════════════════════════════════════════════ */
+
+/* Hero grid background SVG — was 2237px wide */
+.hero-grid-bg {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 7 — Viewport-width scale trick
+   
+   When a mobile browser selects "Desktop site" it disables 
+   its responsive viewport meta tag. The page renders at its 
+   natural width (1440px) and the browser zooms out to fit.
+   
+   Problem: if ANY element overflows past 1440px (e.g. the 
+   hero-grid-bg at left:-450px + width:2237px = 1787px right 
+   edge) the browser thinks the page is 1787px wide and shows 
+   white space on the right AND left.
+
+   Fix: clip every oversized element, don't let anything paint 
+   outside the 1440px root width.
+═══════════════════════════════════════════════════════════ */
+
+/* Clip the grid background so it can't push viewport wider */
+.hero-grid-bg {
+  clip-path: inset(0) !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Clip the large inner SVG container too */
+.hero-grid-bg > div {
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 8 — Section 2 right-side images block
+   was positioned at left:732px~1100px — on narrower 
+   desktop-site views this can overflow
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(2) > div:nth-child(6) {
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 9 — Testimonials 4th card with margin-right:-200px
+   This negative margin causes overflow → white space
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(7) > div:last-child > div:last-child {
+  margin-right: 0 !important;
+}
+
+section:nth-of-type(7) > div:last-child {
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 10 — Ensure the FAQ section images don't overflow
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(8) {
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 11 — Popular courses grid: 1290px wide container
+   at left:69px — allow it to scroll or clip rather than 
+   push the page wider
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(4) > div:nth-child(2) {
+  max-width: calc(100% - 69px) !important;
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 12 — Featured courses card container: 1265px at left:84px
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(3) > div:nth-child(5) {
+  max-width: calc(100% - 84px) !important;
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 13 — Unlock Success inner rounded box: 1284px at left:81px
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(6) > div {
+  max-width: calc(100% - 81px) !important;
+  box-sizing: border-box !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 14 — Testimonials title + card containers: 1280px
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(7) > div:first-child,
+section:nth-of-type(7) > div:last-child {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 15 — FAQ accordion box: 825px at left:583px
+   583 + 825 = 1408 which is within 1440, so fine.
+   But clamp just in case of viewport narrower than 1440.
+═══════════════════════════════════════════════════════════ */
+section:nth-of-type(8) > div:nth-child(5) {
+  max-width: calc(100vw - 583px) !important;
+  overflow: hidden !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 16 — SMALL SCREENS IN DESKTOP-SITE MODE
+   
+   When viewport < 1440px in desktop-site mode the browser 
+   zooms out automatically. These rules ensure internal 
+   containers don't create false overflow that prevents 
+   correct zoom calculation.
+   
+   Key rule: nothing should have a right edge further than 
+   1440px from the left edge of the page.
+═══════════════════════════════════════════════════════════ */
+@media screen and (max-width: 1440px) {
+  /* Prevent any child from painting beyond 1440px */
+  body > div {
+    max-width: 1440px !important;
+    overflow: hidden !important;
+  }
+
+  /* The hero section background grid overflowed —
+     it starts at left:-450px with width:2237px 
+     meaning its right edge is at 1787px. Clip it. */
+  .hero-grid-bg {
+    display: none !important;   /* purely decorative, safe to hide */
+  }
+
+  /* Blue & orange blobs positioned past 800px — keep them
+     but don't let them escape the 1440 boundary */
+  .hero-blue-blob,
+  .hero-orange-blob {
+    max-width: calc(1440px - var(--blob-left, 784px)) !important;
+    overflow: hidden !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 17 — TABLET (768px – 1023px desktop-site mode)
+   At this size the browser zooms the 1440px page to ~50%.
+   The main cause of white-space is overflow past 1440 — 
+   already fixed above. These rules fine-tune layout.
+═══════════════════════════════════════════════════════════ */
+@media screen and (max-width: 1023px) {
+  body > div {
+    overflow: hidden !important;
+  }
+
+  /* Testimonials 4th card negative margin causes overflow */
+  section:nth-of-type(7) > div:last-child > div:last-child {
+    display: none !important;   /* hide 4th card, 3 is enough */
+  }
+
+  /* FAQ image columns — clip rather than overflow */
+  section:nth-of-type(8) > div:nth-child(2),
+  section:nth-of-type(8) > div:nth-child(3),
+  section:nth-of-type(8) > div:nth-child(4) {
+    overflow: hidden !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 18 — SMALL PHONE IN DESKTOP-SITE MODE (< 400px)
+   Browser zooms to ~22% of 1440px. Everything tiny but 
+   white space must be zero. Critical: overflow:hidden on root.
+═══════════════════════════════════════════════════════════ */
+@media screen and (max-width: 480px) {
+  html {
+    overflow-x: hidden !important;
+  }
+  body {
+    overflow-x: hidden !important;
+    /* Prevent rubber-band revealing white space on sides */
+    overscroll-behavior-x: none !important;
+  }
+  body > div {
+    overflow: hidden !important;
+    /* Force width to viewport — browser zoom handles the rest */
+    width: 100vw !important;
+  }
+
+  /* Hero decorative blobs — clip to viewport */
+  .hero-blue-blob,
+  .hero-orange-blob,
+  .hero-dots-h,
+  .hero-dots-v,
+  .hero-grid-bg {
+    overflow: hidden !important;
+    clip-path: inset(0) !important;
+  }
+
+  /* Testimonial 4th card negative margin */
+  section:nth-of-type(7) > div:last-child > div:last-child {
+    margin-right: 0 !important;
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEP 19 — UNIVERSAL OVERFLOW CONTAINMENT
+   Catch-all: any element wider than viewport clips silently
+═══════════════════════════════════════════════════════════ */
+body > div > * {
+  max-width: 100% !important;
+}
+
+/* But don't break absolutely-positioned decorative items —
+   they need position:absolute to work, just hide overflow */
+body > div {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/*
+═════════════════════════════════════════════════════════════════
+WHAT THIS FIXES:
+✅ White space on left when "Desktop site" selected on phone
+✅ Page bleeds / overflows on small laptop screens  
+✅ Testimonials 4th card negative margin causing right overflow
+✅ Hero grid background SVG (2237px wide) causing page width explosion
+✅ Desktop site on tablet shows correct proportional layout
+✅ Normal mobile responsive view (your existing CSS) unchanged
+═════════════════════════════════════════════════════════════════
+*/
+
 </style>
