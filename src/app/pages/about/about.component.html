@@ -144,23 +144,24 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   flex: 0 0 50%;
   max-width: 530px;
   position: relative;
-  min-height: 530px;
+  /* Use aspect-ratio driven height instead of fixed min-height */
+  aspect-ratio: 1 / 1;
+  min-height: 0;
   overflow: hidden;
 }
 
 .hero-bg-rect {
   position: absolute;
-  left: 40px; right: 0; top: 15%; bottom: 0;
+  left: 8%; right: 0; top: 15%; bottom: 0;
   background: var(--blue-light);
   border-radius: 37px 37px 27px 27px;
   z-index: 0;
 }
 
 .hero-photos {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  width: 100%; height: 100%;
-  min-height: 500px;
   overflow: hidden;
 }
 
@@ -169,7 +170,9 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   border-radius: var(--radius-md);
   object-fit: cover;
   box-shadow: var(--shadow-img);
-  width: 376px; height: 246px;
+  /* percentage widths — always fit the container */
+  width: 72%; height: auto;
+  aspect-ratio: 376 / 246;
   right: 0; top: 0; z-index: 2;
 }
 
@@ -178,7 +181,8 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   border-radius: var(--radius-md);
   object-fit: cover;
   box-shadow: 0 8px 24px rgba(15,23,42,.12), 0 2px 8px rgba(15,23,42,.06);
-  width: 376px; height: 246px;
+  width: 72%; height: auto;
+  aspect-ratio: 376 / 246;
   left: 0; bottom: 0; z-index: 1;
 }
 
@@ -623,45 +627,44 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   .hero-inner { gap: 2rem; padding: 0 32px; }
   .hero-copy { flex: 0 0 46%; max-width: 46%; }
 
-  /* Hero visual — switch to stacked vertical photos so they don't overlap
-     in narrower desktop viewports (incl. mobile browser "desktop site" ~980px) */
+  /* Hero visual — diagonal stagger layout, percentage-based for this viewport */
   .hero-visual {
     flex: 0 0 46%;
     max-width: 46%;
     position: relative;
-    min-height: 0;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    overflow: visible;
-    padding-left: 24px;
+    min-height: 380px;
+    overflow: hidden;
+    display: block;
   }
   .hero-bg-rect {
     position: absolute;
-    left: 0; right: auto;
-    top: -14px; bottom: -14px;
-    width: 86%;
-    border-radius: 20px;
+    left: 30px; right: 0; top: 15%; bottom: 0;
+    border-radius: 28px 28px 18px 18px;
     z-index: 0;
   }
   .hero-photos {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    width: 100%;
-    min-height: 0;
-    overflow: visible;
+    position: relative;
     z-index: 1;
-  }
-  .hero-photo-1,
-  .hero-photo-2 {
-    position: static;
     width: 100%;
-    height: auto;
+    height: 100%;
+    min-height: 360px;
+    overflow: hidden;
+  }
+  .hero-photo-1 {
+    position: absolute;
+    width: 76%; height: auto;
     aspect-ratio: 376 / 246;
-    left: auto; right: auto; top: auto; bottom: auto;
+    right: 0; top: 0;
+    left: auto; bottom: auto;
+    z-index: 2;
+  }
+  .hero-photo-2 {
+    position: absolute;
+    width: 76%; height: auto;
+    aspect-ratio: 376 / 246;
+    left: 0; bottom: 0;
+    right: auto; top: auto;
+    z-index: 1;
   }
 
   .features-inner {
