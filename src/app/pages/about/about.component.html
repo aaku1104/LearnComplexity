@@ -627,44 +627,11 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   .hero-inner { gap: 2rem; padding: 0 32px; }
   .hero-copy { flex: 0 0 46%; max-width: 46%; }
 
-  /* Hero visual — diagonal stagger layout, percentage-based for this viewport */
+  /* Hero visual — tighten flex basis for this viewport range */
   .hero-visual {
     flex: 0 0 46%;
     max-width: 46%;
-    position: relative;
-    min-height: 380px;
-    overflow: hidden;
-    display: block;
-  }
-  .hero-bg-rect {
-    position: absolute;
-    left: 30px; right: 0; top: 15%; bottom: 0;
-    border-radius: 28px 28px 18px 18px;
-    z-index: 0;
-  }
-  .hero-photos {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    min-height: 360px;
-    overflow: hidden;
-  }
-  .hero-photo-1 {
-    position: absolute;
-    width: 76%; height: auto;
-    aspect-ratio: 376 / 246;
-    right: 0; top: 0;
-    left: auto; bottom: auto;
-    z-index: 2;
-  }
-  .hero-photo-2 {
-    position: absolute;
-    width: 76%; height: auto;
-    aspect-ratio: 376 / 246;
-    left: 0; bottom: 0;
-    right: auto; top: auto;
-    z-index: 1;
+    aspect-ratio: 1 / 1.05;
   }
 
   .features-inner {
@@ -698,52 +665,35 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
   }
   .hero-copy { flex: 0 0 46%; max-width: 46%; text-align: left; }
 
-  /* Visual column — becomes a flex column of two stacked photos */
+  /* Hero visual — keep diagonal stagger, just adjust flex basis */
   .hero-visual {
-    flex: 1 1 0;
-    max-width: none;
+    flex: 0 0 46%;
+    max-width: 46%;
+    aspect-ratio: 1 / 1.05;
+    overflow: hidden;
+    display: block;
     position: relative;
-    min-height: 0;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    overflow: visible;
-    padding-left: 20px;
   }
-
-  /* Blue bg rect — tall strip sitting on the left behind both photos */
-  .hero-bg-rect {
-    position: absolute;
-    left: 0;
-    right: auto;
-    top: -12px;
-    bottom: -12px;
-    width: 88%;
-    border-radius: 20px;
-    z-index: 0;
-  }
-
-  /* Photos wrapper — normal flow instead of absolute */
+  /* Reset photos back to absolute diagonal stagger (base CSS handles %) */
   .hero-photos {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    min-height: 0;
-    overflow: visible;
-    z-index: 1;
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: hidden;
   }
-
-  /* Both photos: full column width, proportional height */
-  .hero-photo-1,
-  .hero-photo-2 {
-    position: static;
-    width: 100%;
-    height: auto;
+  .hero-photo-1 {
+    position: absolute;
+    width: 72%; height: auto;
     aspect-ratio: 376 / 246;
-    left: auto; right: auto; top: auto; bottom: auto;
+    right: 0; top: 0; left: auto; bottom: auto;
+    z-index: 2;
+  }
+  .hero-photo-2 {
+    position: absolute;
+    width: 72%; height: auto;
+    aspect-ratio: 376 / 246;
+    left: 0; bottom: 0; right: auto; top: auto;
+    z-index: 1;
   }
 
   /* Features — two-column row with image visible, matching Image 2 */
@@ -953,7 +903,13 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var
 }
 </style>
 </head>
-<body>
+<body><div id="dbg" style="position:fixed;top:0;left:0;right:0;background:red;color:#fff;font-size:13px;z-index:9999;padding:4px 8px;font-family:monospace;"></div>
+<script>
+var d=document.getElementById('dbg');
+function upd(){d.textContent='vw='+window.innerWidth+' vh='+window.innerHeight+' dpr='+window.devicePixelRatio;}
+upd();window.addEventListener('resize',upd);
+</script>
+
 
 <!-- ═══════════════════════════════════════
      HERO
