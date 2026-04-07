@@ -54,21 +54,21 @@ export class ContactUsComponent implements OnInit {
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
       rating: 4,
-      image: 'assets/images/testimonial-avatar.jpg'
+      image: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
       rating: 4,
-      image: 'assets/images/testimonial-avatar.jpg'
+      image: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Hellen Jummy',
       role: 'Full stack developer',
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and the mentors were incredibly supportive throughout my journey.',
       rating: 4,
-      image: 'assets/images/testimonial-avatar.jpg'
+      image: 'assets/images/testimonial-avatar.webp'
     },
     
   ];
@@ -149,6 +149,6 @@ export class ContactUsComponent implements OnInit {
   }
 
   onImgError(event: any): void {
-    event.target.src = 'assets/images/fallback.jpg';
+    event.target.src = 'assets/images/fallback.webp';
   }
 }

@@ -1,5 +1,23 @@
 <!--
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                                                              ║
+║                                                    HOME PAGE - LEARN COMPLEXITY                                              ║
+║                                                                                                                              ║
+║  This file contains the complete homepage layout with 8 main sections:                                                       ║
+║  1. Hero Section - Main landing area with title and call-to-action                                                           ║
+║  2. Why Choose Us - Feature showcase with 4 blue boxes                                                                      ║
+║  3. Featured Courses - Course carousel with navigation                                                                      ║
+║  4. Popular Courses - Category grid layout                                                                                  ║
+║  5. Meet Our Experts - Team showcase with images                                                                           ║
+║  6. Unlock Success - Statistics and achievements                                                                          ║
+║  7. Testimonials - Customer reviews carousel                                                                              ║
+║  8. FAQ - Frequently asked questions accordion                                                                             ║
+║                                                                                                                              ║
+║  Mobile responsive styles are included at the end of the file                                                             ║
+║                                                                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 -->
+
 <div style="position: relative; width: 100%;">
 
   <!-- 
@@ -11,7 +29,7 @@
     - Mobile responsive styles applied
   ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
   -->
-  <section class="hero-section"style="width: 1440px; 
+  <section class="hero-section"style="width: 100%; 
                 height: 745px; 
                 background-color: #EFFBFF; 
                 position: relative; 
@@ -76,10 +94,10 @@
               color: #0F172A;
               opacity: 1;">
 
-        <!-- Wrap "Learn Skills" in a span -->
+        <!-- Wrap "Teach" in a span -->
         <span style="position: relative; display: inline-block;z-index: 1;">
-          Learn Skills
-          <!-- SVG underline locked to "Learn Skills" -->
+          Teach
+          <!-- SVG underline locked to "Teach" -->
           <div style="position: absolute;
                   bottom: -20px;
                   left: 0;
@@ -92,7 +110,7 @@
           </div>
         </span>
 
-        That Get You Hired
+        students <span class="hero-worldwide">worldwide</span>
       </div>
 
 
@@ -267,7 +285,7 @@
           fill="#EA580C" />
 
         <!-- Image clipped to orange shape -->
-        <image href="/assets/images/home1s.png" width="300" height="500" x="150" y="60" clip-path="url(#orangeClip)" />
+        <image href="assets/images/home1s.webp" width="300" height="500" x="150" y="60" clip-path="url(#orangeClip)" />
       </svg>
 
     </div>
@@ -502,7 +520,7 @@
     opacity: 1;
   ">
         <!-- Image 1 -->
-        <img src="assets/images/home2.png" alt="Student 1" style="
+        <img src="assets/images/home2.webp" alt="Student 1" style="
       width: 36px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -512,7 +530,7 @@
     " />
 
         <!-- Image 2 -->
-        <img src="assets/images/home3.png" alt="Student 2" style="
+        <img src="assets/images/home3.webp" alt="Student 2" style="
       width: 36px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -522,7 +540,7 @@
     " />
 
         <!-- Image 3 -->
-        <img src="assets/images/home4.png" alt="Student 3" style="
+        <img src="assets/images/home4.webp" alt="Student 3" style="
       width: 37px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -532,7 +550,7 @@
     " />
 
         <!-- Image 4 -->
-        <img src="assets/images/home5.png" alt="Student 4" style="
+        <img src="assets/images/home5.webp" alt="Student 4" style="
       width: 35px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -941,11 +959,13 @@
         <!-- Text block -->
         <span style="
     position: absolute;
-    width: 255.5px;
-    height: 84px;
+    width: 186.68px;
+    height: 56px;
     top: 77.5px;
-    left: 18px;
-    font-family: 'Inter', sans-serif;
+    left: 20px;
+    transform: rotate(0deg);
+    opacity: 1;
+    font-family: 'Sora', sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 28px;
@@ -954,7 +974,8 @@
     color: #4D5756;
     vertical-align: middle;
   ">
-          Get guidance from professionals with real-world experience.
+          Gravida dictum fusce<br>
+          placerat ultricies integer
         </span>
 
       </div>
@@ -1047,7 +1068,8 @@
     color: #4D5756;
     vertical-align: middle;
   ">
-          Gain credentials that employers trust.
+          Gravida dictum fusce<br>
+          placerat ultricies integer
         </span>
 
       </div>
@@ -1140,7 +1162,8 @@
     color: #4D5756;
     vertical-align: middle;
   ">
-          Build skills through practical projects.
+          Gravida dictum fusce<br>
+          placerat ultricies integer
         </span>
 
       </div>
@@ -1232,7 +1255,8 @@
     color: #4D5756;
     vertical-align: middle;
   ">
-          Quality learning that fits your budget.
+          Gravida dictum fusce<br>
+          placerat ultricies integer
         </span>
 
       </div>
@@ -1280,7 +1304,7 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home6.png" alt="Home Image" style="
+        <img src="assets/images/home6.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1298,7 +1322,7 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home7.png" alt="Home Image" style="
+        <img src="assets/images/home7.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1316,7 +1340,7 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home8.jpg" alt="Home Image" style="
+        <img src="assets/images/home8.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1415,6 +1439,31 @@
   padding-right: 32px;
   box-sizing: border-box;
 ">
+      <span>
+        <svg width="115" height="24" viewBox="0 0 115 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.9" clip-path="url(#clip0_8_899)">
+            <g clip-path="url(#clip1_8_899)">
+              <g clip-path="url(#clip2_8_899)">
+                <path
+                  d="M11.6644 9.11756C13.2541 9.11756 14.5182 10.4008 14.5182 11.9714C14.5182 13.542 13.235 14.8253 11.6644 14.8253C10.0938 14.8253 8.81053 13.542 8.81053 11.9714C8.81053 10.4008 10.0747 9.11756 11.6644 9.11756ZM11.6644 -0.0568848C6.07161 -0.0568848 1.35989 3.77378 0.0191533 8.96433C0 9.00264 0 9.0601 0 9.09841C0 9.40486 0.248993 9.67301 0.5746 9.67301H5.42039C5.65023 9.67301 5.84177 9.53893 5.93753 9.3474V9.32825C6.93351 7.16392 9.11699 5.66996 11.6452 5.66996C15.1311 5.66996 17.9467 8.4855 17.9467 11.9714C17.9467 15.4573 15.1311 18.2729 11.6452 18.2729C9.11699 18.2729 6.93351 16.7789 5.93753 14.6146L5.91838 14.5954C5.82261 14.3847 5.63108 14.2698 5.40124 14.2698H0.5746C0.248993 14.2698 0 14.5188 0 14.8444C0 14.9019 0 14.9402 0.0191533 14.9785C1.35989 20.169 6.05245 23.9997 11.6644 23.9997C18.3106 23.9997 23.6927 18.6176 23.6927 11.9714C23.6927 5.3252 18.2914 -0.0568848 11.6644 -0.0568848ZM43.095 14.7869H41.467C41.352 14.7869 41.2563 14.8444 41.1797 14.921C40.222 16.3192 38.6323 17.2386 36.7936 17.2386C33.8822 17.2386 31.5072 14.8636 31.5072 11.9523C31.5072 9.04095 33.8631 6.66593 36.7936 6.66593C38.6131 6.66593 40.222 7.58529 41.1797 9.00264C41.2371 9.09841 41.352 9.13671 41.467 9.13671H43.095C43.2865 9.13671 43.4398 8.98349 43.4398 8.79195C43.4398 8.7345 43.4206 8.67703 43.4015 8.63873C42.1756 6.22541 39.6857 4.57822 36.7936 4.57822C32.7139 4.57822 29.4004 7.89175 29.4004 11.9714C29.4004 16.0511 32.7139 19.3646 36.7936 19.3646C39.6857 19.3646 42.1756 17.7174 43.4015 15.3041C43.4206 15.2466 43.4398 15.2083 43.4398 15.1509C43.4398 14.9402 43.2865 14.7869 43.095 14.7869ZM48.0174 2.10744C48.0174 2.89273 47.3853 3.52479 46.6001 3.52479C45.8148 3.52479 45.1827 2.89273 45.1827 2.10744C45.1827 1.32216 45.8148 0.690095 46.6001 0.690095C47.3853 0.690095 48.0174 1.32216 48.0174 2.10744ZM47.6726 18.6559V4.92298H45.5658V18.6559C45.5658 18.8475 45.719 19.0007 45.9105 19.0007H47.3279C47.5003 19.0198 47.6726 18.8666 47.6726 18.6559ZM56.8279 4.57822C54.7019 4.67399 52.9973 5.68912 51.8864 7.25969V5.28689C51.8864 5.09536 51.7332 4.94213 51.5416 4.94213H50.1243C49.9327 4.94213 49.7795 5.09536 49.7795 5.28689V18.6751C49.7795 18.8666 49.9327 19.0198 50.1243 19.0198H51.5416C51.7332 19.0198 51.8864 18.8666 51.8864 18.6751V11.9906C51.8864 9.19417 54.0699 6.89577 56.8088 6.72339C57.0003 6.72339 57.1535 6.57017 57.1535 6.37863V4.96129C57.1727 4.7506 57.0195 4.57822 56.8279 4.57822ZM70.8673 14.7869H69.2393C69.1244 14.7869 69.0286 14.8444 68.952 14.921C67.9943 16.3192 66.4046 17.2386 64.5659 17.2386C61.6546 17.2386 59.2796 14.8636 59.2796 11.9523C59.2796 9.04095 61.6354 6.66593 64.5659 6.66593C66.3855 6.66593 67.9943 7.58529 68.952 9.00264C69.0095 9.09841 69.1244 9.13671 69.2393 9.13671H70.8673C71.0589 9.13671 71.2121 8.98349 71.2121 8.79195C71.2121 8.7345 71.1929 8.67703 71.1738 8.63873C69.948 6.22541 67.458 4.57822 64.5659 4.57822C60.4862 4.57822 57.1727 7.89175 57.1727 11.9714C57.1727 16.0511 60.4862 19.3646 64.5659 19.3646C67.458 19.3646 69.948 17.7174 71.1738 15.3041C71.1929 15.2466 71.2121 15.2083 71.2121 15.1509C71.2121 14.9402 71.0589 14.7869 70.8673 14.7869ZM75.1002 0.345335H73.6829C73.4913 0.345335 73.3381 0.498562 73.3381 0.690095V18.6559C73.3381 18.8475 73.4913 19.0007 73.6829 19.0007H75.1002C75.2918 19.0007 75.445 18.8475 75.445 18.6559V0.690095C75.445 0.498562 75.2918 0.345335 75.1002 0.345335ZM84.945 4.57822C80.8654 4.57822 77.5518 7.89175 77.5518 11.9714C77.5518 16.0511 80.8654 19.3646 84.945 19.3646C87.8372 19.3646 90.3271 17.7174 91.5529 15.3041C91.6487 15.1317 91.5721 14.921 91.3997 14.8253C91.3422 14.8061 91.2848 14.7869 91.2273 14.7869H89.5993C89.4844 14.7869 89.3886 14.8444 89.312 14.9402C88.3543 16.3384 86.7646 17.2577 84.945 17.2577C82.2636 17.2577 80.0609 15.2658 79.7162 12.6801H91.9935C92.185 12.6801 92.3382 12.5269 92.3382 12.3545C92.3382 12.2396 92.3574 12.1055 92.3574 11.9906C92.3574 7.89175 89.0438 4.57822 84.945 4.57822ZM79.8694 10.5541C80.4823 8.31312 82.5317 6.68509 84.9642 6.68509C87.3967 6.68509 89.4461 8.33227 90.059 10.5541H79.8694ZM112.813 0.000575233C111.645 0.000575233 110.706 0.939089 110.706 2.10744C110.706 3.2758 111.645 4.21431 112.813 4.21431C113.981 4.21431 114.92 3.2758 114.92 2.10744C114.92 0.939089 113.981 0.000575233 112.813 0.000575233ZM114.575 4.92298V18.6559C114.575 18.8475 114.422 19.0007 114.23 19.0007H111.415C111.223 19.0007 111.07 18.8475 111.07 18.6559V4.92298H114.575ZM101.857 19.3646C105.305 19.3646 108.216 16.9896 109.021 13.8101V13.7335C109.021 13.542 108.868 13.3888 108.676 13.3888H105.688C105.554 13.3888 105.42 13.4654 105.362 13.5994C104.75 14.9402 103.409 15.8595 101.838 15.8595C99.6931 15.8595 97.9693 14.1166 97.9693 11.9906C97.9693 9.86454 99.7122 8.12159 101.838 8.12159C103.351 8.12159 104.73 9.00264 105.362 10.3817C105.42 10.5158 105.535 10.5924 105.688 10.5924H108.676C108.868 10.5924 109.021 10.4391 109.021 10.2476V10.171C108.197 6.97239 105.305 4.59737 101.857 4.59737C97.7778 4.59737 94.4642 7.9109 94.4642 11.9906C94.4642 16.0511 97.7778 19.3646 101.857 19.3646Z"
+                  fill="black" />
+              </g>
+            </g>
+          </g>
+          <defs>
+            <clipPath id="clip0_8_899">
+              <rect width="114.92" height="24" fill="white" />
+            </clipPath>
+            <clipPath id="clip1_8_899">
+              <rect width="114.92" height="24" fill="white" />
+            </clipPath>
+            <clipPath id="clip2_8_899">
+              <rect width="114.92" height="23.9991" fill="white" transform="translate(0 0.000488281)" />
+            </clipPath>
+          </defs>
+        </svg>
+      </span>
+
       <span>
         <svg width="115" height="24" viewBox="0 0 115 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.9" clip-path="url(#clip0_8_899)">
@@ -1655,7 +1704,7 @@
     color: #252641;
     display: block;
   ">
-        Choose from our top courses
+        Get choice of your course
       </span>
     </div>
 
@@ -1699,7 +1748,7 @@
       <!-- Card 1 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 0px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img1.png" alt="Course thumbnail"
+        <img src="assets/images/img1.webp" alt="Course thumbnail"
           style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #FFEADF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -1729,11 +1778,12 @@
         <div
           style="position: absolute; width: 177.78px; height: 24px; top: 236px; left: 17px; background-color: #EFF6FF; border-radius: 6px;">
           <span
-            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">UI Design</span>
+            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">Artificial
+            Intelligence</span>
         </div>
         <h3
           style="position: absolute; width: 298px; height: 25px; top: 273px; left: 25px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; line-height: 25px; color: #111827; margin: 0; white-space: nowrap;">
-          UI Design for Beginners</h3>
+          Machine Learning Engineering</h3>
         <div style="position: absolute; width: 340px; height: 81px; top: 298px; left: 17px; opacity: 1;">
           <div style="position: absolute; width: 16px; height: 16px; top: 11px; left: 9px;"><svg width="16" height="16"
               viewBox="0 0 16 16" fill="none">
@@ -1778,7 +1828,7 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.png" alt="Instructor Profile"
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
             style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
@@ -1808,7 +1858,7 @@
       <!-- Card 2 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 441px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img2.png" alt="Course thumbnail"
+        <img src="assets/images/img2.webp" alt="Course thumbnail"
           style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -1838,12 +1888,12 @@
         <div
           style="position: absolute; width: 177.78px; height: 24px; top: 236px; left: 17px; background-color: #EFF6FF; border-radius: 6px;">
           <span
-            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">Web
-            Development</span>
+            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">Artificial
+            Intelligence</span>
         </div>
         <h3
           style="position: absolute; width: 298px; height: 25px; top: 273px; left: 25px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; line-height: 25px; color: #111827; margin: 0; white-space: nowrap;">
-          Website Dev Zero to Hero</h3>
+          Machine Learning Engineering</h3>
         <div style="position: absolute; width: 340px; height: 81px; top: 298px; left: 17px; opacity: 1;">
           <div style="position: absolute; width: 16px; height: 16px; top: 11px; left: 9px;"><svg width="16" height="16"
               viewBox="0 0 16 16" fill="none">
@@ -1888,7 +1938,7 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.png" alt="Instructor Profile"
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
             style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
@@ -1918,7 +1968,7 @@
       <!-- Card 3 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 881px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img3.png" alt="Course thumbnail"
+        <img src="assets/images/img3.webp" alt="Course thumbnail"
           style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
@@ -1948,12 +1998,12 @@
         <div
           style="position: absolute; width: 177.78px; height: 24px; top: 236px; left: 17px; background-color: #EFF6FF; border-radius: 6px;">
           <span
-            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">Mobile
-            Development</span>
+            style="position: absolute; width: 162.11px; height: 16px; top: 4px; left: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.3px; color: #3B82F6; text-transform: uppercase; white-space: nowrap; display: block;">Artificial
+            Intelligence</span>
         </div>
         <h3
           style="position: absolute; width: 298px; height: 25px; top: 273px; left: 25px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; line-height: 25px; color: #111827; margin: 0; white-space: nowrap;">
-          Mobile Dev React Native</h3>
+          Machine Learning Engineering</h3>
         <div style="position: absolute; width: 340px; height: 81px; top: 298px; left: 17px; opacity: 1;">
           <div style="position: absolute; width: 16px; height: 16px; top: 11px; left: 9px;"><svg width="16" height="16"
               viewBox="0 0 16 16" fill="none">
@@ -1998,7 +2048,7 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.png" alt="Instructor Profile"
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
             style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
@@ -2240,9 +2290,7 @@
         style="position: relative; width: 1290px; height: 514px; top: 0px; left: 0px; display: flex; flex-wrap: wrap; gap: 24px; opacity: 1; z-index: 5;">
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -2257,9 +2305,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_665_456)">
@@ -2284,9 +2330,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -2307,9 +2351,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -2336,9 +2378,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_665_448)">
@@ -2363,9 +2403,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_665_424)">
@@ -2396,9 +2434,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -2425,9 +2461,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_665_775)">
@@ -2461,9 +2495,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_665_785)">
@@ -2485,9 +2517,7 @@
         </div>
 
         <div
-          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0px 8px 30px 0px #0000001A'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#2563EB';"
-          onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='none'; this.style.borderColor='#EAEAEA'; this.querySelector('h4').style.color='#252641';">
+          style="width: 234px; height: 234px; border-radius: 20px; border: 1px solid #EAEAEA; background-color: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <div style="width: 32px; height: 32px; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -2549,14 +2579,14 @@
       align-items: flex-end;
     ">
         <!-- Image 1 -->
-        <img src="assets/images/r1a.png" alt="Row 1A" style="
+        <img src="assets/images/r1a.webp" alt="Row 1A" style="
         width: 128px;
         height: 192px;
         border-radius: 5px;
         display: block;
       ">
         <!-- Image 2 -->
-        <img src="assets/images/r1b.png" alt="Row 1B" style="
+        <img src="assets/images/r1b.webp" alt="Row 1B" style="
         width: 172px;
         height: 258px;
         border-radius: 5px;
@@ -2576,19 +2606,19 @@
   gap: 16px;
   padding-top: 1px; /* reduced from 32px to move row 2 up */
 ">
-        <img src="assets/images/r2a.png" alt="Row 2A" style="
+        <img src="assets/images/r2a.webp" alt="Row 2A" style="
     width: 128px;
     height: 212px;
     border-radius: 5px;
     display: block;
   ">
-        <img src="assets/images/r2b.png" alt="Row 2B" style="
+        <img src="assets/images/r2b.webp" alt="Row 2B" style="
     width: 128px;
     height: 215px;
     border-radius: 5px;
     display: block;
   ">
-        <img src="assets/images/r2c.png" alt="Row 2C" style="
+        <img src="assets/images/r2c.webp" alt="Row 2C" style="
     width: 128px;
     height: 160px;
     border-radius: 5px;
@@ -2610,7 +2640,7 @@
   margin-top: 12px; 
 ">
         <!-- Image 1 -->
-        <img src="assets/images/r3a.png" alt="Row 4A" style="
+        <img src="assets/images/r3a.webp" alt="Row 4A" style="
     width: 128px;
     height: 171px;
     border-radius: 5px;
@@ -2618,7 +2648,7 @@
   ">
 
         <!-- Image 2 -->
-        <img src="assets/images/r3b.png" alt="Row 4B" style="
+        <img src="assets/images/r3b.webp" alt="Row 4B" style="
     width: 128px;
     height: 172px;
     border-radius: 5px;
@@ -2626,7 +2656,7 @@
   ">
 
         <!-- Image 3 -->
-        <img src="assets/images/r3c.png" alt="Row 4C" style="
+        <img src="assets/images/r3c.webp" alt="Row 4C" style="
     width: 128px;
     height: 192px;
     border-radius: 5px;
@@ -2647,7 +2677,7 @@
   margin-top: 52px; /* moves row 4 lower */
 ">
         <!-- Image 1 -->
-        <img src="assets/images/r4a.png" alt="Row 4A" style="
+        <img src="assets/images/r4a.webp" alt="Row 4A" style="
     width: 160px;
     height: 255px;
     border-radius: 5px;
@@ -2655,7 +2685,7 @@
   ">
 
         <!-- Image 2 -->
-        <img src="assets/images/r4b.png" alt="Row 4B" style="
+        <img src="assets/images/r4b.webp" alt="Row 4B" style="
     width: 128px;
     height: 165px;
     border-radius: 5px;
@@ -2688,13 +2718,13 @@
     font-family: 'Caveat', cursive;
     font-weight: 700;
     font-style: bold;
-    font-size: 52px;
+    font-size: 59px;
     line-height: 110%;
     letter-spacing: 0%;
     color: #0F172A;
     margin: 0;
   ">
-        Meet Our Expert Mentors & <br>Learners
+        Meet Our ExpertsStudents & <br>Teachers
       </h2>
 
       <!-- SVG Block inside Left Block -->
@@ -3254,7 +3284,7 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.png" alt="Hellen Jummy" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
       width:56px;
       height:56px;
       border-radius:9999px;
@@ -3341,7 +3371,7 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.png" alt="Hellen Jummy" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
       width:56px;
       height:56px;
       border-radius:9999px;
@@ -3427,7 +3457,7 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.png" alt="Hellen Jummy" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
       width:56px;
       height:56px;
       border-radius:9999px;
@@ -3522,7 +3552,7 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.png" alt="Hellen Jummy" style="
+          <img src="avatar.webp" alt="Hellen Jummy" style="
       width:56px;
       height:56px;
       border-radius:9999px;
@@ -3671,14 +3701,14 @@
     align-items: flex-end;
   ">
     <!-- Image 1 -->
-    <img src="assets/images/r1a.png" alt="Row 1A" style="
+    <img src="assets/images/r1a.webp" alt="Row 1A" style="
       width: 128px;
       height: 192px;
       border-radius: 5px;
       display: block;
     ">
     <!-- Image 2 -->
-    <img src="assets/images/r1b.png" alt="Row 1B" style="
+    <img src="assets/images/r1b.webp" alt="Row 1B" style="
       width: 172px;
       height: 258px;
       border-radius: 5px;
@@ -3700,7 +3730,7 @@
   padding-top: 32px;
 ">
   <!-- Image 1 -->
-  <img src="assets/images/r2a.png" alt="Row 2A" style="
+  <img src="assets/images/r2a.webp" alt="Row 2A" style="
     width: 128px;
     height: 212px;
     border-radius: 5px;
@@ -3708,7 +3738,7 @@
   ">
 
   <!-- Image 2 -->
-  <img src="assets/images/r2b.png" alt="Row 2B" style="
+  <img src="assets/images/r2b.webp" alt="Row 2B" style="
     width: 128px;
     height: 215px;
     border-radius: 5px;
@@ -3716,7 +3746,7 @@
   ">
 
   <!-- Image 3 -->
-  <img src="assets/images/r2c.png" alt="Row 2C" style="
+  <img src="assets/images/r2c.webp" alt="Row 2C" style="
     width: 128px;
     height: 160px;
     border-radius: 5px;
@@ -3737,7 +3767,7 @@
   gap: 16px;
 ">
   <!-- Image 1 -->
-  <img src="assets/images/r3a.png" alt="Row 3A" style="
+  <img src="assets/images/r3a.webp" alt="Row 3A" style="
     width: 128px;
     height: 171px;
     border-radius: 5px;
@@ -3745,7 +3775,7 @@
   ">
 
   <!-- Image 2 -->
-  <img src="assets/images/r3b.png" alt="Row 3B" style="
+  <img src="assets/images/r3b.webp" alt="Row 3B" style="
     width: 128px;
     height: 172px;
     border-radius: 5px;
@@ -3753,7 +3783,7 @@
   ">
 
   <!-- Image 3 -->
-  <img src="assets/images/r3c.png" alt="Row 3C" style="
+  <img src="assets/images/r3c.webp" alt="Row 3C" style="
     width: 128px;
     height: 192px;
     border-radius: 5px;
@@ -4464,7 +4494,7 @@ section:nth-of-type(3) > div:nth-child(2) {
   z-index: -1 !important;
 }
 
-/* HIDE "Choose from our top courses" */
+/* HIDE "Get choice of your course" */
 section:nth-of-type(3) > div:nth-child(3) {
   display: none !important;
 }
@@ -4694,7 +4724,7 @@ section:nth-of-type(4) > div:nth-child(2) {
 .lc-category-grid {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 12px !important;
+  gap: 8px !important;
   width: 100% !important;
   height: auto !important;
 }
@@ -4702,21 +4732,47 @@ section:nth-of-type(4) > div:nth-child(2) {
 .lc-category-grid > div {
   width: 100% !important;
   height: 150px !important;
-  transform: none !important;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08) !important;
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
+  box-shadow: none !important;
+  border: 1px solid #EAEAEA !important;
 }
 
-.lc-category-grid > div:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0px 8px 30px 0px rgba(0,0,0,0.1) !important;
-}
+/* Mobile hover effect - same as desktop */
+@media (max-width: 768px) {
+  section:nth-of-type(4) .lc-category-grid > div {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    transform: none !important;
+    box-shadow: none !important;
+    border: 1px solid #EAEAEA !important;
+    background-color: #FFFFFF !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 150px !important;
+    height: 150px !important;
+  }
 
+  section:nth-of-type(4) .lc-category-grid > div h4 {
+    transition: color 0.3s ease;
+    color: #252641 !important;
+  }
+
+  section:nth-of-type(4) .lc-category-grid > div:hover,
+  section:nth-of-type(4) .lc-category-grid > div:active {
+    transform: translateY(-8px) !important;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  section:nth-of-type(4) .lc-category-grid > div:hover h4,
+  section:nth-of-type(4) .lc-category-grid > div:active h4 {
+    color: #2563EB !important;
+  }
+}
 
 .lc-category-grid > div h4 {
   font-size: 15px !important;
   margin-bottom: 4px !important;
+  color: #252641 !important;
 }
 
 .lc-category-grid > div p {
@@ -5140,323 +5196,49 @@ section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) > div > div:last-ch
 
 } /* end @media (max-width: 768px) */
 
-/*
-═════════════════════════════════════════════════════════════════
-DESKTOP SITE WHITE SPACE FIX
-═════════════════════════════════════════════════════════════════
-FIX: When "Desktop site" is selected on mobile browser,
-the page currently shows white space on the left because the 
-1440px fixed-width sections don't scale to fill the viewport.
+/* ═══════════════════════════════════════════════════
+   SECTION 4 - POPULAR COURSES HOVER EFFECT
+══════════════════════════════════════════════════ */
 
-This fix uses CSS zoom/scale so the 1440px layout shrinks to 
-fit any screen width — no white space, full coverage, 
-looks exactly like desktop just smaller.
-═════════════════════════════════════════════════════════════════
-*/
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 1 — Strip the browser's default margin/padding
-   and kill horizontal scroll on html + body
-═══════════════════════════════════════════════════════════ */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-  width: 100% !important;
+/* Course category blocks hover effect */
+section:nth-of-type(4) .lc-category-grid > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   STEP 2 — The root wrapper div (position:relative, 1440px)
-   This is the element causing left white-space.
-   We override its width to 100% and remove any left offset.
-═══════════════════════════════════════════════════════════ */
-body > div {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  position: relative !important;
-  left: 0 !important;
-  right: 0 !important;
-  overflow-x: hidden !important;
-  margin: 0 auto !important;
+section:nth-of-type(4) .lc-category-grid > div h4 {
+  transition: color 0.3s ease;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   STEP 3 — Every section must be full-width
-═══════════════════════════════════════════════════════════ */
-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  box-sizing: border-box !important;
+section:nth-of-type(4) .lc-category-grid > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   STEP 4 — Hero section: was hard-coded 1440px wide
-   Force it to 100% so it fills the screen edge-to-edge
-═══════════════════════════════════════════════════════════ */
-.hero-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow: hidden !important;
+section:nth-of-type(4) .lc-category-grid > div:hover h4 {
+  color: #2563EB !important;
 }
 
-/* The inner 1440px block inside hero */
-.hero-section > div[style*="width: 1440px"],
-.hero-section > div[style*="width:1440px"] {
-  width: 100% !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 5 — Company logo bar: was absolute-positioned at 
-   left:37px causing it to bleed / leave gaps
-═══════════════════════════════════════════════════════════ */
-.company-block {
-  position: relative !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: calc(100% - 20px) !important;
-  margin: 0 10px !important;
-  box-sizing: border-box !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 6 — Any absolutely positioned child that uses a 
-   pixel left value larger than the viewport causes 
-   horizontal overflow → white space on left.
-   We clamp all such elements.
-═══════════════════════════════════════════════════════════ */
-
-/* Hero grid background SVG — was 2237px wide */
-.hero-grid-bg {
-  max-width: 100vw !important;
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 7 — Viewport-width scale trick
-   
-   When a mobile browser selects "Desktop site" it disables 
-   its responsive viewport meta tag. The page renders at its 
-   natural width (1440px) and the browser zooms out to fit.
-   
-   Problem: if ANY element overflows past 1440px (e.g. the 
-   hero-grid-bg at left:-450px + width:2237px = 1787px right 
-   edge) the browser thinks the page is 1787px wide and shows 
-   white space on the right AND left.
-
-   Fix: clip every oversized element, don't let anything paint 
-   outside the 1440px root width.
-═══════════════════════════════════════════════════════════ */
-
-/* Clip the grid background so it can't push viewport wider */
-.hero-grid-bg {
-  clip-path: inset(0) !important;
-  overflow: hidden !important;
-  max-width: 100% !important;
-}
-
-/* Clip the large inner SVG container too */
-.hero-grid-bg > div {
-  overflow: hidden !important;
-  max-width: 100% !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 8 — Section 2 right-side images block
-   was positioned at left:732px~1100px — on narrower 
-   desktop-site views this can overflow
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(2) > div:nth-child(6) {
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 9 — Testimonials 4th card with margin-right:-200px
-   This negative margin causes overflow → white space
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(7) > div:last-child > div:last-child {
-  margin-right: 0 !important;
-}
-
-section:nth-of-type(7) > div:last-child {
-  overflow: hidden !important;
-  max-width: 100% !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 10 — Ensure the FAQ section images don't overflow
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(8) {
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 11 — Popular courses grid: 1290px wide container
-   at left:69px — allow it to scroll or clip rather than 
-   push the page wider
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(4) > div:nth-child(2) {
-  max-width: calc(100% - 69px) !important;
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 12 — Featured courses card container: 1265px at left:84px
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(3) > div:nth-child(5) {
-  max-width: calc(100% - 84px) !important;
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 13 — Unlock Success inner rounded box: 1284px at left:81px
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(6) > div {
-  max-width: calc(100% - 81px) !important;
-  box-sizing: border-box !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 14 — Testimonials title + card containers: 1280px
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(7) > div:first-child,
-section:nth-of-type(7) > div:last-child {
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 15 — FAQ accordion box: 825px at left:583px
-   583 + 825 = 1408 which is within 1440, so fine.
-   But clamp just in case of viewport narrower than 1440.
-═══════════════════════════════════════════════════════════ */
-section:nth-of-type(8) > div:nth-child(5) {
-  max-width: calc(100vw - 583px) !important;
-  overflow: hidden !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 16 — SMALL SCREENS IN DESKTOP-SITE MODE
-   
-   When viewport < 1440px in desktop-site mode the browser 
-   zooms out automatically. These rules ensure internal 
-   containers don't create false overflow that prevents 
-   correct zoom calculation.
-   
-   Key rule: nothing should have a right edge further than 
-   1440px from the left edge of the page.
-═══════════════════════════════════════════════════════════ */
-@media screen and (max-width: 1440px) {
-  /* Prevent any child from painting beyond 1440px */
-  body > div {
-    max-width: 1440px !important;
-    overflow: hidden !important;
+/* Mobile hover effect - same as desktop */
+@media (max-width: 768px) {
+  section:nth-of-type(4) .lc-category-grid > div {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
   }
 
-  /* The hero section background grid overflowed —
-     it starts at left:-450px with width:2237px 
-     meaning its right edge is at 1787px. Clip it. */
-  .hero-grid-bg {
-    display: none !important;   /* purely decorative, safe to hide */
+  section:nth-of-type(4) .lc-category-grid > div h4 {
+    transition: color 0.3s ease;
   }
 
-  /* Blue & orange blobs positioned past 800px — keep them
-     but don't let them escape the 1440 boundary */
-  .hero-blue-blob,
-  .hero-orange-blob {
-    max-width: calc(1440px - var(--blob-left, 784px)) !important;
-    overflow: hidden !important;
+  section:nth-of-type(4) .lc-category-grid > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  section:nth-of-type(4) .lc-category-grid > div:hover h4 {
+    color: #2563EB !important;
   }
 }
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 17 — TABLET (768px – 1023px desktop-site mode)
-   At this size the browser zooms the 1440px page to ~50%.
-   The main cause of white-space is overflow past 1440 — 
-   already fixed above. These rules fine-tune layout.
-═══════════════════════════════════════════════════════════ */
-@media screen and (max-width: 1023px) {
-  body > div {
-    overflow: hidden !important;
-  }
-
-  /* Testimonials 4th card negative margin causes overflow */
-  section:nth-of-type(7) > div:last-child > div:last-child {
-    display: none !important;   /* hide 4th card, 3 is enough */
-  }
-
-  /* FAQ image columns — clip rather than overflow */
-  section:nth-of-type(8) > div:nth-child(2),
-  section:nth-of-type(8) > div:nth-child(3),
-  section:nth-of-type(8) > div:nth-child(4) {
-    overflow: hidden !important;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 18 — SMALL PHONE IN DESKTOP-SITE MODE (< 400px)
-   Browser zooms to ~22% of 1440px. Everything tiny but 
-   white space must be zero. Critical: overflow:hidden on root.
-═══════════════════════════════════════════════════════════ */
-@media screen and (max-width: 480px) {
-  html {
-    overflow-x: hidden !important;
-  }
-  body {
-    overflow-x: hidden !important;
-    /* Prevent rubber-band revealing white space on sides */
-    overscroll-behavior-x: none !important;
-  }
-  body > div {
-    overflow: hidden !important;
-    /* Force width to viewport — browser zoom handles the rest */
-    width: 100vw !important;
-  }
-
-  /* Hero decorative blobs — clip to viewport */
-  .hero-blue-blob,
-  .hero-orange-blob,
-  .hero-dots-h,
-  .hero-dots-v,
-  .hero-grid-bg {
-    overflow: hidden !important;
-    clip-path: inset(0) !important;
-  }
-
-  /* Testimonial 4th card negative margin */
-  section:nth-of-type(7) > div:last-child > div:last-child {
-    margin-right: 0 !important;
-    display: none !important;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STEP 19 — UNIVERSAL OVERFLOW CONTAINMENT
-   Catch-all: any element wider than viewport clips silently
-═══════════════════════════════════════════════════════════ */
-body > div > * {
-  max-width: 100% !important;
-}
-
-/* But don't break absolutely-positioned decorative items —
-   they need position:absolute to work, just hide overflow */
-body > div {
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-/*
-═════════════════════════════════════════════════════════════════
-WHAT THIS FIXES:
-✅ White space on left when "Desktop site" selected on phone
-✅ Page bleeds / overflows on small laptop screens  
-✅ Testimonials 4th card negative margin causing right overflow
-✅ Hero grid background SVG (2237px wide) causing page width explosion
-✅ Desktop site on tablet shows correct proportional layout
-✅ Normal mobile responsive view (your existing CSS) unchanged
-═════════════════════════════════════════════════════════════════
-*/
 </style>
+
+

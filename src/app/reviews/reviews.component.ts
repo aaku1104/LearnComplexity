@@ -26,42 +26,42 @@ export class ReviewsComponent implements OnInit {
       role: 'Full Stack Developer',
       rating: 4,
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and mentors were incredibly supportive throughout my journey.',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Theresa Webb',
       role: 'UI/UX Designer',
       rating: 5,
       text: 'The curriculum is well-structured and instructors are very knowledgeable. I went from a beginner to landing my first design job within 6 months of completing the course!',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Ralph Edwards',
       role: 'Backend Engineer',
       rating: 5,
       text: 'Excellent platform for learning modern backend technologies. The hands-on projects and code reviews gave me the confidence to tackle real-world challenges professionally.',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Jenny Wilson',
       role: 'Data Scientist',
       rating: 4,
       text: 'The data science track is comprehensive and up-to-date. The community support and peer learning opportunities made the journey enjoyable and highly productive.',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Devon Lane',
       role: 'Mobile Developer',
       rating: 5,
       text: 'I loved every bit of the mobile development course. The projects were challenging in the best way, and I\'m now building apps that people actually use daily.',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Kathryn Murphy',
       role: 'Product Manager',
       rating: 4,
       text: 'Great platform! The product management courses are practical and relevant to today\'s industry. I especially appreciated the live case study sessions with industry experts.',
-      avatar: 'assets/images/testimonial-avatar.jpg'
+      avatar: 'assets/images/testimonial-avatar.webp'
     }
   ];
 
