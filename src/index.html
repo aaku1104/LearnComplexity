@@ -2,18 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Learn Complexity">
     <meta property="og:site_name" content="Learn Complexity">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload critical font to prevent FOIT/FOUT -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Epilogue:wght@400;700&family=Exo:wght@600&family=Inter:wght@400;500;600;700&family=Jost:wght@500&family=Libre+Franklin:wght@600&family=Manrope:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&family=Sora:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Preconnect to external services -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- Prevent layout shift from font swap -->
+    <style>
+      body { 
+        font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+        font-display: optional;
+      }
+    </style>
+    
+    <!-- Theme color + viewport -->
+    <meta name="theme-color" content="#1A5276">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <title>LearnComplexity</title>
     <base href="/">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Epilogue:wght@400;700&family=Exo:wght@600&family=Inter:wght@400;500;600;700&family=Jost:wght@500&family=Libre+Franklin:wght@600&family=Manrope:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;600&family=Roboto:wght@400;700&family=Sora:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Epilogue:wght@400;700&family=Exo:wght@600&family=Inter:wght@400;500;600;700&family=Jost:wght@500&family=Libre+Franklin:wght@600&family=Manrope:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&family=Sora:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script type="application/ld+json">
 {
@@ -29,6 +49,17 @@
   }
 }
 </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        send_page_view: false  // Disable auto - Angular will send manually
+      });
+    </script>
   </head>
   <body>
     <app-root></app-root>

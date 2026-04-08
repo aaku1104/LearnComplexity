@@ -1,10 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
 import { ReviewsComponent } from '../../reviews/reviews.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [ReviewsComponent],
+  imports: [ReviewsComponent, NgOptimizedImage],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { SeoService } from '../services/seo.service';
 
 export interface Review {
@@ -13,7 +14,7 @@ export interface Review {
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })

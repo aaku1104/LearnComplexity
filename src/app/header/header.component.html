@@ -293,53 +293,51 @@
 </div>
 
 <!-- ===== MAIN NAV ===== -->
-<nav class="hdr-nav">
+<nav class="hdr-nav" role="navigation" aria-label="Main navigation">
   <div class="hdr-nav__inner">
 
     <!-- Logo -->
-    <a href="/home" class="hdr-logo">
+    <a href="/home" class="hdr-logo" aria-label="Learn Complexity home page">
       <img src="assets/images/lc-logo.webp" alt="Learn Complexity Logo Icon"
-           style="height: 32px; width: auto; object-fit: contain; display: block;"
-           onerror="this.style.display='none'"/>
+           style="height: 32px; width: auto; object-fit: contain; display: block;"/>
       <img src="assets/images/logo-text.webp" alt="Learn Complexity"
-           style="height: 32px; width: auto; object-fit: contain; display: block;"
-           onerror="this.style.display='none'"/>
+           style="height: 32px; width: auto; object-fit: contain; display: block;"/>
     </a>
 
     <!-- Nav links -->
-    <ul class="hdr-links">
-      <li class="hdr-links__item">
-        <a href="/home" class="hdr-links__a">Home</a>
+    <ul class="hdr-links" role="menubar">
+      <li class="hdr-links__item" role="none">
+        <a href="/home" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'Home', route: '/home' }) ? 'page' : null">Home</a>
       </li>
-      <li class="hdr-links__item">
-        <a href="/about" class="hdr-links__a">About US</a>
+      <li class="hdr-links__item" role="none">
+        <a href="/about" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'About Us', route: '/about' }) ? 'page' : null">About US</a>
       </li>
-      <li class="hdr-links__item">
-        <a href="/courses" class="hdr-links__a">
+      <li class="hdr-links__item" role="none">
+        <a href="/courses" class="hdr-links__a" role="menuitem" aria-haspopup="true" aria-expanded="false" [attr.aria-current]="isActive({ label: 'Courses', route: '/courses' }) ? 'page' : null">
           Courses
-          <svg class="hdr-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="hdr-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="4,6 8,10 12,6"/>
           </svg>
         </a>
-        <div class="hdr-dropdown">
-          <a href="/courses">All Courses</a>
-          <a href="/courses/sap">SAP Training</a>
-          <a href="/courses/elearning">eLearning</a>
-          <a href="/courses/certifications">Certifications</a>
+        <div class="hdr-dropdown" role="menu" aria-label="Courses submenu">
+          <a href="/courses" role="menuitem">All Courses</a>
+          <a href="/courses/sap" role="menuitem">SAP Training</a>
+          <a href="/courses/elearning" role="menuitem">eLearning</a>
+          <a href="/courses/certifications" role="menuitem">Certifications</a>
         </div>
       </li>
-      <li class="hdr-links__item">
-        <a href="/blogs" class="hdr-links__a">Blogs</a>
+      <li class="hdr-links__item" role="none">
+        <a href="/blogs" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'Blogs', route: '/blogs' }) ? 'page' : null">Blogs</a>
       </li>
-      <li class="hdr-links__item">
-        <a href="/contact" class="hdr-links__a">Contact Us</a>
+      <li class="hdr-links__item" role="none">
+        <a href="/contact" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'Contact Us', route: '/contact' }) ? 'page' : null">Contact Us</a>
       </li>
     </ul>
 
     <!-- CTA buttons -->
     <div class="hdr-ctas">
-      <button class="hdr-btn-signin">Sign in</button>
-      <button class="hdr-btn-register">Register</button>
+      <button class="hdr-btn-signin" aria-label="Sign in to your account">Sign in</button>
+      <button class="hdr-btn-register" aria-label="Create a new account">Register</button>
     </div>
 
     <!-- Hamburger (mobile) -->

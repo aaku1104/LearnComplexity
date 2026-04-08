@@ -3,8 +3,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
+import { HeaderComponent } from '../../header/header.component';
+import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
+import { AnalyticsService } from '../../services/analytics.service';
 
 declare global {
   interface Window {
@@ -24,13 +28,19 @@ interface Testimonial {
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, ReviewsComponent],
+  imports: [CommonModule, FormsModule, RouterModule, NgOptimizedImage, ReviewsComponent, HeaderComponent, BreadcrumbComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactUsComponent implements OnInit {
  
   private seo = inject(SeoService);
+  private analytics = inject(AnalyticsService);
+
+  crumbs = [
+    { label: 'Home', url: '/' },
+    { label: 'Contact Us', url: '/contact' }
+  ];
 
   dots = Array(70).fill(0);
 
@@ -141,6 +151,10 @@ export class ContactUsComponent implements OnInit {
   onSubmit(): void {
     if (this.formData.name && this.formData.email && this.formData.phone && this.formData.subject) {
       console.log('Form submitted:', this.formData);
+      
+      // Track form submission event
+      this.analytics.trackFormSubmission('contact_form');
+      
       this.formSubmitted = true;
       // Reset form
       this.formData = { name: '', email: '', phone: '', subject: '', message: '' };

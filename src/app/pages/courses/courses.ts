@@ -1,17 +1,24 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
+import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, ReviewsComponent],
+  imports: [CommonModule, NgOptimizedImage, ReviewsComponent, BreadcrumbComponent],
   templateUrl: './courses.html',
   styleUrls: ['./courses.css'],
 })
 export class Courses implements OnInit {
   private seo = inject(SeoService);
+
+  crumbs = [
+    { label: 'Home', url: '/' },
+    { label: 'Courses', url: '/courses' }
+  ];
 
   courseTabs = ['Design', 'Developer', 'Business', 'Marketing', 'Photography'];
   activeTab = 'Design';

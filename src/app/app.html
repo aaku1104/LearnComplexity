@@ -1,8 +1,20 @@
-<app-header></app-header>
-<main>
+<!-- Skip link for accessibility and SEO -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Header with proper semantic landmark -->
+<header role="banner">
+  <app-header></app-header>
+</header>
+
+<!-- Main content with proper semantic landmark -->
+<main id="main-content">
   <router-outlet></router-outlet>
 </main>
-<app-footer></app-footer>
+
+<!-- Footer with proper semantic landmark -->
+<footer>
+  <app-footer></app-footer>
+</footer>
 
 <script>
   // Prevent scroll position restoration completely
