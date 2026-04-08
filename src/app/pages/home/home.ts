@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Renderer2, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../services/seo.service';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -10,24 +11,33 @@ import { NgOptimizedImage } from '@angular/common';
 })
 export class Home implements OnInit {
   private seo = inject(SeoService);
+  private renderer = inject(Renderer2);
+  private platformId = inject(PLATFORM_ID);
 
   onImageError(event: any): void {
     const img = event.target;
     const fallbackSrc = 'assets/images/default-avatar.png';
     
-    // Try to load fallback image
-    if (img.src !== fallbackSrc) {
-      img.src = fallbackSrc;
-      img.onerror = null; // Prevent infinite loop
-    } else {
-      // If fallback also fails, show a colored placeholder
-      img.style.display = 'none';
-      const parent = img.parentElement;
-      if (parent) {
-        const placeholder = document.createElement('div');
-        placeholder.style.cssText = img.style.cssText + 'background-color:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#666;font-size:12px;';
-        placeholder.textContent = 'Image';
-        parent.appendChild(placeholder);
+    // Check if we're in browser environment using Angular's platform detection
+    if (isPlatformBrowser(this.platformId)) {
+      // Try to load fallback image
+      if (img.src !== fallbackSrc) {
+        img.src = fallbackSrc;
+        img.onerror = null; // Prevent infinite loop
+      } else {
+        // If fallback also fails, show a colored placeholder
+        this.renderer.setStyle(img, 'display', 'none');
+        const parent = img.parentElement;
+        if (parent) {
+          const placeholder = this.renderer.createElement('div');
+          this.renderer.setStyle(placeholder, 'background-color', '#f0f0f0');
+          this.renderer.setStyle(placeholder, 'display', 'flex');
+          this.renderer.setStyle(placeholder, 'align-items', 'center');
+          this.renderer.setStyle(placeholder, 'justify-content', 'center');
+          this.renderer.setStyle(placeholder, 'color', '#666');
+          this.renderer.setStyle(placeholder, 'font-size', '12px');
+          this.renderer.appendChild(parent, placeholder);
+        }
       }
     }
   }
