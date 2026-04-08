@@ -30,7 +30,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: config.title });
     this.meta.updateTag({ property: 'og:description', content: config.description });
     this.meta.updateTag({ property: 'og:type', content: config.type ?? 'website' });
-    this.meta.updateTag({ property: 'og:url', content: config.canonicalUrl ?? '' });
+    this.meta.updateTag({ property: 'og:url', content: `https://learncomplexity.com${config.canonicalUrl ?? '/'}` });
     this.meta.updateTag({ property: 'og:image', content: config.ogImage ?? 'https://learncomplexity.com/assets/og-default.png' });
     this.meta.updateTag({ property: 'og:image:width', content: '1200' });
     this.meta.updateTag({ property: 'og:image:height', content: '630' });
@@ -65,5 +65,21 @@ export class SeoService {
       this.doc.head.appendChild(link);
     }
     link.setAttribute('href', url);
+  }
+
+  setPage(config: { title: string; description: string; url?: string }) {
+    this.title.setTitle(config.title);
+    this.meta.updateTag({ name: 'description', content: config.description });
+    if (config.url) {
+      this.meta.updateTag({ property: 'og:url', content: `https://learncomplexity.com${config.url}` });
+    }
+    this.meta.updateTag({ property: 'og:title', content: config.title });
+    this.meta.updateTag({ property: 'og:description', content: config.description });
+    
+    // Update canonical URL
+    const existing = document.querySelector('link[rel="canonical"]');
+    if (existing) {
+      existing.setAttribute('href', `https://learncomplexity.com${config.url ?? '/'}`);
+    }
   }
 }

@@ -234,6 +234,12 @@ export class Courses implements OnInit {
   }
 
   ngOnInit(): void {
+    this.seo.setPage({
+      title: 'Time Complexity Explained: O(n) to O(n²) | Learn Complexity',
+      description: 'Learn time complexity analysis with real code examples. Understand O(n log n), O(n²) and more. Interactive Big O visualizations included.',
+      url: '/courses'
+    });
+
     this.seo.update({
       title: 'Algorithm Courses – Learn Big O Notation & Data Structures',
       description: 'Explore comprehensive courses on algorithm complexity, Big O notation, and data structures. Master time and space complexity analysis with hands-on tutorials.',

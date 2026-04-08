@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
-import { HeaderComponent } from '../../header/header.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 import { AnalyticsService } from '../../services/analytics.service';
@@ -28,7 +27,7 @@ interface Testimonial {
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, NgOptimizedImage, ReviewsComponent, HeaderComponent, BreadcrumbComponent],
+  imports: [CommonModule, FormsModule, RouterModule, NgOptimizedImage, ReviewsComponent, BreadcrumbComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
@@ -88,8 +87,14 @@ export class ContactUsComponent implements OnInit {
   visibleTestimonials: Testimonial[] = [];
 
   ngOnInit(): void {
+    this.seo.setPage({
+      title: 'Contact Learn Complexity | Get in Touch',
+      description: 'Have questions about algorithm complexity or Big O notation? Reach out to the Learn Complexity team. We\'re here to help developers learn faster.',
+      url: '/contact'
+    });
+
     this.seo.update({
-      title: 'Contact LearnComplexity – Get in Touch',
+      title: 'Contact LearnComplexity - Get in Touch',
       description: 'Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We\'re here to help you learn.',
       keywords: 'contact learncomplexity, support, help, algorithm questions, big o notation help, customer service',
       canonicalUrl: 'https://learncomplexity.com/contact',

@@ -1,11 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
-import { ReviewsComponent } from '../../reviews/reviews.component';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [ReviewsComponent, NgOptimizedImage],
+  imports: [NgOptimizedImage],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
@@ -13,6 +12,12 @@ export class Home implements OnInit {
   private seo = inject(SeoService);
 
   ngOnInit() {
+    this.seo.setPage({
+      title: 'Learn Big O Notation & Algorithm Complexity | Learn Complexity',
+      description: 'Master time complexity and Big O notation with interactive examples. Free algorithm analysis guides for developers. O(1) to O(n!) explained simply.',
+      url: '/'
+    });
+
     this.seo.update({
       title: 'Learn Algorithm Complexity - Big O Notation Made Simple',
       description: 'Master time and space complexity with interactive examples. Big O notation guides, cheat sheets and algorithm analysis for developers.',

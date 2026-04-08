@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReviewsComponent } from '../../reviews/reviews.component';
+import { NgOptimizedImage } from '@angular/common';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 
@@ -9,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
   standalone: true,
-  imports: [CommonModule, ReviewsComponent, BreadcrumbComponent]
+  imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent]
 })
 export class AboutComponent implements OnInit {
   private seo = inject(SeoService);
@@ -42,6 +42,12 @@ export class AboutComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.seo.setPage({
+      title: 'About Learn Complexity - Free Algorithm Education',
+      description: 'Learn who we are and why we built Learn Complexity - a free platform to master Big O notation and algorithm analysis for developers.',
+      url: '/about'
+    });
+
     this.seo.update({
       title: 'About LearnComplexity – Our Mission & Story',
       description: 'Learn about our mission to make algorithm complexity education accessible. Discover our story, teaching approach, and commitment to helping developers master Big O notation.',
