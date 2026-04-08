@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1440, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Complexity - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1115,6 +1115,58 @@
         }
 
         
+        /* Additional mobile improvements */
+        @media (max-width: 768px) {
+            /* Better touch targets */
+            button, .hero-enroll-btn, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Improve text readability */
+            body {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            /* Better spacing for mobile */
+            .container {
+                padding-bottom: 20px;
+            }
+
+            /* Hide horizontal overflow */
+            * {
+                max-width: 100%;
+            }
+
+            /* Better image handling */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Improve button visibility */
+            .hero-enroll-btn {
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                transition: transform 0.2s ease;
+            }
+
+            .hero-enroll-btn:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* Tablet styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section[style] {
+                padding: 32px 20px !important;
+            }
+        }
+
         /* Desktop width enforcement */
         @media (min-width: 1440px) {
             html {
@@ -1630,43 +1682,63 @@
     opacity: 1;
   ">
         <!-- Image 1 -->
-        <img src="assets/images/home2.webp" alt="Student 1" style="
-      width: 36px;
-      height: 35px;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0px 4px 4px 0px #00000014;
-      border-radius: 50%;
-      margin-right: -6px; /* tiny overlap */
-    " />
+        <img 
+  ngSrc="assets/images/home2.webp" 
+  alt="Student 1"
+  width="36" 
+  height="35"
+  style="
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000014;
+    border-radius: 50%;
+    margin-right: -6px; /* tiny overlap */
+  " 
+/>
+
 
         <!-- Image 2 -->
-        <img src="assets/images/home3.webp" alt="Student 2" style="
-      width: 36px;
-      height: 35px;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0px 4px 4px 0px #00000014;
-      border-radius: 50%;
-      margin-right: -6px;
-    " />
+        <img 
+  ngSrc="assets/images/home3.webp" 
+  alt="Student 2"
+  width="36" 
+  height="35"
+  style="
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000014;
+    border-radius: 50%;
+    margin-right: -6px;
+  " 
+/>
+
 
         <!-- Image 3 -->
-        <img src="assets/images/home4.webp" alt="Student 3" style="
-      width: 37px;
-      height: 35px;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0px 4px 4px 0px #00000014;
-      border-radius: 50%;
-      margin-right: -6px;
-    " />
+        <img 
+  ngSrc="assets/images/home4.webp" 
+  alt="Student 3"
+  width="37" 
+  height="35"
+  style="
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000014;
+    border-radius: 50%;
+    margin-right: -6px;
+  " 
+/>
+
 
         <!-- Image 4 -->
-        <img src="assets/images/home5.webp" alt="Student 4" style="
-      width: 35px;
-      height: 35px;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0px 4px 4px 0px #00000014;
-      border-radius: 50%;
-    " />
+        <img 
+  ngSrc="assets/images/home5.webp" 
+  alt="Student 4"
+  width="35" 
+  height="35"
+  style="
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000014;
+    border-radius: 50%;
+  " 
+/>
+
       </div>
 
     </div>
@@ -2414,12 +2486,17 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home6.webp" alt="Home Image" style="
-    width: 100%;
-    height: 100%;
+        <img 
+  ngSrc="assets/images/home6.webp" 
+  alt="Home Image"
+  width="100%" 
+  height="100%"
+  style="
     object-fit: cover;
     border-radius: 8px;
-  ">
+  " 
+/>
+
       </div>
 
       <!-- Image block -->
@@ -2432,12 +2509,19 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home7.webp" alt="Home Image" style="
+        <img 
+  ngSrc="assets/images/home7.webp" 
+  alt="Home Image"
+  width="1200" 
+  height="800"
+  style="
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-  ">
+  " 
+/>
+
       </div>
 
       <!-- Image block -->
@@ -2450,12 +2534,19 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img src="assets/images/home8.webp" alt="Home Image" style="
+        <img 
+  ngSrc="assets/images/home8.webp" 
+  alt="Home Image"
+  width="1200" 
+  height="800"
+  style="
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-  ">
+  " 
+/>
+
       </div>
 
 
@@ -2857,8 +2948,22 @@
       <!-- Card 1 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 0px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img1.webp" alt="Course thumbnail"
-          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img 
+  ngSrc="assets/images/img1.webp" 
+  alt="Course thumbnail"
+  width="350" 
+  height="206"
+  style="
+    position: absolute;
+    width: 350px;
+    height: 206px;
+    top: 13px;
+    left: 16px;
+    border-radius: 16px;
+    object-fit: cover;
+  " 
+/>
+
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #FFEADF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 19px; height: 20px; top: 4px; left: 6px;">
@@ -2937,8 +3042,21 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
-            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Instructor Profile"
+  width="40" 
+  height="40"
+  style="
+    position: absolute;
+    top: 29.5px;
+    left: 5px;
+    border-radius: 9999px;
+    box-shadow: 0px 0px 0px 2px #FFFFFF;
+    object-fit: cover;
+  " 
+/>
+
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -2967,8 +3085,22 @@
       <!-- Card 2 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 441px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img2.webp" alt="Course thumbnail"
-          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img 
+  ngSrc="assets/images/img2.webp" 
+  alt="Course thumbnail"
+  width="350" 
+  height="206"
+  style="
+    position: absolute;
+    width: 350px;
+    height: 206px;
+    top: 13px;
+    left: 16px;
+    border-radius: 16px;
+    object-fit: cover;
+  " 
+/>
+
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 17px; height: 18px; top: 5px; left: 7px;">
@@ -3047,8 +3179,21 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
-            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Instructor Profile"
+  width="40" 
+  height="40"
+  style="
+    position: absolute;
+    top: 29.5px;
+    left: 5px;
+    border-radius: 9999px;
+    box-shadow: 0px 0px 0px 2px #FFFFFF;
+    object-fit: cover;
+  " 
+/>
+
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -3077,8 +3222,22 @@
       <!-- Card 3 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 881px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img src="assets/images/img3.webp" alt="Course thumbnail"
-          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img 
+  ngSrc="assets/images/img3.webp" 
+  alt="Course thumbnail"
+  width="350" 
+  height="206"
+  style="
+    position: absolute;
+    width: 350px;
+    height: 206px;
+    top: 13px;
+    left: 16px;
+    border-radius: 16px;
+    object-fit: cover;
+  " 
+/>
+
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 17px; height: 18px; top: 5px; left: 7px;">
@@ -3157,8 +3316,21 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
-            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Instructor Profile"
+  width="40" 
+  height="40"
+  style="
+    position: absolute;
+    top: 29.5px;
+    left: 5px;
+    border-radius: 9999px;
+    box-shadow: 0px 0px 0px 2px #FFFFFF;
+    object-fit: cover;
+  " 
+/>
+
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -3688,19 +3860,30 @@
       align-items: flex-end;
     ">
         <!-- Image 1 -->
-        <img src="assets/images/r1a.webp" alt="Row 1A" style="
-        width: 128px;
-        height: 192px;
-        border-radius: 5px;
-        display: block;
-      ">
-        <!-- Image 2 -->
-        <img src="assets/images/r1b.webp" alt="Row 1B" style="
-        width: 172px;
-        height: 258px;
-        border-radius: 5px;
-        display: block;
-      ">
+        <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r1a.webp" 
+  alt="Row 1A"
+  width="128" 
+  height="192"
+  style="
+    border-radius: 5px;
+    display: block;
+  " 
+/>
+
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r1b.webp" 
+  alt="Row 1B"
+  width="172" 
+  height="258"
+  style="
+    border-radius: 5px;
+    display: block;
+  " 
+/>
+
       </div>
 
       <!-- Row 2 block -->
@@ -3715,24 +3898,42 @@
   gap: 16px;
   padding-top: 1px; /* reduced from 32px to move row 2 up */
 ">
-        <img src="assets/images/r2a.webp" alt="Row 2A" style="
-    width: 128px;
-    height: 212px;
+        <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r2a.webp" 
+  alt="Row 2A"
+  width="128" 
+  height="212"
+  style="
     border-radius: 5px;
     display: block;
-  ">
-        <img src="assets/images/r2b.webp" alt="Row 2B" style="
-    width: 128px;
-    height: 215px;
+  " 
+/>
+
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r2b.webp" 
+  alt="Row 2B"
+  width="128" 
+  height="215"
+  style="
     border-radius: 5px;
     display: block;
-  ">
-        <img src="assets/images/r2c.webp" alt="Row 2C" style="
-    width: 128px;
-    height: 160px;
+  " 
+/>
+
+<!-- Image 3 -->
+<img 
+  ngSrc="assets/images/r2c.webp" 
+  alt="Row 2C"
+  width="128" 
+  height="160"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
+
       </div>
 
 
@@ -3749,28 +3950,42 @@
   margin-top: 12px; 
 ">
         <!-- Image 1 -->
-        <img src="assets/images/r3a.webp" alt="Row 4A" style="
-    width: 128px;
-    height: 171px;
+        <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r3a.webp" 
+  alt="Row 4A"
+  width="128" 
+  height="171"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-        <!-- Image 2 -->
-        <img src="assets/images/r3b.webp" alt="Row 4B" style="
-    width: 128px;
-    height: 172px;
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r3b.webp" 
+  alt="Row 4B"
+  width="128" 
+  height="172"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-        <!-- Image 3 -->
-        <img src="assets/images/r3c.webp" alt="Row 4C" style="
-    width: 128px;
-    height: 192px;
+<!-- Image 3 -->
+<img 
+  ngSrc="assets/images/r3c.webp" 
+  alt="Row 4C"
+  width="128" 
+  height="192"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
+
       </div>
 
       <!-- Row 4 block -->
@@ -3786,20 +4001,30 @@
   margin-top: 52px; /* moves row 4 lower */
 ">
         <!-- Image 1 -->
-        <img src="assets/images/r4a.webp" alt="Row 4A" style="
-    width: 160px;
-    height: 255px;
+        <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r4a.webp" 
+  alt="Row 4A"
+  width="160" 
+  height="255"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-        <!-- Image 2 -->
-        <img src="assets/images/r4b.webp" alt="Row 4B" style="
-    width: 128px;
-    height: 165px;
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r4b.webp" 
+  alt="Row 4B"
+  width="128" 
+  height="165"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
+
       </div>
 
 
@@ -4393,13 +4618,18 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
-      width:56px;
-      height:56px;
-      border-radius:9999px;
-      object-fit:cover;
-      border:2px solid #e5e7eb;
-    " />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Hellen Jummy"
+  width="56" 
+  height="56"
+  style="
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  " 
+/>
+
           <div>
             <!-- Name -->
             <p style="
@@ -4480,13 +4710,18 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
-      width:56px;
-      height:56px;
-      border-radius:9999px;
-      object-fit:cover;
-      border:2px solid #e5e7eb;
-    " />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Hellen Jummy"
+  width="56" 
+  height="56"
+  style="
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  " 
+/>
+
           <div>
             <!-- Name -->
             <p style="
@@ -4566,13 +4801,18 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
-      width:56px;
-      height:56px;
-      border-radius:9999px;
-      object-fit:cover;
-      border:2px solid #e5e7eb;
-    " />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Hellen Jummy"
+  width="56" 
+  height="56"
+  style="
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  " 
+/>
+
           <div>
             <!-- Name -->
             <p style="
@@ -4661,13 +4901,18 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
-      width:56px;
-      height:56px;
-      border-radius:9999px;
-      object-fit:cover;
-      border:2px solid #e5e7eb;
-    " />
+          <img 
+  ngSrc="assets/images/course-profile.webp" 
+  alt="Hellen Jummy"
+  width="56" 
+  height="56"
+  style="
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  " 
+/>
+
           <div>
             <!-- Name -->
             <p style="
@@ -4810,19 +5055,30 @@
     align-items: flex-end;
   ">
     <!-- Image 1 -->
-    <img src="assets/images/r1a.webp" alt="Row 1A" style="
-      width: 128px;
-      height: 192px;
-      border-radius: 5px;
-      display: block;
-    ">
-    <!-- Image 2 -->
-    <img src="assets/images/r1b.webp" alt="Row 1B" style="
-      width: 172px;
-      height: 258px;
-      border-radius: 5px;
-      display: block;
-    ">
+    <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r1a.webp" 
+  alt="Row 1A"
+  width="128" 
+  height="192"
+  style="
+    border-radius: 5px;
+    display: block;
+  " 
+/>
+
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r1b.webp" 
+  alt="Row 1B"
+  width="172" 
+  height="258"
+  style="
+    border-radius: 5px;
+    display: block;
+  " 
+/>
+
   </div>
   <!-- Row 2 Images Block -->
 <div style="
@@ -4839,28 +5095,42 @@
   padding-top: 32px;
 ">
   <!-- Image 1 -->
-  <img src="assets/images/r2a.webp" alt="Row 2A" style="
-    width: 128px;
-    height: 212px;
+  <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r2a.webp" 
+  alt="Row 2A"
+  width="128" 
+  height="212"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-  <!-- Image 2 -->
-  <img src="assets/images/r2b.webp" alt="Row 2B" style="
-    width: 128px;
-    height: 215px;
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r2b.webp" 
+  alt="Row 2B"
+  width="128" 
+  height="215"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-  <!-- Image 3 -->
-  <img src="assets/images/r2c.webp" alt="Row 2C" style="
-    width: 128px;
-    height: 160px;
+<!-- Image 3 -->
+<img 
+  ngSrc="assets/images/r2c.webp" 
+  alt="Row 2C"
+  width="128" 
+  height="160"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
+
 </div>
 <!-- Row 3 Images Block -->
 <div style="
@@ -4876,28 +5146,42 @@
   gap: 16px;
 ">
   <!-- Image 1 -->
-  <img src="assets/images/r3a.webp" alt="Row 3A" style="
-    width: 128px;
-    height: 171px;
+  <!-- Image 1 -->
+<img 
+  ngSrc="assets/images/r3a.webp" 
+  alt="Row 3A"
+  width="128" 
+  height="171"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-  <!-- Image 2 -->
-  <img src="assets/images/r3b.webp" alt="Row 3B" style="
-    width: 128px;
-    height: 172px;
+<!-- Image 2 -->
+<img 
+  ngSrc="assets/images/r3b.webp" 
+  alt="Row 3B"
+  width="128" 
+  height="172"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
 
-  <!-- Image 3 -->
-  <img src="assets/images/r3c.webp" alt="Row 3C" style="
-    width: 128px;
-    height: 192px;
+<!-- Image 3 -->
+<img 
+  ngSrc="assets/images/r3c.webp" 
+  alt="Row 3C"
+  width="128" 
+  height="192"
+  style="
     border-radius: 5px;
     display: block;
-  ">
+  " 
+/>
+
 </div>
 
 <!-- Row 4 Box Block -->
@@ -5196,5 +5480,4 @@
     </div>
 </body>
 </html>
-
 
