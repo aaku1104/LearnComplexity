@@ -1,48 +1,1158 @@
-<!--
-╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║                                                                                                                              ║
-║                                                    HOME PAGE - LEARN COMPLEXITY                                              ║
-║                                                                                                                              ║
-║  This file contains the complete homepage layout with 8 main sections:                                                       ║
-║  1. Hero Section - Main landing area with title and call-to-action                                                           ║
-║  2. Why Choose Us - Feature showcase with 4 blue boxes                                                                      ║
-║  3. Featured Courses - Course carousel with navigation                                                                      ║
-║  4. Popular Courses - Category grid layout                                                                                  ║
-║  5. Meet Our Experts - Team showcase with images                                                                           ║
-║  6. Unlock Success - Statistics and achievements                                                                          ║
-║  7. Testimonials - Customer reviews carousel                                                                              ║
-║  8. FAQ - Frequently asked questions accordion                                                                             ║
-║                                                                                                                              ║
-║  Mobile responsive styles are included at the end of the file                                                             ║
-║                                                                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440, initial-scale=1.0">
+    <title>Learn Complexity - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #170F49;
+            line-height: 1.6;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            overflow-x: visible;
+        }
+        
+        /* Desktop/laptop view - ensure full width */
+        @media (min-width: 1200px) {
+            .container {
+                min-width: 1440px;
+            }
+        }
+        
+        /* Complete Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Global Reset */
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
 
-<div style="position: relative; width: 100%;">
+            /* outer 1440px wrapper */
+            div[style*="position: relative; width: 100%"],
+            div[style*="position:relative;width:100%"] {
+                width: 100% !important;
+                overflow-x: hidden !important;
+            }
 
-  <!-- 
-  ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
-    SECTION 1: HERO SECTION
-    - Main landing area with gradient background
-    - Contains title, subtitle, bullet points, and enrollment button
-    - Includes decorative elements (blobs, dots, cards)
-    - Mobile responsive styles applied
-  ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
-  -->
-  <section class="hero-section"style="width: 100%; 
-                height: 745px; 
-                background-color: #EFFBFF; 
-                position: relative; 
-                transform: rotate(0deg); 
-                opacity: 1;">
+            /* Fix negative positioned elements */
+            div[style*="left: -"] {
+                left: 0 !important;
+                transform: translateX(0) !important;
+            }
 
-    <!-- Inner block -->
-    <div style="position: absolute; 
-              width: 1440px; 
-              height: 705px; 
-              top: 130px; 
-              transform: rotate(0deg); 
-              opacity: 1;">
+            section {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Override inline styles for sections */
+            section[style] {
+                width: 100% !important;
+                height: auto !important;
+                padding: 24px 16px !important;
+                position: relative !important;
+            }
+
+            /* Section 1 - Hero */
+            .hero-section,
+            section.hero-section[style] {
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: hidden !important;
+                position: relative !important;
+                padding-bottom: 32px !important;
+            }
+
+            .hero-title-block {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: 0 !important;
+                left: 0 !important;
+                padding: 20px 16px !important;
+                box-sizing: border-box !important;
+                gap: 12px !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .hero-label {
+                width: 100% !important;
+                height: auto !important;
+                font-size: 11px !important;
+                letter-spacing: 2px !important;
+            }
+
+            .hero-heading {
+                width: 100% !important;
+                height: auto !important;
+                font-size: 42px !important;
+                line-height: 115% !important;
+                position: relative !important;
+            }
+
+            .hero-heading span svg {
+                width: 100px !important;
+                height: 18px !important;
+            }
+
+            .hero-heading span > div {
+                bottom: -10px !important;
+                left: 0 !important;
+            }
+
+            .hero-bullets {
+                gap: 14px !important;
+                padding-top: 10px !important;
+                width: 100% !important;
+            }
+
+            .hero-bullet-text {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+
+            .hero-bullet-text > svg {
+                width: 24px !important;
+                height: 24px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .hero-bullet-text > div {
+                font-size: 13px !important;
+                line-height: 20px !important;
+                white-space: normal !important;
+            }
+
+            .hero-enroll-btn {
+                margin-top: 16px !important;
+                width: 130px !important;
+                padding: 10px 0 !important;
+            }
+
+            .hero-enroll-btn span {
+                font-size: 14px !important;
+            }
+
+            .hero-enroll-btn svg {
+                width: 11px !important;
+                height: 11px !important;
+            }
+
+            .hero-blue-blob,
+            .hero-orange-blob,
+            .hero-dots-h,
+            .hero-dots-v,
+            .hero-card-internship,
+            .hero-card-students,
+            .hero-card-mentors,
+            .hero-card-courses,
+            .hero-grid-bg,
+            .hero-blur-circle {
+                display: none !important;
+            }
+
+            .hero-worldwide {
+                display: block !important;
+            }
+
+            /* Section 2 - Why Choose Us */
+            section:nth-of-type(2),
+            section:nth-of-type(2)[style] {
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                position: relative !important;
+                padding: 24px 16px 40px !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+                background-color: #ffffff !important;
+                margin-top: 60px !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(1) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 0 16px !important;
+                display: inline-flex !important;
+                padding: 4px 12px !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(1) span {
+                font-size: 12px !important;
+                line-height: 24px !important;
+                height: auto !important;
+                width: auto !important;
+                margin-left: 0 !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(2) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 0 8px !important;
+                display: block !important;
+                padding: 0 !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(2) span {
+                font-size: 28px !important;
+                line-height: 36px !important;
+                text-align: left !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(3) {
+                display: none !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(4) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 0 20px !important;
+                padding: 0 !important;
+                background: transparent !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(4) span {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                font-size: 13px !important;
+                line-height: 20px !important;
+                display: block !important;
+            }
+
+            /* 4 feature cards grid */
+            section:nth-of-type(2) > div:nth-child(5) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 10px !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(5) > div {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 120px !important;
+                padding: 12px 10px !important;
+                box-sizing: border-box !important;
+                border-radius: 8px !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(5) > div > div:nth-child(1) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                margin-bottom: 6px !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(5) > div > div:nth-child(1) > span {
+                font-size: 12px !important;
+                line-height: 16px !important;
+                height: auto !important;
+                width: auto !important;
+            }
+
+            section:nth-of-type(2) > div:nth-child(5) > div > span {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                font-size: 11px !important;
+                line-height: 18px !important;
+                display: block !important;
+            }
+
+            /* Hide right side images */
+            section:nth-of-type(2) > div:nth-child(6) {
+                display: none !important;
+            }
+
+            /* Company Logo Bar */
+            .company-block {
+                position: relative !important;
+                width: calc(100% - 20px) !important;
+                height: auto !important;
+                top: auto !important;
+                left: 10px !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 0 !important;
+                min-height: 64px !important;
+                margin-top: 16px !important;
+                overflow: hidden !important;
+            }
+
+            .company-block .inner-text {
+                position: relative !important;
+                width: auto !important;
+                min-width: 160px !important;
+                height: 64px !important;
+                padding: 0 12px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                align-items: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .company-block .inner-text span {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                width: max-content !important;
+                height: auto !important;
+                font-size: 13px !important;
+                line-height: 1.3 !important;
+                white-space: nowrap !important;
+                display: block !important;
+            }
+
+            .company-block .horizontal-block {
+                position: relative !important;
+                width: 100% !important;
+                height: 64px !important;
+                top: auto !important;
+                left: auto !important;
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scrollbar-width: none !important;
+                gap: 0 16px !important;
+                padding: 0 8px !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+            }
+
+            .company-block .horizontal-block::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .company-block .horizontal-block span {
+                display: flex !important;
+                align-items: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .company-block .horizontal-block svg {
+                max-width: 72px !important;
+                height: 20px !important;
+                width: auto !important;
+            }
+
+            /* Section 3 - Featured Courses */
+            section:nth-of-type(3),
+            section:nth-of-type(3)[style] {
+                height: auto !important;
+                padding: 24px 0 72px !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(1) {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+                padding-bottom: 18px !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(1) span {
+                font-size: 38px !important;
+                line-height: 1.15 !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(2) {
+                position: relative !important;
+                top: -10px !important;
+                left: 70px !important;
+                width: 100px !important;
+                height: auto !important;
+                margin: -24px auto 12px !important;
+                display: flex !important;
+                justify-content: center !important;
+                z-index: -1 !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(3) {
+                display: none !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(4) {
+                position: absolute !important;
+                bottom: 12px !important;
+                left: 16px !important;
+                top: auto !important;
+                right: auto !important;
+                width: auto !important;
+                height: 50px !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(4) span {
+                font-size: 16px !important;
+                line-height: 1 !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(5) {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                margin-top: 16px !important;
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: scroll !important;
+                overflow-y: hidden !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                padding: 12px 0 20px !important;
+                gap: 10px !important;
+                scrollbar-width: none !important;
+                scroll-padding-inline: calc(50% - (100vw - 64px) / 2) !important;
+            }
+
+            section:nth-of-type(3) > div:nth-child(5)::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .lc-course-card {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                flex: 0 0 calc(100vw - 64px) !important;
+                width: calc(100vw - 64px) !important;
+                max-width: 340px !important;
+                height: 520px !important;
+                min-height: 520px !important;
+                scroll-snap-align: center !important;
+                border-radius: 20px !important;
+                overflow: hidden !important;
+                flex-shrink: 0 !important;
+            }
+
+            .lc-course-card > * {
+                transform-origin: top left !important;
+                transform: scale(0.84) !important;
+            }
+
+            section:nth-of-type(3) > div:last-child {
+                position: absolute !important;
+                bottom: 12px !important;
+                right: 16px !important;
+                top: auto !important;
+                left: auto !important;
+                width: auto !important;
+                height: 50px !important;
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 8px !important;
+                align-items: center !important;
+            }
+
+            section:nth-of-type(3) > div:last-child > div {
+                position: relative !important;
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 6px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                flex-shrink: 0 !important;
+            }
+
+            section:nth-of-type(3) > div:last-child > div svg {
+                width: 12px !important;
+                height: 18px !important;
+                display: block !important;
+                margin: auto !important;
+            }
+
+            /* Section 4 - Popular Courses */
+            section:nth-of-type(4),
+            section:nth-of-type(4)[style] {
+                width: 100% !important;
+                height: auto !important;
+                padding: 24px 16px 70px !important;
+                box-sizing: border-box !important;
+                position: relative !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0 !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) > span:nth-child(1) {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                font-size: 38px !important;
+                line-height: 1.15 !important;
+                letter-spacing: -0.5px !important;
+                order: 1 !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) > div:nth-child(3) {
+                display: flex !important;
+                position: relative !important;
+                top: -2px !important;
+                left: auto !important;
+                width: 100px !important;
+                height: auto !important;
+                margin: -10px 0 6px 105px !important;
+                justify-content: flex-start !important;
+                z-index: -1 !important;
+                order: 2 !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) > span:nth-child(2) {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                font-size: 18px !important;
+                line-height: 1.3 !important;
+                margin-top: 4px !important;
+                order: 3 !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) > div:last-child {
+                position: absolute !important;
+                bottom: -680px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: auto !important;
+                right: auto !important;
+                width: auto !important;
+                height: auto !important;
+                text-align: center !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(1) > div:last-child span {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                width: auto !important;
+                height: auto !important;
+                font-size: 16px !important;
+                white-space: nowrap !important;
+            }
+
+            section:nth-of-type(4) > div:nth-child(2) {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                margin-top: 16px !important;
+            }
+
+            .lc-category-grid > div:nth-child(n+7) {
+                display: none !important;
+            }
+
+            .lc-category-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .lc-category-grid > div {
+                width: 100% !important;
+                height: 150px !important;
+                box-shadow: none !important;
+                border: 1px solid #EAEAEA !important;
+            }
+
+            .lc-category-grid > div h4 {
+                font-size: 15px !important;
+                margin-bottom: 4px !important;
+                color: #252641 !important;
+            }
+
+            .lc-category-grid > div p {
+                font-size: 12px !important;
+                margin-top: 4px !important;
+            }
+
+            .lc-category-grid > div > div {
+                width: 24px !important;
+                height: 24px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .lc-category-grid > div > div svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+
+            /* Section 5 - Meet Our Experts */
+            section:nth-of-type(5),
+            section:nth-of-type(5)[style] {
+                width: 100% !important;
+                height: auto !important;
+                flex-direction: column !important;
+                padding: 24px 16px 40px !important;
+                gap: 24px !important;
+                box-sizing: border-box !important;
+            }
+
+            section:nth-of-type(5) > div:first-child {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                width: 100% !important;
+                height: auto !important;
+                gap: 8px !important;
+                order: 1 !important;
+                overflow: hidden !important;
+            }
+
+            section:nth-of-type(5) > div:first-child > * {
+                flex: 1 1 0 !important;
+                width: 0 !important;
+                height: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+                overflow: hidden !important;
+            }
+
+            section:nth-of-type(5) > div:first-child img {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                border-radius: 8px !important;
+            }
+
+            section:nth-of-type(5) > div:first-child svg {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            section:nth-of-type(5) > div:last-child {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                gap: 16px !important;
+                order: 2 !important;
+            }
+
+            section:nth-of-type(5) > div:last-child h2 {
+                font-size: 34px !important;
+                width: 100% !important;
+                height: auto !important;
+                line-height: 1.2 !important;
+            }
+
+            section:nth-of-type(5) > div:last-child > div:nth-child(2) {
+                display: block !important;
+            }
+
+            section:nth-of-type(5) > div:last-child p {
+                font-size: 14px !important;
+                width: 100% !important;
+                height: auto !important;
+                line-height: 1.7 !important;
+                margin: 0 !important;
+            }
+
+            section:nth-of-type(5) > div:last-child > div:last-child {
+                width: 100% !important;
+                height: auto !important;
+                flex-wrap: wrap !important;
+                gap: 8px !important;
+            }
+
+            section:nth-of-type(5) > div:last-child > div:last-child > span {
+                font-size: 15px !important;
+                width: auto !important;
+                height: auto !important;
+            }
+
+            section:nth-of-type(5) > div:last-child > div:nth-child(2) {
+                display: block !important;
+                width: 100% !important;
+                height: 0 !important;
+                position: relative !important;
+                top: -18px !important;
+                overflow: visible !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            section:nth-of-type(5) > div:last-child > div:nth-child(2) svg {
+                display: block !important;
+                position: relative !important;
+                top: -6px !important;
+                left: 0 !important;
+                width: 110px !important;
+                height: 20px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                overflow: visible !important;
+            }
+
+            /* Section 6 - Unlock Success */
+            section:nth-of-type(6),
+            section:nth-of-type(6)[style] {
+                width: 100% !important;
+                height: auto !important;
+                padding: 24px 16px 40px !important;
+                box-sizing: border-box !important;
+            }
+
+            section:nth-of-type(6) > div {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                border-radius: 24px !important;
+                padding: 24px 16px !important;
+                box-sizing: border-box !important;
+            }
+
+            section:nth-of-type(6) > div > div:first-child {
+                width: 100% !important;
+                height: auto !important;
+                padding: 0 !important;
+            }
+
+            section:nth-of-type(6) > div > div:first-child > div {
+                width: 100% !important;
+                height: auto !important;
+                align-items: center !important;
+            }
+
+            section:nth-of-type(6) > div > div:first-child > div > div:first-child {
+                width: 100% !important;
+                height: auto !important;
+                font-size: 24px !important;
+                line-height: 1.3 !important;
+                text-align: center !important;
+            }
+
+            section:nth-of-type(6) > div > div:first-child > div > div:last-child {
+                width: 100% !important;
+                height: auto !important;
+                font-size: 13px !important;
+                line-height: 1.5 !important;
+                text-align: center !important;
+            }
+
+            section:nth-of-type(6) > div > div:last-child {
+                flex-direction: column !important;
+                gap: 16px !important;
+                padding: 16px 0 0 !important;
+                width: 100% !important;
+            }
+
+            section:nth-of-type(6) > div > div:last-child > div {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 180px !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Section 7 - Testimonials */
+            section:nth-of-type(7),
+            section:nth-of-type(7)[style] {
+                width: 100% !important;
+                height: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 24px 16px 60px !important;
+                box-sizing: border-box !important;
+                gap: 24px !important;
+                position: relative !important;
+            }
+
+            section:nth-of-type(7) > div:first-child {
+                width: 100% !important;
+                height: auto !important;
+                margin-top: 0 !important;
+            }
+
+            section:nth-of-type(7) > div:first-child > div {
+                width: 100% !important;
+                height: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                margin-top: 0 !important;
+            }
+
+            section:nth-of-type(7) > div:first-child > div h2 {
+                font-size: 38px !important;
+                width: 100% !important;
+                height: auto !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+            }
+
+            section:nth-of-type(7) > div:first-child > div h2 span svg {
+                bottom: -5px !important;
+                left: 0px !important;
+                width: 70px !important;
+                height: auto !important;
+            }
+
+            section:nth-of-type(7) > div:last-child {
+                width: 100% !important;
+                height: auto !important;
+                overflow-x: scroll !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                padding: 4px 0 12px !important;
+                scrollbar-width: none !important;
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                gap: 14px !important;
+            }
+
+            section:nth-of-type(7) > div:last-child::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            section:nth-of-type(7) > div:last-child > div {
+                flex: 0 0 280px !important;
+                width: 280px !important;
+                height: auto !important;
+                min-height: 260px !important;
+                scroll-snap-align: start !important;
+                margin-right: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            section:nth-of-type(7) > div:last-child > div p {
+                font-size: 14px !important;
+                line-height: 1.6 !important;
+            }
+
+            section:nth-of-type(7) > div:last-child > div p:first-of-type {
+                font-size: 14px !important;
+                -webkit-line-clamp: 4 !important;
+            }
+
+            section:nth-of-type(7) > div:first-child > div > div {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-end !important;
+                gap: 12px !important;
+                position: absolute !important;
+                bottom: -340px !important;
+                right: 10px !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+            }
+
+            section:nth-of-type(7) > div:first-child > div > div button {
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 50% !important;
+                border: 2px solid #EA580C !important;
+                background: transparent !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                flex-shrink: 0 !important;
+            }
+
+            /* Section 8 - FAQ */
+            section:nth-of-type(8),
+            section:nth-of-type(8)[style] {
+                width: 100% !important;
+                height: auto !important;
+                padding: 24px 16px 40px !important;
+                box-sizing: border-box !important;
+                gap: 20px !important;
+                align-items: flex-start !important;
+            }
+
+            section:nth-of-type(8) > div:first-child {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            section:nth-of-type(8) > div:first-child h2 {
+                font-size: 32px !important;
+                width: 100% !important;
+                height: auto !important;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                line-height: 1.2 !important;
+            }
+
+            section:nth-of-type(8) > div:first-child h2 span svg,
+            section:nth-of-type(8) > div:first-child > svg,
+            section:nth-of-type(8) > div:first-child svg {
+                width: 100px !important;
+                height: 18px !important;
+                bottom: -4px !important;
+                left: 0px !important;
+                position: absolute !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(2),
+            section:nth-of-type(8) > div:nth-child(3),
+            section:nth-of-type(8) > div:nth-child(4) {
+                display: none !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
+                gap: 10px !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) > div {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 50px !important;
+                box-sizing: border-box !important;
+                padding: 12px !important;
+                overflow: hidden !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) > div > div:last-child,
+            section:nth-of-type(8) > div:nth-child(5) > div > div > div:first-of-type {
+                font-size: 12px !important;
+                width: auto !important;
+                height: auto !important;
+                line-height: 1.4 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) > div * {
+                font-size: 12px !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) * {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+
+            section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) > div > div:last-child {
+                font-size: 11px !important;
+                width: 100% !important;
+                line-height: 1.4 !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+                margin-top: 6px !important;
+            }
+
+            /* Mobile hover effects for Popular Courses */
+            section:nth-of-type(4) .lc-category-grid > div {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                transform: none !important;
+                box-shadow: none !important;
+                border: 1px solid #EAEAEA !important;
+                background-color: #FFFFFF !important;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                width: 150px !important;
+                height: 150px !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div h4 {
+                transition: color 0.3s ease;
+                color: #252641 !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div:hover,
+            section:nth-of-type(4) .lc-category-grid > div:active {
+                transform: translateY(-8px) !important;
+                box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15) !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div:hover h4,
+            section:nth-of-type(4) .lc-category-grid > div:active h4 {
+                color: #2563EB !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div {
+                width: 200px !important;
+                height: 200px !important;
+                padding: 16px !important;
+                margin: 0 auto !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+        }
+
+        /* Popular Courses Hover Effects */
+        section:nth-of-type(4) .lc-category-grid > div {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        section:nth-of-type(4) .lc-category-grid > div h4 {
+            transition: color 0.3s ease;
+        }
+
+        section:nth-of-type(4) .lc-category-grid > div:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        section:nth-of-type(4) .lc-category-grid > div:hover h4 {
+            color: #2563EB !important;
+        }
+
+        
+        @media (max-width: 480px) {
+            section:nth-of-type(4) .lc-category-grid > div {
+                width: 160px !important;
+                height: 160px !important;
+                padding: 12px !important;
+                margin: 0 auto !important;
+            }
+
+            section:nth-of-type(4) .lc-category-grid > div img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+
+        
+        /* Desktop width enforcement */
+        @media (min-width: 1440px) {
+            html {
+                min-width: 1440px;
+            }
+
+            body {
+                min-width: 1440px;
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 
+        ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+          SECTION 1: HERO SECTION
+          - Main landing area with gradient background
+          - Contains title, subtitle, bullet points, and enrollment button
+          - Includes decorative elements (blobs, dots, cards)
+          - Mobile responsive styles applied
+        ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+        -->
+        <section class="hero-section" style="width: 100%; 
+                  height: 745px; 
+                  background-color: #EFFBFF; 
+                  position: relative; 
+                  transform: rotate(0deg); 
+                  opacity: 1;">
+
+  <!-- Inner block -->
+  <div style="position: absolute; 
+            width: 1440px; 
+            height: 705px; 
+            top: 130px; 
+            transform: rotate(0deg); 
+            opacity: 1;">
       <!-- Circle element with localized blur -->
       <div class="hero-blur-circle" style="position: absolute;
                 width: 407px;
@@ -520,7 +1630,7 @@
     opacity: 1;
   ">
         <!-- Image 1 -->
-        <img ngSrc="assets/images/home2.webp" alt="Student learning programming basics with focused expression" width="36" height="35" style="
+        <img src="assets/images/home2.webp" alt="Student 1" style="
       width: 36px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -530,7 +1640,7 @@
     " />
 
         <!-- Image 2 -->
-        <img ngSrc="assets/images/home3.webp" alt="Student practicing coding exercises with keyboard and monitor" width="36" height="35" style="
+        <img src="assets/images/home3.webp" alt="Student 2" style="
       width: 36px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -540,7 +1650,7 @@
     " />
 
         <!-- Image 3 -->
-        <img ngSrc="assets/images/home4.webp" alt="Student completing algorithm tutorial with focused concentration" width="37" height="35" style="
+        <img src="assets/images/home4.webp" alt="Student 3" style="
       width: 37px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -550,7 +1660,7 @@
     " />
 
         <!-- Image 4 -->
-        <img ngSrc="assets/images/home5.webp" alt="Student mastering data structures with confident expression" width="35" height="35" style="
+        <img src="assets/images/home5.webp" alt="Student 4" style="
       width: 35px;
       height: 35px;
       border: 2px solid #FFFFFF;
@@ -1304,12 +2414,12 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-        <img ngSrc="assets/images/home6.webp" alt="Students learning algorithms in collaborative classroom environment with instructor guidance and peer interaction" width="355" height="304" priority style="
+        <img src="assets/images/home6.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-  " />
+  ">
       </div>
 
       <!-- Image block -->
@@ -1322,16 +2432,16 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-  <img ngSrc="assets/images/home7.webp" alt="Interactive programming concepts and data structures visualization with algorithm complexity charts" width="355" height="304" style="
+        <img src="assets/images/home7.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-  " />
-</div>
+  ">
+      </div>
 
-<!-- Image block -->
-<div style="
+      <!-- Image block -->
+      <div style="
   position: absolute;
   width: 530px;
   height: 755px;
@@ -1340,13 +2450,17 @@
   transform: rotate(0deg);
   opacity: 1;
 ">
-  <img ngSrc="assets/images/home8.webp" alt="Algorithm complexity analysis tools and educational resources showing Big O notation graphs and performance metrics" width="530" height="755" style="
+        <img src="assets/images/home8.webp" alt="Home Image" style="
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-  " />
-</div>
+  ">
+      </div>
+
+
+
+    </div>
 
 
 
@@ -1627,7 +2741,6 @@
 
 
   <!-- third section — FIXED -->
-   <style></style>
   <section style="
   position: relative;
   width: 100%;
@@ -1744,7 +2857,8 @@
       <!-- Card 1 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 0px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img ngSrc="assets/images/img1.webp" alt="UI Design Fundamentals course teaching modern interface design principles and user experience best practices with hands-on projects" width="350" height="206" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img src="assets/images/img1.webp" alt="Course thumbnail"
+          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #FFEADF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 19px; height: 20px; top: 4px; left: 6px;">
@@ -1823,7 +2937,8 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="40" height="40" style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
+            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -1852,7 +2967,8 @@
       <!-- Card 2 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 441px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img ngSrc="assets/images/img2.webp" alt="Web Development Mastery course covering HTML, CSS, JavaScript and modern frameworks for building responsive websites" width="350" height="206" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img src="assets/images/img2.webp" alt="Course thumbnail"
+          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 17px; height: 18px; top: 5px; left: 7px;">
@@ -1931,7 +3047,8 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="40" height="40" style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
+            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -1960,7 +3077,8 @@
       <!-- Card 3 -->
       <div class="lc-course-card"
         style="position: absolute; width: 384px; height: 529px; top: 0px; left: 881px; background-color: #FFFFFF; border-radius: 24px; border: 1px solid #F3F4F6; box-shadow: 0px 2px 4px -1px #000000, 0px 4px 6px -1px #0000000D; opacity: 1; z-index: 5;">
-        <img ngSrc="assets/images/img3.webp" alt="Mobile Development with React Native course teaching cross-platform app development for iOS and Android" width="350" height="206" style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
+        <img src="assets/images/img3.webp" alt="Course thumbnail"
+          style="position: absolute; width: 350px; height: 206px; top: 13px; left: 16px; border-radius: 16px; object-fit: cover;" />
         <div
           style="position: absolute; width: 96px; height: 28px; top: 25px; left: 28px; background-color: #E7F0FF; border-radius: 8px; opacity: 1; box-shadow: 0px 1px 2px 0px #0000000D; backdrop-filter: blur(4px); z-index: 10;">
           <div style="position: absolute; width: 17px; height: 18px; top: 5px; left: 7px;">
@@ -2039,7 +3157,8 @@
         <div style="position: absolute; width: 354px; height: 86px; top: 375px; left: 16px;">
           <div style="position: absolute; width: 334px; height: 1px; top: 19px; left: 6px; background-color: #F3F4F6;">
           </div>
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="40" height="40" style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
+          <img src="assets/images/course-profile.webp" alt="Instructor Profile"
+            style="position: absolute; width: 40px; height: 40px; top: 29.5px; left: 5px; border-radius: 9999px; box-shadow: 0px 0px 0px 2px #FFFFFF; object-fit: cover;" />
           <span
             style="position: absolute; top: 31.5px; left: 57px; font-family: 'Inter'; font-size: 12px; color: #6B7280;">Instructor</span>
           <span
@@ -2569,9 +3688,19 @@
       align-items: flex-end;
     ">
         <!-- Image 1 -->
-        <img ngSrc="assets/images/r1a.webp" alt="Machine learning expert analyzing data patterns and algorithms" style="width:128px;height:192px;border-radius:5px;display:block;" />
+        <img src="assets/images/r1a.webp" alt="Row 1A" style="
+        width: 128px;
+        height: 192px;
+        border-radius: 5px;
+        display: block;
+      ">
         <!-- Image 2 -->
-        <img ngSrc="assets/images/r1b.webp" alt="Data science expert working with statistical analysis and visualization" style="width:172px;height:258px;border-radius:5px;display:block;" />
+        <img src="assets/images/r1b.webp" alt="Row 1B" style="
+        width: 172px;
+        height: 258px;
+        border-radius: 5px;
+        display: block;
+      ">
       </div>
 
       <!-- Row 2 block -->
@@ -2586,12 +3715,19 @@
   gap: 16px;
   padding-top: 1px; /* reduced from 32px to move row 2 up */
 ">
-        <img ngSrc="assets/images/r2a.webp" alt="Cloud computing specialist with infrastructure and DevOps expertise" width="128" height="212" style="width:128px;height:212px;border-radius:5px;display:block;" />
-        <img ngSrc="assets/images/r2b.webp" alt="Mentor guiding students through complexity analysis" width="128" height="215" style="width:128px;height:215px;border-radius:5px;display:block;" />
-        <img ngSrc="assets/images/r2c.webp" alt="Data analyst working with data mining and statistical modeling" width="128" height="160" style="width:128px;height:160px;border-radius:5px;display:block;" />
+        <img src="assets/images/r2a.webp" alt="Row 2A" style="
+    width: 128px;
+    height: 212px;
+    border-radius: 5px;
     display: block;
-  " />
-        <img ngSrc="assets/images/r2c.webp" alt="Data analyst working with data mining and statistical modeling" width="128" height="160" /> style="
+  ">
+        <img src="assets/images/r2b.webp" alt="Row 2B" style="
+    width: 128px;
+    height: 215px;
+    border-radius: 5px;
+    display: block;
+  ">
+        <img src="assets/images/r2c.webp" alt="Row 2C" style="
     width: 128px;
     height: 160px;
     border-radius: 5px;
@@ -2613,7 +3749,7 @@
   margin-top: 12px; 
 ">
         <!-- Image 1 -->
-        <img ngSrc="assets/images/r3a.webp" alt="AI research scientist with machine learning and deep learning expertise" width="128" height="171" /> style="
+        <img src="assets/images/r3a.webp" alt="Row 4A" style="
     width: 128px;
     height: 171px;
     border-radius: 5px;
@@ -2621,7 +3757,7 @@
   ">
 
         <!-- Image 2 -->
-        <img ngSrc="assets/images/r3b.webp" alt="Full stack developer with front-end and back-end development expertise" width="128" height="172" style="
+        <img src="assets/images/r3b.webp" alt="Row 4B" style="
     width: 128px;
     height: 172px;
     border-radius: 5px;
@@ -2629,7 +3765,7 @@
   ">
 
         <!-- Image 3 -->
-        <img ngSrc="assets/images/r3c.webp" alt="Software architect with system design and scalability expertise" width="128" height="192" /> style="
+        <img src="assets/images/r3c.webp" alt="Row 4C" style="
     width: 128px;
     height: 192px;
     border-radius: 5px;
@@ -2650,7 +3786,7 @@
   margin-top: 52px; /* moves row 4 lower */
 ">
         <!-- Image 1 -->
-        <img ngSrc="assets/images/r4a.webp" alt="Mobile app developer with iOS and Android development expertise" width="128" height="171" /> style="
+        <img src="assets/images/r4a.webp" alt="Row 4A" style="
     width: 160px;
     height: 255px;
     border-radius: 5px;
@@ -2658,12 +3794,12 @@
   ">
 
         <!-- Image 2 -->
-        <img ngSrc="assets/images/r4b.webp" alt="Data engineer with data warehousing and ETL expertise" width="128" height="165" style="
+        <img src="assets/images/r4b.webp" alt="Row 4B" style="
     width: 128px;
     height: 165px;
     border-radius: 5px;
     display: block;
-  " />
+  ">
       </div>
 
 
@@ -2697,7 +3833,7 @@
     color: #0F172A;
     margin: 0;
   ">
-        Meet Our Experts<br>Students &amp; Teachers
+        Meet Our ExpertsStudents & <br>Teachers
       </h2>
 
       <!-- SVG Block inside Left Block -->
@@ -3257,7 +4393,9 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="56" height="56" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
+      width:56px;
+      height:56px;
       border-radius:9999px;
       object-fit:cover;
       border:2px solid #e5e7eb;
@@ -3342,7 +4480,9 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="56" height="56" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
+      width:56px;
+      height:56px;
       border-radius:9999px;
       object-fit:cover;
       border:2px solid #e5e7eb;
@@ -3426,7 +4566,9 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Experienced programming instructor with expertise in machine learning and software engineering" width="56" height="56" style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
+      width:56px;
+      height:56px;
       border-radius:9999px;
       object-fit:cover;
       border:2px solid #e5e7eb;
@@ -3519,7 +4661,7 @@
 
         <!-- Profile + Info -->
         <div style="display:flex; align-items:center; gap:16px; margin-top:auto;">
-          <img ngSrc="assets/images/avatar.webp" alt="Hellen Jummy - satisfied student sharing learning experience" width="56" height="56" /> style="
+          <img src="assets/images/course-profile.webp" alt="Hellen Jummy" style="
       width:56px;
       height:56px;
       border-radius:9999px;
@@ -3668,11 +4810,19 @@
     align-items: flex-end;
   ">
     <!-- Image 1 -->
-    <img ngSrc="assets/images/r1a.webp" alt="Machine learning expert analyzing data patterns and algorithms" width="128" height="192" style="
+    <img src="assets/images/r1a.webp" alt="Row 1A" style="
       width: 128px;
-    "/>
+      height: 192px;
+      border-radius: 5px;
+      display: block;
+    ">
     <!-- Image 2 -->
-    <img ngSrc="assets/images/r1b.webp" alt="Data science expert working with statistical analysis and visualization" width="172" height="258" style="width:172px;height:258px;border-radius:5px;display:block;" />
+    <img src="assets/images/r1b.webp" alt="Row 1B" style="
+      width: 172px;
+      height: 258px;
+      border-radius: 5px;
+      display: block;
+    ">
   </div>
   <!-- Row 2 Images Block -->
 <div style="
@@ -3689,7 +4839,28 @@
   padding-top: 32px;
 ">
   <!-- Image 1 -->
-  <img ngSrc="assets/images/r2a.webp" alt="Data structures expert analyzing algorithm efficiency" width="128" height="212" style="width:128px;height:212px;border-radius:5px;display:block;" />
+  <img src="assets/images/r2a.webp" alt="Row 2A" style="
+    width: 128px;
+    height: 212px;
+    border-radius: 5px;
+    display: block;
+  ">
+
+  <!-- Image 2 -->
+  <img src="assets/images/r2b.webp" alt="Row 2B" style="
+    width: 128px;
+    height: 215px;
+    border-radius: 5px;
+    display: block;
+  ">
+
+  <!-- Image 3 -->
+  <img src="assets/images/r2c.webp" alt="Row 2C" style="
+    width: 128px;
+    height: 160px;
+    border-radius: 5px;
+    display: block;
+  ">
 </div>
 <!-- Row 3 Images Block -->
 <div style="
@@ -3700,6 +4871,37 @@
   left: 403px;
   transform: rotate(0deg);
   opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+">
+  <!-- Image 1 -->
+  <img src="assets/images/r3a.webp" alt="Row 3A" style="
+    width: 128px;
+    height: 171px;
+    border-radius: 5px;
+    display: block;
+  ">
+
+  <!-- Image 2 -->
+  <img src="assets/images/r3b.webp" alt="Row 3B" style="
+    width: 128px;
+    height: 172px;
+    border-radius: 5px;
+    display: block;
+  ">
+
+  <!-- Image 3 -->
+  <img src="assets/images/r3c.webp" alt="Row 3C" style="
+    width: 128px;
+    height: 192px;
+    border-radius: 5px;
+    display: block;
+  ">
+</div>
+
+<!-- Row 4 Box Block -->
+<div style="
   position: absolute;
   width: 825px;
   height: 730.0875244140625px;
@@ -3991,1161 +5193,8 @@
 
 
 
-<!--
-  ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
-    RESPONSIVE STYLES
-    - Mobile-first responsive design for screens ≤768px
-    - Adjusts layouts, typography, and spacing for mobile devices
-    - Overrides desktop positioning for better mobile experience
-    - Ensures all sections are properly visible on mobile
-  ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
-  -->
-  <style>
-  /* ═══════════════════════════════════════════════════
-   COMPLETE MOBILE CSS — All Sections
-   Add this inside one <style> block in your HTML
-   (replaces / consolidates all per-section styles)
-════════════════════════════════════════════════════ */
-
-/* ── Google Fonts (keep in <head>) ── */
-/* Already loaded by your HTML */
-
-@media (max-width: 768px) {
-
-/* ════════════════════════════════
-   GLOBAL RESET
-════════════════════════════════ */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* outer 1440px wrapper */
-  div[style*="position: relative; width: 1440px"],
-  div[style*="position:relative;width:1440px"] {
-    width: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  section {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-
-/* ════════════════════════════════
-   SECTION 1 — HERO
-════════════════════════════════ */
-  .hero-section {
-    width: 100% !important;
-    height: auto !important;
-    min-height: auto !important;
-    overflow: hidden !important;
-    position: relative !important;
-    padding-bottom: 32px !important;
-  }
-
-  .hero-title-block {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    top: 0 !important;
-    left: 0 !important;
-    padding: 20px 16px !important;
-    box-sizing: border-box !important;
-    gap: 12px !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .hero-label {
-    width: 100% !important;
-    height: auto !important;
-    font-size: 11px !important;
-    letter-spacing: 2px !important;
-  }
-
-  .hero-heading {
-    width: 100% !important;
-    height: auto !important;
-    font-size: 42px !important;
-    line-height: 115% !important;
-    position: relative !important;
-  }
-
-  .hero-heading span svg {
-    width: 100px !important;
-    height: 18px !important;
-  }
-
-  .hero-heading span > div {
-    bottom: -10px !important;
-    left: 0 !important;
-  }
-
-  .hero-bullets {
-    gap: 14px !important;
-    padding-top: 10px !important;
-    width: 100% !important;
-  }
-
-  .hero-bullet-text {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .hero-bullet-text > svg {
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hero-bullet-text > div {
-    font-size: 13px !important;
-    line-height: 20px !important;
-    white-space: normal !important;
-  }
-
-  .hero-enroll-btn {
-    margin-top: 16px !important;
-    width: 130px !important;
-    padding: 10px 0 !important;
-  }
-
-  .hero-enroll-btn span {
-    font-size: 14px !important;
-  }
-
-  .hero-enroll-btn svg {
-    width: 11px !important;
-    height: 11px !important;
-  }
-
-  .hero-blue-blob,
-  .hero-orange-blob,
-  .hero-dots-h,
-  .hero-dots-v,
-  .hero-card-internship,
-  .hero-card-students,
-  .hero-card-mentors,
-  .hero-card-courses,
-  .hero-grid-bg,
-  .hero-blur-circle {
-    display: none !important;
-  }
-
-  .hero-worldwide {
-    display: block !important;
-  }
-
-
-/* ════════════════════════════════
-   SECTION 2 — WHY CHOOSE US
-════════════════════════════════ */
-  section:nth-of-type(2) {
-    width: 100% !important;
-    height: auto !important;
-    min-height: auto !important;
-    position: relative !important;
-    padding: 24px 16px 40px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    background-color: #ffffff !important;
-    margin-top: 60px !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(1) {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 0 0 16px !important;
-    display: inline-flex !important;
-    padding: 4px 12px !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(1) span {
-    font-size: 12px !important;
-    line-height: 24px !important;
-    height: auto !important;
-    width: auto !important;
-    margin-left: 0 !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(2) {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 0 8px !important;
-    display: block !important;
-    padding: 0 !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(2) span {
-    font-size: 28px !important;
-    line-height: 36px !important;
-    text-align: left !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(3) {
-    display: none !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(4) {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 0 20px !important;
-    padding: 0 !important;
-    background: transparent !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(4) span {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    font-size: 13px !important;
-    line-height: 20px !important;
-    display: block !important;
-  }
-
-  /* 4 feature cards grid */
-  section:nth-of-type(2) > div:nth-child(5) {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(5) > div {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 120px !important;
-    padding: 12px 10px !important;
-    box-sizing: border-box !important;
-    border-radius: 8px !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(5) > div > div:nth-child(1) {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 6px !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 6px !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(5) > div > div:nth-child(1) > span {
-    font-size: 12px !important;
-    line-height: 16px !important;
-    height: auto !important;
-    width: auto !important;
-  }
-
-  section:nth-of-type(2) > div:nth-child(5) > div > span {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    font-size: 11px !important;
-    line-height: 18px !important;
-    display: block !important;
-  }
-
-  /* Hide right side images */
-  section:nth-of-type(2) > div:nth-child(6) {
-    display: none !important;
-  }
-
-
-/* ════════════════════════════════
-   COMPANY LOGO BAR
-════════════════════════════════ */
-  /* ════════════════════════════════
-   COMPANY LOGO BAR
-════════════════════════════════ */
-.company-block {
-  position: relative !important;
-  width: calc(100% - 20px) !important;
-  height: auto !important;
-  top: auto !important;
-  left: 10px !important;
-  padding: 0 !important;           /* removed — inner items handle their own padding */
-  box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: row !important;     /* row: label left, logos right */
-  align-items: center !important;   /* vertically centre both sides */
-  gap: 0 !important;
-  min-height: 64px !important;       /* reduced from 106px */
-  margin-top: 16px !important;
-  overflow: hidden !important;
-}
-
-.company-block .inner-text {
-  position: relative !important;
-  width: auto !important;           /* shrinks to fit one-line text */
-  min-width: 160px !important;
-  height: 64px !important;           /* matches new block height */
-  padding: 0 12px !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;         /* never squash the label */
-}
-
-.company-block .inner-text span {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: max-content !important;    /* forces single line */
-  height: auto !important;
-  font-size: 13px !important;
-  line-height: 1.3 !important;
-  white-space: nowrap !important;   /* keeps "Students at top companies" on one line */
-  display: block !important;
-}
-
-.company-block .horizontal-block {
-  position: relative !important;
-  width: 100% !important;
-  height: 64px !important;           /* matches block height */
-  top: auto !important;
-  left: auto !important;
-  display: flex !important;
-  flex-wrap: nowrap !important;      /* single row of logos */
-  overflow-x: auto !important;      /* scroll if logos overflow */
-  scrollbar-width: none !important;
-  gap: 0 16px !important;
-  padding: 0 8px !important;
-  justify-content: flex-start !important;
-  align-items: center !important;
-}
-
-.company-block .horizontal-block::-webkit-scrollbar {
-  display: none !important;
-}
-
-.company-block .horizontal-block span {
-  display: flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;         /* logos never compress */
-}
-
-.company-block .horizontal-block svg {
-  max-width: 72px !important;
-  height: 20px !important;           /* fixed height keeps logos aligned */
-  width: auto !important;
-}
-
-/* ════════════════════════════════
-   SECTION 3 — FEATURED COURSES
-════════════════════════════════ */
- /* ════════════════════════════════
-   SECTION 3 — FEATURED COURSES
-════════════════════════════════ */
-section:nth-of-type(3) {
-  height: auto !important;
-  padding: 24px 0 72px !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-/* "Featured Courses" heading */
-section:nth-of-type(3) > div:nth-child(1) {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  top: auto !important;
-  left: auto !important;
-  margin: 0 auto !important;
-  text-align: center !important;
-  padding-bottom: 18px !important;
-}
-
-section:nth-of-type(3) > div:nth-child(1) span {
-  font-size: 38px !important;
-  line-height: 1.15 !important;
-}
-
-/* Orange underline SVG — sits below heading */
-section:nth-of-type(3) > div:nth-child(2) {
-  position: relative !important;
-  top: -10px !important;
-  left: 70px !important;
-  width: 100px !important;
-  height: auto !important;
-  margin: -24px auto 12px !important;
-  display: flex !important;
-  justify-content: center !important;
-  z-index: -1 !important;
-}
-
-/* HIDE "Get choice of your course" */
-section:nth-of-type(3) > div:nth-child(3) {
-  display: none !important;
-}
-
-/* "See all" — bottom left */
-section:nth-of-type(3) > div:nth-child(4) {
-  position: absolute !important;
-  bottom: 12px !important;
-  left: 16px !important;
-  top: auto !important;
-  right: auto !important;
-  width: auto !important;
-  height: 50px !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-section:nth-of-type(3) > div:nth-child(4) span {
-  font-size: 16px !important;
-  line-height: 1 !important;
-}
-
-/* Cards scroll container — peek carousel */
-section:nth-of-type(3) > div:nth-child(5) {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  top: auto !important;
-  left: auto !important;
-  margin-top: 16px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  overflow-x: scroll !important;
-  overflow-y: hidden !important;
-  scroll-snap-type: x mandatory !important;
-  -webkit-overflow-scrolling: touch !important;
-  padding: 12px 0 20px !important;
-  gap: 10px !important;
-  scrollbar-width: none !important;
-  scroll-padding-inline: calc(50% - (100vw - 64px) / 2) !important;
-}
-
-section:nth-of-type(3) > div:nth-child(5)::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* Each card — 32px peek on each side */
-.lc-course-card {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  flex: 0 0 calc(100vw - 64px) !important;
-  width: calc(100vw - 64px) !important;
-  max-width: 340px !important;
-  height: 520px !important;
-  min-height: 520px !important;
-  scroll-snap-align: center !important;
-  border-radius: 20px !important;
-  overflow: hidden !important;
-  flex-shrink: 0 !important;
-}
-
-/* Scale card content to fit narrower card width */
-.lc-course-card > * {
-  transform-origin: top left !important;
-  transform: scale(0.84) !important;
-}
-
-/* Nav block — bottom right, same line as "See all" */
-section:nth-of-type(3) > div:last-child {
-  position: absolute !important;
-  bottom: 12px !important;
-  right: 16px !important;
-  top: auto !important;
-  left: auto !important;
-  width: auto !important;
-  height: 50px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 8px !important;
-  align-items: center !important;
-}
-
-/* Square nav buttons */
-section:nth-of-type(3) > div:last-child > div {
-  position: relative !important;
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 6px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  flex-shrink: 0 !important;
-}
-
-/* SVG arrows inside buttons */
-section:nth-of-type(3) > div:last-child > div svg {
-  width: 12px !important;
-  height: 18px !important;
-  display: block !important;
-  margin: auto !important;
-}
-
-
-/* ── JS — paste just before </body> ── */
-/*
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.innerWidth > 768) return;
-  var c = document.querySelector(
-    'section:nth-of-type(3) > div:nth-child(5)'
-  );
-  var cards = c && c.querySelectorAll('.lc-course-card');
-  if (!cards || cards.length < 2) return;
-  var card = cards[1];
-  c.scrollLeft = card.offsetLeft - (c.offsetWidth - card.offsetWidth) / 2;
-});
-</script>
-*/
-
-
-/* ════════════════════════════════
-   SECTION 4 — POPULAR COURSES
-════════════════════════════════ */
-section:nth-of-type(4) {
-  width: 100% !important;
-  height: auto !important;
-  padding: 24px 16px 70px !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Heading container */
-section:nth-of-type(4) > div:nth-child(1) {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  top: auto !important;
-  left: auto !important;
-  padding: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0 !important;
-}
-
-/* "Popular Courses" — increased size */
-section:nth-of-type(4) > div:nth-child(1) > span:nth-child(1) {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  height: auto !important;
-  font-size: 38px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.5px !important;
-  order: 1 !important;
-}
-
-/* FIX 2 — Orange SVG: order:2 so it sits directly below "Popular Courses" */
-section:nth-of-type(4) > div:nth-child(1) > div:nth-child(3) {
-  display: flex !important;
-  position: relative !important;
-  top: -2px !important;
-  left: auto !important;
-  width: 100px !important;
-  height: auto !important;
-  margin: -10px 0 6px 105px !important;  /* 105px left ≈ under "Courses" word */
-  justify-content: flex-start !important;
-  z-index: -1 !important;
-  order: 2 !important;               /* renders between "Popular Courses" and "to boost..." */
-}
-
-/* "to boost your career" */
-section:nth-of-type(4) > div:nth-child(1) > span:nth-child(2) {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  height: auto !important;
-  font-size: 18px !important;
-  line-height: 1.3 !important;
-  margin-top: 4px !important;
-  order: 3 !important;
-}
-
-/* FIX 1 — "View All Courses": absolute, centred below grid */
-section:nth-of-type(4) > div:nth-child(1) > div:last-child {
-  position: absolute !important;
-  bottom: -530px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: auto !important;
-  right: auto !important;
-  width: auto !important;
-  height: auto !important;
-  text-align: center !important;
-}
-
-section:nth-of-type(4) > div:nth-child(1) > div:last-child span {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: auto !important;
-  height: auto !important;
-  font-size: 16px !important;
-  white-space: nowrap !important;
-}
-
-/* Grid container */
-section:nth-of-type(4) > div:nth-child(2) {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  top: auto !important;
-  left: auto !important;
-  margin-top: 16px !important;
-}
-
-/* Show only first 6 cards */
-.lc-category-grid > div:nth-child(n+7) {
-  display: none !important;
-}
-
-.lc-category-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 8px !important;
-  width: 100% !important;
-  height: auto !important;
-}
-
-.lc-category-grid > div {
-  width: 100% !important;
-  height: 150px !important;
-  box-shadow: none !important;
-  border: 1px solid #EAEAEA !important;
-}
-
-/* Mobile hover effect - same as desktop */
-@media (max-width: 768px) {
-  section:nth-of-type(4) .lc-category-grid > div {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    transform: none !important;
-    box-shadow: none !important;
-    border: 1px solid #EAEAEA !important;
-    background-color: #FFFFFF !important;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 150px !important;
-    height: 150px !important;
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div h4 {
-    transition: color 0.3s ease;
-    color: #252641 !important;
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div:hover,
-  section:nth-of-type(4) .lc-category-grid > div:active {
-    transform: translateY(-8px) !important;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15) !important;
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div:hover h4,
-  section:nth-of-type(4) .lc-category-grid > div:active h4 {
-    color: #2563EB !important;
-  }
-}
-
-.lc-category-grid > div h4 {
-  font-size: 15px !important;
-  margin-bottom: 4px !important;
-  color: #252641 !important;
-}
-
-.lc-category-grid > div p {
-  font-size: 12px !important;
-  margin-top: 4px !important;
-}
-
-.lc-category-grid > div > div {
-  width: 24px !important;
-  height: 24px !important;
-  margin-bottom: 12px !important;
-}
-
-.lc-category-grid > div > div svg {
-  width: 24px !important;
-  height: 24px !important;
-}
-/* ════════════════════════════════
-   SECTION 5 — MEET OUR EXPERTS
-════════════════════════════════ */
-  /* ════════════════════════════════
-   SECTION 5 — MEET OUR EXPERTS
-════════════════════════════════ */
-section:nth-of-type(5) {
-  width: 100% !important;
-  height: auto !important;
-  flex-direction: column !important;
-  padding: 24px 16px 40px !important;
-  gap: 24px !important;
-  box-sizing: border-box !important;
-}
-/* ✅ Image mosaic — VISIBLE, placed BEFORE paragraph */
-section:nth-of-type(5) > div:first-child {
-  display: flex !important;
-  flex-direction: row !important;      /* all 4 rows side by side */
-  flex-wrap: nowrap !important;
-  width: 100% !important;
-  height: auto !important;
-  gap: 8px !important;
-  order: 1;                            /* appears first */
-  overflow: hidden !important;
-}
-/* Each image row sits beside the other */
-section:nth-of-type(5) > div:first-child > * {
-  flex: 1 1 0 !important;
-  width: 0 !important;                 /* flex distributes evenly */
-  height: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  overflow: hidden !important;
-}
-/* Images fill their column */
-section:nth-of-type(5) > div:first-child img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
-  object-fit: cover !important;
-  border-radius: 8px !important;
-}
-/* SVGs also visible */
-section:nth-of-type(5) > div:first-child svg {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-/* ✅ Text column — placed AFTER images */
-section:nth-of-type(5) > div:last-child {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  gap: 16px !important;
-  order: 2;                            /* appears after image block */
-}
-section:nth-of-type(5) > div:last-child h2 {
-  font-size: 34px !important;
-  width: 100% !important;
-  height: auto !important;
-  line-height: 1.2 !important;
-}
-section:nth-of-type(5) > div:last-child > div:nth-child(2) {
-  display: block !important;
-}
-section:nth-of-type(5) > div:last-child p {
-  font-size: 14px !important;
-  width: 100% !important;
-  height: auto !important;
-  line-height: 1.7 !important;
-  margin: 0 !important;
-}
-section:nth-of-type(5) > div:last-child > div:last-child {
-  width: 100% !important;
-  height: auto !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-}
-section:nth-of-type(5) > div:last-child > div:last-child > span {
-  font-size: 15px !important;
-  width: auto !important;
-  height: auto !important;
-} 
-/* Orange SVG underline — overlapping bottom of h2 */
-section:nth-of-type(5) > div:last-child > div:nth-child(2) {
-  display: block !important;
-  width: 100% !important;
-  height: 0 !important;           /* takes no space — sits over h2 */
-  position: relative !important;
-  top: -18px !important;          /* pulls it up into the h2 bottom */
-  overflow: visible !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-section:nth-of-type(5) > div:last-child > div:nth-child(2) svg {
-  display: block !important;
-  position: relative !important;
-  top: -6px !important;
-  left: 0 !important;
-  width: 110px !important;        /* fixed small size */
-  height: 20px !important;        /* fixed small height */
-  visibility: visible !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-}
-
-/* ════════════════════════════════
-   SECTION 6 — UNLOCK SUCCESS
-════════════════════════════════ */
-  section:nth-of-type(6) {
-    width: 100% !important;
-    height: auto !important;
-    padding: 24px 16px 40px !important;
-    box-sizing: border-box !important;
-  }
-
-  section:nth-of-type(6) > div {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    top: auto !important;
-    left: auto !important;
-    border-radius: 24px !important;
-    padding: 24px 16px !important;
-    box-sizing: border-box !important;
-  }
-
-  section:nth-of-type(6) > div > div:first-child {
-    width: 100% !important;
-    height: auto !important;
-    padding: 0 !important;
-  }
-
-  section:nth-of-type(6) > div > div:first-child > div {
-    width: 100% !important;
-    height: auto !important;
-    align-items: center !important;
-  }
-
-  section:nth-of-type(6) > div > div:first-child > div > div:first-child {
-    width: 100% !important;
-    height: auto !important;
-    font-size: 24px !important;
-    line-height: 1.3 !important;
-    text-align: center !important;
-  }
-
-  section:nth-of-type(6) > div > div:first-child > div > div:last-child {
-    width: 100% !important;
-    height: auto !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-    text-align: center !important;
-  }
-
-  /* Stat cards container */
-  section:nth-of-type(6) > div > div:last-child {
-    flex-direction: column !important;
-    gap: 16px !important;
-    padding: 16px 0 0 !important;
-    width: 100% !important;
-  }
-
-  section:nth-of-type(6) > div > div:last-child > div {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 180px !important;
-    box-sizing: border-box !important;
-  }
-
-
-/* ════════════════════════════════
-   SECTION 7 — TESTIMONIALS
-════════════════════════════════ */
-section:nth-of-type(7) {
-  width: 100% !important;
-  height: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  padding: 24px 16px 60px !important;  /* extra bottom padding for buttons */
-  box-sizing: border-box !important;
-  gap: 24px !important;
-  position: relative !important;       /* anchor for absolute buttons */
-}
-
-/* ── Title block ── */
-section:nth-of-type(7) > div:first-child {
-  width: 100% !important;
-  height: auto !important;
-  margin-top: 0 !important;
-}
-
-section:nth-of-type(7) > div:first-child > div {
-  width: 100% !important;
-  height: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  margin-top: 0 !important;
-}
-
-section:nth-of-type(7) > div:first-child > div h2 {
-  font-size: 38px !important;
-  width: 100% !important;
-  height: auto !important;
-  line-height: 1.2 !important;
-  margin: 0 !important;
-}
-/* Orange SVG underline below "says" — Section 7 */
-section:nth-of-type(7) > div:first-child > div h2 span svg {
-  bottom: -5px !important;    /* move up/down */
-  left: 0px !important;        /* move left/right */
-  width: 70px !important;     /* size */
-  height: auto !important;
-}
-
-/* ── Card block ── */
-section:nth-of-type(7) > div:last-child {
-  width: 100% !important;
-  height: auto !important;
-  overflow-x: scroll !important;
-  scroll-snap-type: x mandatory !important;
-  -webkit-overflow-scrolling: touch !important;
-  padding: 4px 0 12px !important;
-  scrollbar-width: none !important;
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  justify-content: flex-start !important;
-  gap: 14px !important;
-}
-
-section:nth-of-type(7) > div:last-child::-webkit-scrollbar {
-  display: none !important;
-}
-
-section:nth-of-type(7) > div:last-child > div {
-  flex: 0 0 280px !important;
-  width: 280px !important;
-  height: auto !important;
-  min-height: 260px !important;
-  scroll-snap-align: start !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-}
-
-section:nth-of-type(7) > div:last-child > div p {
-  font-size: 14px !important;
-  line-height: 1.6 !important;
-}
-
-section:nth-of-type(7) > div:last-child > div p:first-of-type {
-  font-size: 14px !important;
-  -webkit-line-clamp: 4 !important;
-}
-
-/* ✅ Buttons — absolute positioned BELOW cards, bottom right */
-section:nth-of-type(7) > div:first-child > div > div {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: 12px !important;
-  position: absolute !important;
-  bottom: -340px !important;             /* sits at section bottom */
-  right: 10px !important;              /* sits at section right */
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-
-section:nth-of-type(7) > div:first-child > div > div button {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50% !important;
-  border: 2px solid #EA580C !important;
-  background: transparent !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  flex-shrink: 0 !important;
-}
-
-
-/* ════════════════════════════════
-   SECTION 8 — FAQ
-════════════════════════════════ */
-/* ════════════════════════════════
-   SECTION 8 — FAQ
-════════════════════════════════ */
-section:nth-of-type(8) {
-  width: 100% !important;
-  height: auto !important;
-  padding: 24px 16px 40px !important;
-  box-sizing: border-box !important;
-  gap: 20px !important;
-  align-items: flex-start !important;
-}
-
-/* FAQ heading wrapper */
-section:nth-of-type(8) > div:first-child {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-}
-
-section:nth-of-type(8) > div:first-child h2 {
-  font-size: 32px !important;
-  width: 100% !important;
-  height: auto !important;
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  line-height: 1.2 !important;
-}
-
-/* Orange SVG underline below h2 */
-section:nth-of-type(8) > div:first-child h2 span svg,
-section:nth-of-type(8) > div:first-child > svg,
-section:nth-of-type(8) > div:first-child svg {
-  width: 100px !important;
-  height: 18px !important;
-  bottom: -4px !important;
-  left: 0px !important;
-  position: absolute !important;
-}
-
-/* Hide image columns */
-section:nth-of-type(8) > div:nth-child(2),
-section:nth-of-type(8) > div:nth-child(3),
-section:nth-of-type(8) > div:nth-child(4) {
-  display: none !important;
-}
-
-/* FAQ accordion wrapper */
-section:nth-of-type(8) > div:nth-child(5) {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  top: auto !important;
-  left: auto !important;
-  gap: 10px !important;              /* ✅ tighter gap between cards */
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* All FAQ cards */
-section:nth-of-type(8) > div:nth-child(5) > div {
-  width: 100% !important;
-  height: auto !important;
-  min-height: 50px !important;       /* ✅ reduced min-height */
-  box-sizing: border-box !important;
-  padding: 12px !important;          /* ✅ tighter padding */
-  overflow: hidden !important;
-}
-
-/* ✅ ALL cards — reduced question text */
-section:nth-of-type(8) > div:nth-child(5) > div > div:last-child,
-section:nth-of-type(8) > div:nth-child(5) > div > div > div:first-of-type {
-  font-size: 12px !important;        /* ✅ reduced from 15px */
-  width: auto !important;
-  height: auto !important;
-  line-height: 1.4 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* ✅ ALL cards — every inner element reduced */
-section:nth-of-type(8) > div:nth-child(5) > div * {
-  font-size: 12px !important;        /* ✅ global reduce across all cards */
-  line-height: 1.4 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Second card — tight single line text */
-section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) * {
-  font-size: 11px !important;        /* ✅ slightly smaller than others */
-  line-height: 1.4 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-/* Answer text — allow wrap */
-section:nth-of-type(8) > div:nth-child(5) > div:nth-child(2) > div > div:last-child {
-  font-size: 11px !important;
-  width: 100% !important;
-  line-height: 1.4 !important;
-  white-space: normal !important;
-  word-break: break-word !important;
-  margin-top: 6px !important;
-}
-
-} /* end @media (max-width: 768px) */
-
-/* ═══════════════════════════════════════════════════
-   SECTION 4 - POPULAR COURSES HOVER EFFECT
-══════════════════════════════════════════════════ */
-
-/* Course category blocks hover effect */
-section:nth-of-type(4) .lc-category-grid > div {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-section:nth-of-type(4) .lc-category-grid > div h4 {
-  transition: color 0.3s ease;
-}
-
-section:nth-of-type(4) .lc-category-grid > div:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-section:nth-of-type(4) .lc-category-grid > div:hover h4 {
-  color: #2563EB !important;
-}
-
-/* Mobile hover effect - same as desktop */
-@media (max-width: 768px) {
-  section:nth-of-type(4) .lc-category-grid > div {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div h4 {
-    transition: color 0.3s ease;
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
-  }
-
-  section:nth-of-type(4) .lc-category-grid > div:hover h4 {
-    color: #2563EB !important;
-  }
-}
-</style>
+    </div>
+</body>
+</html>
 
 

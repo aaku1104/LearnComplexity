@@ -11,6 +11,27 @@ import { NgOptimizedImage } from '@angular/common';
 export class Home implements OnInit {
   private seo = inject(SeoService);
 
+  onImageError(event: any): void {
+    const img = event.target;
+    const fallbackSrc = 'assets/images/default-avatar.png';
+    
+    // Try to load fallback image
+    if (img.src !== fallbackSrc) {
+      img.src = fallbackSrc;
+      img.onerror = null; // Prevent infinite loop
+    } else {
+      // If fallback also fails, show a colored placeholder
+      img.style.display = 'none';
+      const parent = img.parentElement;
+      if (parent) {
+        const placeholder = document.createElement('div');
+        placeholder.style.cssText = img.style.cssText + 'background-color:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#666;font-size:12px;';
+        placeholder.textContent = 'Image';
+        parent.appendChild(placeholder);
+      }
+    }
+  }
+
   ngOnInit() {
     this.seo.setPage({
       title: 'Learn Big O Notation & Algorithm Complexity | Learn Complexity',

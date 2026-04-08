@@ -21,48 +21,69 @@ export interface Review {
 export class ReviewsComponent implements OnInit {
   private seo = inject(SeoService);
 
+  onImageError(event: any): void {
+    const img = event.target;
+    const fallbackSrc = 'assets/images/course-profile.webp';
+    
+    // Try to load fallback image
+    if (img.src !== fallbackSrc) {
+      img.src = fallbackSrc;
+      img.onerror = null; // Prevent infinite loop
+    } else {
+      // If fallback also fails, show a colored placeholder
+      img.style.display = 'none';
+      const parent = img.parentElement;
+      if (parent) {
+        const placeholder = document.createElement('div');
+        placeholder.style.cssText = img.style.cssText + 'background-color:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#666;font-size:12px;';
+        placeholder.textContent = 'Avatar';
+        parent.appendChild(placeholder);
+      }
+    }
+  }
+
   reviews: Review[] = [
     {
       name: 'Hellen Jummy',
       role: 'Full Stack Developer',
       rating: 4,
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and mentors were incredibly supportive throughout my journey.',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     },
     {
       name: 'Theresa Webb',
       role: 'UI/UX Designer',
       rating: 5,
       text: 'The curriculum is well-structured and instructors are very knowledgeable. I went from a beginner to landing my first design job within 6 months of completing the course!',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     },
     {
       name: 'Ralph Edwards',
       role: 'Backend Engineer',
       rating: 5,
       text: 'Excellent platform for learning modern backend technologies. The hands-on projects and code reviews gave me the confidence to tackle real-world challenges professionally.',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     },
     {
       name: 'Jenny Wilson',
       role: 'Data Scientist',
       rating: 4,
       text: 'The data science track is comprehensive and up-to-date. The community support and peer learning opportunities made the journey enjoyable and highly productive.',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     },
     {
       name: 'Devon Lane',
       role: 'Mobile Developer',
       rating: 5,
       text: 'I loved every bit of the mobile development course. The projects were challenging in the best way, and I\'m now building apps that people actually use daily.',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     },
     {
       name: 'Kathryn Murphy',
       role: 'Product Manager',
       rating: 4,
       text: 'Great platform! The product management courses are practical and relevant to today\'s industry. I especially appreciated the live case study sessions with industry experts.',
-      avatar: 'assets/images/testimonial-avatar.webp'
+      avatar: 'assets/images/course-profile.webp'
     }
   ];
 
