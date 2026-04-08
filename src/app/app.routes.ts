@@ -14,6 +14,18 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'home',
+    loadComponent: () =>
+      import('./pages/home/home').then(m => m.Home),
+    title: 'Learn Algorithm Complexity - Big O Notation',
+    data: {
+      description: 'Master Big O notation and algorithm complexity analysis through interactive tutorials, examples, and hands-on practice.',
+      keywords: 'big o notation, algorithm complexity, data structures, programming tutorials, time complexity, space complexity',
+      canonicalUrl: 'https://learncomplexity.com/',
+      type: 'website'
+    }
+  },
+  {
     path: 'courses',
     loadComponent: () =>
       import('./pages/courses/courses').then(m => m.Courses),

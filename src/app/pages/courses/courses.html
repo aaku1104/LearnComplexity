@@ -162,14 +162,23 @@ html, body { width: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; 
   gap: 20px; max-width: 1300px; margin: 0 auto;
 }
 .cat-card {
-  border-radius: 18px; border: 1px solid #EAEAEA; background: #fff;
+  border-radius: 18px; background: #fff;
   padding: 40px 12px 40px; display: flex;
   flex-direction: column;
   align-items: center; justify-content: center; text-align: center;
-  cursor: pointer; transition: transform .25s, box-shadow .25s, border-color .25s;
+  cursor: pointer; transition: transform .25s, box-shadow .25s;
   aspect-ratio: 1;
+  border: none;
+  outline: none;
+}
+.cat-card:focus, .cat-card:active, .cat-card:focus-visible {
+  border: none !important;
+  outline: none !important;
 }
 .cat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+.cat-card:focus:hover, .cat-card:active:hover, .cat-card:focus-visible:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,.10) !important;
+}
 .cat-card svg { margin-bottom: 16px; transition: transform .25s; }
 .cat-card:hover svg { transform: scale(1.12); }
 .cat-card h4 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(13px, 1.5vw, 20px); color: #252641; transition: color .25s; }
