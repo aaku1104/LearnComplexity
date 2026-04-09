@@ -22,8 +22,13 @@ export class ReviewsComponent implements OnInit {
   private seo = inject(SeoService);
 
   onImageError(event: any): void {
+    // Only run on client side
+    if (typeof document === 'undefined') {
+      return;
+    }
+    
     const img = event.target;
-    const fallbackSrc = 'assets/images/course-profile.webp';
+    const fallbackSrc = 'assets/images/testimonial-avatar.webp';
     
     // Try to load fallback image
     if (img.src !== fallbackSrc) {
@@ -48,42 +53,42 @@ export class ReviewsComponent implements OnInit {
       role: 'Full Stack Developer',
       rating: 4,
       text: 'Learning on this platform has been an amazing experience! The live projects helped me apply concepts practically, and mentors were incredibly supportive throughout my journey.',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Theresa Webb',
       role: 'UI/UX Designer',
       rating: 5,
       text: 'The curriculum is well-structured and instructors are very knowledgeable. I went from a beginner to landing my first design job within 6 months of completing the course!',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Ralph Edwards',
       role: 'Backend Engineer',
       rating: 5,
       text: 'Excellent platform for learning modern backend technologies. The hands-on projects and code reviews gave me the confidence to tackle real-world challenges professionally.',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Jenny Wilson',
       role: 'Data Scientist',
       rating: 4,
       text: 'The data science track is comprehensive and up-to-date. The community support and peer learning opportunities made the journey enjoyable and highly productive.',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Devon Lane',
       role: 'Mobile Developer',
       rating: 5,
       text: 'I loved every bit of the mobile development course. The projects were challenging in the best way, and I\'m now building apps that people actually use daily.',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     },
     {
       name: 'Kathryn Murphy',
       role: 'Product Manager',
       rating: 4,
       text: 'Great platform! The product management courses are practical and relevant to today\'s industry. I especially appreciated the live case study sessions with industry experts.',
-      avatar: 'assets/images/course-profile.webp'
+      avatar: 'assets/images/testimonial-avatar.webp'
     }
   ];
 
@@ -101,55 +106,58 @@ export class ReviewsComponent implements OnInit {
   dots: number[] = [];
 
   ngOnInit(): void {
-    this.seo.update({
-      title: 'Student Reviews – LearnComplexity Success Stories',
-      description: 'Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.',
-      keywords: 'student reviews, testimonials, learncomplexity reviews, big o notation success stories, algorithm learning experience',
-      canonicalUrl: 'https://learncomplexity.com/reviews',
-      type: 'website'
-    });
+    // Only run SEO updates on client side to prevent SSR issues
+    if (typeof window !== 'undefined') {
+      this.seo.update({
+        title: 'Student Reviews - LearnComplexity Success Stories',
+        description: 'Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.',
+        keywords: 'student reviews, testimonials, learncomplexity reviews, big o notation success stories, algorithm learning experience',
+        canonicalUrl: 'https://learncomplexity.com/reviews',
+        type: 'website'
+      });
 
-    this.seo.addJsonLd({
-      "@context": "https://schema.org",
-      "@type": "ReviewPage",
-      "name": "Student Reviews – LearnComplexity Success Stories",
-      "description": "Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.",
-      "url": "https://learncomplexity.com/reviews",
-      "provider": {
-        "@type": "Organization",
-        "name": "Learn Complexity",
-        "sameAs": "https://learncomplexity.com"
-      },
-      "mainEntity": {
-        "@type": "AggregateRating",
-        "itemReviewed": {
-          "@type": "EducationalOrganization",
+      this.seo.addJsonLd({
+        "@context": "https://schema.org",
+        "@type": "ReviewPage",
+        "name": "Student Reviews - LearnComplexity Success Stories",
+        "description": "Read authentic reviews from students who mastered Big O notation and algorithm complexity. Discover how our courses helped developers advance their careers.",
+        "url": "https://learncomplexity.com/reviews",
+        "provider": {
+          "@type": "Organization",
           "name": "Learn Complexity",
           "sameAs": "https://learncomplexity.com"
         },
-        "ratingValue": "4.5",
-        "reviewCount": "6",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": this.reviews.map(review => ({
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": review.name
+        "mainEntity": {
+          "@type": "AggregateRating",
+          "itemReviewed": {
+            "@type": "EducationalOrganization",
+            "name": "Learn Complexity",
+            "sameAs": "https://learncomplexity.com"
+          },
+          "ratingValue": "4.5",
+          "reviewCount": "6",
+          "bestRating": "5",
+          "worstRating": "1"
         },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": review.rating.toString()
-        },
-        "reviewBody": review.text,
-        "publisher": {
-          "@type": "Organization",
-          "name": "Learn Complexity"
-        }
-      })),
-      "inLanguage": "en"
-    });
+        "review": this.reviews.map(review => ({
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": review.name
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating.toString()
+          },
+          "reviewBody": review.text,
+          "publisher": {
+            "@type": "Organization",
+            "name": "Learn Complexity"
+          }
+        })),
+        "inLanguage": "en"
+      });
+    }
     
     this.updateDots();
     this.updateVisibleReviews();

@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
+import { ReviewsComponent } from '../../reviews/reviews.component';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent]
+  imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent, ReviewsComponent]
 })
 export class AboutComponent implements OnInit {
   private seo = inject(SeoService);
