@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, Renderer2, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./home.css']
 })
 export class Home implements OnInit {
-  private metaSeo = inject(MetaSeoService);
+  private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
   private renderer = inject(Renderer2);
   private platformId = inject(PLATFORM_ID);
@@ -45,17 +45,36 @@ export class Home implements OnInit {
   }
 
   ngOnInit() {
-    this.metaSeo.setPage({
-      title: 'Learn Complex Topics Simply',
-      description: 'Master complex algorithms and Big O notation with interactive examples. Learn time complexity, space complexity, and data structures step by step.',
-      url: 'https://learn-complexity.vercel.app/'
+    const pageTitle = "Learn Algorithm Complexity - Big O Notation Made Simple | Learn Complexity";
+    const pageDescription = "Master algorithm complexity, Big O notation and data structures with expert-led courses. Earn certificates and unlock internship opportunities.";
+    const pageUrl = "https://learn-complexity.vercel.app/home";
+
+    // Set all SEO tags
+    this.seo.setTitle(pageTitle);
+    this.seo.setMetaDescription(pageDescription);
+    this.seo.setCanonical(pageUrl);
+    this.seo.setOpenGraph({
+      title: pageTitle,
+      description: pageDescription,
+      url: pageUrl
     });
 
-    // Add structured data schemas
-    this.structuredData.injectWebSiteSchema();
-    this.structuredData.injectOrganizationSchema();
-    this.structuredData.injectBreadcrumbSchema([
-      { name: 'Home', url: 'https://learn-complexity.vercel.app/' }
-    ]);
+    // Add EducationalOrganization schema for home page
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Learn Complexity",
+      "url": "https://learn-complexity.vercel.app",
+      "logo": "https://learn-complexity.vercel.app/assets/images/lc-logo.webp",
+      "description": "Expert-led courses on algorithm complexity, Big O notation and data structures.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-91234-56789",
+        "contactType": "customer service"
+      },
+      "sameAs": []
+    };
+
+    this.seo.addJsonLd(organizationSchema);
   }
 }

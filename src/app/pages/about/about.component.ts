@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { ReviewsComponent } from '../../reviews/reviews.component';
-import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { StructuredDataService } from '../../core/services/structured-data.servi
   imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent, ReviewsComponent]
 })
 export class AboutComponent implements OnInit {
-  private metaSeo = inject(MetaSeoService);
+  private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
   
   crumbs = [
@@ -45,10 +45,18 @@ export class AboutComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.metaSeo.setPage({
-      title: 'About Our Mission',
-      description: 'Discover our mission to make algorithm education accessible. Learn about our story, teaching approach, and commitment to helping developers master complexity.',
-      url: 'https://learn-complexity.vercel.app/about'
+    const pageTitle = "About Us | Learn Complexity";
+    const pageDescription = "Learn about our mission to make algorithm complexity education accessible. Meet our expert mentors and discover our story.";
+    const pageUrl = "https://learn-complexity.vercel.app/about";
+
+    // Set all SEO tags
+    this.seo.setTitle(pageTitle);
+    this.seo.setMetaDescription(pageDescription);
+    this.seo.setCanonical(pageUrl);
+    this.seo.setOpenGraph({
+      title: pageTitle,
+      description: pageDescription,
+      url: pageUrl
     });
 
     // Add structured data schemas

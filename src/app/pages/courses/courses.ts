@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
-import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { StructuredDataService } from '../../core/services/structured-data.servi
   styleUrls: ['./courses.css'],
 })
 export class Courses implements OnInit {
-  private metaSeo = inject(MetaSeoService);
+  private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
 
   crumbs = [
@@ -236,10 +236,18 @@ export class Courses implements OnInit {
   }
 
   ngOnInit(): void {
-    this.metaSeo.setPage({
-      title: 'Algorithm Complexity Courses',
-      description: 'Explore comprehensive courses on Big O notation and data structures. Master time and space complexity analysis with hands-on tutorials and examples.',
-      url: 'https://learn-complexity.vercel.app/courses'
+    const pageTitle = "All Courses | Learn Complexity";
+    const pageDescription = "Browse 125+ expert-led courses in web development, UI/UX, mobile development, SAP, and more. Start learning today.";
+    const pageUrl = "https://learn-complexity.vercel.app/courses";
+
+    // Set all SEO tags
+    this.seo.setTitle(pageTitle);
+    this.seo.setMetaDescription(pageDescription);
+    this.seo.setCanonical(pageUrl);
+    this.seo.setOpenGraph({
+      title: pageTitle,
+      description: pageDescription,
+      url: pageUrl
     });
 
     // Add structured data schemas
@@ -249,15 +257,27 @@ export class Courses implements OnInit {
       { name: 'Courses', url: 'https://learn-complexity.vercel.app/courses' }
     ]);
 
-    // Add course schemas for the main courses
-    this.courses.slice(0, 3).forEach((course, index) => {
-      this.structuredData.injectCourseSchema({
-        title: course.title,
-        description: course.description,
-        slug: course.title.toLowerCase().replace(/\s+/g, '-'),
-        level: 'Beginner to Advanced',
-        thumbnailUrl: course.image
-      });
-    });
+    // Add ItemList schema for courses page
+    const itemListSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "All Courses at Learn Complexity",
+      "url": "https://learn-complexity.vercel.app/courses",
+      "itemListElement": [
+        {
+          "@type": "Course",
+          "position": 1,
+          "name": "UI Design for Beginners",
+          "description": "Master UI/UX design fundamentals with hands-on projects.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Learn Complexity",
+            "sameAs": "https://learn-complexity.vercel.app"
+          }
+        }
+      ]
+    };
+
+    this.seo.addJsonLd(itemListSchema);
   }
 }

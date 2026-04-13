@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
-import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 import { AnalyticsService } from '../../services/analytics.service';
 
@@ -34,7 +34,7 @@ interface Testimonial {
 })
 export class ContactUsComponent implements OnInit {
  
-  private metaSeo = inject(MetaSeoService);
+  private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
   private analytics = inject(AnalyticsService);
 
@@ -89,10 +89,18 @@ export class ContactUsComponent implements OnInit {
   visibleTestimonials: Testimonial[] = [];
 
   ngOnInit(): void {
-    this.metaSeo.setPage({
-      title: 'Contact Our Team',
-      description: 'Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We\'re here to help you learn.',
-      url: 'https://learn-complexity.vercel.app/contact'
+    const pageTitle = "Contact Us | Learn Complexity";
+    const pageDescription = "Get in touch with the Learn Complexity team. We're here to help with courses, internships, and placement support.";
+    const pageUrl = "https://learn-complexity.vercel.app/contact";
+
+    // Set all SEO tags
+    this.seo.setTitle(pageTitle);
+    this.seo.setMetaDescription(pageDescription);
+    this.seo.setCanonical(pageUrl);
+    this.seo.setOpenGraph({
+      title: pageTitle,
+      description: pageDescription,
+      url: pageUrl
     });
 
     // Add structured data schemas
