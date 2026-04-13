@@ -2,7 +2,7 @@ import { SitemapStream, streamToPromise } from 'sitemap';
 import { createWriteStream } from 'fs';
 import { resolve } from 'path';
 
-const HOSTNAME = 'https://learncomplexity.com';
+const HOSTNAME = 'https://learn-complexity.vercel.app';
 const OUTPUT = resolve('./dist/learn-complexity/browser/sitemap.xml');
 
 const staticRoutes = [
@@ -12,10 +12,6 @@ const staticRoutes = [
   { url: '/courses',                changefreq: 'weekly',  priority: 0.9 },
   { url: '/contact',                changefreq: 'monthly', priority: 0.7 },
   { url: '/reviews',                changefreq: 'weekly',  priority: 0.8 },
-  { url: '/blog',                   changefreq: 'daily',   priority: 0.9 },
-  { url: '/blog/big-o-notation',    changefreq: 'monthly', priority: 0.8 },
-  { url: '/blog/time-complexity',   changefreq: 'monthly', priority: 0.8 },
-  { url: '/blog/space-complexity',  changefreq: 'monthly', priority: 0.8 },
 ];
 
 const sitemap = new SitemapStream({ hostname: HOSTNAME });

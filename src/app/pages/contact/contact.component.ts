@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
-import { SeoService } from '../../services/seo.service';
+import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { StructuredDataService } from '../../core/services/structured-data.service';
 import { AnalyticsService } from '../../services/analytics.service';
 
 declare global {
@@ -33,7 +34,8 @@ interface Testimonial {
 })
 export class ContactUsComponent implements OnInit {
  
-  private seo = inject(SeoService);
+  private metaSeo = inject(MetaSeoService);
+  private structuredData = inject(StructuredDataService);
   private analytics = inject(AnalyticsService);
 
   crumbs = [
@@ -87,33 +89,18 @@ export class ContactUsComponent implements OnInit {
   visibleTestimonials: Testimonial[] = [];
 
   ngOnInit(): void {
-    this.seo.setPage({
-      title: 'Contact Learn Complexity | Get in Touch',
-      description: 'Have questions about algorithm complexity or Big O notation? Reach out to the Learn Complexity team. We\'re here to help developers learn faster.',
-      url: '/contact'
-    });
-
-    this.seo.update({
-      title: 'Contact LearnComplexity - Get in Touch',
+    this.metaSeo.setPage({
+      title: 'Contact Our Team',
       description: 'Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We\'re here to help you learn.',
-      keywords: 'contact learncomplexity, support, help, algorithm questions, big o notation help, customer service',
-      canonicalUrl: 'https://learncomplexity.com/contact',
-      type: 'website'
+      url: 'https://learn-complexity.vercel.app/contact'
     });
 
-    this.seo.addJsonLd({
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact LearnComplexity – Get in Touch",
-      "description": "Have questions about Big O notation or algorithm complexity? Contact our team for support, feedback, or collaboration opportunities. We're here to help you learn.",
-      "url": "https://learncomplexity.com/contact",
-      "provider": {
-        "@type": "Organization",
-        "name": "Learn Complexity",
-        "sameAs": "https://learncomplexity.com"
-      },
-      "inLanguage": "en"
-    });
+    // Add structured data schemas
+    this.structuredData.injectOrganizationSchema();
+    this.structuredData.injectBreadcrumbSchema([
+      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
+      { name: 'Contact Us', url: 'https://learn-complexity.vercel.app/contact' }
+    ]);
     
     this.updateVisibleTestimonials();
     this.updateVisibleCount();

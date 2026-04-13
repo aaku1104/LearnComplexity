@@ -326,7 +326,7 @@
         </div>
       </li>
       <li class="hdr-links__item" role="none">
-        <a href="/blogs" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'Blogs', route: '/blogs' }) ? 'page' : null">Blogs</a>
+        <a href="#" class="hdr-links__a" role="menuitem" (click)="onNavClick({ label: 'Blogs', route: '/blogs' }, $event)">Blogs</a>
       </li>
       <li class="hdr-links__item" role="none">
         <a href="/contact" class="hdr-links__a" role="menuitem" [attr.aria-current]="isActive({ label: 'Contact Us', route: '/contact' }) ? 'page' : null">Contact Us</a>
@@ -354,7 +354,7 @@
     <a href="/home">Home</a>
     <a href="/about">About US</a>
     <a href="/courses">Courses ▾</a>
-    <a href="/blogs">Blogs</a>
+    <a href="#" (click)="onNavClick({ label: 'Blogs', route: '/blogs' }, $event)">Blogs</a>
     <a href="/contact">Contact Us</a>
     <div class="hdr-mobile-ctas">
       <button class="hdr-btn-signin" style="flex:1;">Sign in</button>

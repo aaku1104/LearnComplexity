@@ -47,6 +47,13 @@ export class HeaderComponent {
     // Track navigation click
     this.analytics.trackButtonClick(`nav_${item.label.toLowerCase().replace(' ', '_')}`, item.label);
     
+    // Prevent navigation for Blogs item
+    if (item.label === 'Blogs') {
+      event.preventDefault();
+      this.closeDropdown();
+      return;
+    }
+    
     // If item has dropdown, clicking the label still navigates (routerLink handles it).
     // Close dropdown on any nav click.
     if (!item.hasDropdown) {

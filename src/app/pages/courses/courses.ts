@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
-import { SeoService } from '../../services/seo.service';
+import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { StructuredDataService } from '../../core/services/structured-data.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,7 +14,8 @@ import { SeoService } from '../../services/seo.service';
   styleUrls: ['./courses.css'],
 })
 export class Courses implements OnInit {
-  private seo = inject(SeoService);
+  private metaSeo = inject(MetaSeoService);
+  private structuredData = inject(StructuredDataService);
 
   crumbs = [
     { label: 'Home', url: '/' },
@@ -234,34 +236,28 @@ export class Courses implements OnInit {
   }
 
   ngOnInit(): void {
-    this.seo.setPage({
-      title: 'Time Complexity Explained: O(n) to O(n²) | Learn Complexity',
-      description: 'Learn time complexity analysis with real code examples. Understand O(n log n), O(n²) and more. Interactive Big O visualizations included.',
-      url: '/courses'
+    this.metaSeo.setPage({
+      title: 'Algorithm Complexity Courses',
+      description: 'Explore comprehensive courses on Big O notation and data structures. Master time and space complexity analysis with hands-on tutorials and examples.',
+      url: 'https://learn-complexity.vercel.app/courses'
     });
 
-    this.seo.update({
-      title: 'Algorithm Courses – Learn Big O Notation & Data Structures',
-      description: 'Explore comprehensive courses on algorithm complexity, Big O notation, and data structures. Master time and space complexity analysis with hands-on tutorials.',
-      keywords: 'algorithm courses, big o notation courses, data structures, time complexity, space complexity, programming tutorials, algorithm analysis',
-      canonicalUrl: 'https://learncomplexity.com/courses',
-      type: 'website'
-    });
+    // Add structured data schemas
+    this.structuredData.injectEducationalOrganizationSchema();
+    this.structuredData.injectBreadcrumbSchema([
+      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
+      { name: 'Courses', url: 'https://learn-complexity.vercel.app/courses' }
+    ]);
 
-    this.seo.addJsonLd({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Algorithm Complexity & Big O Notation Courses",
-      "description": "Comprehensive courses covering algorithm complexity, Big O notation, time and space complexity analysis with practical examples",
-      "provider": {
-        "@type": "Organization",
-        "name": "Learn Complexity",
-        "sameAs": "https://learncomplexity.com"
-      },
-      "url": "https://learncomplexity.com/courses",
-      "educationalLevel": "Beginner to Advanced",
-      "teaches": ["Big O notation", "time complexity", "space complexity", "data structures", "algorithm analysis"],
-      "inLanguage": "en"
+    // Add course schemas for the main courses
+    this.courses.slice(0, 3).forEach((course, index) => {
+      this.structuredData.injectCourseSchema({
+        title: course.title,
+        description: course.description,
+        slug: course.title.toLowerCase().replace(/\s+/g, '-'),
+        level: 'Beginner to Advanced',
+        thumbnailUrl: course.image
+      });
     });
   }
 }

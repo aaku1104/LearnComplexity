@@ -1,12 +1,11 @@
 User-agent: *
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin
+Disallow: /api
+Disallow: /login
+Disallow: /register
 Allow: /
 
-# Block non-content paths
-Disallow: /assets/
-Disallow: /api/
-Disallow: /*.json$
-Disallow: /*.js$
-Disallow: /*.css$
-
-# Sitemap location
-Sitemap: https://learncomplexity.com/sitemap.xml
+Sitemap: https://learn-complexity.vercel.app/sitemap.xml

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { ReviewsComponent } from '../../reviews/reviews.component';
-import { SeoService } from '../../services/seo.service';
+import { MetaSeoService } from '../../core/services/meta-seo.service';
+import { StructuredDataService } from '../../core/services/structured-data.service';
 
 @Component({
   selector: 'app-about',
@@ -13,7 +14,8 @@ import { SeoService } from '../../services/seo.service';
   imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent, ReviewsComponent]
 })
 export class AboutComponent implements OnInit {
-  private seo = inject(SeoService);
+  private metaSeo = inject(MetaSeoService);
+  private structuredData = inject(StructuredDataService);
   
   crumbs = [
     { label: 'Home', url: '/' },
@@ -43,39 +45,17 @@ export class AboutComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.seo.setPage({
-      title: 'About Learn Complexity - Free Algorithm Education',
-      description: 'Learn who we are and why we built Learn Complexity - a free platform to master Big O notation and algorithm analysis for developers.',
-      url: '/about'
+    this.metaSeo.setPage({
+      title: 'About Our Mission',
+      description: 'Discover our mission to make algorithm education accessible. Learn about our story, teaching approach, and commitment to helping developers master complexity.',
+      url: 'https://learn-complexity.vercel.app/about'
     });
 
-    this.seo.update({
-      title: 'About LearnComplexity – Our Mission & Story',
-      description: 'Learn about our mission to make algorithm complexity education accessible. Discover our story, teaching approach, and commitment to helping developers master Big O notation.',
-      keywords: 'about learncomplexity, mission, story, algorithm education, big o notation, computer science learning',
-      canonicalUrl: 'https://learncomplexity.com/about',
-      type: 'website'
-    });
-
-    this.seo.addJsonLd({
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About LearnComplexity – Our Mission & Story",
-      "description": "Learn about our mission to make algorithm complexity education accessible. Discover our story, teaching approach, and commitment to helping developers master Big O notation.",
-      "url": "https://learncomplexity.com/about",
-      "provider": {
-        "@type": "Organization",
-        "name": "Learn Complexity",
-        "sameAs": "https://learncomplexity.com"
-      },
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Learn Complexity",
-        "description": "Educational platform dedicated to making algorithm complexity and Big O notation accessible to all developers",
-        "url": "https://learncomplexity.com",
-        "sameAs": "https://learncomplexity.com"
-      },
-      "inLanguage": "en"
-    });
+    // Add structured data schemas
+    this.structuredData.injectOrganizationSchema();
+    this.structuredData.injectBreadcrumbSchema([
+      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
+      { name: 'About Us', url: 'https://learn-complexity.vercel.app/about' }
+    ]);
   }
 }
