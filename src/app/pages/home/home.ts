@@ -44,12 +44,12 @@ export class Home implements OnInit {
     }
   }
 
-  ngOnInit() {
+  constructor() {
     const pageTitle = "Learn Algorithm Complexity - Big O Notation Made Simple | Learn Complexity";
     const pageDescription = "Master algorithm complexity, Big O notation and data structures with expert-led courses. Earn certificates and unlock internship opportunities.";
     const pageUrl = "https://learn-complexity.vercel.app/home";
 
-    // Set all SEO tags
+    // Set all SEO tags immediately in constructor
     this.seo.setTitle(pageTitle);
     this.seo.setMetaDescription(pageDescription);
     this.seo.setCanonical(pageUrl);
@@ -76,5 +76,9 @@ export class Home implements OnInit {
     };
 
     this.seo.addJsonLd(organizationSchema);
+  }
+
+  ngOnInit() {
+    // SEO is already set in constructor
   }
 }

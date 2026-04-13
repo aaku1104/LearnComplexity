@@ -88,12 +88,12 @@ export class ContactUsComponent implements OnInit {
   visibleCount = 3;
   visibleTestimonials: Testimonial[] = [];
 
-  ngOnInit(): void {
+  constructor() {
     const pageTitle = "Contact Us | Learn Complexity";
     const pageDescription = "Get in touch with the Learn Complexity team. We're here to help with courses, internships, and placement support.";
     const pageUrl = "https://learn-complexity.vercel.app/contact";
 
-    // Set all SEO tags
+    // Set all SEO tags immediately in constructor
     this.seo.setTitle(pageTitle);
     this.seo.setMetaDescription(pageDescription);
     this.seo.setCanonical(pageUrl);
@@ -115,6 +115,10 @@ export class ContactUsComponent implements OnInit {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => this.updateVisibleCount());
     }
+  }
+
+  ngOnInit(): void {
+    // SEO is already set in constructor
   }
 
   updateVisibleCount(): void {

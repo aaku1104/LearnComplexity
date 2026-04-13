@@ -235,12 +235,12 @@ export class Courses implements OnInit {
     return Array(5 - full - half).fill(0);
   }
 
-  ngOnInit(): void {
+  constructor() {
     const pageTitle = "All Courses | Learn Complexity";
     const pageDescription = "Browse 125+ expert-led courses in web development, UI/UX, mobile development, SAP, and more. Start learning today.";
     const pageUrl = "https://learn-complexity.vercel.app/courses";
 
-    // Set all SEO tags
+    // Set all SEO tags immediately in constructor
     this.seo.setTitle(pageTitle);
     this.seo.setMetaDescription(pageDescription);
     this.seo.setCanonical(pageUrl);
@@ -279,5 +279,9 @@ export class Courses implements OnInit {
     };
 
     this.seo.addJsonLd(itemListSchema);
+  }
+
+  ngOnInit(): void {
+    // SEO is already set in constructor
   }
 }

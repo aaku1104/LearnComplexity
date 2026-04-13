@@ -44,12 +44,12 @@ export class AboutComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {
+  constructor() {
     const pageTitle = "About Us | Learn Complexity";
     const pageDescription = "Learn about our mission to make algorithm complexity education accessible. Meet our expert mentors and discover our story.";
     const pageUrl = "https://learn-complexity.vercel.app/about";
 
-    // Set all SEO tags
+    // Set all SEO tags immediately in constructor
     this.seo.setTitle(pageTitle);
     this.seo.setMetaDescription(pageDescription);
     this.seo.setCanonical(pageUrl);
@@ -65,5 +65,9 @@ export class AboutComponent implements OnInit {
       { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
       { name: 'About Us', url: 'https://learn-complexity.vercel.app/about' }
     ]);
+  }
+
+  ngOnInit(): void {
+    // SEO is already set in constructor
   }
 }
