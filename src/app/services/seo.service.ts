@@ -77,7 +77,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:description', content: config.description });
     
     // Update canonical URL
-    const existing = document.querySelector('link[rel="canonical"]');
+    const existing = this.doc.querySelector('link[rel="canonical"]');
     if (existing) {
       existing.setAttribute('href', `https://learncomplexity.com${config.url ?? '/'}`);
     }
