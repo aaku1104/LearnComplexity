@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin
+Disallow: /api
+Disallow: /login
+Disallow: /register
+Allow: /
+
+Sitemap: https://learn-complexity.vercel.app/sitemap.xml
