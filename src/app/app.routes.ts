@@ -4,8 +4,13 @@ import { PreloadAllModules } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadComponent: () => import('./pages/home/home').then(m => m.Home),
+    title: 'Learn Algorithm Complexity - Big O Notation Made Simple | Learn Complexity',
+    data: {
+      description: 'Master algorithm complexity, Big O notation and data structures with expert-led courses.',
+      canonicalUrl: 'https://learn-complexity.vercel.app/',
+      type: 'website'
+    }
   },
   {
     path: 'home',
