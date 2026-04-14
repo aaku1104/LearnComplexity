@@ -1,8 +1,5 @@
 {
   "buildCommand": "ng build",
   "outputDirectory": "dist/learn-complexity/browser",
-  "framework": "angular",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "framework": "angular"
 }
