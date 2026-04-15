@@ -43,92 +43,27 @@
 
     }
 
-
-
-
-
-
-
     /* Complete Mobile Responsive Styles */
 
-
-
     @media (max-width: 768px) {
-
-
-
-
-
-
-
       /* Global Reset */
-
-
-
       html,
-
-
-
       body {
-
-
-
         overflow-x: hidden !important;
-
-
-
         width: 100% !important;
-
-
-
         margin: 0 !important;
-
-
-
         padding: 0 !important;
-
-
-
       }
-
-
-
-
-
-
 
       .container {
-
-
-
         display: flex !important;
-
-
-
         flex-direction: column !important;
-
-
-
       }
 
 
-
-
-
-
-
       body {
-
-
-
         display: flex !important;
-
-
-
         flex-direction: column !important;
-
-
-
       }
 
 
@@ -139,24 +74,10 @@
 
       /* outer 1440px wrapper */
 
-
-
       div[style*="position: relative; width: 100%"],
-
-
-
       div[style*="position:relative;width:100%"] {
-
-
-
         width: 100% !important;
-
-
-
         overflow-x: hidden !important;
-
-
-
       }
 
 
@@ -166,21 +87,9 @@
 
 
       /* Fix negative positioned elements */
-
-
-
       div[style*="left: -"] {
-
-
-
         left: 0 !important;
-
-
-
         transform: translateX(0) !important;
-
-
-
       }
 
 
@@ -190,29 +99,11 @@
 
 
       section {
-
-
-
         width: 100% !important;
-
-
-
         max-width: 100% !important;
-
-
-
         box-sizing: border-box !important;
-
-
-
         display: flex !important;
-
-
-
         flex-direction: column !important;
-
-
-
       }
 
 
@@ -222,29 +113,11 @@
 
 
       /* Override inline styles for sections */
-
-
-
       section[style] {
-
-
-
         width: 100% !important;
-
-
-
         height: auto !important;
-
-
-
         padding: 24px 16px !important;
-
-
-
         position: relative !important;
-
-
-
       }
 
 
@@ -258,37 +131,14 @@
 
 
       .hero-section,
-
-
-
       section.hero-section[style] {
-
-
-
         width: 100% !important;
-
-
-
+        
         height: auto !important;
-
-
-
         min-height: auto !important;
-
-
-
         overflow: hidden !important;
-
-
-
         position: relative !important;
-
-
-
         padding-bottom: 32px !important;
-
-
-
       }
 
 
@@ -298,9 +148,6 @@
 
 
       .hero-title-block {
-
-
-
         position: relative !important;
 
 
@@ -4507,15 +4354,25 @@
 
     /* Section 3 - Adjust course card images and elements for mobile view */
     @media (max-width: 768px) {
+       
+      /* Make course card container and section allow overflow for wider images */
+      section:nth-of-type(3) {
+        overflow: visible !important;
+      }
+      section:nth-of-type(3) .lc-course-card {
+        overflow: visible !important;
+      }
       
       /* Make course card top image appear fully with original position */
-      section:nth-of-type(3) .lc-course-card img[style*="top: 13px"] {
-        width: calc(100% + 10px) !important;
+      section:nth-of-type(3) .lc-course-card img[style*="top: 13px"][width="350"][height="206"] {
+        width: calc(100% - 30px)  !important;
         height: auto !important;
         left: 17px !important;
         top: 13px !important;
         border-radius: 16px !important;
         object-fit: cover !important;
+        z-index: 1 !important;
+        transform: translateX(-5px) !important;
       }
 
       /* Move 24 Weeks elements with SVG to little more left */
