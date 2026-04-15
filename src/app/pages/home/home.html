@@ -136,7 +136,7 @@
         
         height: auto !important;
         min-height: auto !important;
-        overflow: hidden !important;
+        overflow: visible !important;
         position: relative !important;
         padding-bottom: 32px !important;
       }
@@ -564,7 +564,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -1128,7 +1128,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -1224,7 +1224,7 @@
 
 
 
-        white-space: nowrap !important;
+        white-space: normal !important;
 
 
 
@@ -1400,7 +1400,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -1752,7 +1752,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -2244,7 +2244,7 @@
 
 
 
-        white-space: nowrap !important;
+        white-space: normal !important;
 
 
 
@@ -2536,7 +2536,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -2576,7 +2576,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -3868,7 +3868,7 @@
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -3876,54 +3876,17 @@
 
 
 
-
-
-
-
       section:nth-of-type(8)>div:nth-child(5)>div>div:last-child,
-
-
-
       section:nth-of-type(8)>div:nth-child(5)>div>div>div:first-of-type {
-
-
-
         font-size: 12px !important;
-
-
-
         width: auto !important;
-
-
-
         height: auto !important;
-
-
-
         line-height: 1.4 !important;
-
-
-
-        white-space: nowrap !important;
-
-
-
+        white-space: normal !important;
         overflow: hidden !important;
-
-
-
         text-overflow: ellipsis !important;
-
-
-
         margin: 0 !important;
-
-
-
         padding: 0 !important;
-
-
-
       }
 
 
@@ -3980,11 +3943,11 @@
 
 
 
-        white-space: nowrap !important;
+        white-space: normal !important;
 
 
 
-        overflow: hidden !important;
+        overflow: visible !important;
 
 
 
@@ -4292,60 +4255,6 @@
 
 
 
-    @media (max-width: 480px) {
-
-
-
-      section:nth-of-type(4) .lc-category-grid>div {
-
-
-
-        width: 160px !important;
-
-
-
-        height: 160px !important;
-
-
-
-        padding: 12px !important;
-
-
-
-        margin: 0 auto !important;
-
-
-
-      }
-
-
-
-
-
-
-
-      section:nth-of-type(4) .lc-category-grid>div img {
-
-
-
-        width: 40px !important;
-
-
-
-        height: 40px !important;
-
-
-
-      }
-
-
-
-    }
-
-
-
-
-
 
 
 
@@ -4378,6 +4287,82 @@
       /* Move 24 Weeks elements with SVG to little more left */
       section:nth-of-type(3) .lc-course-card div[style*="top: 237px; left: 278px"] {
         left: 240px !important;
+      }
+      
+      /* Make section 4 category cards responsive */
+      section:nth-of-type(4) .lc-category-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        padding: 0 8px !important;
+      }
+      
+      section:nth-of-type(4) .lc-category-grid>div {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 140px !important;
+        padding: 12px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        transition: all 0.3s ease !important;
+      }
+      
+      section:nth-of-type(4) .lc-category-grid>div img {
+        width: 40px !important;
+        height: 40px !important;
+        margin-bottom: 8px !important;
+      }
+      
+      section:nth-of-type(4) .lc-category-grid>div h4 {
+        font-size: 14px !important;
+        line-height: 18px !important;
+        margin-bottom: 4px !important;
+      }
+      
+      /* FAQ Section - Mobile fixes for answer visibility */
+      section:nth-of-type(8) div[style*="width: 650px"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 18px !important;
+        line-height: 140% !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      
+      section:nth-of-type(8) div[style*="width: 717px"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 16px !important;
+        line-height: 150% !important;
+        height: auto !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        padding: 0 !important;
+      }
+      
+      section:nth-of-type(8) div[style*="display: flex; flex-direction: column"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      
+      /* Position View All Courses below all cards in section 4 */
+      section:nth-of-type(4) span[style*="View All Courses"] {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
+        display: block !important;
+        text-align: center !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
       }
     }
 
