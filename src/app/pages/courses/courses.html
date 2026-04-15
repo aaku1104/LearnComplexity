@@ -1,485 +1,983 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8"/>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Courses Page</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 <style>
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
+
   --blue: #2563EB; --blue-light: #3B82F6; --blue-pale: #EFF6FF;
+
   --dark: #111827; --gray: #6B7280; --border: #F3F4F6;
+
   --navy: #111C34; --teal: #3DCBB1;
+
 }
+
 html, body { width: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; }
 
+
+
 /* ─── HERO ─── */
+
 .hero {
+
   position: relative; width: 100%; min-height: 600px;
+
   background: var(--navy);
+
   display: flex; align-items: center; justify-content: center; overflow: hidden;
+
 }
+
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .7; z-index: 1; }
+
 .hero-overlay { position: absolute; inset: 0; background: rgba(17,28,52,.42); z-index: 2; }
+
 .hero-content { position: relative; z-index: 10; text-align: center; padding: 80px 20px 130px; }
+
 .hero-content h1 {
+
   font-family: 'Poppins', sans-serif; font-weight: 700;
+
   font-size: clamp(26px, 4.5vw, 52px); line-height: 1.2; color: #fff; margin-bottom: 14px;
+
 }
+
 .hero-content p {
+
   font-family: 'Poppins', sans-serif;
+
   font-size: clamp(14px, 2vw, 22px); color: rgba(249,249,249,.9);
+
 }
+
+
 
 /* ─── SEARCH ─── */
+
 .search-section {
+
   display: flex; justify-content: center;
+
   padding: 0 16px; margin-top: -75px; position: relative; z-index: 30;
+
 }
+
 .search-card {
+
   background: #fff; border-radius: 18px;
+
   box-shadow: 0 6px 28px rgba(0,0,0,.10);
+
   padding: 24px 24px 28px; width: 100%; max-width: 1200px;
+
 }
+
 .search-card-title {
+
   font-family: 'Poppins', sans-serif; font-weight: 700;
+
   font-size: clamp(16px, 2vw, 20px); color: #000; margin-bottom: 16px;
+
 }
+
 .search-fields { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
 .search-input {
+
   flex: 1 1 180px; height: 48px; background: #F5F5F5; border: none;
+
   border-radius: 6px; padding: 0 14px; font-family: 'Inter', sans-serif;
+
   font-size: 14px; color: rgba(27,27,27,.55); outline: none; min-width: 0;
+
 }
+
 .search-btn {
+
   flex: 0 0 auto; height: 48px; background: var(--blue); color: #fff; border: none;
+
   border-radius: 14px; padding: 0 28px; font-family: 'Poppins', sans-serif;
+
   font-weight: 700; font-size: 16px; cursor: pointer; transition: background .2s; white-space: nowrap;
+
 }
+
 .search-btn:hover { background: #1d4ed8; }
 
+
+
 /* ─── TOP COURSES ─── */
+
 .top-courses { width: 100%; background: #fff; padding: 56px 20px 60px; }
+
 .section-heading {
+
   font-family: 'Poppins', sans-serif; font-weight: 700;
+
   font-size: clamp(17px, 2.4vw, 26px); color: #000; text-align: center; margin-bottom: 20px;
+
 }
+
 .tabs-row {
+
   display: flex; justify-content: center;
+
   margin-bottom: 36px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+
 }
+
 .tabs-row::-webkit-scrollbar { display: none; }
+
 .tab-item {
+
   font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #444;
+
   padding: 10px 18px; white-space: nowrap; cursor: pointer;
+
   border-bottom: 2.5px solid transparent; margin-bottom: -1.5px;
+
   transition: color .2s, border-color .2s; flex-shrink: 0;
+
 }
+
 .tab-item.active { 
+
   color: #000; 
+
   border-bottom: 3px solid var(--teal);
+
 }
+
 .tab-item:hover { color: var(--blue); }
 
+
+
 /* Desktop 3-col grid */
+
 .course-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px; max-width: 1300px; margin: 0 auto;
+
+  display: grid; grid-template-columns: repeat(3, 0.6fr);
+
+  gap: 40px; max-width: 1200px; margin: 0 auto;
+
 }
+
+
 
 /* ─── COURSE CARD ─── */
+
 .course-card {
+
   background: #fff; border-radius: 20px; border: 1px solid var(--border);
+
   box-shadow: 0 2px 8px rgba(0,0,0,.07); display: flex; flex-direction: column;
+
   overflow: hidden; transition: transform .25s, box-shadow .25s;
+
 }
+
 .course-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(0,0,0,.12); }
 
+
+
 .card-thumb-wrap { position: relative; padding: 12px 12px 0; }
+
 .card-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 14px; display: block; }
 
+
+
 .card-badge {
+
   position: absolute; top: 24px; left: 24px; height: 26px;
+
   border-radius: 7px; padding: 0 9px 0 6px;
+
   display: flex; align-items: center; gap: 5px;
+
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 11px;
+
   box-shadow: 0 1px 4px rgba(0,0,0,.09);
+
 }
+
 .badge-hot  { background: #FFEADF; color: #EA580C; }
+
 .badge-prem { background: #E7F0FF; color: #2563EB; }
 
+
+
 .card-body { padding: 14px 14px 0; flex: 1; display: flex; flex-direction: column; }
+
 .card-meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+
 .cat-tag {
+
   background: var(--blue-pale); border-radius: 6px; padding: 3px 9px;
+
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 10px;
+
   letter-spacing: .3px; color: var(--blue-light); text-transform: uppercase; white-space: nowrap;
+
 }
+
 .duration-tag { display: flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 500; color: var(--gray); }
+
 .card-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--dark); margin-bottom: 7px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
 .stars-row { display: flex; align-items: center; gap: 2px; margin-bottom: 6px; font-size: 12px; }
+
 .rating-num { font-weight: 700; font-size: 12px; color: var(--dark); margin-left: 4px; }
+
 .review-text { font-size: 11px; color: var(--gray); margin-left: 3px; }
+
 .card-desc { font-size: 12.5px; line-height: 1.65; color: var(--gray); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 10px; flex: 1; }
 
+
+
 .card-footer { border-top: 1px solid var(--border); padding: 10px 14px 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
 .instructor-wrap { display: flex; align-items: center; gap: 9px; }
+
 .instructor-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 0 0 2px var(--border); }
+
 .instructor-label { font-size: 10px; color: var(--gray); display: block; }
+
 .instructor-name  { font-weight: 600; font-size: 12px; color: var(--dark); display: block; }
+
 .price-col { text-align: right; }
+
 .price-old { font-size: 11px; color: var(--gray); text-decoration: line-through; display: block; }
+
 .price-new { font-weight: 700; font-size: 18px; color: var(--blue-light); }
 
+
+
 .add-cart-btn {
+
   width: calc(100% - 28px); margin: 12px 14px 14px; height: 44px;
+
   background: var(--blue-light); color: #fff; border: none; border-radius: 11px;
+
   font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; cursor: pointer;
+
   display: flex; align-items: center; justify-content: center; gap: 9px;
+
   box-shadow: 0 4px 12px rgba(59,130,246,.22); transition: background .2s, transform .15s;
+
 }
+
 .add-cart-btn:hover { background: var(--blue); transform: translateY(-1px); }
 
+
+
 /* ─── CATEGORY ─── */
-.category-section { width: 100%; background: #fff; padding: 56px 20px; }
+
+.category-section { width: 100%; background: #fff; padding: 20px 20px; }
+
 .cat-header {
+
   display: flex; align-items: center; justify-content: space-between;
+
   flex-wrap: wrap; gap: 10px; max-width: 1300px; margin: 0 auto 40px;
+
 }
+
 .cat-header h2 {
+
   font-family: 'Poppins', sans-serif; font-weight: 600;
+
   font-size: clamp(17px, 3vw, 34px); color: #252641; line-height: 1.2;
+
 }
+
 .view-all-link {
+
   font-family: 'Poppins', sans-serif; font-weight: 600;
+
   font-size: clamp(13px, 1.4vw, 18px); color: var(--blue); cursor: pointer;
+
   white-space: nowrap; transition: opacity .2s;
+
 }
+
 .view-all-link:hover { opacity: .75; }
+
 .cat-grid {
+
   display: grid; grid-template-columns: repeat(5, 1fr);
+
   gap: 20px; max-width: 1300px; margin: 0 auto;
+
 }
+
 .cat-card {
+
   border-radius: 18px; background: #fff;
+
   padding: 40px 12px 40px; display: flex;
+
   flex-direction: column;
+
   align-items: center; justify-content: center; text-align: center;
+
   cursor: pointer; transition: transform .25s, box-shadow .25s;
+
   aspect-ratio: 1;
+
   border: 1px solid #F3F4F6;
+
   outline: none;
+
 }
+
 .cat-card:focus, .cat-card:active, .cat-card:focus-visible {
+
   border: none !important;
+
   outline: none !important;
+
 }
+
 .cat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+
 .cat-card:focus:hover, .cat-card:active:hover, .cat-card:focus-visible:hover {
+
   box-shadow: 0 12px 28px rgba(0,0,0,.10) !important;
+
 }
+
 .cat-card svg { margin-bottom: 16px; transition: transform .25s; }
+
 .cat-card:hover svg { transform: scale(1.12); }
+
 .cat-card h4 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(13px, 1.5vw, 20px); color: #252641; transition: color .25s; }
+
 .cat-card:hover h4 { color: var(--blue); }
+
 .cat-card p { font-family: 'Poppins', sans-serif; font-size: clamp(11px, 1.1vw, 16px); color: var(--gray); margin-top: 7px; transition: color .25s; }
+
 .cat-card:hover p { color: var(--blue); }
 
+
+
 /* ─── PROMO ─── */
+
 .promo-bar {
+
   width: 100%; background: #C4D7FF; border-top: 1px solid #A5C2FF; border-bottom: 1px solid #A5C2FF;
+
   padding: 32px 20px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;
+
 }
+
 .promo-bar p { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(12px, 1.8vw, 19px); color: #000; }
+
 .promo-btn {
+
   height: 40px; padding: 0 22px; border-radius: 13px; border: 1.5px solid var(--blue);
+
   background: transparent; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+
   color: var(--blue); cursor: pointer; transition: background .2s, color .2s;
+
 }
+
 .promo-btn:hover { background: var(--blue); color: #fff; }
 
+
+
 /* ══════════════════════
+
    RESPONSIVE BREAKPOINTS
+
 ══════════════════════ */
 
+
+
 /* Large desktop ≥ 1280 */
+
 @media (min-width: 1280px) {
+
   .hero { min-height: 600px; }
+
   .search-section { margin-top: -85px; }
+
   .course-grid { grid-template-columns: repeat(3, 1fr); }
-  .cat-grid { grid-template-columns: repeat(5, 1fr); }
+
+  .cat-grid { grid-template-columns: repeat(5, 0.7fr); gap: 24px; }
+
+  .view-all-link-mobile { display: none; }
+
 }
+
+
 
 /* Laptop 1024–1279 */
+
 @media (min-width: 1024px) and (max-width: 1279px) {
+
   .hero { min-height: 500px; }
+
   .course-grid { grid-template-columns: repeat(3, 1fr); }
-  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .cat-grid { grid-template-columns: repeat(4, 0.7fr); gap: 24px; }
+
+  .view-all-link-mobile { display: none; }
+
 }
+
+
 
 /* Tablet 768–1023 */
+
 @media (min-width: 768px) and (max-width: 1023px) {
+
   .hero { min-height: 420px; }
+
   .search-section { margin-top: -48px; }
+
   .search-fields { flex-wrap: wrap; }
+
   .search-input { flex: 1 1 160px; }
+
   .course-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .cat-grid { grid-template-columns: repeat(3, 0.7fr); gap: 24px; }
+
+  .view-all-link-mobile { display: none; }
+
   .tab-item { font-size: 13px; padding: 9px 14px; }
+
 }
+
+
 
 /* ─── MOBILE < 768 ─── */
+
 @media (max-width: 767px) {
 
+
+
   /* Hero */
+
   .hero { min-height: 300px; }
+
   .hero-content { padding: 50px 16px 90px; }
+
   .hero-content h1 { font-size: 26px; }
+
   .hero-content p  { font-size: 14px; }
 
+
+
   /* Search card */
-  .search-section { margin-top: 14px; padding: 0 12px; }
+
+  .search-section { margin-top: -10px; padding: 0 24px; }
+
   .search-card { padding: 18px 16px 22px; border-radius: 14px; }
+
   .search-card-title { font-size: 16px; margin-bottom: 14px; }
+
   .search-fields { flex-direction: column; gap: 10px; }
+
   .search-input { width: 100%; flex: none; height: 46px; font-size: 13px; border-radius: 8px; }
+
   .search-btn   { width: 100%; flex: none; height: 46px; border-radius: 12px; font-size: 15px; }
 
+
+
   /* Courses section */
-  .top-courses { padding: 28px 12px 36px; }
+
+  .top-courses { padding: 28px 24px 36px; }
+
   .section-heading { font-size: 16px; margin-bottom: 14px; }
+
   .tabs-row { justify-content: flex-start; }
+
   .tab-item { font-size: 12px; padding: 8px 11px; }
 
+
+
   /* Single-column full-width cards */
+
   .course-grid {
+
     grid-template-columns: 1fr;
-    gap: 18px;
+
+    gap: 24px;
+
     max-width: 100%;
+
   }
+
   .card-title { font-size: 15px; }
+
   .card-desc  { font-size: 12px; }
+
   .price-new  { font-size: 16px; }
+
   .add-cart-btn { font-size: 13px; height: 42px; }
 
+
+
   /* Hide cards 4–6 on mobile — show only first 3 */
+
   .course-card:nth-child(n+4) { display: none; }
 
+
+
+  /* Hide cards 7–10 on mobile — show only first 6 */
+
+  .cat-card:nth-child(n+7) { display: none; }
+
+
+
   /* Category section */
-  .category-section { padding: 28px 12px 32px; }
-  .cat-header { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 30px; }
-  .cat-header h2 { font-size: 17px; line-height: 1.3; }
-  .view-all-link { font-size: 13px; }
+
+  .category-section { padding: 28px 24px 32px; }
+
+  .cat-header { flex-direction: column; align-items: center; gap: 6px; margin-bottom: 30px; }
+
+  .cat-header h2 { font-size: 17px; line-height: 1.3; text-align: center; }
+
+  .view-all-link { display: none; }
+
+  .cat-grid + .view-all-link-mobile { display: block; text-align: center; font-family: 'Spline Sans', sans-serif; font-weight: 600; font-style: SemiBold; font-size: 16px; leading-trim: NONE; line-height: 20px; letter-spacing: 0%; vertical-align: middle; margin-top: 20px; color: #2563EB; }
 
   /* 2-column category grid */
-  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
   .cat-card { padding: 20px 10px 16px; border-radius: 14px; }
+
   .cat-card svg { width: 26px !important; height: 26px !important; margin-bottom: 10px; }
+
   .cat-card h4 { font-size: 14px; }
+
   .cat-card p  { font-size: 12px; margin-top: 4px; }
 
+
+
   /* Promo */
+
   .promo-bar { padding: 22px 14px; gap: 14px; }
-  .promo-bar p { font-size: 12px; }
+
+  .promo-bar p { font-size: 12px; white-space: nowrap; }
+
 }
 
+
+
 /* Very small phones < 380 */
+
 @media (max-width: 379px) {
+
   .hero-content h1 { font-size: 22px; }
+
   .tab-item { font-size: 11px; padding: 7px 9px; }
+
   .cat-card h4 { font-size: 13px; }
+
 }
+
 </style>
+
 </head>
+
 <body>
+
+
 
 <app-breadcrumb [crumbs]="crumbs"></app-breadcrumb>
 
+
+
 <!-- Skip link for accessibility & SEO -->
+
 <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;background:#fff;padding:8px 16px;border-radius:4px;font-family:'Inter',sans-serif;font-size:14px;color:var(--blue);" onfocus="this.style.left='16px';this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';this.style.width='1px';this.style.height='1px';">Skip to main content</a>
+
+
 
 <main id="main-content">
 
+
+
   <!-- HERO -->
+
   <section class="hero" aria-label="Courses hero banner">
+
     <img class="hero-bg" ngSrc="assets/images/coursestudent.webp" alt="Students engaged in collaborative online learning environment with laptops and digital educational resources" width="1920" height="600" priority />
+
     <div class="hero-overlay" aria-hidden="true"></div>
+
     <div class="hero-content">
-      <h1>All Courses - Expert-Led Algorithm Training</h1>
+
+      <h1>Learn something new everyday.</h1>
+
       <p>Become professionals and ready to join the world.</p>
+
     </div>
+
   </section>
 
+
+
   <!-- SEARCH -->
+
   <div class="search-section" role="search">
+
     <div class="search-card">
+
       <p class="search-card-title">What do you want to learn?</p>
+
       <div class="search-fields">
+
         <input class="search-input" type="search" placeholder="Find courses, skills, software, etc" aria-label="Search courses"/>
+
         <input class="search-input" type="text" placeholder="Categories" aria-label="Filter by category"/>
+
         <input class="search-input" type="text" placeholder="Topic" aria-label="Filter by topic"/>
+
         <button class="search-btn" type="button">Search</button>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <!-- TOP COURSES -->
+
   <section class="top-courses" aria-labelledby="top-courses-heading">
+
     <h2 class="section-heading" id="top-courses-heading">Browse Our Top Courses</h2>
 
+
+
     <nav class="tabs-row" aria-label="Course category tabs" role="tablist">
+
       <span class="tab-item active" role="tab" aria-selected="true" tabindex="0">Design</span>
+
       <span class="tab-item" role="tab" aria-selected="false" tabindex="-1">Developer</span>
+
       <span class="tab-item" role="tab" aria-selected="false" tabindex="-1">Business</span>
+
       <span class="tab-item" role="tab" aria-selected="false" tabindex="-1">Marketing</span>
+
       <span class="tab-item" role="tab" aria-selected="false" tabindex="-1">Photography</span>
+
     </nav>
+
+
 
     <div class="course-grid" role="list" aria-label="Top courses">
 
+
+
       <!-- CARD 1 -->
+
       <article class="course-card" role="listitem">
+
         <div class="card-thumb-wrap">
+
           <img class="card-thumb" src="assets/images/img1.webp" alt="UI Design for Beginners course thumbnail"/>
+
           <span class="card-badge badge-hot" aria-label="Bestseller">
+
             <svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
             Bestseller
+
           </span>
+
         </div>
+
         <div class="card-body">
+
           <div class="card-meta-row">
+
             <span class="cat-tag">UI / UX Design</span>
+
             <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+
           </div>
+
           <h3 class="card-title">UI Design for Beginners</h3>
+
           <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+
           <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+
         </div>
+
         <footer class="card-footer">
+
           <div class="instructor-wrap">
+
             <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+
             <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+
           </div>
+
           <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+
         </footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add UI Design for Beginners to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
+
+
 
       <!-- CARD 2 -->
+
       <article class="course-card" role="listitem">
+
         <div class="card-thumb-wrap">
+
           <img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Dev React Native course thumbnail"/>
+
           <span class="card-badge badge-prem" aria-label="Premium">
+
             <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
             Premium
+
           </span>
+
         </div>
+
         <div class="card-body">
+
           <div class="card-meta-row">
+
             <span class="cat-tag">Mobile Development</span>
+
             <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+
           </div>
+
           <h3 class="card-title">Mobile Dev React Native</h3>
+
           <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+
           <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+
         </div>
+
         <footer class="card-footer">
+
           <div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div>
+
           <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+
         </footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
+
+
 
       <!-- CARD 3 -->
+
       <article class="course-card" role="listitem">
+
         <div class="card-thumb-wrap">
-          <img class="card-thumb" ngSrc="assets/images/img2.webp" alt="Web Development course with coding examples and projects" width="350" height="200" />
+
+          <img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/>
+
           <span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span>
+
         </div>
+
         <div class="card-body">
+
           <div class="card-meta-row"><span class="cat-tag">Web Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div>
+
           <h3 class="card-title">Website Dev Zero to Hero</h3>
+
           <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+
           <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+
         </div>
+
         <footer class="card-footer">
+
           <div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div>
+
           <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+
         </footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
+
+
 
       <!-- CARD 4 -->
+
       <article class="course-card" role="listitem">
+
         <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img1.webp" alt="UI Design for Beginners"/><span class="card-badge badge-hot" aria-label="Bestseller"><svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bestseller</span></div>
+
         <div class="card-body"><div class="card-meta-row"><span class="cat-tag">UI / UX Design</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">UI Design for Beginners</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
+
         <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add UI Design for Beginners to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
+
+
 
       <!-- CARD 5 -->
+
       <article class="course-card" role="listitem">
-        <div class="card-thumb-wrap"><img class="card-thumb" ngSrc="assets/images/img2.webp" alt="Web Development course with coding examples and projects" width="350" height="200" /><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
+
+        <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
+
         <div class="card-body"><div class="card-meta-row"><span class="cat-tag">Web Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">Website Dev Zero to Hero</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
+
         <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
+
+
 
       <!-- CARD 6 -->
+
       <article class="course-card" role="listitem">
-        <div class="card-thumb-wrap"><img class="card-thumb" ngSrc="assets/images/img3.webp" alt="Mobile Development with React Native course teaching cross-platform app development" width="350" height="200" /><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
+
+        <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Development with React Native course teaching cross-platform app development"/><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
+
         <div class="card-body"><div class="card-meta-row"><span class="cat-tag">Mobile Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">Mobile Dev React Native</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
+
         <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
+
         <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+
       </article>
 
+
+
     </div>
+
   </section>
+
+
 
   <!-- CATEGORIES -->
+
   <section class="category-section" aria-labelledby="categories-heading">
+
     <div class="cat-header">
+
       <h2 id="categories-heading">Choose favourite course from top category</h2>
+
       <span class="view-all-link" role="link" tabindex="0" aria-label="View all courses">View All Courses</span>
+
     </div>
+
     <div class="cat-grid" role="list" aria-label="Course categories">
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Art and Design, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 0C7.16 0 0 7.16 0 16s7.16 16 16 16c1.66 0 3-1.34 3-3 0-.77-.31-1.47-.82-1.98-.51-.51-.82-1.21-.82-1.98 0-1.66 1.34-3 3-3H24c4.42 0 8-3.58 8-7.96C32 6.29 24.82 0 16 0zM7.36 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5-6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm7 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#2563EB"/></svg><h4>Art &amp; Design</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Development, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g1)"><path d="M31.93 9.48H0v20.02c.05.17.09.34.14.51.38 1.14 1.58 1.92 2.82 1.92 1.81.01 3.62 0 5.43 0 6.91 0 13.83.01 20.74 0 1.42-.01 2.52-.81 2.86-2.1.06-.24.09-.49.09-.74V9.48zM14.18 21c-.12.03-.25.03-.37.03H5.64c-.68-.01-1.12-.44-1.1-1.05.02-.49.4-.89.9-.93h9.26c.55 0 .98.37 1.04.88.06.5-.32.97-.78 1.08zm.77-5.93c-.1.41-.36.67-.78.76H5.64c-.68-.01-1.12-.44-1.1-1.05.02-.49.4-.89.9-.93h9.26c.26 0 .56.09.78.24.33.21.45.58.37.96zm16.98-6.59H0V3c.05-.17.09-.34.14-.51.38-1.14 1.58-1.92 2.82-1.92C4.77.56 6.58.57 8.39.57c6.91 0 13.83-.01 20.74 0 1.42.01 2.52.81 2.86 2.1.06.24.09.49.09.74v5.07zM4.74 5.74c-.51 0-.93-.43-.93-.94 0-.56.44-.99.96-.97.55.01.97.46.96 1.01-.01.55-.44.91-.99.9zm7.48 0c-.51 0-.93-.43-.93-.97 0-.56.44-.98.96-.97.51.01.92.46.92 1.01-.01.55-.43.93-.95.93zm11.86 0c-.89.01-1.78 0-2.68 0-.89 0-1.78.01-2.67 0-.63-.01-1.06-.37-1.06-.93 0-.55.43-.94 1.05-.94 1.79-.01 3.59-.01 5.38 0 .63 0 1.06.39 1.05.95 0 .56-.42.92-1.07.92z" fill="#2563EB"/></g><defs><clipPath id="g1"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Development</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Communication, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16.53 13.87c-1.33.76-2.66 1.53-3.99 2.3l-1.08.63c-1.09.62-2.14.02-2.14-1.23V9.5c0-1.26 1.05-1.86 2.14-1.23l5.09 2.94c.46.26.74.64.75 1.18.01.58-.29.97-.77 1.24zM16 0C7.16 0 0 7.16 0 16s7.16 16 16 16 16-7.16 16-16S24.84 0 16 0zm0 28c-6.63 0-12-5.37-12-12S9.37 4 16 4s12 5.37 12 12-5.37 12-12 12z" fill="#2563EB"/></svg><h4>Communication</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Videography, 38 Courses"><svg width="28" height="27" viewBox="0 0 28 27" fill="none" aria-hidden="true"><path d="M16.53 13.87c-1.33.76-2.66 1.53-4 2.3l-1.07.63c-1.09.62-2.14.02-2.14-1.23V9.5c0-1.26 1.05-1.86 2.14-1.23l5.09 2.94c.46.26.74.64.75 1.18.01.58-.29.97-.77 1.24zM25.95 3.25c0-1.83-1.48-3.25-3.41-3.25H3.45C1.45.01 0 1.43 0 3.4v17.84c0 1.83 1.48 3.31 3.34 3.32H14.79l-.14-.59c-.23-1.47-.43-2.95-.67-4.42-.12-.71-.05-1.37.27-2.02 1.45-3.06 2.87-6.13 4.32-9.19.95-2.04 3.03-2.81 5.07-1.86 1.01.47 2.01.96 3 1.44V7.33h3.31V3.25z" fill="#2563EB"/><path d="M23.09 11.48c-2.04 3.53-4.06 7.03-6.1 10.56 1.17.67 2.31 1.33 3.46 2 2.04-3.53 4.07-7.04 6.1-10.56-1.17-.68-2.3-1.33-3.46-2z" fill="#2563EB"/><path d="M19.71 25.15c-.2.14-.34.27-.51.37l-1.79.99c-.45.24-.97.03-1.01-.45-.05-.85-.03-1.7-.03-2.55l.07-.27 3.27 1.91z" fill="#2563EB"/><path d="M27.81 11.29c-.17.34-.37.68-.65 1.03-1.17-.67-2.3-1.33-3.46-2 .22-.38.41-.75.65-1.09.37-.53 1.08-.7 1.66-.39l1.25.73c.59.37.79 1.09.55 1.72z" fill="#2563EB"/></svg><h4>Videography</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Photography, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g2)"><path d="M3.42 15.28c-2.4-1.99-2.48-4.91-1.51-6.8 1.07-2.07 3.28-3.24 5.63-2.92 2 .27 4.08 1.75 4.62 4.51.49-3.57 2.4-5.77 6.1-6 2.6-.15 4.91 1.48 5.86 3.86.92 2.31.41 5.26-2.01 7.22l.2.11c1.42.66 2.2 1.78 2.22 3.35.03 2.64 0 5.29-.03 7.93-.02 2.14-1.6 3.68-3.73 3.68H5.09C2.94 30.22 1.36 28.67 1.34 26.51c-.02-2.63-.02-5.26.02-7.89.01-1.42.65-2.49 1.88-3.21l.18-.13zM18.42 13.12c1.6-.01 2.9-1.31 2.89-2.9-.01-1.61-1.33-2.91-2.94-2.9-1.59.01-2.9 1.33-2.88 2.92.02 1.61 1.31 2.89 2.93 2.88zM8.95 10.96c.01-1.21-.97-2.19-2.17-2.19-1.19 0-2.18.99-2.18 2.19 0 1.19.96 2.16 2.15 2.16 1.22.01 2.19-.96 2.2-2.16z" fill="#2563EB"/><path d="M33.31 22.58c0 1.42 0 2.84-.01 4.26-.01 1.41-1.01 2.4-2.37 2.27-.34-.03-.68-.17-.98-.34-1.24-.69-2.46-1.42-3.68-2.15-.17-.1-.23-.21-.23-.41v-7.32c0-.19.05-.31.22-.41 1.23-.71 2.45-1.43 3.67-2.15 1.61-.93 3.36.07 3.37 1.93l.01 4.32z" fill="#2563EB"/></g><defs><clipPath id="g2"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Photography</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Marketing, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g3)"><path d="M31.55 6.84c.34.33.51.7.31 1.14-.19.44-.55.56-1.01.56H24.6v3.33h2.13c.7 0 1.07.37 1.07 1.09v17.75c0 .58-.15 1.01-.69 1.25H19.72V13.1c0-.86.33-1.19 1.19-1.19h2.2V11.6c0-3.43 0-6.86.01-10.29 0-.52.29-.97.82-.89.44.05.79.41.82.86V1.9h5.88c.45 0 .81.14 1 .55.2.44.05.81-.26 1.15L29.8 5.53l1.75 1.31zM17.85 20.18v11.82H10.48V20.18c0-.59.38-.99.99-.99h5.42c.58 0 .97.39.96.99zM8.61 32H1c-.54-.23-.72-.64-.71-1.21V25.6c0-.77.35-1.12 1.12-1.12H8.5c.78 0 1.13.36 1.13 1.15V32z" fill="#2563EB"/><path d="M17.12 8.52c-.48.23-1 .02-1.27-.5l-.63-1.28-.17.29C11.99 12.72 7.51 16.89 1.61 19.53c-.82.36-1.14.27-1.61-.46v-.5c.16-.41.48-.61.85-.77C6.32 15.37 10.47 11.5 13.33 6.25l.17-.39-1.52.3c-.42.07-.83-.15-1-.54-.24-.53.06-1.16.65-1.29l3.3-.7c.54-.11.88.07 1.1.56l1.48 2.96c.26.53.08 1.09-.4 1.32z" fill="#2563EB"/></g><defs><clipPath id="g3"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Marketing</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Content Writing, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g4)"><path d="M1.66 10.39v15.52c0 .25.01.5.05.74.37 2.2 2.11 3.67 4.36 3.68H18.07l-.14-.58c-.23-1.47-.43-2.95-.67-4.42-.12-.71-.05-1.37.26-2.03 1.45-3.06 2.87-6.13 4.28-9.17.95-2.04 3.03-2.81 5.07-1.86 1.01.47 2.01.96 3 1.44v-3.3H1.66zM30.26 6.07c0-1.73-1.2-2.93-2.93-2.93H3.45C1.95 3.14.9 3.97.63 5.42L.57 5.56v2.36h29.69v-1.85zM28.51 20.93c-.21.4-.51.98-.78 1.61l-3.86 8.17c-.14.31-.34.54-.63.71l-3.82 2.32c-.8.48-1.53.14-1.67-.77l-.67-4.5c-.03-.21-.01-.47.08-.66l2.91-6.24c2.2 1.03 4.38 2.05 6.33 3.06l.11-.7zM30.16 17.31c-.21.61-.52 1.19-.8 1.81l-6.65-3.1c.27-.58.5-1.12.78-1.64.55-1.03 1.78-1.49 2.86-1.04l2.73 1.27c1 .51 1.46 1.69 1.08 2.7zM30.27 25.96c-.01 2.22-1.48 3.98-3.68 4.31-.75.11-1.53.05-2.3.06h-.74l2.12-1.29c.57-.33.97-.78 1.24-1.38l3.18-6.86.17-.33.01 5.49z" fill="#2563EB"/></g><defs><clipPath id="g4"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Content Writing</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Finance, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g5)"><path d="M24.1 23.09c-.39-4.55-4.55-7.91-9.1-7.36-4.38.53-7.58 4.45-7.13 8.85.36 3.47 2.28 5.76 5.55 6.99.6.22 1.25.29 1.87.43h1.37l.46-.08c4.33-.64 7.36-4.47 6.98-8.83zM17.15 29l-.24.09v1.39H14.1v-1.38c-1.52-.72-2.28-1.77-2.2-3.03h1.81l.05.21c.15.71.72 1.17 1.43 1.05.63-.07 1.14-.65 1.13-1.29-.01-.69-.53-1.25-1.24-1.27-.94-.03-1.74-.35-2.37-1.05-1.46-1.62-.9-4.15 1.11-4.99.23-.1.31-.21.3-.46v-1.08h1.87v1.13c0 .21.07.3.26.39 1.18.51 1.83 1.42 1.96 2.7v.18h-1.83l-.06-.23c-.14-.67-.73-1.1-1.41-1.02-.64.07-1.15.67-1.12 1.32.03.68.57 1.21 1.26 1.23 1.59.08 2.75.99 3.1 2.41.38 1.53-.41 3.08-1.88 3.69z" fill="#2563EB"/><path d="M8.37 17c0 .17-.08.36-.19.49-.72.9-1.29 1.87-1.67 2.96H0v-1.87h3.61V12.48H8.38V17zM31.93 18.85v1.85H26.1c-.24 0-.35-.07-.43-.3-.37-1.08-.94-2.05-1.65-2.94-.1-.13-.17-.31-.17-.47V0h4.76v18.85h3.32zM21.67 4.2v11.28c-.75-.36-1.49-.78-2.28-1.07-.78-.28-1.62-.44-2.46-.67V4.2h4.74zM15.01 8.35v5.41c-.83.22-1.67.37-2.46.66-.78.28-1.51.7-2.27 1.06V8.35h4.73z" fill="#2563EB"/></g><defs><clipPath id="g5"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Finance</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Science, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#g6)"><path d="M31.92 21.34c-.16 1.29-1.06 2.29-2.33 2.57-1.73.39-3.46-.93-3.53-2.7-.01-.24-.08-.34-.3-.42l-4.65-1.78c-.5.83-1.15 1.52-1.98 2.05l.08.24 1.93 4.56c.07.16.14.23.36.23 1.52.02 2.77 1.14 2.9 2.59.14 1.58-.83 2.89-2.37 3.22l-.14.05h-.87l-.16-.06c-1.54-.35-2.52-1.81-2.27-3.37.11-.69.45-1.24.95-1.72l-2.07-4.89c-.03-.07-.19-.13-.28-.11-.91.17-1.83.19-2.71-.1l-2-.82-3.37 3.37.11.18c1.57 2.6.39 6.06-2.44 7.15l-1.26.34H4.43l-.18-.05c-2.12-.38-3.47-1.61-4.09-3.66C.09 28.07.05 27.85 0 27.63v-1.12c.11-.41.18-.84.33-1.23 1.09-2.87 4.57-4.05 7.18-2.45l.16.08 3.44-3.45c-.66-.95-1.05-2.03-1.09-3.22-.04-1.18.22-2.28.84-3.32l-2.61-2.22C5.68 12.12 3.47 11.31 2.4 10c-1.21-1.49-1.17-3.64.09-5.08C3.78 3.46 5.89 3.13 7.53 4.14c1.47.91 2.48 2.96 1.47 5.13l2.6 2.21c2.39-1.78 4.83-1.88 7.39-.31l.18-.18c1.58-1.58 3.16-3.16 4.74-4.74.16-.16.17-.27.08-.47-.73-1.52-.56-2.98.5-4.28C25.54.87 26.95.43 28.55.87c1.6.44 2.59 1.54 2.85 3.2.25 1.56-.3 2.85-1.58 3.77-1.28.92-2.67 1.01-4.1.32l-.4.02-4.89 4.91-.1.12c.99 1.42 1.31 2.99 1 4.71l1.56.6 3.17 1.22c.16.06.25.06.35-.07.94-.95 2.23-1.17 3.41-.59 1.12.55 1.78 1.73 1.63 2.93z" fill="#2563EB"/></g><defs><clipPath id="g6"><rect width="32" height="32" fill="white"/></clipPath></defs></svg><h4>Science</h4><p>38 Courses</p></article>
+
       <article class="cat-card" role="listitem" tabindex="0" aria-label="Network, 38 Courses"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c1.657 0 3-1.343 3-3 0-.77-.31-1.47-.82-1.98-.51-.51-.82-1.21-.82-1.98 0-1.657 1.343-3 3-3H24c4.418 0 8-3.582 8-7.96C32 6.286 24.823 0 16 0zM7.36 16c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm5-6c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm7 0c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm5 6c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2z" fill="#2563EB"/></svg><h4>Network</h4><p>38 Courses</p></article>
+
     </div>
+
+    <span class="view-all-link-mobile" role="link" tabindex="0" aria-label="View all courses">View All Courses</span>
+
   </section>
 
+
+
   <!-- PROMO -->
+
   <aside class="promo-bar" aria-label="Personalised learning promotion">
+
     <p>Get personal learning recommendations based on your needs</p>
+
     <button class="promo-btn" type="button">Get Started</button>
+
   </aside>
+
+
 
   <app-reviews></app-reviews>
 
+
+
 </main>
 
+
+
 <script>
+
   document.querySelectorAll('.tab-item').forEach(tab => {
+
     tab.addEventListener('click', () => {
+
       document.querySelectorAll('.tab-item').forEach(t => {
+
         t.classList.remove('active');
+
         t.setAttribute('aria-selected', 'false');
+
         t.setAttribute('tabindex', '-1');
+
       });
+
       tab.classList.add('active');
+
       tab.setAttribute('aria-selected', 'true');
+
       tab.setAttribute('tabindex', '0');
+
     });
+
   });
+
 </script>
+
 </body>
+
 </html>
