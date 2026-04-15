@@ -1,150 +1,45 @@
 <!DOCTYPE html>
-
-
-
 <html lang="en">
 
 
-
-
-
-
-
 <head>
-
-
-
   <meta charset="UTF-8">
-
-
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
   <title>Learn Complexity - Home</title>
-
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
-
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-
-
-
     rel="stylesheet">
-
-
-
   <style>
-
-
-
     /* Global styles */
-
-
-
     * {
-
-
-
       margin: 0;
-
-
-
       padding: 0;
-
-
-
       box-sizing: border-box;
-
-
-
     }
-
-
-
-
-
 
 
     body {
-
-
-
       font-family: 'Plus Jakarta Sans', sans-serif;
-
-
-
       background-color: #ffffff;
-
-
-
       color: #170F49;
-
-
-
       line-height: 1.6;
-
-
-
     }
-
-
-
-
-
-
 
     .container {
-
-
-
       position: relative;
-
-
-
       width: 100%;
-
-
-
       overflow-x: visible;
-
-
-
     }
-
-
-
-
-
 
 
     /* Desktop/laptop view - ensure full width */
-
-
-
     @media (min-width: 1200px) {
 
-
-
       .container {
-
-
-
         min-width: 1440px;
 
-
-
       }
-
-
 
     }
 
@@ -4610,9 +4505,19 @@
 
 
 
-    /* Section 3 - Move 24 Weeks elements left in mobile view */
+    /* Section 3 - Adjust course card images and elements for mobile view */
     @media (max-width: 768px) {
       
+      /* Make course card top image appear fully with original position */
+      section:nth-of-type(3) .lc-course-card img[style*="top: 13px"] {
+        width: calc(100% + 10px) !important;
+        height: auto !important;
+        left: 17px !important;
+        top: 13px !important;
+        border-radius: 16px !important;
+        object-fit: cover !important;
+      }
+
       /* Move 24 Weeks elements with SVG to little more left */
       section:nth-of-type(3) .lc-course-card div[style*="top: 237px; left: 278px"] {
         left: 240px !important;
