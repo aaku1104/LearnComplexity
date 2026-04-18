@@ -236,58 +236,43 @@
   @media (max-width: 600px) {
     .hdr-nav__inner { padding: 0 16px; }
   }
+
+  /* Tablet breakpoint - 1024px */
+  @media (max-width: 1024px) {
+    .hdr-nav__inner {
+      max-width: 100%;
+      padding: 0 24px;
+    }
+    .hdr-links__a {
+      padding: 8px 20px;
+      font-size: 18px;
+    }
+    .hdr-btn-signin, .hdr-btn-register {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  }
+
+  /* Large desktop breakpoint - 2560px */
+  @media (min-width: 2560px) {
+    .hdr-nav__inner {
+      max-width: 1600px;
+      padding: 0 60px;
+      height: 90px;
+    }
+    .hdr-links__a {
+      padding: 10px 32px;
+      font-size: 20px;
+    }
+    .hdr-btn-signin, .hdr-btn-register {
+      padding: 12px 32px;
+      font-size: 16px;
+    }
+    .hdr-logo img {
+      height: 40px;
+    }
+  }
 </style>
-
-<!-- ===== UTILITY BAR ===== -->
-<div class="hdr-utility">
-  <div class="hdr-utility__inner">
-
-    <!-- Left: contact info -->
-    <div class="hdr-utility__contact">
-      <a href="tel:+919123456789" class="hdr-utility__item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        +91 91234-56789
-      </a>
-      <a href="mailto:support@Learncomplexity.com" class="hdr-utility__item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        support@Learncomplexity.com
-      </a>
-    </div>
-
-    <!-- Right: social icons -->
-    <div class="hdr-utility__socials">
-      <a href="#" class="hdr-social-icon" aria-label="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-      </a>
-      <a href="#" class="hdr-social-icon" aria-label="Facebook">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-        </svg>
-      </a>
-      <a href="#" class="hdr-social-icon" aria-label="Twitter / X">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-        </svg>
-      </a>
-      <a href="#" class="hdr-social-icon" aria-label="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-      </a>
-    </div>
-
-  </div>
-</div>
 
 <!-- ===== MAIN NAV ===== -->
 <nav class="hdr-nav" role="navigation" aria-label="Main navigation">
