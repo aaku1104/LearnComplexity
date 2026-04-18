@@ -163,8 +163,45 @@
     .footer-cta > .avatar:nth-child(12) { width:50px!important;height:50px!important; }
   }
 
+  /* Tablet breakpoint - 768px to 1024px */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .footer-cta {
+      max-width: 100% !important;
+      padding: 100px 40px !important;
+      min-height: 600px !important;
+    }
+    .footer-bg {
+      max-width: 100% !important;
+      height: 316px !important;
+    }
+    .footer-brand {
+      position: absolute !important;
+      left: 100px !important;
+      top: 70px !important;
+      width: 306px !important;
+    }
+    .ql-col {
+      position: absolute !important;
+      left: 550px !important;
+      top: 78px !important;
+      width: 93px !important;
+    }
+    .contact-col {
+      position: absolute !important;
+      left: 700px !important;
+      top: 78px !important;
+      width: 256px !important;
+    }
+    .copyright-bar {
+      padding: 14px 0 !important;
+    }
+    .copyright-text {
+      font-size: 16px !important;
+    }
+  }
+
   /* Desktop: undo mobile flex overrides so absolute positioning works */
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     .footer-brand {
       position: absolute;
       left: 143px;
@@ -449,9 +486,49 @@
   <!-- Copyright bar -->
   <div class="copyright-bar" style="background:#1E2D6B;display:flex;align-items:center;justify-content:center;padding:14px 0;">
     <p class="copyright-text" style="font-weight:400;font-size:16px;color:#FFFFFF;">
-      <small>© 2026 Learn Complexity. All rights reserved.</small>
+      <small> 2026 Learn Complexity. All rights reserved.</small>
     </p>
   </div>
+
+  <!-- Responsive footer for 2560px full width -->
+  <style>
+    /* Large desktop breakpoint - 2560px */
+    @media (min-width: 2560px) {
+      .footer-cta {
+        max-width: 100% !important;
+        padding: 140px 80px !important;
+        min-height: 799px !important;
+      }
+      .footer-bg {
+        max-width: 100% !important;
+        height: 316px !important;
+      }
+      .footer-brand {
+        position: absolute !important;
+        left: 800px !important;
+        top: 70px !important;
+        width: 306px !important;
+      }
+      .ql-col {
+        position: absolute !important;
+        left: 1300px !important;
+        top: 78px !important;
+        width: 93px !important;
+      }
+      .contact-col {
+        position: absolute !important;
+        left: 1600px !important;
+        top: 78px !important;
+        width: 256px !important;
+      }
+      .copyright-bar {
+        padding: 14px 0 !important;
+      }
+      .copyright-text {
+        font-size: 16px !important;
+      }
+    }
+  </style>
 
 </footer>
 
