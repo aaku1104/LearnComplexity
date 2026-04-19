@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
-import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { ReviewsComponent } from '../../reviews/reviews.component';
 import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
@@ -11,16 +10,11 @@ import { StructuredDataService } from '../../core/services/structured-data.servi
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, BreadcrumbComponent, ReviewsComponent]
+  imports: [CommonModule, NgOptimizedImage, ReviewsComponent]
 })
 export class AboutComponent implements OnInit {
   private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
-  
-  crumbs = [
-    { label: 'Home', url: '/' },
-    { label: 'About Us', url: '/about' }
-  ];
   
   isLg = false;
   isMd = false;
@@ -61,10 +55,6 @@ export class AboutComponent implements OnInit {
 
     // Add structured data schemas
     this.structuredData.injectOrganizationSchema();
-    this.structuredData.injectBreadcrumbSchema([
-      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
-      { name: 'About Us', url: 'https://learn-complexity.vercel.app/about' }
-    ]);
   }
 
   ngOnInit(): void {

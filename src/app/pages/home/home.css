@@ -1,0 +1,17 @@
+/* Responsive Fix - 4K & Laptop Scaling */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    min-width: unset !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1441px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    min-width: unset !important;
+  }
+}

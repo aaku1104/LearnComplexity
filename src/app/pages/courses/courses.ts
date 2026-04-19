@@ -2,14 +2,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
-import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, ReviewsComponent, BreadcrumbComponent],
+  imports: [CommonModule, NgOptimizedImage, ReviewsComponent],
   templateUrl: './courses.html',
   styleUrls: ['./courses.css'],
 })
@@ -17,10 +16,6 @@ export class Courses implements OnInit {
   private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
 
-  crumbs = [
-    { label: 'Home', url: '/' },
-    { label: 'Courses', url: '/courses' }
-  ];
 
   courseTabs = ['Design', 'Developer', 'Business', 'Marketing', 'Photography'];
   activeTab = 'Design';
@@ -252,10 +247,6 @@ export class Courses implements OnInit {
 
     // Add structured data schemas
     this.structuredData.injectEducationalOrganizationSchema();
-    this.structuredData.injectBreadcrumbSchema([
-      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
-      { name: 'Courses', url: 'https://learn-complexity.vercel.app/courses' }
-    ]);
 
     // Add ItemList schema for courses page
     const itemListSchema = {

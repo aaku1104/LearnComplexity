@@ -24,14 +24,70 @@
     .container {
       position: relative;
       width: 100%;
-      overflow-x: visible;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
-    /* Desktop/laptop view - ensure full width */
-    @media (min-width: 1200px) {
-      .container {
-        min-width: 1440px;
+
+    /* ============================================================
+       ULTRAWIDE / 2K+ SCREENS - >=2560px
+       Applied to: root wrapper - centers and caps content width
+       to maintain the same visual as 1440px design
+       ============================================================ */
+    @media (min-width: 2560px) {
+
+      /* Allow html/body to stretch but cap content */
+      html, body {
+        min-width: unset !important;
+        overflow-x: hidden !important;
       }
+
+      /* Wrap all page content in a centered max-width container */
+      .container {
+        max-width: 1600px !important;
+        margin: 0 auto !important;
+        overflow: visible !important;
+        position: relative !important;
+      }
+
+      /* Ensure body background fills the full screen width */
+      body {
+        background-color: #ffffff !important;
+      }
+      
+      /* Extend only background color to full screen width */
+      .hero-section {
+        position: relative !important;
+      }
+      
+      /* Full width background sections */
+      .hero-section,
+      section:nth-of-type(3),
+      section:nth-of-type(5),
+      section:nth-of-type(7) {
+        position: relative !important;
+      }
+      
+      .hero-section::before,
+      section:nth-of-type(3)::before,
+      section:nth-of-type(5)::before,
+      section:nth-of-type(7)::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 100vw !important;
+        height: 100% !important;
+        z-index: -1 !important;
+      }
+      
+      .hero-section::before { background-color: #EFFBFF !important; }
+      section:nth-of-type(3)::before { background-color: #F3FCFF !important; }
+      section:nth-of-type(5)::before { background-color: #E6EEFF !important; }
+      section:nth-of-type(7)::before { background-color: #EFFBFF !important; }
     }
+
     /* Complete Mobile Responsive Styles */
     @media (max-width: 768px) {
       /* Global Reset */
@@ -4893,5 +4949,99 @@ Learn to design, build, and deploy production-…</p>
       </div>
     </section>
   </div>
+
+<script id="lc-viewport-scale-fix">
+/*
+ * LearnComplexity Viewport Scaling Fix - v6
+ * Root cause: absolutely-positioned blobs overflow past 1440px container.
+ * Fix: scale from top-left, clip overflow on body only, 
+ * and ensure the hero section clips its own overflowing children.
+ */
+(function () {
+  var BASE_WIDTH = 1440;
+
+  function applyViewportScale() {
+    var vw = window.innerWidth || document.documentElement.clientWidth;
+    var box = document.querySelector('.container');
+    if (!box) return;
+
+    var isMobile = vw <= 768;
+
+    if (!isMobile) {
+      var s = vw / BASE_WIDTH;
+
+      /* html: no scroll bars, no clipping of content */
+      document.documentElement.style.width      = '100%';
+      document.documentElement.style.minWidth   = 'unset';
+      document.documentElement.style.overflowX  = 'hidden';
+      document.documentElement.style.margin     = '0';
+      document.documentElement.style.padding    = '0';
+
+      /* body: same */
+      document.body.style.width      = vw + 'px';
+      document.body.style.minWidth   = 'unset';
+      document.body.style.overflowX  = 'hidden';
+      document.body.style.margin     = '0';
+      document.body.style.padding    = '0';
+      document.body.style.backgroundColor = '#ffffff';
+
+      /* 
+       * The container scales from top-left.
+       * At 1024px: s = 1024/1440 = 0.711
+       * Scaled width = 1440 * 0.711 = 1024px - fits exactly.
+       * No centering needed; top-left origin is correct.
+       */
+      box.style.transformOrigin = 'top left';
+      box.style.transform       = 'scale(' + s + ')';
+      box.style.width           = BASE_WIDTH + 'px';
+      box.style.minWidth        = BASE_WIDTH + 'px';
+      box.style.overflowX       = 'visible';  /* don't clip inside */
+      box.style.position        = 'relative';
+      box.style.left            = '0';
+      box.style.marginLeft      = '0';
+
+      /* 
+       * Clip overflowing blobs at the section level, NOT the container.
+       * The hero section and other sections have their own background colors,
+       * so clipping there is safe and correct.
+       */
+      var heroSection = document.querySelector('section.hero-section');
+      if (heroSection) {
+        heroSection.style.overflow = 'hidden';
+      }
+
+      /* Sync body height to scaled content height */
+      function syncBodyHeight() {
+        document.body.style.height = (box.scrollHeight * s) + 'px';
+      }
+
+      syncBodyHeight();
+      setTimeout(syncBodyHeight, 50);
+      setTimeout(syncBodyHeight, 300);
+      setTimeout(syncBodyHeight, 800);
+      setTimeout(syncBodyHeight, 2000);
+
+    } else {
+      /* Mobile - full reset, CSS media queries take over */
+      document.documentElement.style.cssText = '';
+      document.body.style.cssText = '';
+      if (box) box.style.cssText = '';
+
+      var heroSection = document.querySelector('section.hero-section');
+      if (heroSection) heroSection.style.overflow = '';
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyViewportScale);
+  } else {
+    applyViewportScale();
+  }
+
+  window.addEventListener('resize', applyViewportScale);
+  window.addEventListener('load',   applyViewportScale);
+})();
+</script>
+
 </body>
 </html>

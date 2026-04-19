@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { ReviewsComponent } from '../../reviews/reviews.component';
-import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 import { AnalyticsService } from '../../services/analytics.service';
@@ -28,7 +27,7 @@ interface Testimonial {
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, NgOptimizedImage, ReviewsComponent, BreadcrumbComponent],
+  imports: [CommonModule, FormsModule, RouterModule, NgOptimizedImage, ReviewsComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
@@ -37,11 +36,6 @@ export class ContactUsComponent implements OnInit {
   private seo = inject(SeoService);
   private structuredData = inject(StructuredDataService);
   private analytics = inject(AnalyticsService);
-
-  crumbs = [
-    { label: 'Home', url: '/' },
-    { label: 'Contact Us', url: '/contact' }
-  ];
 
   dots = Array(70).fill(0);
 
@@ -105,10 +99,6 @@ export class ContactUsComponent implements OnInit {
 
     // Add structured data schemas
     this.structuredData.injectOrganizationSchema();
-    this.structuredData.injectBreadcrumbSchema([
-      { name: 'Home', url: 'https://learn-complexity.vercel.app/' },
-      { name: 'Contact Us', url: 'https://learn-complexity.vercel.app/contact' }
-    ]);
     
     this.updateVisibleTestimonials();
     this.updateVisibleCount();
