@@ -26,7 +26,7 @@
       width: 100%;
       max-width: 1440px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0;
     }
 
     /* ============================================================
@@ -1194,7 +1194,7 @@
       }
       /* Better spacing for mobile */
       .container {
-        padding-bottom: 20px;
+        padding: 0;
       }
       /* Hide horizontal overflow */
       * {
@@ -1217,7 +1217,7 @@
     /* Tablet styles */
     @media (min-width: 769px) and (max-width: 1024px) {
       .container {
-        padding: 0 20px;
+        padding: 0;
       }
       section[style] {
         padding: 32px 20px !important;
@@ -1240,7 +1240,7 @@
        ============================================================ */
     @media (min-width: 769px) and (max-width: 1024px) {
       
-      /* Featured Courses - Use flexbox with margin to move second card to the right */
+       /* Featured Courses - Use flexbox with margin to move second card to the right */
       section:nth-of-type(3) > div:nth-child(4) {
         position: relative !important;
         width: 100% !important;
@@ -1362,6 +1362,66 @@
         overflow: visible !important;
       }
 
+      /* ===== HERO HEADING: Orange underline fix ===== */
+      .hero-heading svg,
+      .hero-heading > span > svg,
+      .hero-heading [style*="orange"],
+      .hero-heading ~ svg {
+        width: 120px !important;
+        left: 0px !important;
+        top: auto !important;
+        bottom: -6px !important;
+        position: absolute !important;
+      }
+
+      /* Target the underline span/div wrapping "Learn" */
+      .hero-heading > span:first-child,
+      .hero-heading span[style*="relative"] {
+        position: relative !important;
+        display: inline-block !important;
+      }
+
+      /* Ensure SVG underline stays under just "Learn" word */
+      .hero-heading span:first-child svg {
+        width: 110px !important;
+        max-width: 110px !important;
+        position: absolute !important;
+        bottom: -4px !important;
+        left: 0 !important;
+        transform: none !important;
+      }
+
+      /* ===== HERO HEADING: Text positioning fix ===== */
+      .hero-heading {
+        font-size: 42px !important;
+        line-height: 115% !important;
+        width: 100% !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow: visible !important;
+        display: block !important;
+      }
+
+      /* Force proper line breaks for heading text */
+      .hero-heading > div,
+      .hero-heading [style*="width"],
+      .hero-heading [style*="height"] {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        position: relative !important;
+      }
+
+      /* Target specific text spans within heading */
+      .hero-heading > div > span,
+      .hero-heading span:not([style*="orange"]) {
+        display: block !important;
+        width: 100% !important;
+        position: relative !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+      }
+
       /* Orange blob - make it fill right side properly */
       .hero-orange-blob {
         width: 520px !important;
@@ -1380,7 +1440,7 @@
 
       /* Student cards repositioning */
       .hero-card-students {
-        width: 220px !important;
+        width: 240px !important;
         height: auto !important;
         top: 60px !important;
         left: 440px !important;
@@ -1416,12 +1476,13 @@
 
       /* Students card - pull left so it doesn't overlap title */
       .hero-card-students {
-        width: 210px !important;
-        min-width: 210px !important;
+        width: 240px !important;
+        min-width: 230px !important;
         top: 55px !important;
         left: 430px !important;
         white-space: nowrap !important;
         overflow: visible !important;
+        font-size: 16px !important;
       }
 
       /* Internships card - ensure text fits on one line */
@@ -1432,6 +1493,7 @@
         left: 770px !important;
         white-space: nowrap !important;
         overflow: visible !important;
+        font-size: 16px !important;
       }
 
       .hero-card-internship span,
@@ -1439,7 +1501,7 @@
       .hero-card-internship div {
         white-space: nowrap !important;
         overflow: visible !important;
-        font-size: 13px !important;
+        font-size: 16px !important;
       }
 
       /* Expert Mentors card - ensure both words fit on ONE line */
@@ -1450,13 +1512,14 @@
         left: 430px !important;
         white-space: nowrap !important;
         overflow: visible !important;
+        font-size: 16px !important;
       }
 
       .hero-card-mentors span,
       .hero-card-mentors p,
       .hero-card-mentors div {
         white-space: nowrap !important;
-        font-size: 13px !important;
+        font-size: 16px !important;
         overflow: visible !important;
       }
 
@@ -1468,158 +1531,78 @@
         left: 775px !important;
         white-space: nowrap !important;
         overflow: visible !important;
+        font-size: 16px !important;
       }
 
       .hero-card-courses span,
       .hero-card-courses p,
       .hero-card-courses div {
         white-space: nowrap !important;
-        font-size: 13px !important;
+        font-size: 16px !important;
         overflow: visible !important;
       }
 
       /* ===== COMPANY BAR ===== */
-      .company-block {
-        position: relative !important;
-        width: calc(100% - 32px) !important;
-        left: 16px !important;
-        top: auto !important;
-        height: 80px !important;
-        margin: 16px 0 32px 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        z-index: 10 !important;
-        order: -1 !important;
-      }
+      /* ===== COMPANY BLOCK 1024px ===== */
+.company-block {
+  width: calc(100% - 32px) !important;
+  height: 90px !important;
+  left: 16px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
 
-      .company-block .inner-text {
-        width: 160px !important;
-        min-width: 160px !important;
-        height: 80px !important;
-        position: relative !important;
-        flex-shrink: 0 !important;
-      }
+.company-block .inner-text {
+  width: 170px !important;
+  min-width: 170px !important;
+  height: 90px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 
-      .company-block .inner-text span {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        font-size: 13px !important;
-        line-height: 1.3 !important;
-        width: auto !important;
-        height: auto !important;
-        padding: 8px !important;
-        display: block !important;
-      }
+.company-block .inner-text span {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  width: auto !important;
+  height: auto !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  text-align: center !important;
+}
 
-      .company-block .horizontal-block {
-        position: relative !important;
-        width: calc(100% - 160px) !important;
-        height: 80px !important;
-        left: auto !important;
-        top: auto !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 20px !important;
-        padding: 0 12px !important;
-        align-items: center !important;
-        scrollbar-width: none !important;
-      }
+.company-block .horizontal-block {
+  width: calc(100% - 170px) !important;
+  height: 90px !important;
+  left: 170px !important;
+  top: 0 !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  box-sizing: border-box !important;
+}
 
-      .company-block .horizontal-block svg {
-        max-width: 70px !important;
-        height: 20px !important;
-        flex-shrink: 0 !important;
-        width: auto !important;
-      }
+.company-block .horizontal-block::-webkit-scrollbar {
+  display: none !important;
+}
 
+.company-block .horizontal-block svg {
+  max-width: 100px !important;
+  height: 28px !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+}
       /* ===== WHY CHOOSE US FIXES ===== */
-      section:nth-of-type(2) {
-        min-height: 700px !important;
-        overflow: hidden !important;
-      }
-
-      /* Heading - left aligned, not centered */
-      section:nth-of-type(2) > div:nth-child(2) {
-        text-align: left !important;
-        width: 55% !important;
-      }
-
-      section:nth-of-type(2) > div:nth-child(2) span {
-        font-size: 36px !important;
-        text-align: left !important;
-      }
-
-      /* Description text - left side only */
-      section:nth-of-type(2) > div:nth-child(4) {
-        width: 50% !important;
-      }
-
-      /* Feature cards - left side only, 2x2 grid */
-      section:nth-of-type(2) > div:nth-child(5) {
-        width: 50% !important;
-        grid-template-columns: 1fr 1fr !important;
-      }
-
-      /* RIGHT SIDE IMAGE - show it properly */
-      section:nth-of-type(2) > div:nth-child(6) {
-        display: block !important;
-        position: absolute !important;
-        right: 0 !important;
-        top: 0 !important;
-        width: 46% !important;
-        height: 100% !important;
-        overflow: hidden !important;
-        z-index: 1 !important;
-      }
-
-      /* The three image divs inside section 2 right block */
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(1) {
-        display: none !important;
-      }
-
-      /* Main large image - home8.webp */
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(3) {
-        position: relative !important;
-        width: 100% !important;
-        height: 100% !important;
-        top: auto !important;
-        left: auto !important;
-      }
-
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(3) img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        border-radius: 0 !important;
-      }
-
-      /* Hide dots decorative pattern */
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(1) {
-        display: none !important;
-      }
-
-      /* home6 small top image */
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(2) {
-        position: absolute !important;
-        width: 60% !important;
-        height: auto !important;
-        top: 20px !important;
-        right: 10px !important;
-        left: auto !important;
-        z-index: 2 !important;
-      }
-
-      section:nth-of-type(2) > div:nth-child(6) > div:nth-child(2) img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: cover !important;
-        border-radius: 8px !important;
-      }
+     section:nth-of-type(2),
+  section:nth-of-type(2)[style] {
+    margin-top: -80px !important;
+  }
 
       
 
