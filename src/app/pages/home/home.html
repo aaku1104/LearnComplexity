@@ -1239,6 +1239,87 @@
        Treat 1024px as tablet - disable JS scaling and use CSS
        ============================================================ */
     @media (min-width: 769px) and (max-width: 1024px) {
+      
+      /* Featured Courses - Use flexbox with margin to move second card to the right */
+      section:nth-of-type(3) > div:nth-child(4) {
+        position: relative !important;
+        width: 100% !important;
+        height: 600px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 60px !important;
+        padding: 0 40px !important;
+      }
+      
+      /* Show only first 2 cards, hide others - use margin to move second card right */
+      section:nth-of-type(3) .lc-course-card:nth-child(1),
+      section:nth-of-type(3) .lc-course-card:nth-child(2) {
+        display: block !important;
+        position: relative !important;
+        width: 385px !important;
+        max-width: 385px !important;
+        height: 529px !important;
+        flex: 0 0 385px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      /* Move second card to the right with margin */
+      section:nth-of-type(3) .lc-course-card:nth-child(2) {
+        margin-left: 80px !important;
+      }
+      
+      /* Hide remaining cards */
+      section:nth-of-type(3) .lc-course-card:nth-child(3),
+      section:nth-of-type(3) .lc-course-card:nth-child(4),
+      section:nth-of-type(3) .lc-course-card:nth-child(5),
+      section:nth-of-type(3) .lc-course-card:nth-child(6) {
+        display: none !important;
+      }
+      
+      /* Make navigation buttons visible at right bottom */
+      section:nth-of-type(3) > div:last-child {
+        position: absolute !important;
+        bottom: 12px !important;
+        right: 16px !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        align-items: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 20 !important;
+      }
+      
+      section:nth-of-type(3) > div:last-child > div {
+        position: relative !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0px 1px 2px 0px #0000000D !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+      }
+      
+      section:nth-of-type(3) > div:last-child > div:hover {
+        background-color: #F9FAFB !important;
+        border-color: #E5E7EB !important;
+      }
+      
+      section:nth-of-type(3) > div:last-child > div svg {
+        width: 20px !important;
+        height: 20px !important;
+        color: #6B7280 !important;
+      }
 
       html, body {
         min-width: unset !important;
