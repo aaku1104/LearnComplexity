@@ -36,7 +36,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg-page);
+  background: var(--bg-page) !important;
   color: var(--text-dark);
   min-height: 100vh;
   padding: 0 0 80px;
@@ -397,7 +397,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     </article>
 
     <!-- CONTENT GRID -->
-    <div class="content-grid">
+    <div class="content-grid" id="main-content">
 
       <!-- LEFT COLUMN -->
       <div class="col-left">
