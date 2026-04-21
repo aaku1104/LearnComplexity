@@ -39,12 +39,66 @@ body {
   background: var(--bg-page);
   color: var(--text-dark);
   min-height: 100vh;
-  padding: 28px 32px 64px;
+  padding: 0 0 64px;
 }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── BACK NAV BAR ── */
+.back-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-page);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .15s;
+  flex-shrink: 0;
+}
+.back-btn:hover {
+  background: var(--blue-light);
+  border-color: var(--blue);
+  transform: translateX(-2px);
+}
+.back-btn .material-icons {
+  font-size: 20px;
+  color: var(--text-dark);
+}
+.back-btn:hover .material-icons {
+  color: var(--blue);
+}
+
+.back-nav__title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text-dark);
+  letter-spacing: -.01em;
+}
+
+/* ── PAGE WRAPPER ── */
+.page-wrapper {
+  padding: 28px 32px 0;
+  margin-bottom: 80px;
+}
 
 /* ── CONTENT GRID ── */
 .content-grid {
@@ -210,9 +264,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .instructor-card__role { font-size: 12px; color: var(--text-body); margin-top: 2px; }
 
 .stars-row { display: flex; align-items: center; gap: 3px; }
-.star { font-size: 15px !important; color: var(--gold); }
+.star { font-size: 18px !important; color: var(--gold); }
 .star.empty { color: #D1D5DB; }
-.rating-text { font-size: 12px; color: var(--text-body); margin-left: 4px; }
+.rating-text { font-size: 14px; color: var(--text-body); margin-left: 4px; }
 
 .instructor-stats-row {
   display: flex;
@@ -352,39 +406,41 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .course-thumb {
   flex-shrink: 0;
-  width: 220px;
+  width: 400px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 16/10;
+  height: auto;
+  max-height: 300px;
 }
 .course-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.course-info { flex: 1; min-width: 0; }
-.course-info__title { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.3; color: var(--text-dark); margin-bottom: 6px; }
+.course-info { flex: 1; min-width: 0; padding: 40px 0; }
+.course-info__title { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.3; color: var(--text-dark); margin-bottom: 6px; }
 .course-info__subtitle { font-size: 12px; color: var(--text-body); margin-bottom: 12px; line-height: 1.5; }
 
 .course-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 14px; }
-.course-meta__item { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-mid); font-weight: 500; }
+.course-meta__item { display: flex; align-items: center; gap: 4px; font-size: 14px; color: var(--text-mid); font-weight: 500; }
 .course-meta__item .material-icons { font-size: 15px; color: var(--orange); }
 .course-meta__item .material-icons.icon-blue { color: var(--blue); }
 .course-meta__item .material-icons.icon-green { color: var(--green); }
 
-.badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: .02em; }
+.badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: .02em; }
 .badge--web { background: #DBEAFE; color: #1D4ED8; }
 
 .course-instructor-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .instructor-mini { display: flex; align-items: center; gap: 10px; }
 .instructor-mini__avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #ef4444); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
 .instructor-mini__avatar img { width: 100%; height: 100%; object-fit: cover; }
-.instructor-mini__name { font-weight: 600; font-size: 13px; color: var(--text-dark); display: block; }
-.instructor-mini__role { font-size: 11px; color: var(--text-body); }
+.instructor-mini__name { font-weight: 600; font-size: 15px; color: var(--text-dark); display: block; }
+.instructor-mini__role { font-size: 13px; color: var(--text-body); }
 
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
   .col-right { order: -1; }
 }
 @media (max-width: 768px) {
-  body { padding: 16px 16px 48px; }
+  .back-nav { padding: 14px 16px; }
+  .page-wrapper { padding: 16px 16px 0; }
   .course-header { flex-direction: column; }
   .course-thumb { width: 100%; }
   .comment-form__row { grid-template-columns: 1fr; }
@@ -393,10 +449,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 </head>
 <body>
 
+
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+
 <!-- COURSE HEADER CARD (thumb + info, no sidebar/topbar) -->
 <article class="course-header card">
   <div class="course-thumb">
-    <img src="assets/images/course-thumb.jpg" alt="Course thumbnail" />
+    <img src="../../../assets/images/img1.webp" alt="Course thumbnail" />
   </div>
   <div class="course-info">
     <h2 class="course-info__title">The Complete Web Developer Course 2.0</h2>
@@ -419,7 +480,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <div class="course-instructor-row">
       <div class="instructor-mini">
         <div class="instructor-mini__avatar">
-          <img src="assets/images/instructor-avatar.jpg" alt="" onerror="this.style.display='none'"/>
+          <img src="assets/images/course-profile.webp" alt="" onerror="this.style.display='none'"/>
         </div>
         <div>
           <span class="instructor-mini__name">Nicole Brown</span>
@@ -630,6 +691,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   </aside>
 
 </div><!-- /content-grid -->
+
+</div><!-- /page-wrapper -->
 
 </body>
 </html>
