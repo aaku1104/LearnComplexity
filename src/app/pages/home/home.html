@@ -1110,19 +1110,19 @@
         left: 270px !important;
       }
       /* Specific adjustments for 320px viewport */
-      @media (max-width: 320px) {
-        /* Move 24 Weeks elements with SVG further left to fit in card */
-        section:nth-of-type(3) .lc-course-card div[style*="top: 237px; left: 278px"] {
-          left: 180px !important;
-        }
-        /* Move price elements ($199 and $89) further left to fit in card */
-        section:nth-of-type(3) .lc-course-card span[style*="left: 311.53px"] {
-          left: 240px !important;
-        }
-        section:nth-of-type(3) .lc-course-card span[style*="left: 299.89px"] {
-          left: 230px !important;
-        }
-      }
+      @media (min-width: 310px) and (max-width: 330px) {
+  /* Move 24 Weeks elements with SVG further left to fit in card */
+  section:nth-of-type(3) .lc-course-card div[style*="top: 237px; left: 278px"] {
+    left: 180px !important;
+  }
+  /* Move price elements ($199 and $89) further left to fit in card */
+  section:nth-of-type(3) .lc-course-card span[style*="left: 311.53px"] {
+    left: 240px !important;
+  }
+  section:nth-of-type(3) .lc-course-card span[style*="left: 299.89px"] {
+    left: 230px !important;
+  }
+}
       /* Make section 4 category cards responsive */
       section:nth-of-type(4) .lc-category-grid {
         display: grid !important;
