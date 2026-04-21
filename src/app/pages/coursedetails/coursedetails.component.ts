@@ -38,7 +38,7 @@ export interface CommentForm {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './coursedetails.component.html',
-  styleUrls: ['./coursedetails.component.scss']
+  styleUrls: ['./coursedetails.component.css']
 })
 export class CourseDetailsComponent implements OnInit {
 
