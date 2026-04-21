@@ -10,6 +10,16 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Course Detail Pages Background Override */
+.page-wrapper {
+  background: #F4F6FB !important;
+}
+
+/* Override any white backgrounds from Tailwind or global styles */
+body .page-wrapper {
+  background-color: #F4F6FB !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
