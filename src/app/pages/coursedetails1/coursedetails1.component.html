@@ -34,6 +34,13 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* VERCEL VISIBILITY FIX - Force all elements to be visible */
+.card { background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important; }
+.accordion-item { border: 1px solid #D1D5DB !important; border-radius: 10px !important; }
+.form-input, .form-textarea { border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; background: #FFFFFF !important; }
+.btn-wishlist, .btn-share { border: 1.5px solid #D1D5DB !important; background: #FFFFFF !important; color: #374151 !important; }
+.btn-enroll, .btn-submit { background: #2D5BE3 !important; color: #FFFFFF !important; }
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: #F4F6FB !important;
@@ -375,7 +382,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="page-shell">
 
     <!-- COURSE HEADER CARD -->
-    <article class="course-header card">
+    <article class="course-header card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
       <div class="course-thumb">
         <img src="../../../assets/images/img1.webp" alt="UI Design Course thumbnail" />
       </div>
@@ -430,7 +437,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
 
         <!-- Overview -->
-        <section class="card">
+        <section class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <h3 class="card__title">Overview</h3>
             <p class="section-label">Course Description</p>
@@ -450,31 +457,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </section>
 
         <!-- Course Content -->
-        <section class="card">
+        <section class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <div class="accordion-header">
               <h3 class="card__title" style="margin-bottom:0;">Course Content</h3>
               <p class="accordion-meta">68 Lectures <span>8:45:30</span></p>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" style="border: 1px solid #D1D5DB !important; border-radius: 10px !important;">
               <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m1');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
                 Introduction to UI Design <span class="material-icons">expand_more</span>
               </button>
               <div class="accordion-item__body" id="m1" style="display:none;">Learn the fundamentals of UI design, including principles, tools, and industry standards.</div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" style="border: 1px solid #D1D5DB !important; border-radius: 10px !important;">
               <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m2');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
                 Design Principles <span class="material-icons">expand_more</span>
               </button>
               <div class="accordion-item__body" id="m2" style="display:none;">Master core design principles like hierarchy, balance, contrast, and visual flow.</div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" style="border: 1px solid #D1D5DB !important; border-radius: 10px !important;">
               <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m3');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
                 Color Theory <span class="material-icons">expand_more</span>
               </button>
               <div class="accordion-item__body" id="m3" style="display:none;">Understanding color psychology, color schemes, and how to create effective color palettes.</div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" style="border: 1px solid #D1D5DB !important; border-radius: 10px !important;">
               <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m4');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
                 Typography Basics <span class="material-icons">expand_more</span>
               </button>
@@ -484,7 +491,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </section>
 
         <!-- About Instructor -->
-        <section class="card">
+        <section class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <h3 class="card__title">About the instructor</h3>
             <div class="instructor-card__top">
@@ -527,27 +534,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </section>
 
         <!-- Post A Comment -->
-        <section class="card">
+        <section class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <h3 class="card__title">Post A comment</h3>
             <form class="comment-form" novalidate onsubmit="event.preventDefault()">
               <div class="comment-form__row">
                 <div class="form-field">
                   <label class="form-label" for="c-name">Name</label>
-                  <input class="form-input" id="c-name" type="text" placeholder="Your name" autocomplete="name"/>
+                  <input class="form-input" id="c-name" type="text" placeholder="Your name" autocomplete="name" style="border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; background: #FFFFFF !important;"/>
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="c-email">Email</label>
-                  <input class="form-input" id="c-email" type="email" placeholder="Your email" autocomplete="email"/>
+                  <input class="form-input" id="c-email" type="email" placeholder="Your email" autocomplete="email" style="border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; background: #FFFFFF !important;"/>
                 </div>
               </div>
               <div class="form-field">
                 <label class="form-label" for="c-subject">Subject</label>
-                <input class="form-input" id="c-subject" type="text" placeholder="Subject"/>
+                <input class="form-input" id="c-subject" type="text" placeholder="Subject" style="border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; background: #FFFFFF !important;"/>
               </div>
               <div class="form-field">
                 <label class="form-label" for="c-comments">Comments</label>
-                <textarea class="form-textarea" id="c-comments" placeholder="Write your comment here..."></textarea>
+                <textarea class="form-textarea" id="c-comments" placeholder="Write your comment here..." style="border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; background: #FFFFFF !important;"></textarea>
               </div>
               <button type="submit" class="btn-submit">Submit</button>
             </form>
@@ -559,7 +566,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       <!-- RIGHT COLUMN -->
       <aside class="col-right">
 
-        <div class="card">
+        <div class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body price-card">
             <div class="price-tag">
               <span class="price-tag__free">${{getDiscountedPrice() | number:'1.2-2'}}</span>
@@ -582,7 +589,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <p class="includes-title">Includes</p>
             <ul class="includes-list">
@@ -596,7 +603,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" style="background: #FFFFFF !important; border: 1px solid #D1D5DB !important; border-radius: 18px !important;">
           <div class="card__body">
             <p class="features-title">Course Features</p>
             <ul class="features-list">
