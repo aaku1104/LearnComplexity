@@ -192,6 +192,17 @@ html, body { width: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; 
 
 .course-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(0,0,0,.12); }
 
+.course-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.course-card-link:hover .course-card {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+}
+
 
 
 .card-thumb-wrap { position: relative; padding: 12px 12px 0; }
@@ -686,200 +697,185 @@ html, body { width: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; 
 
 
     <div class="course-grid" role="list" aria-label="Top courses">
-
-
-
       <!-- CARD 1 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap">
-
-          <img class="card-thumb" src="assets/images/img1.webp" alt="UI Design for Beginners course thumbnail"/>
-
-          <span class="card-badge badge-hot" aria-label="Bestseller">
-
-            <svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-
-            Bestseller
-
-          </span>
-
-        </div>
-
-        <div class="card-body">
-
-          <div class="card-meta-row">
-
-            <span class="cat-tag">UI / UX Design</span>
-
-            <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
-
+      <a href="/courses/ui-design-for-beginners" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img1.webp" alt="UI Design for Beginners course thumbnail"/>
+            <span class="card-badge badge-hot" aria-label="Bestseller">
+              <svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Bestseller
+            </span>
           </div>
-
-          <h3 class="card-title">UI Design for Beginners</h3>
-
-          <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
-
-          <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
-
-        </div>
-
-        <footer class="card-footer">
-
-          <div class="instructor-wrap">
-
-            <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
-
-            <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
-
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">UI / UX Design</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">UI Design for Beginners</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
           </div>
-
-          <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
-
-        </footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add UI Design for Beginners to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add UI Design for Beginners to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
       <!-- CARD 2 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap">
-
-          <img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Dev React Native course thumbnail"/>
-
-          <span class="card-badge badge-prem" aria-label="Premium">
-
-            <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-
-            Premium
-
-          </span>
-
-        </div>
-
-        <div class="card-body">
-
-          <div class="card-meta-row">
-
-            <span class="cat-tag">Mobile Development</span>
-
-            <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
-
+      <a href="/courses/mobile-dev-react-native" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Dev React Native course thumbnail"/>
+            <span class="card-badge badge-prem" aria-label="Premium">
+              <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Premium
+            </span>
           </div>
-
-          <h3 class="card-title">Mobile Dev React Native</h3>
-
-          <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
-
-          <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
-
-        </div>
-
-        <footer class="card-footer">
-
-          <div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div>
-
-          <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
-
-        </footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">Mobile Development</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">Mobile Dev React Native</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+          </div>
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
       <!-- CARD 3 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap">
-
-          <img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/>
-
-          <span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span>
-
-        </div>
-
-        <div class="card-body">
-
-          <div class="card-meta-row"><span class="cat-tag">Web Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div>
-
-          <h3 class="card-title">Website Dev Zero to Hero</h3>
-
-          <div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
-
-          <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
-
-        </div>
-
-        <footer class="card-footer">
-
-          <div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div>
-
-          <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
-
-        </footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+      <a href="/courses/website-dev-zero-to-hero" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/>
+            <span class="card-badge badge-prem" aria-label="Premium">
+              <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Premium
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">Web Development</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">Website Dev Zero to Hero</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+          </div>
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
       <!-- CARD 4 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img1.webp" alt="UI Design for Beginners"/><span class="card-badge badge-hot" aria-label="Bestseller"><svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bestseller</span></div>
-
-        <div class="card-body"><div class="card-meta-row"><span class="cat-tag">UI / UX Design</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">UI Design for Beginners</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
-
-        <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add UI Design for Beginners to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+      <a href="/courses/data-science-with-python" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img4.webp" alt="Data Science with Python course thumbnail"/>
+            <span class="card-badge badge-hot" aria-label="Bestseller">
+              <svg width="12" height="13" viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M9.5 2.5C10 4.7 11.1 6.5 12.7 7.9 14.3 9.3 15 10.8 15 12.5c0 1.5-.6 3-1.6 4.1C12.4 17.7 11 18.3 9.5 18.3s-2.9-.6-3.9-1.7C4.5 15.5 4 14 4 12.5c0-.9.3-1.8.75-2.5 0 .55.2 1.1.57 1.47.37.4.87.61 1.4.61s1-.21 1.4-.61C8 11 8.2 10.45 8.2 9.9 8.2 8.3 7 7.5 7 5.8 7 4.7 7.7 3.6 9.5 2.5z" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Bestseller
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">Data Science</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">Data Science with Python</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+          </div>
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add Data Science with Python to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
       <!-- CARD 5 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
-
-        <div class="card-body"><div class="card-meta-row"><span class="cat-tag">Web Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">Website Dev Zero to Hero</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
-
-        <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+      <a href="/courses/website-dev-zero-to-hero" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img2.webp" alt="Web Development course with coding examples and projects"/>
+            <span class="card-badge badge-prem" aria-label="Premium">
+              <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Premium
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">Web Development</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">Website Dev Zero to Hero</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+          </div>
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add Website Dev Zero to Hero to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
       <!-- CARD 6 -->
-
-      <article class="course-card" role="listitem">
-
-        <div class="card-thumb-wrap"><img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Development with React Native course teaching cross-platform app development"/><span class="card-badge badge-prem" aria-label="Premium"><svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Premium</span></div>
-
-        <div class="card-body"><div class="card-meta-row"><span class="cat-tag">Mobile Development</span><span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span></div><h3 class="card-title">Mobile Dev React Native</h3><div class="stars-row" aria-label="Rating: 4.8 out of 5">⭐⭐⭐⭐⭐<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div><p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p></div>
-
-        <footer class="card-footer"><div class="instructor-wrap"><img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" /><div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div></div><div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div></footer>
-
-        <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
-
-      </article>
-
-
+      <a href="/courses/mobile-dev-react-native-2" class="course-card-link" role="listitem">
+        <article class="course-card">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="assets/images/img3.webp" alt="Mobile Development with React Native course teaching cross-platform app development"/>
+            <span class="card-badge badge-prem" aria-label="Premium">
+              <svg width="12" height="12" viewBox="0 0 17 18" fill="none" aria-hidden="true"><path d="M6.37 9l1.42 1.5 2.83-3M14.17 9.75c0 3.75-2.48 5.63-5.43 6.71-.16.06-.32.06-.47 0C5.31 15.38 2.83 13.5 2.83 9.75V4.5c0-.2.07-.39.21-.53.13-.14.31-.22.5-.22 1.42 0 3.19-.9 4.42-2.04A.74.74 0 018.5 1.5c.2 0 .39.07.54.21C10.28 2.86 12.04 3.75 13.46 3.75c.19 0 .37.08.5.22.13.14.21.33.21.53v5.25z" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Premium
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="cat-tag">Mobile Development</span>
+              <span class="duration-tag"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6S9.3 0 6 0zm0 10.8C3.35 10.8 1.2 8.65 1.2 6S3.35 1.2 6 1.2 10.8 3.35 10.8 6 8.65 10.8 6 10.8zm.3-7.9H5.4v3.5l3.1 1.87.44-.73L6.3 6.1V2.9z" fill="#6B7280"/></svg>24 Weeks</span>
+            </div>
+            <h3 class="card-title">Mobile Dev React Native</h3>
+            <div class="stars-row" aria-label="Rating: 4.8 out of 5">â­â­â­â­â<span class="rating-num">4.8</span><span class="review-text">(1.2k Reviews)</span></div>
+            <p class="card-desc">Master the complete machine learning lifecycle. Learn to design, build, and deploy production-ready solutions.</p>
+          </div>
+          <footer class="card-footer">
+            <div class="instructor-wrap">
+              <img class="instructor-avatar" ngSrc="assets/images/course-profile.webp" alt="Dr. Sarah Chen - Expert programming instructor specializing in machine learning and software development" width="36" height="36" />
+              <div><span class="instructor-label">Instructor</span><span class="instructor-name">Dr. Sarah Chen</span></div>
+            </div>
+            <div class="price-col"><span class="price-old">$199</span><span class="price-new">$89</span></div>
+          </footer>
+          <button class="add-cart-btn" type="button" aria-label="Add Mobile Dev React Native to cart" onclick="event.stopPropagation()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.56 13C16.31 13 17 12.61 17.3 11.95L20.86 5.48C21.23 4.83 20.77 3.98 20.02 3.98H5.2L4.27 2.02H.98V3.98H3L6.61 11.58 5.25 14.02C4.5 15.38 5.48 17.02 6.98 17.02H18.98V15H6.98L8.11 13H15.56zM6.14 6H18.33L15.56 11.02H8.53L6.14 6zM6.98 18C5.91 18 5.02 18.89 5.02 20.02S5.91 22 6.98 22 9 21.09 9 20.02 8.11 18 6.98 18zm10.04 0C15.89 18 15 18.89 15 20.02S15.89 22 17.02 22s1.96-.91 1.96-1.98-1.09-2.04-2.96-2.04z" fill="white"/></svg>Add to Cart</button>
+        </article>
+      </a>
 
     </div>
 

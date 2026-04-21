@@ -41,7 +41,6 @@ body {
   min-width: 100%;
   box-sizing: border-box;
 }
-/* Sections must be truly edge-to-edge */
 .hero,
 .git,
 .ol {
@@ -85,7 +84,6 @@ body {
   width: 100%;
 }
 
-/* diagonal stripe texture */
 .hero::before {
   content: '';
   position: absolute;
@@ -100,7 +98,6 @@ body {
   z-index: 0;
 }
 
-/* blur blobs */
 .hero__blur {
   position: absolute;
   width: 300px; height: 320px;
@@ -114,7 +111,6 @@ body {
 .hero__blur--l { left: -120px; top: -120px; }
 .hero__blur--r { right: -60px; top: 80px; }
 
-/* inner row */
 .hero__inner {
   position: relative;
   z-index: 2;
@@ -128,7 +124,6 @@ body {
   gap: 24px;
 }
 
-/* copy */
 .hero__text { flex: 1; min-width: 0; }
 
 .hero__h2 {
@@ -150,7 +145,6 @@ body {
   color: var(--blue);
 }
 
-/* visual column */
 .hero__visual {
   position: relative;
   flex-shrink: 0;
@@ -158,7 +152,6 @@ body {
   height: clamp(220px, 38vw, 480px);
 }
 
-/* dot grid */
 .hero__dot-grid {
   position: absolute;
   top: 10px; left: -10px;
@@ -174,7 +167,6 @@ body {
   background: #B8C6DE;
 }
 
-/* orange circle */
 .hero__circle {
   position: absolute;
   top: 50%; left: 50%;
@@ -186,7 +178,6 @@ body {
   z-index: 1;
 }
 
-/* person image */
 .hero__person {
   position: absolute;
   bottom: 0; left: 50%;
@@ -197,7 +188,6 @@ body {
   z-index: 2;
 }
 
-/* floating cards */
 .hero__icon-box {
   position: absolute;
   background: #fff;
@@ -213,7 +203,6 @@ body {
 .hero__bars { display: flex; align-items: flex-end; gap: 4px; }
 .hero__bar  { border-radius: 3px; }
 
-/* accent dots */
 .hero__dot-accent {
   position: absolute;
   border-radius: 50%;
@@ -242,7 +231,6 @@ body {
   overflow: hidden;
 }
 
-/* triangle deco */
 .git__tri {
   position: absolute;
   left: 0; bottom: 0;
@@ -252,7 +240,6 @@ body {
   pointer-events: none;
 }
 
-/* two-column grid */
 .git__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -276,7 +263,6 @@ body {
   margin-bottom: 28px;
 }
 
-/* info card */
 .git__card {
   background: var(--bg-card);
   border-radius: var(--radius-md);
@@ -325,7 +311,6 @@ body {
   display: block;
 }
 
-/* form */
 .git__form { display: flex; flex-direction: column; }
 
 .git__label {
@@ -376,7 +361,6 @@ body {
 .git__btn:hover  { background: var(--blue-d); }
 .git__btn:active { transform: scale(.98); }
 
-/* socials */
 .git__socials {
   display: flex;
   justify-content: center;
@@ -433,7 +417,6 @@ body {
 
 .ol__iframe { width: 100%; height: 100%; border: none; display: block; }
 
-/* overlaid info panel */
 .ol__info {
   position: absolute;
   top: 0; left: 0;
@@ -503,7 +486,7 @@ body {
 
 
 /* ══════════════════════════════════════════════════
-   RESPONSIVE — LARGE DESKTOP  (≥1400px)
+   RESPONSIVE
 ══════════════════════════════════════════════════ */
 @media (min-width: 1400px) {
   .hero__inner { padding: 56px 60px; }
@@ -511,9 +494,6 @@ body {
   .ol          { padding: 48px 60px 48px; }
 }
 
-/* ══════════════════════════════════════════════════
-   RESPONSIVE — MEDIUM DESKTOP  (1024–1199px)
-══════════════════════════════════════════════════ */
 @media (max-width: 1199px) and (min-width: 1024px) {
   .hero__inner  { padding: 44px 32px; }
   .git          { padding: 44px 32px 36px; }
@@ -522,127 +502,62 @@ body {
   .ol           { padding: 36px 32px 36px; }
 }
 
-/* ══════════════════════════════════════════════════
-   RESPONSIVE — TABLET  (768–1023px)
-══════════════════════════════════════════════════ */
 @media (max-width: 1023px) and (min-width: 769px) {
-  .hero__inner {
-    padding: 40px 28px;
-    gap: 20px;
-  }
+  .hero__inner { padding: 40px 28px; gap: 20px; }
   .hero__h2 { font-size: clamp(20px, 3.2vw, 36px); }
   .hero__h1 { font-size: clamp(28px, 4.5vw, 52px); }
-  .hero__visual {
-    width: clamp(160px, 30vw, 340px);
-    height: clamp(200px, 32vw, 400px);
-  }
-
+  .hero__visual { width: clamp(160px, 30vw, 340px); height: clamp(200px, 32vw, 400px); }
   .git       { padding: 40px 24px 36px; }
   .git__wrap { padding: 40px 32px; }
   .git__grid { column-gap: 32px; }
-
   .ol { padding: 36px 24px 36px; }
 }
 
-/* ══════════════════════════════════════════════════
-   RESPONSIVE — MOBILE  (≤768px)
-══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-
   .hero { min-height: auto; }
-
-  .hero__inner {
-    flex-direction: column;
-    align-items: center;
-    padding: 36px 20px 0;
-    gap: 16px;
-    max-width: 100%;
-  }
-
-  .hero__text {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero__visual {
-    width: min(260px, 72vw);
-    height: min(280px, 75vw);
-    margin: 0 auto;
-    overflow: visible;
-  }
-
+  .hero__inner { flex-direction: column; align-items: center; padding: 36px 20px 0; gap: 16px; max-width: 100%; }
+  .hero__text { width: 100%; text-align: center; }
+  .hero__visual { width: min(260px, 72vw); height: min(280px, 75vw); margin: 0 auto; overflow: visible; }
   .hero__dot-grid { display: none; }
-
   .hero__icon-box--l { left: -8px; top: 16%; }
   .hero__icon-box--r { right: -4px; bottom: 14%; }
-
   .git       { padding: 32px 16px 28px; }
   .git__wrap { padding: 28px 20px 32px; border-radius: 12px; }
-
-  .git__grid {
-    grid-template-columns: 1fr;
-    row-gap: 28px;
-  }
-
+  .git__grid { grid-template-columns: 1fr; row-gap: 28px; }
   .git__submit-row { justify-content: center; margin-top: 24px; }
   .git__btn        { width: 100%; max-width: 340px; }
-
   .ol { padding: 28px 16px 28px; }
   .ol__map-wrap { height: 380px; border-radius: 4px; }
   .ol__info { width: min(300px, 75%); }
   .ol__info-name { font-size: 14px; }
 }
 
-/* ══════════════════════════════════════════════════
-   RESPONSIVE — SMALL MOBILE  (≤480px)
-══════════════════════════════════════════════════ */
 @media (max-width: 480px) {
-
   .hero__inner  { padding: 28px 14px 0; gap: 12px; }
-  .hero__visual {
-    width: min(200px, 68vw);
-    height: min(220px, 72vw);
-  }
-  .hero__circle {
-    width: clamp(70px, 22vw, 110px);
-    height: clamp(70px, 22vw, 110px);
-  }
+  .hero__visual { width: min(200px, 68vw); height: min(220px, 72vw); }
+  .hero__circle { width: clamp(70px, 22vw, 110px); height: clamp(70px, 22vw, 110px); }
   .hero__icon-box { padding: 8px 10px; }
   .hero__icon-box--r { right: 0; }
-
   .git       { padding: 24px 12px 20px; }
   .git__wrap { padding: 20px 14px 24px; border-radius: 10px; }
   .git__card { padding: 18px 12px; }
   .git__info-val { font-size: 13px; }
   .git__icon-wrap { width: 38px; height: 38px; }
-
-  .git__tri {
-    width: clamp(60px, 18vw, 110px);
-    height: clamp(60px, 18vw, 110px);
-  }
-
+  .git__tri { width: clamp(60px, 18vw, 110px); height: clamp(60px, 18vw, 110px); }
   .ol { padding: 20px 12px 20px; }
   .ol__map-wrap { height: 320px; border-radius: 2px; }
   .ol__info { width: min(240px, 80%); }
   .ol__info-name { font-size: 13px; }
 }
 
-/* ══════════════════════════════════════════════════
-   RESPONSIVE — VERY SMALL  (≤360px)
-══════════════════════════════════════════════════ */
 @media (max-width: 360px) {
   .hero__inner  { padding: 24px 12px 0; }
-  .hero__visual {
-    width: min(170px, 76vw);
-    height: min(185px, 80vw);
-  }
+  .hero__visual { width: min(170px, 76vw); height: min(185px, 80vw); }
   .hero__h2 { font-size: 20px; }
   .hero__h1 { font-size: 28px; }
-
   .git       { padding: 20px 10px 16px; }
   .git__wrap { padding: 16px 12px 20px; }
   .git__card { padding: 14px 10px; }
-
   .ol { padding: 16px 10px 16px; }
   .ol__info { width: 88%; }
   .ol__info-name { font-size: 12px; }
@@ -651,46 +566,28 @@ body {
 </head>
 <body>
 
-
-<!-- ══════════════════════════════════════
-     SKIP LINK — accessibility + SEO
-══════════════════════════════════════ -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- ══════════════════════════════════════
-     HEADER — page-level banner landmark
-     (placeholder: swap in your real
-      <app-header> / navbar component here)
-══════════════════════════════════════ -->
 <header role="banner">
   <!-- app-header goes here -->
 </header>
 
-<!-- ══════════════════════════════════════
-     MAIN — primary content landmark
-══════════════════════════════════════ -->
 <main id="main-content">
 
   <article aria-labelledby="contact-page-heading">
 
-    <!-- ══════════════════════════════════
-         HERO SECTION
-    ══════════════════════════════════ -->
+    <!-- HERO SECTION -->
     <section class="hero" aria-labelledby="contact-page-heading">
       <div class="hero__blur hero__blur--l" aria-hidden="true"></div>
       <div class="hero__blur hero__blur--r" aria-hidden="true"></div>
 
       <div class="hero__inner">
-
         <div class="hero__text">
-          <!-- Single H1 for this page/route -->
           <p class="hero__h2">Need Help Or Have A<br>Question?</p>
-          <h1 id="contact-page-heading" class="hero__h1">Let’s talk.</h1>
+          <h1 id="contact-page-heading" class="hero__h1">Let's talk.</h1>
         </div>
 
         <div class="hero__visual" aria-hidden="true">
-
-          <!-- Dot grid (desktop/tablet only) -->
           <div class="hero__dot-grid">
             <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
             <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
@@ -703,7 +600,6 @@ body {
 
           <img class="hero__person" ngSrc="assets/images/contact-person.webp" alt="Professional customer support representative providing assistance to students for algorithm complexity learning" width="200" height="200" priority />
 
-          <!-- Bar chart card -->
           <div class="hero__icon-box hero__icon-box--l">
             <div class="hero__bars">
               <div class="hero__bar" style="width:8px;height:20px;background:#545AE8;"></div>
@@ -713,30 +609,24 @@ body {
             </div>
           </div>
 
-          <!-- People card -->
           <div class="hero__icon-box hero__icon-box--r">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#545AE8" aria-hidden="true">
               <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
             </svg>
           </div>
 
-          <!-- Accent dots -->
           <div class="hero__dot-accent" style="width:13px;height:13px;background:#2563EB;right:20%;top:8%;"></div>
           <div class="hero__dot-accent" style="width:16px;height:16px;background:#FF9A7A;left:5%;bottom:10%;"></div>
           <div class="hero__dot-accent" style="width:12px;height:12px;background:#3B82F6;right:4%;bottom:4%;"></div>
         </div>
-
       </div>
     </section>
 
 
-    <!-- ══════════════════════════════════
-         GET IN TOUCH SECTION
-    ══════════════════════════════════ -->
+    <!-- GET IN TOUCH SECTION -->
     <section class="git" aria-labelledby="git-heading">
       <div class="git__wrap">
 
-        <!-- Triangle deco -->
         <div class="git__tri" aria-hidden="true">
           <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
             <polygon points="0,220 220,220 0,0" fill="#2563EB" opacity="0.9"/>
@@ -752,7 +642,6 @@ body {
 
             <address class="git__card" style="font-style:normal;">
 
-              <!-- Address -->
               <div class="git__info-row">
                 <div class="git__icon-wrap" aria-hidden="true">
                   <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
@@ -761,13 +650,12 @@ body {
                 </div>
                 <div style="padding-top:2px;">
                   <span class="git__info-label">Our Address</span>
-                  <p class="git__info-val">Flat No. 5, Samarth Terraces,<br>Kharadi, Pune Maharashtra 411014</p>
+                  <p class="git__info-val">FC Road, Pune, Maharashtra -411005</p>
                 </div>
               </div>
 
               <div class="git__divider" role="separator"></div>
 
-              <!-- Hours -->
               <div class="git__info-row mid">
                 <div class="git__icon-wrap" aria-hidden="true">
                   <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
@@ -783,7 +671,6 @@ body {
 
               <div class="git__divider" role="separator"></div>
 
-              <!-- Contact -->
               <div class="git__info-row last">
                 <div class="git__icon-wrap" aria-hidden="true">
                   <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#FC6441;" aria-hidden="true">
@@ -798,7 +685,7 @@ body {
               </div>
 
             </address>
-          </div><!-- /left -->
+          </div>
 
           <!-- RIGHT — Contact form -->
           <div>
@@ -827,9 +714,9 @@ body {
                 <button type="submit" class="git__btn">Send Message</button>
               </div>
             </form>
-          </div><!-- /right -->
+          </div>
 
-        </div><!-- /git__grid -->
+        </div>
 
         <!-- Social links -->
         <nav class="git__socials" aria-label="Social media links">
@@ -859,31 +746,30 @@ body {
     </section>
 
 
-    <!-- ══════════════════════════════════
-         OFFICE LOCATION SECTION
-    ══════════════════════════════════ -->
+    <!-- OFFICE LOCATION SECTION -->
     <section class="ol" aria-labelledby="ol-heading">
       <div class="ol__inner">
         <h2 id="ol-heading" class="ol__heading">Office Location</h2>
 
         <div class="ol__map-wrap">
+          <!-- ✅ UPDATED: Map now points to FC Road, Pune, Maharashtra 411005 -->
           <iframe
             class="ol__iframe"
-            src="https://maps.google.com/maps?q=18.5448284,73.9358339&z=15&output=embed"
+            src="https://maps.google.com/maps?q=18.5265,73.8420&z=15&output=embed"
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="eLearning Solutions SAP Training Institute location map">
+            title="Learn Complexity office location on FC Road, Pune">
           </iframe>
 
           <div class="ol__info" role="complementary" aria-label="Office location details">
             <div class="ol__info-body">
               <div class="ol__info-header">
-                <p class="ol__info-name">eLearning Solutions – SAP Tr...</p>
+                <p class="ol__info-name">Learn Complexity – FC Road...</p>
                 <a class="ol__dir-btn"
-                   href="https://www.google.com/maps/dir/?api=1&destination=18.5448284,73.9358339"
+                   href="https://www.google.com/maps/dir/?api=1&destination=FC+Road,+Pune,+Maharashtra+411005"
                    target="_blank" rel="noopener noreferrer"
-                   aria-label="Get directions to eLearning Solutions SAP Training Institute">
+                   aria-label="Get directions to Learn Complexity on FC Road, Pune">
                   <div class="ol__dir-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;" aria-hidden="true">
                       <line x1="12" y1="20" x2="12" y2="12" stroke="#a0b4e0" stroke-width="2.2" stroke-linecap="round"/>
@@ -897,20 +783,18 @@ body {
               </div>
 
               <address class="ol__address" style="font-style:normal;">
-                Flat number 5 samarth terraces,<br>
-                behind Bank of baroda, Kharadi,<br>
-                Pune, Maharashtra 411014
+                FC Road, Pune,<br>
+                Maharashtra 411005,<br>
+                India
               </address>
 
               <div class="ol__rating-row">
                 <span class="ol__rating-num">4.7</span>
                 <div class="ol__stars" role="img" aria-label="4.7 out of 5 stars">
-                  <!-- 4 full stars -->
                   <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
                   <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
                   <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
                   <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f9ab00"/></svg>
-                  <!-- half star -->
                   <svg viewBox="0 0 24 24" style="width:15px;height:15px;" aria-hidden="true">
                     <defs>
                       <linearGradient id="hg2">
@@ -922,15 +806,15 @@ body {
                   </svg>
                 </div>
                 <a class="ol__review-link"
-                   href="https://www.google.com/maps?q=18.5448284,73.9358339"
+                   href="https://www.google.com/maps/search/FC+Road,+Pune,+Maharashtra+411005"
                    target="_blank" rel="noopener noreferrer"
-                   aria-label="Read 715 Google reviews">715 reviews</a>
+                   aria-label="View on Google Maps">View reviews</a>
               </div>
             </div>
 
             <div class="ol__divider" role="separator"></div>
             <a class="ol__view-link"
-               href="https://www.google.com/maps?q=18.5448284,73.9358339"
+               href="https://www.google.com/maps/search/FC+Road,+Pune,+Maharashtra+411005"
                target="_blank" rel="noopener noreferrer"
                aria-label="View larger map on Google Maps">View larger map</a>
           </div>
@@ -941,17 +825,10 @@ body {
 
   </article>
 
-  <!-- Reviews component slot -->
   <app-reviews></app-reviews>
 
-</main><!-- /#main-content -->
+</main>
 
-
-<!-- ══════════════════════════════════════
-     FOOTER — site-level landmark
-     (placeholder: swap in your real
-      <app-footer> component here)
-══════════════════════════════════════ -->
 <footer role="contentinfo">
   <!-- app-footer goes here -->
 </footer>

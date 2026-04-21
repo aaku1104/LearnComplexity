@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Course Details – Learn Complexity</title>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+<style>
+:root {
+  --blue:        #2D5BE3;
+  --blue-d:      #1d4ed8;
+  --blue-light:  #EEF2FF;
+  --navy:        #0D1B2E;
+  --orange:      #FF6B35;
+  --orange-light:#FFF3EE;
+  --green:       #22C55E;
+  --gold:        #F59E0B;
+  --red:         #EF4444;
+  --purple:      #8B5CF6;
+  --text-dark:   #111827;
+  --text-mid:    #374151;
+  --text-body:   #6B7280;
+  --text-muted:  #9CA3AF;
+  --bg-page:     #F4F6FB;
+  --bg-white:    #FFFFFF;
+  --border:      #E5E7EB;
+  --radius-lg:   16px;
+  --radius-md:   12px;
+  --radius-sm:   8px;
+  --shadow-sm:   0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:   0 4px 16px rgba(0,0,0,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding: 28px 32px 64px;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── CONTENT GRID ── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.col-left { display: flex; flex-direction: column; gap: 24px; }
+.col-right { display: flex; flex-direction: column; gap: 16px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card__body { padding: 24px; }
+
+.card__title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+/* ── PREVIEW IMAGE ── */
+.preview-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+
+.preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── OVERVIEW ── */
+.section-label {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+.section-label:first-child { margin-top: 0; }
+
+.section-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 8px;
+}
+
+.learn-list { display: flex; flex-direction: column; gap: 5px; }
+.learn-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.learn-list__item .material-icons {
+  font-size: 16px;
+  color: var(--blue);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.req-list { display: flex; flex-direction: column; gap: 5px; }
+.req-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.req-list__item::before {
+  content: '•';
+  color: var(--orange);
+  font-size: 16px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+/* ── ACCORDION ── */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.accordion-meta { font-size: 12px; color: var(--text-body); }
+.accordion-meta span { font-weight: 700; color: var(--orange); }
+
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.accordion-item:hover { box-shadow: var(--shadow-sm); }
+
+.accordion-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #FAFAFA;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: left;
+  transition: background .15s;
+}
+.accordion-item__trigger:hover { background: var(--blue-light); color: var(--blue); }
+.accordion-item__trigger .material-icons { font-size: 20px; color: var(--text-muted); transition: transform .25s; }
+.accordion-item__trigger.open .material-icons { transform: rotate(180deg); }
+
+.accordion-item__body {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text-body);
+  border-top: 1px solid var(--border);
+  background: #fff;
+  line-height: 1.7;
+}
+
+/* ── INSTRUCTOR ── */
+.instructor-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.instructor-card__profile { display: flex; align-items: center; gap: 14px; }
+.instructor-card__avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(239,68,68,.25);
+}
+.instructor-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.instructor-card__name { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 15px; color: var(--text-dark); }
+.instructor-card__role { font-size: 12px; color: var(--text-body); margin-top: 2px; }
+
+.stars-row { display: flex; align-items: center; gap: 3px; }
+.star { font-size: 15px !important; color: var(--gold); }
+.star.empty { color: #D1D5DB; }
+.rating-text { font-size: 12px; color: var(--text-body); margin-left: 4px; }
+
+.instructor-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.instructor-stat { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--text-mid); }
+.instructor-stat .material-icons { font-size: 16px; }
+.stat-orange .material-icons { color: var(--orange); }
+.stat-red    .material-icons { color: var(--red); }
+.stat-yellow .material-icons { color: var(--gold); }
+.stat-blue   .material-icons { color: var(--blue); }
+
+.instructor-bio { font-size: 13px; color: var(--text-body); line-height: 1.7; margin-bottom: 12px; }
+.skills-label { font-weight: 700; font-size: 13px; color: var(--text-dark); margin-bottom: 4px; }
+.skills-text { font-size: 12.5px; color: var(--text-body); line-height: 1.65; margin-bottom: 14px; }
+.avail-label { font-weight: 700; font-size: 13px; color: var(--text-dark); margin-bottom: 8px; }
+.avail-list { display: flex; flex-direction: column; gap: 5px; }
+.avail-list__item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-mid); }
+.avail-list__item .material-icons { font-size: 16px; color: var(--blue); flex-shrink: 0; }
+
+/* ── COMMENT FORM ── */
+.comment-form { display: flex; flex-direction: column; gap: 14px; }
+.comment-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-label { font-size: 12.5px; font-weight: 600; color: var(--text-mid); }
+.form-input, .form-textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  background: var(--bg-white);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-input { height: 44px; padding: 0 14px; }
+.form-textarea { height: 90px; padding: 10px 14px; resize: none; }
+.form-input:focus, .form-textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45,91,227,.1); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+
+.btn-submit {
+  align-self: flex-start;
+  height: 42px;
+  padding: 0 28px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-family: 'Epilogue', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 4px 12px rgba(45,91,227,.3);
+}
+.btn-submit:hover { background: var(--blue-d); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(45,91,227,.4); }
+
+/* ── PRICING CARD ── */
+.price-card { padding: 22px; }
+.price-tag { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.price-tag__free { font-family: 'Epilogue', sans-serif; font-weight: 800; font-size: 28px; color: var(--green); letter-spacing: -.02em; }
+.price-tag__original { font-size: 14px; color: var(--text-muted); text-decoration: line-through; }
+.price-tag__discount { font-size: 12px; font-weight: 700; color: var(--orange); }
+
+.price-actions { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+
+.btn-wishlist {
+  flex: 1; height: 40px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px; font-weight: 600; color: var(--text-mid);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.btn-wishlist:hover { border-color: var(--red); color: var(--red); }
+.btn-wishlist.active { border-color: var(--red); color: var(--red); background: #FEF2F2; }
+.btn-wishlist .material-icons { font-size: 16px; }
+
+.btn-share {
+  flex: 1; height: 40px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px; font-weight: 600; color: var(--text-mid);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: border-color .2s, color .2s;
+}
+.btn-share:hover { border-color: var(--blue); color: var(--blue); }
+.btn-share .material-icons { font-size: 16px; }
+
+.btn-enroll {
+  width: 100%; height: 48px;
+  background: var(--blue); color: #fff;
+  border-radius: var(--radius-sm);
+  font-family: 'Epilogue', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: .04em;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 4px 14px rgba(45,91,227,.35);
+}
+.btn-enroll:hover { background: var(--blue-d); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,91,227,.45); }
+
+.includes-title { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text-dark); margin-bottom: 12px; }
+.includes-list { display: flex; flex-direction: column; gap: 9px; }
+.includes-item { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-mid); }
+.includes-item .material-icons { font-size: 17px; }
+
+.features-title { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text-dark); margin-bottom: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+.features-list { display: flex; flex-direction: column; gap: 9px; }
+.features-item { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-mid); }
+.features-item .material-icons { font-size: 17px; color: var(--blue); }
+.features-item__label { flex: 1; color: var(--text-muted); }
+.features-item__value { font-weight: 600; color: var(--text-dark); }
+
+.icon-red    { color: var(--red); }
+.icon-orange { color: var(--orange); }
+.icon-green  { color: var(--green); }
+.icon-blue   { color: var(--blue); }
+.icon-purple { color: var(--purple); }
+.icon-gold   { color: var(--gold); }
+
+/* ── COURSE HEADER CARD (thumbnail row) ── */
+.course-header {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+.course-thumb {
+  flex-shrink: 0;
+  width: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+.course-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.course-info { flex: 1; min-width: 0; }
+.course-info__title { font-family: 'Epilogue', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.3; color: var(--text-dark); margin-bottom: 6px; }
+.course-info__subtitle { font-size: 12px; color: var(--text-body); margin-bottom: 12px; line-height: 1.5; }
+
+.course-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 14px; }
+.course-meta__item { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-mid); font-weight: 500; }
+.course-meta__item .material-icons { font-size: 15px; color: var(--orange); }
+.course-meta__item .material-icons.icon-blue { color: var(--blue); }
+.course-meta__item .material-icons.icon-green { color: var(--green); }
+
+.badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: .02em; }
+.badge--web { background: #DBEAFE; color: #1D4ED8; }
+
+.course-instructor-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.instructor-mini { display: flex; align-items: center; gap: 10px; }
+.instructor-mini__avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #ef4444); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+.instructor-mini__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.instructor-mini__name { font-weight: 600; font-size: 13px; color: var(--text-dark); display: block; }
+.instructor-mini__role { font-size: 11px; color: var(--text-body); }
+
+@media (max-width: 1024px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .col-right { order: -1; }
+}
+@media (max-width: 768px) {
+  body { padding: 16px 16px 48px; }
+  .course-header { flex-direction: column; }
+  .course-thumb { width: 100%; }
+  .comment-form__row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- COURSE HEADER CARD (thumb + info, no sidebar/topbar) -->
+<article class="course-header card">
+  <div class="course-thumb">
+    <img src="assets/images/course-thumb.jpg" alt="Course thumbnail" />
+  </div>
+  <div class="course-info">
+    <h2 class="course-info__title">The Complete Web Developer Course 2.0</h2>
+    <p class="course-info__subtitle">Learn Web Development by building 25 websites and mobile apps using HTML, CSS, Javascript, PHP, Python</p>
+    <div class="course-meta">
+      <div class="course-meta__item">
+        <span class="material-icons">play_lesson</span>
+        <span>12+ Lesson</span>
+      </div>
+      <div class="course-meta__item">
+        <span class="material-icons icon-blue">schedule</span>
+        <span>9hr 30min</span>
+      </div>
+      <div class="course-meta__item">
+        <span class="material-icons icon-green">people</span>
+        <span>32 students enrolled</span>
+      </div>
+      <span class="badge badge--web">Web Development</span>
+    </div>
+    <div class="course-instructor-row">
+      <div class="instructor-mini">
+        <div class="instructor-mini__avatar">
+          <img src="assets/images/instructor-avatar.jpg" alt="" onerror="this.style.display='none'"/>
+        </div>
+        <div>
+          <span class="instructor-mini__name">Nicole Brown</span>
+          <span class="instructor-mini__role">Instructor</span>
+        </div>
+      </div>
+      <div class="stars-row" aria-label="Rating: 4.0 out of 5 stars">
+        <span class="material-icons star">star</span>
+        <span class="material-icons star">star</span>
+        <span class="material-icons star">star</span>
+        <span class="material-icons star">star</span>
+        <span class="material-icons star empty">star</span>
+        <span class="rating-text">4.0 (15)</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- CONTENT GRID -->
+<div class="content-grid">
+
+  <!-- LEFT COLUMN -->
+  <div class="col-left">
+
+    <!-- Preview Image -->
+    <div class="preview-image">
+      <img src="assets/images/course-preview.jpg" alt="Course preview" />
+    </div>
+
+    <!-- Overview -->
+    <section class="card">
+      <div class="card__body">
+        <h3 class="card__title">Overview</h3>
+
+        <p class="section-label">Course Description</p>
+        <p class="section-text">Embark on a transformative journey into AI with Mike Wheeler, your guide in this Udemy Best Seller course on ChatGPT and Prompt Engineering. As an experience instructor who has taught well over 300,000 students, Mike unveils the secrets of developing your own custom GPTs, ensuring your skills shine in the thriving digital marketplace.</p>
+        <p class="section-text">This course will get your familiar with Generative AI and the effective use of ChatGPT and is perfect for the beginner. You will also learn advanced prompting techniques to take your Prompt Engineering skills to the next level!</p>
+
+        <p class="section-label">What you'll learn</p>
+        <ul class="learn-list">
+          <li class="learn-list__item"><span class="material-icons">check_circle</span>Become a UX designer</li>
+          <li class="learn-list__item"><span class="material-icons">check_circle</span>You will be able to add UX designer to your CV</li>
+          <li class="learn-list__item"><span class="material-icons">check_circle</span>Become a UI designer</li>
+          <li class="learn-list__item"><span class="material-icons">check_circle</span>Build &amp; test a full website design.</li>
+          <li class="learn-list__item"><span class="material-icons">check_circle</span>Build &amp; test a full mobile app.</li>
+        </ul>
+
+        <p class="section-label">Requirements</p>
+        <ul class="req-list">
+          <li class="req-list__item">You will need a copy of Adobe XD 2019 or above. A free trial can be downloaded from Adobe.</li>
+          <li class="req-list__item">No previous design experience is needed.</li>
+          <li class="req-list__item">No previous Adobe XD skills are needed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="card">
+      <div class="card__body">
+        <div class="accordion-header">
+          <h3 class="card__title" style="margin-bottom:0;">Course Content</h3>
+          <p class="accordion-meta">92 Lectures <span>10:56:11</span></p>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m1');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
+            Getting Started <span class="material-icons">expand_more</span>
+          </button>
+          <div class="accordion-item__body" id="m1" style="display:none;">Introduction to the course, tools setup, and environment configuration.</div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m2');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
+            The Brief <span class="material-icons">expand_more</span>
+          </button>
+          <div class="accordion-item__body" id="m2" style="display:none;">Understanding client briefs and project requirements for UX/UI work.</div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m3');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
+            Wireframing Low Fidelity <span class="material-icons">expand_more</span>
+          </button>
+          <div class="accordion-item__body" id="m3" style="display:none;">Creating low-fidelity wireframes to rapidly prototype user flows and layouts.</div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-item__trigger" aria-expanded="false" onclick="this.classList.toggle('open');var b=document.getElementById('m4');b.style.display=b.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.classList.contains('open'))">
+            Type, Color &amp; Icon Introduction <span class="material-icons">expand_more</span>
+          </button>
+          <div class="accordion-item__body" id="m4" style="display:none;">Foundations of typography, color theory, and icon systems in UI design.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Instructor -->
+    <section class="card">
+      <div class="card__body">
+        <h3 class="card__title">About the instructor</h3>
+        <div class="instructor-card__top">
+          <div class="instructor-card__profile">
+            <div class="instructor-card__avatar">
+              <img src="assets/images/instructor-avatar.jpg" alt="" onerror="this.style.display='none'"/>
+            </div>
+            <div>
+              <p class="instructor-card__name">Nicole Brown</p>
+              <p class="instructor-card__role">UX/UI Designer</p>
+            </div>
+          </div>
+          <div class="stars-row" aria-label="Instructor rating: 4.5 out of 5">
+            <span class="material-icons star">star</span>
+            <span class="material-icons star">star</span>
+            <span class="material-icons star">star</span>
+            <span class="material-icons star">star</span>
+            <span class="material-icons star">star_half</span>
+            <span class="rating-text">4.5</span>
+          </div>
+        </div>
+        <div class="instructor-stats-row">
+          <div class="instructor-stat stat-orange"><span class="material-icons">library_books</span>5 Courses</div>
+          <div class="instructor-stat stat-red"><span class="material-icons">play_lesson</span>12+ Lesson</div>
+          <div class="instructor-stat stat-yellow"><span class="material-icons">schedule</span>9hr 30min</div>
+          <div class="instructor-stat stat-blue"><span class="material-icons">people</span>270,866 students enrolled</div>
+        </div>
+        <p class="instructor-bio">UI/UX Designer, with 7+ Years Experience. Guarantee of High Quality Work.</p>
+        <p class="skills-label">Skills:</p>
+        <p class="skills-text">Web Design, UI Design, UX/UI Design, Mobile Design, User Interface Design, Sketch, Photoshop, GUI, Html, Css, Grid Systems, Typography, Minimal, Template, English, Bootstrap, Responsive Web Design, Pixel Perfect, Graphic Design, Corporate, Creative, Flat, Luxury and much more.</p>
+        <p class="avail-label">Available for:</p>
+        <ul class="avail-list">
+          <li class="avail-list__item"><span class="material-icons">check_circle</span>Full Time Office Work</li>
+          <li class="avail-list__item"><span class="material-icons">check_circle</span>Remote Work</li>
+          <li class="avail-list__item"><span class="material-icons">check_circle</span>Freelance</li>
+          <li class="avail-list__item"><span class="material-icons">check_circle</span>Contract</li>
+          <li class="avail-list__item"><span class="material-icons">check_circle</span>Worldwide</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Post A Comment -->
+    <section class="card">
+      <div class="card__body">
+        <h3 class="card__title">Post A comment</h3>
+        <form class="comment-form" novalidate onsubmit="event.preventDefault()">
+          <div class="comment-form__row">
+            <div class="form-field">
+              <label class="form-label" for="c-name">Name</label>
+              <input class="form-input" id="c-name" type="text" placeholder="Your name" autocomplete="name"/>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="c-email">Email</label>
+              <input class="form-input" id="c-email" type="email" placeholder="Your email" autocomplete="email"/>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="c-subject">Subject</label>
+            <input class="form-input" id="c-subject" type="text" placeholder="Subject"/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="c-comments">Comments</label>
+            <textarea class="form-textarea" id="c-comments" placeholder="Write your comment here..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+  </div><!-- /col-left -->
+
+  <!-- RIGHT COLUMN -->
+  <aside class="col-right">
+    <div class="card">
+      <div class="card__body price-card">
+        <div class="price-tag">
+          <span class="price-tag__free">FREE</span>
+          <span class="price-tag__original">$99.00</span>
+          <span class="price-tag__discount">50% off</span>
+        </div>
+        <div class="price-actions">
+          <button class="btn-wishlist" aria-pressed="false" onclick="this.classList.toggle('active');this.setAttribute('aria-pressed',this.classList.contains('active'))">
+            <span class="material-icons">favorite_border</span>Add to Wishlist
+          </button>
+          <button class="btn-share">
+            <span class="material-icons">share</span>Share
+          </button>
+        </div>
+        <button class="btn-enroll">
+          <span class="material-icons">school</span>Enroll Now
+        </button>
+        <hr style="border:none;border-top:1px solid var(--border);margin:18px 0;"/>
+        <p class="includes-title">Includes</p>
+        <ul class="includes-list">
+          <li class="includes-item"><span class="material-icons icon-red">play_circle</span>11 hours on-demand video</li>
+          <li class="includes-item"><span class="material-icons icon-orange">download</span>69 downloadable resources</li>
+          <li class="includes-item"><span class="material-icons icon-green">all_inclusive</span>Full lifetime access</li>
+          <li class="includes-item"><span class="material-icons icon-blue">devices</span>Access on mobile and TV</li>
+          <li class="includes-item"><span class="material-icons icon-purple">assignment</span>Assignments</li>
+          <li class="includes-item"><span class="material-icons icon-gold">workspace_premium</span>Certificate of Completion</li>
+        </ul>
+        <p class="features-title">Course Features</p>
+        <ul class="features-list">
+          <li class="features-item"><span class="material-icons">person</span><span class="features-item__label">Enrolled</span><span class="features-item__value">32 students</span></li>
+          <li class="features-item"><span class="material-icons">schedule</span><span class="features-item__label">Duration</span><span class="features-item__value">20 hours</span></li>
+          <li class="features-item"><span class="material-icons">menu_book</span><span class="features-item__label">Chapters</span><span class="features-item__value">15</span></li>
+          <li class="features-item"><span class="material-icons">videocam</span><span class="features-item__label">Video</span><span class="features-item__value">12 hours</span></li>
+          <li class="features-item"><span class="material-icons">signal_cellular_alt</span><span class="features-item__label">Level</span><span class="features-item__value">Beginner</span></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+</div><!-- /content-grid -->
+
+</body>
+</html>
