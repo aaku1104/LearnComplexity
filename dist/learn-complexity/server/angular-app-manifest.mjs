@@ -24,7 +24,7 @@ export default {
   {
     "renderMode": 2,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
+      "chunk-ILT7ICMS.js",
       "chunk-RUXVFUOQ.js",
       "chunk-QCJ57GQ5.js",
       "chunk-EULGCA5J.js"
@@ -34,48 +34,48 @@ export default {
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-3GYA7EYE.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-L6RRWZLC.js"
     ],
     "route": "/courses/ui-design-for-beginners"
   },
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-AOF2VT5E.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-Z4GYQR6C.js"
     ],
     "route": "/courses/mobile-dev-react-native"
   },
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-232N6QOK.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-VQWUGNID.js"
     ],
     "route": "/courses/website-dev-zero-to-hero"
   },
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-D5XFLUMI.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-V7DZMEOV.js"
     ],
     "route": "/courses/data-science-with-python"
   },
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-5OEW34GA.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-AP2D45R2.js"
     ],
     "route": "/courses/digital-marketing-mastery"
   },
   {
     "renderMode": 0,
     "preload": [
-      "chunk-ZIGGPOSQ.js",
-      "chunk-MVW2R7AC.js"
+      "chunk-ILT7ICMS.js",
+      "chunk-467BSUAX.js"
     ],
     "route": "/courses/python-programming-masterclass"
   },
@@ -108,14 +108,14 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 88268, hash: '96c11b40628606f31fb50f3a10eee626df7cbae78da990eb74cffbaf68dacec4', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 46793, hash: '78f27a05ef029d580cac74445a5848fecc2ec89e1627af27b9a4a23c402dc570', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'reviews/index.html': {size: 167452, hash: '515cc57973b8a08d87ec3cec4000caf5378ce8ae319c5afe7203f38264553410', text: () => import('./assets-chunks/reviews_index_html.mjs').then(m => m.default)},
-    'courses/index.html': {size: 222799, hash: 'ebb508ed6f6a4cff6c41bba9d2a5940704d5283a56641172137d8fe11a26f802', text: () => import('./assets-chunks/courses_index_html.mjs').then(m => m.default)},
-    'home/index.html': {size: 460278, hash: 'd0771bbce2f233577dba4aa0f785177ca7f17d8cfa88ed9044a28df890746f25', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
-    'index.html': {size: 460274, hash: '63c6a37120ad4621b2d314e2c74c4561e0c9ff2c7856eaa617c6d31642e6bb43', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'contact/index.html': {size: 202085, hash: 'ead917bf7dc41c4dfc80e5ba3286a8c385e1782d64eec92de46123b929f5d871', text: () => import('./assets-chunks/contact_index_html.mjs').then(m => m.default)},
-    'about/index.html': {size: 199984, hash: '5e678ac6c6dc2f502f5cc6e2744b882099b25274f92b797147b7a18f814ccfcb', text: () => import('./assets-chunks/about_index_html.mjs').then(m => m.default)},
-    'styles.css': {size: 43955, hash: 'udbrc7pkJ40', text: () => import('./assets-chunks/styles_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 88790, hash: '3c7bbc9a3dfb31d922ca15113036b9eaf6397c4feac5845988cec5b139399475', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 46811, hash: '79bf9e31844e7246daf893631e145c704800d4c1eb59a83b82bc09f9463ef00e', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'reviews/index.html': {size: 168022, hash: 'e2bb3757a885912e25ec82190928de44a2f72de46def86197dfcdd100bedf5ee', text: () => import('./assets-chunks/reviews_index_html.mjs').then(m => m.default)},
+    'home/index.html': {size: 460948, hash: '8e4edc1c964c5b505a7bcb31b2c07efbc5aed67f8a492f21117db59b5f641654', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
+    'index.html': {size: 460944, hash: '01e3db88cde539a7ecb090731ee9560f13eafe7b3c66194a958b8ca6b34e12d5', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'courses/index.html': {size: 223369, hash: 'fc1df45a51bc88d1239bc2a7fcd45da2bb56033953c7c929e3f4cbf0b4968cd3', text: () => import('./assets-chunks/courses_index_html.mjs').then(m => m.default)},
+    'contact/index.html': {size: 202957, hash: '138e03e44e9991dd440d846430307d657f51875bd61ff51f09cd6ab9a5ef10b2', text: () => import('./assets-chunks/contact_index_html.mjs').then(m => m.default)},
+    'about/index.html': {size: 200723, hash: '33dfabbb0b29d86959095d238baf3a3471c674cbe49f4c3d965dbc49b1a20235', text: () => import('./assets-chunks/about_index_html.mjs').then(m => m.default)},
+    'styles-ATXCJJJY.css': {size: 45272, hash: 'TNo13EAjR3w', text: () => import('./assets-chunks/styles-ATXCJJJY_css.mjs').then(m => m.default)}
   },
 };
