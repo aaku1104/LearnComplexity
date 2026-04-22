@@ -74,7 +74,16 @@ body {
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 .preview-image img { aspect-ratio: 16/9 !important; width: 100% !important; height: auto !important; object-fit: cover !important; }
+.preview-image { width: 100% !important; height: auto !important; border-radius: var(--radius-lg) !important; overflow: hidden !important; box-shadow: var(--shadow-md) !important; }
 .course-thumb img { aspect-ratio: 16/9 !important; width: 100% !important; height: auto !important; object-fit: cover !important; }
+.course-thumb {
+  width: 100% !important;
+  max-width: 480px !important;
+  height: auto !important;
+  aspect-ratio: 16/9 !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+}
 .instructor-card__avatar img { aspect-ratio: 1/1 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 50% !important; }
 .instructor-mini__avatar img { aspect-ratio: 1/1 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 50% !important; }
 ul { list-style: none; }
@@ -379,6 +388,316 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .course-header { flex-direction: column; padding: 20px; }
   .course-thumb { width: 100%; }
   .comment-form__row { grid-template-columns: 1fr; }
+}
+/* ── 375px AND BELOW ── */
+@media (max-width: 375px) {
+  .page-wrapper {
+    padding: 12px 10px 0;
+  }
+
+  .card__body {
+    padding: 16px;
+  }
+
+  /* Course header: tighter stacking */
+  .course-header {
+    flex-direction: column;
+    padding: 14px;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .course-thumb {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .course-info {
+    padding: 0;
+  }
+
+  .course-info__title {
+    font-size: 20px;
+  }
+
+  .course-info__subtitle {
+    font-size: 13px;
+  }
+
+  /* Meta items wrap tighter */
+  .course-meta {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .course-meta__item {
+    font-size: 13px;
+  }
+
+  /* Instructor row stacks vertically */
+  .course-instructor-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Price card */
+  .price-tag {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .price-tag__free {
+    font-size: 24px;
+  }
+
+  .price-container {
+    margin-left: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Wishlist + Share: stack vertically */
+  .price-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-wishlist,
+  .btn-share {
+    width: 100%;
+  }
+
+  /* Accordion triggers */
+  .accordion-item__trigger {
+    font-size: 13.5px;
+    padding: 14px 14px;
+  }
+
+  /* Instructor stats wrap */
+  .instructor-stats-row {
+    gap: 12px;
+  }
+
+  .instructor-stat {
+    font-size: 12.5px;
+  }
+
+  /* Comment form already stacks at 768px,
+     just tighten spacing */
+  .comment-form {
+    gap: 12px;
+  }
+
+  /* Features / includes items */
+  .includes-item,
+  .features-item {
+    font-size: 13px;
+  }
+
+  /* Accordion header row */
+  .accordion-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .card__title {
+    font-size: 18px;
+  }
+}
+/* ── 320px AND BELOW ── */
+@media (max-width: 320px) {
+  .page-wrapper {
+    padding: 8px 8px 0;
+  }
+
+  .card__body {
+    padding: 12px;
+  }
+
+  .course-header {
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .course-info__title {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .course-info__subtitle {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Meta items: force wrap + smaller */
+  .course-meta {
+    gap: 6px;
+  }
+
+  .course-meta__item {
+    font-size: 11.5px;
+  }
+
+  .course-meta__item .material-icons {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  /* Instructor mini */
+  .instructor-mini__avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .instructor-mini__name {
+    font-size: 13px;
+  }
+
+  .instructor-mini__role {
+    font-size: 11px;
+  }
+
+  /* Stars row */
+  .star {
+    font-size: 16px !important;
+  }
+
+  .rating-text {
+    font-size: 12px;
+  }
+
+  /* Price card */
+  .price-tag__free {
+    font-size: 20px;
+  }
+
+  .price-tag__original {
+    font-size: 13px;
+  }
+
+  .price-tag__discount {
+    font-size: 11px;
+  }
+
+  .btn-wishlist,
+  .btn-share {
+    font-size: 12px;
+    height: 40px;
+  }
+
+  .btn-enroll {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  /* Accordion */
+  .accordion-item__trigger {
+    font-size: 12.5px;
+    padding: 12px 10px;
+  }
+
+  .accordion-item__trigger .material-icons {
+    font-size: 18px;
+  }
+
+  .accordion-item__body {
+    font-size: 12.5px;
+    padding: 12px 10px;
+  }
+
+  .accordion-meta {
+    font-size: 12px;
+  }
+
+  /* Card title */
+  .card__title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* Instructor card */
+  .instructor-card__avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .instructor-card__name {
+    font-size: 14px;
+  }
+
+  .instructor-card__role {
+    font-size: 11px;
+  }
+
+  .instructor-stats-row {
+    gap: 8px;
+    padding: 14px 0;
+  }
+
+  .instructor-stat {
+    font-size: 11.5px;
+  }
+
+  .instructor-stat .material-icons {
+    font-size: 15px;
+  }
+
+  .instructor-bio,
+  .skills-text {
+    font-size: 12.5px;
+  }
+
+  .avail-list__item {
+    font-size: 12.5px;
+  }
+
+  /* Includes / Features */
+  .includes-item,
+  .features-item {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .includes-item .material-icons,
+  .features-item .material-icons {
+    font-size: 17px;
+  }
+
+  /* Form */
+  .form-input {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .form-textarea {
+    height: 90px;
+    font-size: 13px;
+  }
+
+  .form-label {
+    font-size: 11.5px;
+  }
+
+  .btn-submit {
+    height: 42px;
+    padding: 0 24px;
+    font-size: 13.5px;
+  }
+
+  /* Section text */
+  .section-text,
+  .section-label {
+    font-size: 12.5px;
+  }
 }
 </style>
 </head>
